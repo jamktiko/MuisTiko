@@ -75,7 +75,7 @@
 	});
 </script>
 
-<Header></Header>
+<Header pelinLogo="" />
 
 <main>
 	<div class="App">

@@ -5,7 +5,7 @@
 	import Header from '$lib/components/Header.svelte';
 </script>
 
-<Header></Header>
+<Header pelinLogo="" />
 
 <div class="landing-page">
 	<main class="main-content">

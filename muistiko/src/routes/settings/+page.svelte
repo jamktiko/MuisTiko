@@ -50,7 +50,7 @@
 	];
 </script>
 
-<Header></Header>
+<Header pelinLogo="" />
 
 <div class="asetukset">
 	{#each asetukset as asetus (asetus.teksti)}
@@ -79,10 +79,6 @@
 </div>
 
 <style>
-	h1 {
-		text-align: center;
-	}
-
 	.asetukset {
 		display: grid;
 		gap: 1rem;
