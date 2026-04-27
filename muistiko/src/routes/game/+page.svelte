@@ -14,6 +14,7 @@
 	} from '$lib/state/gameState.svelte';
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit
 	let theme = $derived(gameState.theme);
@@ -95,6 +96,8 @@
 	</div>
 	<p>Siirrot: {turns}</p>
 </main>
+
+<Footer></Footer>
 
 <style>
 	.App {

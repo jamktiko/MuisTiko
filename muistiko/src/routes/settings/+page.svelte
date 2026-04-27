@@ -6,6 +6,7 @@
 	import { gameState, setTheme } from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	interface Asetusvalikko {
 		teksti: string;
@@ -76,6 +77,8 @@
 <div class="nappi">
 	<Button text="Aloita peli!" onclick={kaynnistaPeli} />
 </div>
+
+<Footer></Footer>
 
 <style>
 	.asetukset {
