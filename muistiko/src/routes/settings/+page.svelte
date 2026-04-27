@@ -5,6 +5,7 @@
 	import { resolve } from '$app/paths';
 	import { gameState, setTheme } from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
+	import Header from '$lib/components/Header.svelte';
 
 	interface Asetusvalikko {
 		teksti: string;
@@ -49,9 +50,7 @@
 	];
 </script>
 
-<header>
-	<h1>Muistipelin asetukset</h1>
-</header>
+<Header></Header>
 
 <div class="asetukset">
 	{#each asetukset as asetus (asetus.teksti)}
