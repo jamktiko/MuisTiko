@@ -2,7 +2,10 @@
 	const aloitaPeli = () => {
 		window.location.href = '/settings';
 	};
+	import Header from '$lib/components/Header.svelte';
 </script>
+
+<Header pelinLogo="" />
 
 <div class="landing-page">
 	<main class="main-content">
