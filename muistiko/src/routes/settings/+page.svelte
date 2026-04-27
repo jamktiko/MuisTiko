@@ -14,8 +14,7 @@
 	}
 
 	async function kaynnistaPeli() {
-		const path = resolve('/game');
-		await goto(path);
+		await goto(resolve('/game'));
 	}
 
 	function kasitteleThemenVaihtaminen(event: Event) {
