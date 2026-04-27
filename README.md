@@ -1,9 +1,9 @@
 
 # MuisTiko
 
-Public memory game
+Matching cards memory game
 
-## description
+## Description
 
 The game is aimed at young and enthusiastic puzzlers. In the game you can choose between different card numbers and different themes. You can make the game more difficult with a time limit or make it easier with hints. The game also shows how many pairs you collected.
 
