@@ -113,8 +113,7 @@ export async function initalizeCards() {
 			matched: false,
 			id: createIdString(ID_STRING_LENGTH)
 		}));
-    console.log("THEME:", gameState.theme);
-		console.log("THEME DATA:", themeData);
+   
 		const duplicatedCards = duplicateCards(cardData);
 
 		// Asetetaan sekoitetut kortit tilaan
