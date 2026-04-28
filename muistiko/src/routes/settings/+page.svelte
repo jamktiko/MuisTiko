@@ -5,12 +5,12 @@
 	import { resolve } from '$app/paths';
 	import { gameState, setTheme } from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
-	import {setDifficulty} from '$lib/state/gameState.svelte'
-	
+	import { setDifficulty } from '$lib/state/gameState.svelte';
+
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	interface gameSettingvalikko {
+	interface gameSettingOptions {
 		text: string;
 		placeholder: string;
 		options: string[];
@@ -26,20 +26,20 @@
 		const chosen = target.value as Theme;
 		setTheme(chosen);
 	}
-  // vaikeustasonkäsittely
+	// vaikeustasonkäsittely
 	function kasitteleVaikeusTaso(count: number) {
-		const value = Number(count)
-		if (value === 12) setDifficulty('helppo')
-		else if (value === 16) setDifficulty('keskivaikea')
-	  else if (value === 20) setDifficulty('vaikea')
-	  else if (value === 30) setDifficulty('todellavaikea')
+		const value = Number(count);
+		if (value === 12) setDifficulty('helppo');
+		else if (value === 16) setDifficulty('keskivaikea');
+		else if (value === 20) setDifficulty('vaikea');
+		else if (value === 30) setDifficulty('todellavaikea');
 	}
 
-	const gameSettings: gameSettingvalikko[] = [
+	const gameSettings: gameSettingOptions[] = [
 		{
 			text: 'Teema',
 			placeholder: 'Valitse teema',
-			options: ['cats', 'dogs', 'teachers', 'tikologos'],
+			options: ['Kissat', 'Koirat', 'Opettajat', 'TIKO'],
 			type: 'theme'
 		},
 		{
@@ -76,8 +76,8 @@
 			</div>
 		{:else}
 			<SettingSelector
-				
-				onChange={kasitteleVaikeusTaso} //muokkaus dropdowniin
+				onChange={kasitteleVaikeusTaso}
+				//muokkaus dropdowniin
 				text={gameSetting.text}
 				placeholder={gameSetting.placeholder}
 				options={gameSetting.options}

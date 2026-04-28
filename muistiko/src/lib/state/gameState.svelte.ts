@@ -3,7 +3,7 @@ import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 
-export type Theme = 'cats' | 'dogs' | 'teachers' | 'tikologos';
+export type Theme = 'kissat' | 'koirat' | 'opettajat' | 'tiko' | '';
 
 // Interface korteille
 export interface Card {
@@ -11,21 +11,21 @@ export interface Card {
 	matched: boolean;
 	id: string;
 }
- //vaikeustaso määrittely
+//vaikeustaso määrittely
 export type Difficulty = 'helppo' | 'keskivaikea' | 'vaikea' | 'todellavaikea';
 
 export function difficultySetting(d: Difficulty): number {
-	switch(d) {
+	switch (d) {
 		case 'helppo':
-		  return 12;
+			return 12;
 		case 'keskivaikea':
 			return 16;
-    case 'vaikea':
+		case 'vaikea':
 			return 20;
 		case 'todellavaikea':
-			return 30;	
+			return 30;
 		default:
-			return 12;	
+			return 12;
 	}
 }
 
@@ -45,7 +45,7 @@ interface GameState {
 export const gameState = $state<GameState>({
 	points: 0,
 	difficulty: 'helppo',
-	theme: 'cats' as Theme,
+	theme: '' as Theme,
 	cards: [],
 	turns: 0,
 	choiceOne: null,
@@ -106,14 +106,14 @@ export function setDisabled(value: boolean) {
 export async function initalizeCards() {
 	try {
 		const themeData = await getThemeData(gameState.theme);
-    const cardcount = difficultySetting(gameState.difficulty)
+		const cardcount = difficultySetting(gameState.difficulty);
 		const selectedCards = themeData.slice(0, cardcount / 2);
 		const cardData: Card[] = selectedCards.map((item: { pic: string }) => ({
 			src: getImagePath(gameState.theme, item.pic),
 			matched: false,
 			id: createIdString(ID_STRING_LENGTH)
 		}));
-   
+
 		const duplicatedCards = duplicateCards(cardData);
 
 		// Asetetaan sekoitetut kortit tilaan
