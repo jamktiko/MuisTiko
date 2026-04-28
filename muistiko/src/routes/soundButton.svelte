@@ -18,7 +18,7 @@
 
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div  
+<div  class="audio"
   onmouseenter={() => soundState.showSlider = true}
   onmouseleave={() => soundState.showSlider = false}
 > 
@@ -29,13 +29,14 @@
  
 
 {#if soundState.showSlider && !soundState.muted}
+<div class="slider">
 <input type="range"
-class="slider"
 min="0"
 max="1"
 step="0.01"
 value={soundState.volume}
 oninput={volumeInput}/>
+</div>
 {/if}
 
 <audio bind:this={audio} src="\data\music\fassounds-escape-your-love-upbeat-fashion-pop-dance-412230.mp3"/>
@@ -44,17 +45,18 @@ oninput={volumeInput}/>
 <style>
  .slider {
    position: absolute;
-  top: 85px;
-  left: 54.5%;  
-  
- 
+  top: 170%;        
+  left: 50%;  
   padding: 10px;
   border-radius: 12px;
   -webkit-appearance: slider-vertical;
-   writing-mode: bottom;
+   transform: translateX(-50%) rotate(90deg);
   display: flex;
   align-items: center;
-  
+ }
+ .audio {
+  display: inline-block;
+  position: relative;
  }
 
 
