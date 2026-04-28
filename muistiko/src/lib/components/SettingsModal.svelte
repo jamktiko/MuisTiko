@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Modal from './Modal.svelte';
 	import Button from './Button.svelte';
-	import { appSettings, updateSettings } from '../state/appSettings';
+	import { appSettings, updateSettings } from '../state/appSettings.ts';
 
 	interface Props {
 		closeModal: () => void;
