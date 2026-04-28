@@ -1,21 +1,21 @@
 <script lang="ts">
-	let { teksti, placeholder, optiot } = $props();
+	let { text, placeholder, options } = $props();
 
-	let valittu = $state('');
+	let chosen = $state('');
 </script>
 
 <div class="dropdown">
 	<!-- svelte-ignore a11y_label_has_associated_control -->
-	<label>{teksti}</label><br />
+	<label>{text}</label><br />
 
-	<select bind:value={valittu}>
+	<select bind:value={chosen}>
 		<option disabled value="">
 			{placeholder}
 		</option>
 
-		{#each optiot as optio (optio)}
-			<option value={optio}>
-				{optio}
+		{#each options as option (option)}
+			<option value={option}>
+				{option}
 			</option>
 		{/each}
 	</select>

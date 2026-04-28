@@ -8,104 +8,104 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	interface Asetusvalikko {
-		teksti: string;
+	interface gameSettingvalikko {
+		text: string;
 		placeholder: string;
-		optiot: string[];
+		options: string[];
 		type?: 'theme' | 'setting';
 	}
 
-	async function kaynnistaPeli() {
+	async function startGame() {
 		await goto(resolve('/game'));
 	}
 
-	function kasitteleThemenVaihtaminen(event: Event) {
+	function handleThemeSwitch(event: Event) {
 		const target = event.target as HTMLSelectElement;
-		const valittu = target.value as Theme;
-		setTheme(valittu);
+		const chosen = target.value as Theme;
+		setTheme(chosen);
 	}
 
-	const asetukset: Asetusvalikko[] = [
+	const gameSettings: gameSettingvalikko[] = [
 		{
-			teksti: 'Theme',
+			text: 'Theme',
 			placeholder: 'Valitse theme',
-			optiot: ['Kissat', 'Koirat', 'Opettajat', 'Tikologot'],
+			options: ['cats', 'dogs', 'teachers', 'tikologos'],
 			type: 'theme'
 		},
 		{
-			teksti: 'Korttien määrä',
+			text: 'Korttien määrä',
 			placeholder: 'Valitse määrä',
-			optiot: ['12', '20', '30']
+			options: ['12', '20', '30']
 		},
 		{
-			teksti: 'Aikaraja (min)',
+			text: 'Aikaraja (min)',
 			placeholder: 'Valitse aika',
-			optiot: ['1', '2', '3']
+			options: ['1', '2', '3']
 		},
 		{
-			teksti: 'Sallitut hutit',
+			text: 'Sallitut hutit',
 			placeholder: 'Valitse huteja',
-			optiot: ['15', '7', '3']
+			options: ['15', '7', '3']
 		}
 	];
 </script>
 
-<Header pelinLogo="" />
+<Header gameLogo="" />
 
-<div class="asetukset">
-	{#each asetukset as asetus (asetus.teksti)}
-		{#if asetus.type === 'theme'}
-			<div class="asetus-item">
-				<label for="theme-select">{asetus.teksti}</label>
-				<select value={gameState.theme} onchange={kasitteleThemenVaihtaminen}>
-					<option disabled value="">{asetus.placeholder}</option>
-					{#each asetus.optiot as optio (optio)}
-						<option value={optio.toLowerCase()}>{optio}</option>
+<div class="gameSettings">
+	{#each gameSettings as gameSetting (gameSetting.text)}
+		{#if gameSetting.type === 'theme'}
+			<div class="gameSetting-item">
+				<label for="theme-select">{gameSetting.text}</label>
+				<select value={gameState.theme} onchange={handleThemeSwitch}>
+					<option disabled value="">{gameSetting.placeholder}</option>
+					{#each gameSetting.options as option (option)}
+						<option value={option.toLowerCase()}>{option}</option>
 					{/each}
 				</select>
 			</div>
 		{:else}
 			<SettingSelector
-				teksti={asetus.teksti}
-				placeholder={asetus.placeholder}
-				optiot={asetus.optiot}
+				text={gameSetting.text}
+				placeholder={gameSetting.placeholder}
+				options={gameSetting.options}
 			/>
 		{/if}
 	{/each}
 </div>
 
-<div class="nappi">
-	<Button text="Aloita peli!" onclick={kaynnistaPeli} />
+<div class="startButton">
+	<Button text="Aloita peli!" onclick={startGame} />
 </div>
 
 <Footer></Footer>
 
 <style>
-	.asetukset {
+	.gameSettings {
 		display: grid;
 		gap: 1rem;
 		max-width: 400px;
 		margin: 0 auto;
 	}
 
-	.asetus-item {
+	.gameSetting-item {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 	}
 
-	.asetus-item label {
+	.gameSetting-item label {
 		font-weight: bold;
 	}
 
-	.asetus-item select {
+	.gameSetting-item select {
 		padding: 0.5rem;
 		border: 1px solid #ccc;
 		border-radius: 4px;
 		font-size: 1rem;
 	}
 
-	.nappi {
+	.startButton {
 		text-align: center;
 	}
 </style>

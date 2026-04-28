@@ -1,19 +1,19 @@
 <script lang="ts">
-	const aloitaPeli = () => {
+	const playGame = () => {
 		window.location.href = '/settings';
 	};
 	import Header from '$lib/components/Header.svelte';
 </script>
 
-<Header pelinLogo="" />
+<Header gameLogo="" />
 
 <div class="landing-page">
 	<main class="main-content">
 		<div class="intro">
 			<div class="logo">muisTIKO?</div>
-			<p>Tähän tekstiä</p>
+			<p>Tähän textä</p>
 		</div>
-		<button class="start-button" onclick={aloitaPeli}> PELAA </button>
+		<button class="start-button" onclick={playGame}> PELAA </button>
 	</main>
 </div>
 
