@@ -15,6 +15,7 @@
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Timer from '$lib/components/Timer.svelte';
 
 	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit
 	let theme = $derived(gameState.theme);
@@ -74,9 +75,15 @@
 			setTimeout(() => (disabled = false), 1000);
 		}
 	});
+
+	console.log(gameState);
 </script>
 
 <Header gameLogo="" />
+
+{#if gameState.timelimit}
+	<Timer />
+{/if}
 
 <main>
 	<div class="App">
