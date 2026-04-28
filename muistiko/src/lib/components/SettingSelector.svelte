@@ -1,5 +1,7 @@
 <script lang="ts">
-	let { text, placeholder, options } = $props();
+// onchange muokattu
+	let { text, placeholder, options, onChange } = $props();
+	
 
 	let chosen = $state('');
 </script>
@@ -8,7 +10,10 @@
 	<!-- svelte-ignore a11y_label_has_associated_control -->
 	<label>{text}</label><br />
 
-	<select bind:value={chosen}>
+	
+	
+	<select bind:value={chosen}
+	onchange={() => onChange?.(chosen)}>
 		<option disabled value="">
 			{placeholder}
 		</option>
