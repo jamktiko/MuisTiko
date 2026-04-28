@@ -14,12 +14,14 @@
 		<h1>MuisTiko Info</h1>
 	{/snippet}
 
-	<ul>
-		<li>Tarkoitus on saada kerättyä kaikki parit mahdollisimman vähillä siirroilla</li>
-		<li>....</li>
-		<li>.....</li>
-		<li>.....</li>
-	</ul>
+	{#snippet content()}
+		<ul>
+			<li>Tarkoitus on saada kerättyä kaikki parit mahdollisimman vähillä siirroilla</li>
+			<li>....</li>
+			<li>.....</li>
+			<li>.....</li>
+		</ul>
+	{/snippet}
 
 	{#snippet footer()}
 		<Button text="Sulje" onclick={closeInfo} />

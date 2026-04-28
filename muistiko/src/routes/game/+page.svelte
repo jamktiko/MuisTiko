@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import SingleCard from '$lib/components/SingleCard.svelte';
+	// haetaan gameState ja kaikki muu (B)
 	import {
 		gameState,
 		type Card,
@@ -16,12 +17,12 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit
+	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit (B)
 	let theme = $derived(gameState.theme);
 
 	const imgCover = CARD_IMAGE_COVER_URL;
 
-	// Haetaan koko sovelluksen tila yhdestä paikasta
+	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
 	let cards = $derived(gameState.cards);
 	let turns = $derived(gameState.turns);
 	let choiceOne = $derived(gameState.choiceOne);
@@ -30,11 +31,11 @@
 	let disabled = $state(false);
 
 	onMount(async () => {
-		// Ladataan korttien tiedot ja asetetaan ne tilaan (gameSettings.svelte.ts)
+		// Ladataan korttien tiedot ja asetetaan ne tilaan (gameSettings.svelte.ts) (B)
 		await initalizeCards();
 	});
 
-	// Aloitetaan uusi peli, resettataan kortit ja muut muuttujat
+	// Aloitetaan uusi peli, resettataan kortit ja muut muuttujat (B)
 	const startNewGame = () => {
 		resetCards();
 
@@ -55,6 +56,7 @@
 		}
 	};
 
+	// Uuden kierroksen aloitus resettaa vain turns ja korttien valinnat (B)
 	const startNewRound = () => {
 		setChoiceOne(null);
 		setChoiceTwo(null);
@@ -65,7 +67,7 @@
 		if (choiceOne && choiceTwo) {
 			disabled = true;
 			if (choiceOne.src === choiceTwo.src) {
-				// Käännetään oikean parin kortit kuvapuoli ylöspäin
+				// Käännetään oikean parin kortit kuvapuoli ylöspäin (B)
 				turnOverCorrectPair();
 				startNewRound();
 			} else {
@@ -76,6 +78,7 @@
 	});
 </script>
 
+<!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
 
 <main>
@@ -97,6 +100,7 @@
 	<p>Siirrot: {turns}</p>
 </main>
 
+<!-- Footer (B) -->
 <Footer></Footer>
 
 <style>

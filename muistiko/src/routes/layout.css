@@ -1,3 +1,19 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+/* High contrast mode */
+.high-contrast {
+	background-color: black !important;
+	color: white !important;
+}
+
+.high-contrast * {
+	background-color: black !important;
+	color: white !important;
+	border-color: white !important;
+}
+
+.high-contrast img {
+	filter: invert(1) !important;
+}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	const playGame = () => {
+	const aloitaPeli = () => {
 		window.location.href = '/settings';
 	};
 	import Header from '$lib/components/Header.svelte';
@@ -13,7 +13,7 @@
 			<div class="logo">muisTIKO?</div>
 			<p>Tähän textä</p>
 		</div>
-		<button class="start-button" onclick={playGame}> PELAA </button>
+		<button class="start-button" onclick={aloitaPeli}> PELAA </button>
 	</main>
 </div>
 
