@@ -5,6 +5,8 @@
 	import { resolve } from '$app/paths';
 	import { gameState, setTheme } from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
+	import {setDifficulty} from '$lib/state/gameState.svelte'
+	
 
 	interface Asetusvalikko {
 		teksti: string;
@@ -23,6 +25,14 @@
 		const valittu = target.value as Theme;
 		setTheme(valittu);
 	}
+  // vaikeustasonkäsittely
+	function kasitteleVaikeusTaso(count: number) {
+		const value = Number(count)
+		if (value === 12) setDifficulty('helppo')
+		else if (value === 16) setDifficulty('keskivaikea')
+	  else if (value === 20) setDifficulty('vaikea')
+	  else if (value === 30) setDifficulty('todellavaikea')
+	}
 
 	const asetukset: Asetusvalikko[] = [
 		{
@@ -34,7 +44,7 @@
 		{
 			teksti: 'Korttien määrä',
 			placeholder: 'Valitse määrä',
-			optiot: ['12', '20', '30']
+			optiot: ['12', '16', '20', '30']
 		},
 		{
 			teksti: 'Aikaraja (min)',
@@ -70,6 +80,7 @@
 				teksti={asetus.teksti}
 				placeholder={asetus.placeholder}
 				optiot={asetus.optiot}
+				onChange={kasitteleVaikeusTaso} //muokkaus dropdowniin
 			/>
 		{/if}
 	{/each}

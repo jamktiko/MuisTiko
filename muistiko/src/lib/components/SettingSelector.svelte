@@ -1,5 +1,6 @@
 <script lang="ts">
-	let { teksti, placeholder, optiot } = $props();
+// onchange muokattu
+	let { teksti, placeholder, optiot, onChange } = $props();
 
 	let valittu = $state('');
 </script>
@@ -8,7 +9,8 @@
 	<!-- svelte-ignore a11y_label_has_associated_control -->
 	<label>{teksti}</label><br />
 
-	<select bind:value={valittu}>
+	<select bind:value={valittu}
+	onchange={() => onChange?.(valittu)}>
 		<option disabled value="">
 			{placeholder}
 		</option>
