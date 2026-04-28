@@ -1,25 +1,23 @@
 <script lang="ts">
- import PeliInfo from "../../routes/peliInfo.svelte";
- import Button from "./Button.svelte";
+	import GameInfo from '../../routes/gameInfo.svelte';
+	import Button from './Button.svelte';
 	interface Props {
-		pelinLogo: string;
+		gameLogo: string;
 	}
 
-	let { pelinLogo }: Props = $props();
-	let naytaInfo = $state(false)
+	let { gameLogo }: Props = $props();
+	let showInfo = $state(false);
 </script>
 
 <header>
-	{#if pelinLogo}
-		<img src={pelinLogo} alt="" height="75%" />
+	{#if gameLogo}
+		<img src={gameLogo} alt="" height="75%" />
 	{/if}
-	<Button text="info" onclick={()=>naytaInfo = true} />
-	
- {#if naytaInfo}
- <PeliInfo  suljeInfo={()=> naytaInfo = false}/>
+	<Button text="info" onclick={() => (showInfo = true)} />
 
- {/if}
-
+	{#if showInfo}
+		<GameInfo closeInfo={() => (showInfo = false)} />
+	{/if}
 </header>
 
 <style>

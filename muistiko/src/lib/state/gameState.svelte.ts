@@ -1,9 +1,9 @@
-// Tuodaan valittu ID:n pituus constant arvoista
+// Tuodaan chosen ID:n pituus constant arvoista
 import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 
-export type Theme = 'kissat' | 'koirat' | 'opettajat' | 'tikologot';
+export type Theme = 'cats' | 'dogs' | 'teachers' | 'tikologos';
 
 // Interface korteille
 export interface Card {
@@ -45,7 +45,7 @@ interface GameState {
 export const gameState = $state<GameState>({
 	points: 0,
 	difficulty: 'helppo',
-	theme: 'kissat' as Theme,
+	theme: 'cats' as Theme,
 	cards: [],
 	turns: 0,
 	choiceOne: null,
