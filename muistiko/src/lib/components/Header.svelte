@@ -1,5 +1,6 @@
 <script lang="ts">
 	import GameInfo from '../../routes/gameInfo.svelte';
+	import SoundButton from '../../routes/soundButton.svelte';
 	import SettingsModal from './SettingsModal.svelte';
 	interface Props {
 		gameLogo: string;
@@ -65,6 +66,8 @@
 	{#if showSettings}
 		<SettingsModal closeModal={() => (showSettings = false)} />
 	{/if}
+
+   <SoundButton/>
 </header>
 
 <style>
