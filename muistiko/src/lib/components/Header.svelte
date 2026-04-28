@@ -55,6 +55,7 @@
 						/>
 					</svg>
 				</button>
+				<SoundButton/>
 			</div>
 		</nav>
 	</div>
@@ -67,7 +68,7 @@
 		<SettingsModal closeModal={() => (showSettings = false)} />
 	{/if}
 
-   <SoundButton/>
+   
 </header>
 
 <style>
