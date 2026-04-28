@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Modal from './Modal.svelte';
-	import Button from './Button.svelte';
+	
 	import { appSettings, updateSettings } from '../state/appSettings.ts';
 
 	interface Props {
@@ -46,7 +46,7 @@
 	{/snippet}
 
 	{#snippet footer()}
-		<Button text="Sulje" onclick={closeModal} />
+		<p>halloota</p>
 	{/snippet}
 </Modal>
 
