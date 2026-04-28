@@ -7,6 +7,8 @@
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import {setDifficulty} from '$lib/state/gameState.svelte'
 	
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	interface Asetusvalikko {
 		teksti: string;
@@ -16,8 +18,7 @@
 	}
 
 	async function kaynnistaPeli() {
-		const path = resolve('/game');
-		await goto(path);
+		await goto(resolve('/game'));
 	}
 
 	function kasitteleThemenVaihtaminen(event: Event) {
@@ -59,9 +60,7 @@
 	];
 </script>
 
-<header>
-	<h1>Muistipelin asetukset</h1>
-</header>
+<Header pelinLogo="" />
 
 <div class="asetukset">
 	{#each asetukset as asetus (asetus.teksti)}
@@ -90,11 +89,9 @@
 	<Button text="Aloita peli!" onclick={kaynnistaPeli} />
 </div>
 
-<style>
-	h1 {
-		text-align: center;
-	}
+<Footer></Footer>
 
+<style>
 	.asetukset {
 		display: grid;
 		gap: 1rem;
