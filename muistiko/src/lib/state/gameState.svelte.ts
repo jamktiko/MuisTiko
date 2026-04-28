@@ -3,7 +3,7 @@ import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 
-export type Theme = 'kissat' | 'koirat' | 'opettajat' | 'tiko' | '';
+export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'Tiko';
 
 // Interface korteille
 export interface Card {
@@ -12,20 +12,37 @@ export interface Card {
 	id: string;
 }
 //vaikeustaso määrittely
-export type Difficulty = 'helppo' | 'keskivaikea' | 'vaikea' | 'todellavaikea';
+export type Difficulty = 'Helppo' | 'Keskivaikea' | 'Vaikea' | 'Todella vaikea';
+
+export type TimeLimit = string | 1 | 2 | 3;
 
 export function difficultySetting(d: Difficulty): number {
 	switch (d) {
-		case 'helppo':
+		case 'Helppo':
 			return 12;
-		case 'keskivaikea':
+		case 'Keskivaikea':
 			return 16;
-		case 'vaikea':
+		case 'Vaikea':
 			return 20;
-		case 'todellavaikea':
+		case 'Todella vaikea':
 			return 30;
 		default:
 			return 12;
+	}
+}
+
+export function timeLimitToSeconds(t: TimeLimit): number | undefined {
+	switch (t) {
+		case 'Ei rajaa':
+			return undefined;
+		case 1:
+			return 60;
+		case 2:
+			return 120;
+		case 3:
+			return 180;
+		default:
+			return undefined;
 	}
 }
 
@@ -36,6 +53,7 @@ interface GameState {
 	theme: Theme;
 	cards: Card[];
 	turns: number;
+	timelimit: TimeLimit;
 	choiceOne: Card | null;
 	choiceTwo: Card | null;
 	disabled: boolean;
@@ -44,10 +62,11 @@ interface GameState {
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
 export const gameState = $state<GameState>({
 	points: 0,
-	difficulty: 'helppo',
-	theme: '' as Theme,
+	difficulty: 'Helppo',
+	theme: 'Kissat' as Theme,
 	cards: [],
 	turns: 0,
+	timelimit: 'Ei rajaa',
 	choiceOne: null,
 	choiceTwo: null,
 	disabled: false
@@ -66,6 +85,14 @@ export function setDifficulty(value: Difficulty) {
 	gameState.difficulty = value;
 }
 
+export function setTimelimit(value: TimeLimit) {
+	if (value === 'Ei rajaa') {
+		return;
+	} else {
+		gameState.timelimit = value;
+	}
+}
+
 export function setTheme(value: Theme) {
 	gameState.theme = value;
 }
@@ -80,7 +107,7 @@ export function resetCards() {
 		return { ...card, matched: false };
 	});
 
-	setCards(suffleCards(newCards));
+	setCards(shuffleCards(newCards));
 }
 
 export function incrementTurns(value: number) {
@@ -104,6 +131,7 @@ export function setDisabled(value: boolean) {
 
 // Lataa valitun teeman datan mukaiset kortit ja alustaa ne
 export async function initalizeCards() {
+	gameState.theme = gameState.theme.toLowerCase() as Theme;
 	try {
 		const themeData = await getThemeData(gameState.theme);
 		const cardcount = difficultySetting(gameState.difficulty);
@@ -117,7 +145,7 @@ export async function initalizeCards() {
 		const duplicatedCards = duplicateCards(cardData);
 
 		// Asetetaan sekoitetut kortit tilaan
-		setCards(suffleCards(duplicatedCards));
+		setCards(shuffleCards(duplicatedCards));
 		console.log(gameState.cards);
 	} catch (error) {
 		console.log('Error while initializing cards', error);
@@ -143,6 +171,6 @@ export function turnOverCorrectPair() {
 }
 
 // Sekoittaa kortit
-export function suffleCards(cardData: Card[]) {
+export function shuffleCards(cardData: Card[]) {
 	return [...cardData].sort(() => Math.random() - 0.5);
 }

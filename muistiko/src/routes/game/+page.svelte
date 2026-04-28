@@ -16,6 +16,7 @@
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Timer from '$lib/components/Timer.svelte';
 
 	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit (B)
 	let theme = $derived(gameState.theme);
@@ -38,7 +39,6 @@
 	// Aloitetaan uusi peli, resettataan kortit ja muut muuttujat (B)
 	const startNewGame = () => {
 		resetCards();
-
 		setTurns(0);
 		setChoiceOne(null);
 		setChoiceTwo(null);
@@ -76,10 +76,16 @@
 			setTimeout(() => (disabled = false), 1000);
 		}
 	});
+
+	console.log(gameState);
 </script>
 
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
+
+{#if gameState.timelimit}
+	<Timer />
+{/if}
 
 <main>
 	<div class="App">
