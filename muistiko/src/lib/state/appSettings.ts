@@ -1,3 +1,5 @@
+// Tilanhallinta koko sovelluksen asetuksille
+
 import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 

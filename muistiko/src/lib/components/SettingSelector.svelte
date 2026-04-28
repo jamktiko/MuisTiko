@@ -2,7 +2,7 @@
 	// onchange muokattu
 	let { text, placeholder, options, onChange, value = '' } = $props();
 
-	let chosen = $state(value);
+	let chosen = $state('');
 
 	$effect(() => {
 		chosen = value;

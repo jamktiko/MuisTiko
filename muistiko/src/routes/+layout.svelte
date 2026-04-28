@@ -4,11 +4,10 @@
 	import { appSettings } from '$lib/state/appSettings';
 
 	let { children } = $props();
-	let highContrast = $appSettings.highContrast;
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class:high-contrast={highContrast}>
+<div class:high-contrast={$appSettings.highContrast}>
 	{@render children()}
 </div>
