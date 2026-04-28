@@ -1,5 +1,5 @@
 <script>
-	// propsit tuleville jutuille -bea
+	// propsit tuleville jutuille
 	let { card, imgCover, handleChoice, flipped, disabled } = $props();
 
 	const handleClick = () => {
@@ -43,7 +43,7 @@
 		border-radius: 6px;
 	}
 
-	/* korttien kuvapuoli -bea */
+	/* korttien kuvapuoli */
 	.card .front {
 		transform: rotateY(90deg);
 		position: absolute;
@@ -53,7 +53,7 @@
 		transition-delay: 0.2s;
 	}
 
-	/** korttien takapuoli -bea */
+	/** korttien takapuoli */
 	.card .back {
 		transition-delay: 0.2s;
 	}

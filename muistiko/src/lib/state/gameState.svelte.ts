@@ -1,9 +1,9 @@
-// Tuodaan valittu ID:n pituus constant arvoista
+// Tuodaan chosen ID:n pituus constant arvoista
 import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 
-export type Theme = 'kissat' | 'koirat' | 'opettajat' | 'tikologot';
+export type Theme = 'cats' | 'dogs' | 'teachers' | 'tikologos';
 
 // Interface korteille
 export interface Card {
@@ -11,8 +11,23 @@ export interface Card {
 	matched: boolean;
 	id: string;
 }
+ //vaikeustaso määrittely
+export type Difficulty = 'helppo' | 'keskivaikea' | 'vaikea' | 'todellavaikea';
 
-export type Difficulty = 'helppo' | 'keskivaikea' | 'vaikea';
+export function difficultySetting(d: Difficulty): number {
+	switch(d) {
+		case 'helppo':
+		  return 12;
+		case 'keskivaikea':
+			return 16;
+    case 'vaikea':
+			return 20;
+		case 'todellavaikea':
+			return 30;	
+		default:
+			return 12;	
+	}
+}
 
 // Määritellään pelitilan tyyppi
 interface GameState {
@@ -29,8 +44,8 @@ interface GameState {
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
 export const gameState = $state<GameState>({
 	points: 0,
-	difficulty: 'keskivaikea',
-	theme: 'kissat' as Theme,
+	difficulty: 'helppo',
+	theme: 'cats' as Theme,
 	cards: [],
 	turns: 0,
 	choiceOne: null,
@@ -91,13 +106,14 @@ export function setDisabled(value: boolean) {
 export async function initalizeCards() {
 	try {
 		const themeData = await getThemeData(gameState.theme);
-
-		const cardData: Card[] = themeData.map((item: { pic: string }) => ({
+    const cardcount = difficultySetting(gameState.difficulty)
+		const selectedCards = themeData.slice(0, cardcount / 2);
+		const cardData: Card[] = selectedCards.map((item: { pic: string }) => ({
 			src: getImagePath(gameState.theme, item.pic),
 			matched: false,
 			id: createIdString(ID_STRING_LENGTH)
 		}));
-
+   
 		const duplicatedCards = duplicateCards(cardData);
 
 		// Asetetaan sekoitetut kortit tilaan
@@ -113,7 +129,7 @@ function duplicateCards(cardData: Card[]) {
 	const duplicatedArray: Card[] = [];
 
 	for (const card of cardData) {
-		duplicatedArray.push({ ...card, id: card.id });
+		duplicatedArray.push({ ...card, id: createIdString(ID_STRING_LENGTH) });
 		duplicatedArray.push({ ...card, id: createIdString(ID_STRING_LENGTH) });
 	}
 

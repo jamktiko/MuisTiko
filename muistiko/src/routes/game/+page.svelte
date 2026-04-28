@@ -76,7 +76,7 @@
 	});
 </script>
 
-<Header pelinLogo="" />
+<Header gameLogo="" />
 
 <main>
 	<div class="App">
