@@ -1,6 +1,7 @@
 <script lang="ts">
 	import GameInfo from '../../routes/gameInfo.svelte';
 	import Button from './Button.svelte';
+	import SoundButton from '../../routes/soundButton.svelte';
 	interface Props {
 		gameLogo: string;
 	}
@@ -14,6 +15,7 @@
 		<img src={gameLogo} alt="" height="75%" />
 	{/if}
 	<Button text="info" onclick={() => (showInfo = true)} />
+	<SoundButton/>
 
 	{#if showInfo}
 		<GameInfo closeInfo={() => (showInfo = false)} />
