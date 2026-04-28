@@ -11,7 +11,12 @@
 
 <Modal>
 	{#snippet header()}
+	<div class="header-content">
 		<h1>MuisTiko Info</h1>
+		<div class="close-button">
+		<Button  onclick={closeInfo} text="×"/>
+		</div>
+	</div>
 	{/snippet}
 
 	{#snippet content()}
@@ -24,6 +29,25 @@
 	{/snippet}
 
 	{#snippet footer()}
-		<Button text="Sulje" onclick={closeInfo} />
+		<p>hallootta</p>
 	{/snippet}
 </Modal>
+
+<style>
+	.close-button {
+		background: none;
+		border: none;
+		font-size: 2rem;
+		cursor: pointer;
+		color: inherit;
+		padding: 0;
+		margin: 0;
+		
+	}
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+</style>
