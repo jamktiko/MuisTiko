@@ -27,9 +27,9 @@
 
 	const gameSettings: gameSettingvalikko[] = [
 		{
-			text: 'Theme',
-			placeholder: 'Valitse theme',
-			options: ['cats', 'dogs', 'teachers', 'tikologos'],
+			text: 'Teema',
+			placeholder: 'Valitse teema',
+			options: ['Kissat', 'Koirat', 'Opettajat', 'TIKO'],
 			type: 'theme'
 		},
 		{
