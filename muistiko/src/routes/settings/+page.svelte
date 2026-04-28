@@ -39,7 +39,7 @@
 		{
 			text: 'Teema',
 			placeholder: 'Valitse teema',
-			options: ['Kissat', 'Koirat', 'Opettajat', 'TIKO'],
+			options: ['cats', 'dogs', 'teachers', 'tikologos'],
 			type: 'theme'
 		},
 		{
