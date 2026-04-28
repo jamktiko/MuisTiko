@@ -11,7 +11,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	interface gameSettingvalikko {
+	interface gameSettingOptions {
 		text: string;
 		placeholder: string;
 		options: TimeLimit[] | Theme[] | Difficulty[];
@@ -38,11 +38,11 @@
 	}
 
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
-	const gameSettings: gameSettingvalikko[] = [
+	const gameSettings: gameSettingOptions[] = [
 		{
 			text: 'Teema',
 			placeholder: 'Valitse teema',
-			options: ['Cats', 'Dogs', 'Teachers', 'Tikologos'],
+			options: ['Kissat', 'Koirat', 'Opettajat', 'Tikologos'],
 			type: 'theme',
 			function: handleThemeSwitch
 		},

@@ -2,11 +2,11 @@
 	import type { Snippet } from 'svelte';
 	interface Props {
 		header?: Snippet;
-		children: Snippet;
+		content?: Snippet;
 		footer?: Snippet;
 	}
 
-	let { header, children, footer }: Props = $props();
+	let { header, content, footer }: Props = $props();
 
 	import { fly } from 'svelte/transition';
 </script>
@@ -18,12 +18,7 @@
 		{@render header?.()}
 	</header>
 
-  
-	{@render children()}
- 
-	<footer>
-		{@render footer?.()}
-	</footer>
+	{@render content?.()}
 </div>
 
 <style>

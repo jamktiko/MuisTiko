@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "pic": "kromattu_heikki.png"
+  },
+  {
+    "id": 2,
+    "pic": "oranssi_jarkko.png"
+  },
+  {
+    "id": 3,
+    "pic": "pehmo_alison.png"
+  },
+  {
+    "id": 4,
+    "pic": "pehmo_heikki.png"
+  } ,
+   {
+    "id": 5,
+    "pic": "sininen_teno.png"
+  },
+  {
+    "id": 6,
+    "pic": "sketch_alison.png"
+  },
+  {
+    "id": 7,
+    "pic": "sketch_heikki.png"
+  },
+  {
+    "id": 8,
+    "pic": "sketch_jarkko.png"
+  } ,
+   {
+    "id": 9,
+    "pic": "sketch_jere.png"
+  },
+  {
+    "id": 10,
+    "pic": "sketch_teno.png"
+  },
+  {
+    "id": 11,
+    "pic": "vihreä_jere.png"
+  },
+  {
+    "id": 12,
+    "pic": "pinkki_alison.png"
+  } ,
+   {
+    "id": 13,
+    "pic": "pehmo_jere.png"
+  },
+  {
+    "id": 14,
+    "pic": "pehmo_teno.png"
+  },
+  {
+    "id": 15,
+    "pic": "pehmo_jarkko.png"
+  }
+]

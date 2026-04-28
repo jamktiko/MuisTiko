@@ -3,7 +3,7 @@ import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 
-export type Theme = 'Cats' | 'Dogs' | 'Teachers' | 'Tikologos';
+export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'Tiko';
 
 // Interface korteille
 export interface Card {
@@ -63,7 +63,7 @@ interface GameState {
 export const gameState = $state<GameState>({
 	points: 0,
 	difficulty: 'Helppo',
-	theme: 'Cats' as Theme,
+	theme: 'Kissat' as Theme,
 	cards: [],
 	turns: 0,
 	timelimit: 'Ei rajaa',

@@ -1,8 +1,12 @@
 <script lang="ts">
 	// onchange muokattu
-	let { text, placeholder, options, onChange } = $props();
+	let { text, placeholder, options, onChange, value = '' } = $props();
 
 	let chosen = $state('');
+
+	$effect(() => {
+		chosen = value;
+	});
 </script>
 
 <div class="dropdown">
