@@ -1,5 +1,6 @@
 <script lang="ts">
 	import GameInfo from '../../routes/gameInfo.svelte';
+	import SettingsModal from './SettingsModal.svelte';
 	import Button from './Button.svelte';
 	interface Props {
 		gameLogo: string;
@@ -7,6 +8,7 @@
 
 	let { gameLogo }: Props = $props();
 	let showInfo = $state(false);
+	let showSettings = $state(false);
 </script>
 
 <header>
@@ -22,11 +24,19 @@
 			<div class="infobutton">
 				<Button text="info" onclick={() => (showInfo = true)} />
 			</div>
+
+			<div class="settingsbutton">
+				<Button text="Asetukset" onclick={() => (showSettings = true)} />
+			</div>
 		</div>
 	</nav>
 
 	{#if showInfo}
 		<GameInfo closeInfo={() => (showInfo = false)} />
+	{/if}
+
+	{#if showSettings}
+		<SettingsModal closeModal={() => (showSettings = false)} />
 	{/if}
 </header>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import SingleCard from '$lib/components/SingleCard.svelte';
+	// haetaan gameState ja kaikki muu (B)
 	import {
 		gameState,
 		type Card,
