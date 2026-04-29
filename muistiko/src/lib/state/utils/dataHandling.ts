@@ -7,6 +7,7 @@ export async function getThemeData(theme: Theme) {
 	return json;
 }
 
+// Luo kuvan polun teeman ja kuvan nimen perusteella
 export function getImagePath(theme: Theme, imgSrc: string): string {
 	const path = `/data/${theme}/${imgSrc}`;
 	return path;

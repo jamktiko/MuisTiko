@@ -12,7 +12,6 @@
 <div class="dropdown">
 	<!-- svelte-ignore a11y_label_has_associated_control -->
 	<label>{text}</label><br />
-
 	<select bind:value={chosen} onchange={() => onChange?.(chosen)}>
 		<option disabled value="">
 			{placeholder}
