@@ -131,12 +131,6 @@
 		{#snippet header()}
 			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
 				<h1>Voitit pelin!</h1>
-				<button
-					onclick={closeWinModal}
-					style="background: none; border: none; font-size: 1.5rem; cursor: pointer;"
-				>
-					&times;
-				</button>
 			</div>
 		{/snippet}
 
@@ -147,7 +141,6 @@
 
 		{#snippet footer()}
 			<div style="display: flex; gap: 1rem; justify-content: center;">
-				<Button text="Sulje" onclick={closeWinModal} />
 				<Button text="Pelaa uudelleen" onclick={handlePlayAgain} />
 			</div>
 		{/snippet}
