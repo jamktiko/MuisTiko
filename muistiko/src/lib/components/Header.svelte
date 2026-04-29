@@ -1,6 +1,6 @@
 <script lang="ts">
-	import GameInfo from '../../routes/gameInfo.svelte';
-	import SoundButton from '../../routes/soundButton.svelte';
+	import GameInfo from '$lib/components/gameInfo.svelte'
+	import SoundButton from './soundButton.svelte';
 	import SettingsModal from './SettingsModal.svelte';
 	interface Props {
 		gameLogo: string;
@@ -55,7 +55,7 @@
 						/>
 					</svg>
 				</button>
-				<SoundButton />
+				<SoundButton/>
 			</div>
 		</nav>
 	</div>
