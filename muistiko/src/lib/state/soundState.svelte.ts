@@ -1,7 +1,8 @@
 export const soundState = $state({
   volume: 0.5,
-  muted: false,
-  showSlider: false
+  muted: true,
+  showSlider: false,
+  audioElement: null as HTMLAudioElement | null
 })
 
 

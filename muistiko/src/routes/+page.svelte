@@ -1,6 +1,8 @@
 <script lang="ts">
+import {goto} from '$app/navigation'
+import { resolve } from '$app/paths'
 	const aloitaPeli = () => {
-		window.location.href = '/settings';
+		goto(resolve('/settings'));
 	};
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
