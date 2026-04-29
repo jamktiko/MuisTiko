@@ -5,7 +5,7 @@ import { resolve } from '$app/paths'
 		goto(resolve('/settings'));
 	};
 	import Header from '$lib/components/Header.svelte';
-	
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <Header gameLogo="" />
@@ -19,6 +19,8 @@ import { resolve } from '$app/paths'
 		<button class="start-button" onclick={aloitaPeli}> PELAA </button>
 	</main>
 </div>
+
+<Footer />
 
 <style>
 	.landing-page {

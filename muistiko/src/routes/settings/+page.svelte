@@ -3,7 +3,13 @@
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import { gameState, setTheme, setDifficulty, setTimelimit } from '$lib/state/gameState.svelte';
+	import {
+		gameState,
+		setTheme,
+		setDifficulty,
+		setTimelimit,
+		startNewGame
+	} from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';
@@ -21,6 +27,7 @@
 
 	// aloita peli nappi, joka vie pelisivulle
 	async function startGame() {
+		startNewGame();
 		await goto(resolve('/game'));
 	}
 
@@ -35,7 +42,7 @@
 			gameState.timeRemaining = seconds;
 			gameState.hasTimer = true;
 		}
-	}*/
+	} */
 
 	function changeTimelimit(value: string) {
 		setTimelimit(Number(value) as TimeLimit);
@@ -45,19 +52,24 @@
 		setDifficulty(value as Difficulty);
 	}
 
+	const isGameWon = $derived.by(() => {
+		if (gameState.cards.length === 0) return false;
+		return gameState.cards.every((card) => card.matched);
+	});
+
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
 	const gameSettings: gameSettingOptions[] = [
 		{
 			text: 'Teema',
 			placeholder: 'Valitse teema',
-			options: ['Kissat', 'Koirat', 'Opettajat', 'Tikologos'],
+			options: ['Kissat', 'Koirat', 'Opettajat', 'Tiko'],
 			type: 'theme',
 			function: handleThemeSwitch
 		},
 		{
 			text: 'Korttien määrä',
 			placeholder: 'Valitse määrä',
-			options: ['Helppo', 'Keskivaikea', 'Vaikea', 'Todella vaikea'],
+			options: ['12', '16', '20', '30'],
 			type: 'setting',
 			function: difficultySettings
 		},
@@ -75,21 +87,22 @@
 
 <!-- settings valikko, joka luo SettingSelector komponentit gameSettings taulukon perusteella -->
 <div class="gameSettings">
-	{#each gameSettings as gameSetting (gameSetting.text)}
-		<SettingSelector
-			onChange={gameSetting.function}
-			text={gameSetting.text}
-			placeholder={gameSetting.placeholder}
-			options={gameSetting.options}
-		/>
-	{/each}
+	<main class="main-content">
+		{#each gameSettings as gameSetting (gameSetting.text)}
+			<SettingSelector
+				onChange={gameSetting.function}
+				text={gameSetting.text}
+				placeholder={gameSetting.placeholder}
+				options={gameSetting.options}
+			/>
+		{/each}
+		<div class="startButton">
+			<Button text="Aloita peli!" onclick={startGame} />
+		</div>
+	</main>
 </div>
 
-<div class="startButton">
-	<Button text="Aloita peli!" onclick={startGame} />
-</div>
-
-<Footer></Footer>
+<Footer />
 
 <style>
 	.gameSettings {
@@ -97,6 +110,7 @@
 		gap: 1rem;
 		max-width: 400px;
 		margin: 0 auto;
+		min-height: 100vh;
 	}
 
 	.startButton {

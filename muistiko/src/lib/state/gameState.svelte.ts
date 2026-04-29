@@ -2,6 +2,8 @@
 import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
+import { goto } from '$app/navigation';
+import { resolve } from 
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'Tiko';
 
@@ -12,19 +14,19 @@ export interface Card {
 	id: string;
 }
 //vaikeustaso määrittely
-export type Difficulty = 'Helppo' | 'Keskivaikea' | 'Vaikea' | 'Todella vaikea';
+export type Difficulty = '12' | '16' | '20' | '30';
 
 export type TimeLimit = string | 1 | 2 | 3;
 
 export function difficultySetting(d: Difficulty): number {
 	switch (d) {
-		case 'Helppo':
+		case '12':
 			return 12;
-		case 'Keskivaikea':
+		case '16':
 			return 16;
-		case 'Vaikea':
+		case '20':
 			return 20;
-		case 'Todella vaikea':
+		case '30':
 			return 30;
 		default:
 			return 12;
@@ -63,7 +65,7 @@ interface GameState {
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
 export const gameState = $state<GameState>({
 	points: 0,
-	difficulty: 'Helppo',
+	difficulty: '12',
 	theme: 'Kissat' as Theme,
 	cards: [],
 	turns: 0,
@@ -75,12 +77,6 @@ export const gameState = $state<GameState>({
 });
 
 // Tilankäsittelyn funktiot
-
-// Onko kaikki parit löydetty/peli voitettu
-const isGameWon = $derived.by(() => {
-	if (cards.length === 0) return false;
-	return cards.every((card) => card.matched);
-});
 
 export function incrementPoints(value: number) {
 	gameState.points += value;
@@ -182,4 +178,20 @@ export function turnOverCorrectPair() {
 // Sekoittaa kortit
 export function shuffleCards(cardData: Card[]) {
 	return [...cardData].sort(() => Math.random() - 0.5);
+}
+
+// Alustaa uudelleenpelaamisen (B)
+export const startNewGame = () => {
+	resetCards();
+	setTurns(0);
+	setChoiceOne(null);
+	setChoiceTwo(null);
+	gameState.gameStatus = 'playing';
+};
+
+// Funktio voitto/häviömodaalin uudelleenpelausnappiin
+function handlePlayAgain() {
+	startNewGame();
+	gameState.gameStatus = 'playing';
+	goto(resolve('/settings'));
 }

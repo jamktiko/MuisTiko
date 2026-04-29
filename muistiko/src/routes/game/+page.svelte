@@ -18,6 +18,7 @@
 		incrementTurns,
 		turnOverCorrectPair
 	} from '$lib/state/gameState.svelte';
+
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -82,29 +83,23 @@
 		}
 	});
 
-	// Tarkistetaan kaikkien korttien parien löytö (B)
+	// Efekti asettaa pelin statuksen kun peli voitettu = true (B)
 	const isGameWon = $derived.by(() => {
-		if (cards.length === 0) return false;
-		return cards.every((card) => card.matched);
+		if (gameState.cards.length === 0) return false;
+		return gameState.cards.every((card) => card.matched);
 	});
 
-	// Monitoroidaan voittoehtoja (B)
 	$effect(() => {
 		if (isGameWon && gameState.gameStatus === 'playing') {
 			gameState.gameStatus = 'won';
 		}
 	});
 
+	// Funktio voitto/häviömodaalin uudelleenpelausnappiin
 	function handlePlayAgain() {
-		// Resetataan status ja mennään takaisin pelin asetuksiin
+		startNewGame();
 		gameState.gameStatus = 'playing';
 		goto(resolve('/settings'));
-	}
-
-	function closeWinModal() {
-		// Just hide the modal by setting status back to playing
-		// (or create a 'finished' status if you prefer)
-		gameState.gameStatus = 'playing';
 	}
 </script>
 
@@ -140,12 +135,6 @@
 		{#snippet header()}
 			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
 				<h1>Voitit pelin!</h1>
-				<button
-					onclick={closeWinModal}
-					style="background: none; border: none; font-size: 1.5rem; cursor: pointer;"
-				>
-					&times;
-				</button>
 			</div>
 		{/snippet}
 
@@ -153,7 +142,6 @@
 			<p>Onneksi olkoon! Sait kaikki parit kerättyä.</p>
 			<p>Käytit yhteensä <strong>{gameState.turns}</strong> siirtoa.</p>
 			<div style="display: flex; gap: 1rem; justify-content: center;">
-				<Button text="Sulje" onclick={closeWinModal} />
 				<Button text="Pelaa uudelleen" onclick={handlePlayAgain} />
 			</div>
 		{/snippet}
