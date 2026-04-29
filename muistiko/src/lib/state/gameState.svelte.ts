@@ -76,12 +76,6 @@ export const gameState = $state<GameState>({
 
 // Tilankäsittelyn funktiot
 
-// Onko kaikki parit löydetty/peli voitettu
-const isGameWon = $derived.by(() => {
-	if (cards.length === 0) return false;
-	return cards.every((card) => card.matched);
-});
-
 export function incrementPoints(value: number) {
 	gameState.points += value;
 }
