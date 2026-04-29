@@ -4,6 +4,7 @@ import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
+//import { changeMusic } from './soundState.svelte';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO';
 

@@ -1,3 +1,5 @@
+//import type { Theme } from "./gameState.svelte"
+
 export const soundState = $state({
   volume: 0.5,
   muted: true,
@@ -5,6 +7,18 @@ export const soundState = $state({
   audioElement: null as HTMLAudioElement | null
 })
 
+/*export function changeMusic(theme: Theme) {
+  const audio = soundState.audioElement
+  if (!audio) return;
+  audio.pause()
+
+  audio.src = `/music/${themeSetting[theme].music}`
+
+  if (!soundState.muted) {
+    audio.play()
+  }
+}*/
+  
 
 
  export function toggleMute() {
