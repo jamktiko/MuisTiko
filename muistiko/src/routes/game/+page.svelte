@@ -95,13 +95,11 @@
 		}
 	});
 
+	// Funktio voitto/häviömodaalin uudelleenpelausnappiin
 	function handlePlayAgain() {
+		startNewGame();
 		gameState.gameStatus = 'playing';
 		goto(resolve('/settings'));
-	}
-
-	function closeWinModal() {
-		gameState.gameStatus = 'playing';
 	}
 </script>
 
@@ -137,12 +135,6 @@
 		{#snippet header()}
 			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
 				<h1>Voitit pelin!</h1>
-				<button
-					onclick={closeWinModal}
-					style="background: none; border: none; font-size: 1.5rem; cursor: pointer;"
-				>
-					&times;
-				</button>
 			</div>
 		{/snippet}
 
@@ -150,7 +142,6 @@
 			<p>Onneksi olkoon! Sait kaikki parit kerättyä.</p>
 			<p>Käytit yhteensä <strong>{gameState.turns}</strong> siirtoa.</p>
 			<div style="display: flex; gap: 1rem; justify-content: center;">
-				<Button text="Sulje" onclick={closeWinModal} />
 				<Button text="Pelaa uudelleen" onclick={handlePlayAgain} />
 			</div>
 		{/snippet}

@@ -3,7 +3,13 @@
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import { gameState, setTheme, setDifficulty, setTimelimit } from '$lib/state/gameState.svelte';
+	import {
+		gameState,
+		setTheme,
+		setDifficulty,
+		setTimelimit,
+		startNewGame
+	} from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';
@@ -21,6 +27,7 @@
 
 	// aloita peli nappi, joka vie pelisivulle
 	async function startGame() {
+		startNewGame();
 		await goto(resolve('/game'));
 	}
 
@@ -44,6 +51,11 @@
 	function difficultySettings(value: string) {
 		setDifficulty(value as Difficulty);
 	}
+
+	const isGameWon = $derived.by(() => {
+		if (gameState.cards.length === 0) return false;
+		return gameState.cards.every((card) => card.matched);
+	});
 
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
 	const gameSettings: gameSettingOptions[] = [

@@ -177,3 +177,12 @@ export function turnOverCorrectPair() {
 export function shuffleCards(cardData: Card[]) {
 	return [...cardData].sort(() => Math.random() - 0.5);
 }
+
+// Alustaa uudelleenpelaamisen (B)
+export const startNewGame = () => {
+	resetCards();
+	setTurns(0);
+	setChoiceOne(null);
+	setChoiceTwo(null);
+	gameState.gameStatus = 'playing';
+};
