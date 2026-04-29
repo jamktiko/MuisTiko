@@ -3,9 +3,9 @@ import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
-import { resolve } from 
+import { resolve } from '$app/paths';
 
-export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'Tiko';
+export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO';
 
 // Interface korteille
 export interface Card {
@@ -66,7 +66,7 @@ interface GameState {
 export const gameState = $state<GameState>({
 	points: 0,
 	difficulty: '12',
-	theme: 'Kissat' as Theme,
+	theme: '' as Theme,
 	cards: [],
 	turns: 0,
 	timelimit: 'Ei rajaa',
@@ -190,7 +190,7 @@ export const startNewGame = () => {
 };
 
 // Funktio voitto/häviömodaalin uudelleenpelausnappiin
-function handlePlayAgain() {
+export function handlePlayAgain() {
 	startNewGame();
 	gameState.gameStatus = 'playing';
 	goto(resolve('/settings'));
