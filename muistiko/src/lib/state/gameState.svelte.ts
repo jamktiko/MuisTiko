@@ -2,6 +2,8 @@
 import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
+import { goto } from '$app/navigation';
+import { resolve } from 
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'Tiko';
 
@@ -186,3 +188,10 @@ export const startNewGame = () => {
 	setChoiceTwo(null);
 	gameState.gameStatus = 'playing';
 };
+
+// Funktio voitto/häviömodaalin uudelleenpelausnappiin
+function handlePlayAgain() {
+	startNewGame();
+	gameState.gameStatus = 'playing';
+	goto(resolve('/settings'));
+}
