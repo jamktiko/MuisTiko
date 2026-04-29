@@ -18,6 +18,7 @@
 		incrementTurns,
 		turnOverCorrectPair
 	} from '$lib/state/gameState.svelte';
+
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -82,13 +83,12 @@
 		}
 	});
 
-	// Tarkistetaan kaikkien korttien parien löytö (B)
+	// Efekti asettaa pelin statuksen kun peli voitettu = true (B)
 	const isGameWon = $derived.by(() => {
-		if (cards.length === 0) return false;
-		return cards.every((card) => card.matched);
+		if (gameState.cards.length === 0) return false;
+		return gameState.cards.every((card) => card.matched);
 	});
 
-	// Monitoroidaan voittoehtoja (B)
 	$effect(() => {
 		if (isGameWon && gameState.gameStatus === 'playing') {
 			gameState.gameStatus = 'won';
@@ -96,14 +96,11 @@
 	});
 
 	function handlePlayAgain() {
-		// Resetataan status ja mennään takaisin pelin asetuksiin
 		gameState.gameStatus = 'playing';
 		goto(resolve('/settings'));
 	}
 
 	function closeWinModal() {
-		// Just hide the modal by setting status back to playing
-		// (or create a 'finished' status if you prefer)
 		gameState.gameStatus = 'playing';
 	}
 </script>
