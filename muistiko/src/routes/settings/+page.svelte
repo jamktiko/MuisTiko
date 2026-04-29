@@ -29,16 +29,14 @@
 		setTheme(value as Theme);
 	}
 
-<<<<<<< HEAD
-	function handleGeneralSetting(text: string, value: string) {
+	/* function handleGeneralSetting(text: string, value: string) {
 		if (text === 'Aikaraja (min)') {
 			const seconds = Number(value) * 60;
 			gameState.timeRemaining = seconds;
 			gameState.hasTimer = true;
 		}
-	}
+	}*/
 
-=======
 	function changeTimelimit(value: string) {
 		setTimelimit(Number(value) as TimeLimit);
 	}
@@ -48,7 +46,6 @@
 	}
 
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
->>>>>>> 09d8df27014f791dffc76f4205d2954fe85ade31
 	const gameSettings: gameSettingOptions[] = [
 		{
 			text: 'Teema',
