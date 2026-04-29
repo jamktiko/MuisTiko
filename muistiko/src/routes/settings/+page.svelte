@@ -52,11 +52,6 @@
 		setDifficulty(value as Difficulty);
 	}
 
-	const isGameWon = $derived.by(() => {
-		if (gameState.cards.length === 0) return false;
-		return gameState.cards.every((card) => card.matched);
-	});
-
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
 	const gameSettings: gameSettingOptions[] = [
 		{
@@ -96,8 +91,8 @@
 				options={gameSetting.options}
 			/>
 		{/each}
-		<div class="startButton">
-			<Button text="Aloita peli!" onclick={startGame} />
+		<div class="start-button">
+			<button class="start-button" onclick={startGame}>Aloita peli!</button>
 		</div>
 	</main>
 </div>
@@ -113,7 +108,23 @@
 		min-height: 100vh;
 	}
 
-	.startButton {
-		text-align: center;
+	.start-button {
+		background: #aaa;
+		border: none;
+		padding: 1rem 3rem;
+		font-size: 1.5rem;
+		color: black;
+		font-weight: bold;
+		border-radius: 8px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.start-button:hover {
+		transform: scale(1.05);
+	}
+
+	.start-button:active {
+		transform: scale(0.98);
 	}
 </style>

@@ -93,10 +93,6 @@
 		startNewGame();
 		goto(resolve('/settings'));
 	}
-
-	function closeWinModal() {
-		gameState.gameStatus = 'playing';
-	}
 </script>
 
 <!-- Headeriin suoraan logo (B)-->
@@ -137,12 +133,7 @@
 		{#snippet content()}
 			<p>Onneksi olkoon! Kaikki parit löytyivät.</p>
 			<p>Siirtoja: <strong>{gameState.turns}</strong></p>
-		{/snippet}
-
-		{#snippet footer()}
-			<div style="display: flex; gap: 1rem; justify-content: center;">
-				<Button text="Pelaa uudelleen" onclick={handlePlayAgain} />
-			</div>
+			<button class="start-button" onclick={handlePlayAgain}>Pelaa uudelleen</button>
 		{/snippet}
 	</Modal>
 {/if}

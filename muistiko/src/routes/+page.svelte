@@ -1,6 +1,6 @@
 <script lang="ts">
-import {goto} from '$app/navigation'
-import { resolve } from '$app/paths'
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	const aloitaPeli = () => {
 		goto(resolve('/settings'));
 	};
