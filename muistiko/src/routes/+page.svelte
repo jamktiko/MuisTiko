@@ -1,6 +1,6 @@
 <script lang="ts">
-import {goto} from '$app/navigation'
-import { resolve } from '$app/paths'
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	const aloitaPeli = () => {
 		goto(resolve('/settings'));
 	};
@@ -14,7 +14,7 @@ import { resolve } from '$app/paths'
 	<main class="main-content">
 		<div class="intro">
 			<div class="logo">muisTIKO?</div>
-			<p>Tähän textä</p>
+			<p>Tähän tekstiä</p>
 		</div>
 		<button class="start-button" onclick={aloitaPeli}> PELAA </button>
 	</main>
