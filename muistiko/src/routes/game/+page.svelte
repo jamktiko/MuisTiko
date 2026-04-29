@@ -9,6 +9,7 @@
 	// haetaan gameState ja kaikki muu (B)
 	import {
 		gameState,
+		startNewGame,
 		type Card,
 		initalizeCards,
 		resetCards,
@@ -41,14 +42,6 @@
 		// Ladataan korttien tiedot ja asetetaan ne tilaan (gameSettings.svelte.ts) (B)
 		await initalizeCards();
 	});
-
-	// Aloitetaan uusi peli, resettataan kortit ja muut muuttujat (B)
-	const startNewGame = () => {
-		resetCards();
-		setTurns(0);
-		setChoiceOne(null);
-		setChoiceTwo(null);
-	};
 
 	const handlePlayerChoice = (card: Card) => {
 		if (disabled) return;
@@ -98,8 +91,11 @@
 	// Funktio voitto/häviömodaalin uudelleenpelausnappiin
 	function handlePlayAgain() {
 		startNewGame();
-		gameState.gameStatus = 'playing';
 		goto(resolve('/settings'));
+	}
+
+	function closeWinModal() {
+		gameState.gameStatus = 'playing';
 	}
 </script>
 
@@ -139,8 +135,11 @@
 		{/snippet}
 
 		{#snippet content()}
-			<p>Onneksi olkoon! Sait kaikki parit kerättyä.</p>
-			<p>Käytit yhteensä <strong>{gameState.turns}</strong> siirtoa.</p>
+			<p>Onneksi olkoon! Kaikki parit löytyivät.</p>
+			<p>Siirtoja: <strong>{gameState.turns}</strong></p>
+		{/snippet}
+
+		{#snippet footer()}
 			<div style="display: flex; gap: 1rem; justify-content: center;">
 				<Button text="Pelaa uudelleen" onclick={handlePlayAgain} />
 			</div>
