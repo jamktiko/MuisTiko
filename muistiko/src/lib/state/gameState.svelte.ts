@@ -12,19 +12,19 @@ export interface Card {
 	id: string;
 }
 //vaikeustaso määrittely
-export type Difficulty = 'Helppo' | 'Keskivaikea' | 'Vaikea' | 'Todella vaikea';
+export type Difficulty = '12' | '16' | '20' | '30';
 
 export type TimeLimit = string | 1 | 2 | 3;
 
 export function difficultySetting(d: Difficulty): number {
 	switch (d) {
-		case 'Helppo':
+		case '12':
 			return 12;
-		case 'Keskivaikea':
+		case '16':
 			return 16;
-		case 'Vaikea':
+		case '20':
 			return 20;
-		case 'Todella vaikea':
+		case '30':
 			return 30;
 		default:
 			return 12;
@@ -63,7 +63,7 @@ interface GameState {
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
 export const gameState = $state<GameState>({
 	points: 0,
-	difficulty: 'Helppo',
+	difficulty: '12',
 	theme: 'Kissat' as Theme,
 	cards: [],
 	turns: 0,
