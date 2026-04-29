@@ -35,6 +35,14 @@
 		else if (value === 30) setDifficulty('todellavaikea');
 	}
 
+	function handleGeneralSetting(text: string, value: string) {
+		if (text === 'Aikaraja (min)') {
+			const seconds = Number(value) * 60;
+			gameState.timeRemaining = seconds;
+			gameState.hasTimer = true;
+		}
+	}
+
 	const gameSettings: gameSettingOptions[] = [
 		{
 			text: 'Teema',

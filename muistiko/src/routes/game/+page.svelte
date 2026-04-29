@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import SingleCard from '$lib/components/SingleCard.svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+
 	// haetaan gameState ja kaikki muu (B)
 	import {
 		gameState,
@@ -76,6 +81,31 @@
 			setTimeout(() => (disabled = false), 1000);
 		}
 	});
+
+	// Tarkistetaan kaikkien korttien parien löytö (B)
+	const isGameWon = $derived.by(() => {
+		if (cards.length === 0) return false;
+		return cards.every((card) => card.matched);
+	});
+
+	// Monitoroidaan voittoehtoja (B)
+	$effect(() => {
+		if (isGameWon && gameState.gameStatus === 'playing') {
+			gameState.gameStatus = 'won';
+		}
+	});
+
+	function handlePlayAgain() {
+		// Resetataan status ja mennään takaisin pelin asetuksiin
+		gameState.gameStatus = 'playing';
+		goto(resolve('/settings'));
+	}
+
+	function closeWinModal() {
+		// Just hide the modal by setting status back to playing
+		// (or create a 'finished' status if you prefer)
+		gameState.gameStatus = 'playing';
+	}
 </script>
 
 <!-- Headeriin suoraan logo (B)-->
@@ -99,6 +129,32 @@
 	</div>
 	<p>Siirrot: {turns}</p>
 </main>
+
+<!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille -->
+{#if gameState.gameStatus === 'won'}
+	<Modal>
+		{#snippet header()}
+			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+				<h1>Voitit pelin!</h1>
+				<button
+					onclick={closeWinModal}
+					style="background: none; border: none; font-size: 1.5rem; cursor: pointer;"
+				>
+					&times;
+				</button>
+			</div>
+		{/snippet}
+
+		{#snippet content()}
+			<p>Onneksi olkoon! Sait kaikki parit kerättyä.</p>
+			<p>Käytit yhteensä <strong>{gameState.turns}</strong> siirtoa.</p>
+			<div style="display: flex; gap: 1rem; justify-content: center;">
+				<Button text="Sulje" onclick={closeWinModal} />
+				<Button text="Pelaa uudelleen" onclick={handlePlayAgain} />
+			</div>
+		{/snippet}
+	</Modal>
+{/if}
 
 <!-- Footer (B) -->
 <Footer></Footer>

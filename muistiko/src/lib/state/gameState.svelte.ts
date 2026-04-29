@@ -39,6 +39,7 @@ interface GameState {
 	choiceOne: Card | null;
 	choiceTwo: Card | null;
 	disabled: boolean;
+	gameStatus: 'playing' | 'won' | 'lost';
 }
 
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
@@ -50,10 +51,18 @@ export const gameState = $state<GameState>({
 	turns: 0,
 	choiceOne: null,
 	choiceTwo: null,
-	disabled: false
+	disabled: false,
+	gameStatus: 'playing'
 });
 
-// Tilan käsittely funktiot
+// Tilankäsittelyn funktiot
+
+// Onko kaikki parit löydetty/peli voitettu
+const isGameWon = $derived.by(() => {
+	if (cards.length === 0) return false;
+	return cards.every((card) => card.matched);
+});
+
 export function incrementPoints(value: number) {
 	gameState.points += value;
 }
