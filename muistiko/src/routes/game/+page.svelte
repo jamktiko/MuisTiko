@@ -3,8 +3,11 @@
 	import SingleCard from '$lib/components/SingleCard.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import { goto } from '$app/navigation';
-	import { resolve } from '$app/paths';
+	import LoseModal from '$lib/components/LoseModal.svelte';
+	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Timer from '$lib/components/Timer.svelte';
 
 	// haetaan gameState ja kaikki muu (B)
 	import {
@@ -16,13 +19,9 @@
 		setChoiceOne,
 		setChoiceTwo,
 		incrementTurns,
-		turnOverCorrectPair
+		turnOverCorrectPair,
+		handlePlayAgain
 	} from '$lib/state/gameState.svelte';
-
-	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Timer from '$lib/components/Timer.svelte';
 
 	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit (B)
 	let theme = $derived(gameState.theme);
@@ -94,13 +93,6 @@
 			gameState.gameStatus = 'won';
 		}
 	});
-
-	// Funktio voitto/häviömodaalin uudelleenpelausnappiin
-	function handlePlayAgain() {
-		startNewGame();
-		gameState.gameStatus = 'playing';
-		goto(resolve('/settings'));
-	}
 </script>
 
 <!-- Headeriin suoraan logo (B)-->
@@ -146,6 +138,10 @@
 			</div>
 		{/snippet}
 	</Modal>
+{/if}
+
+{#if gameState.gameStatus === 'lost'}
+	<LoseModal />
 {/if}
 
 <!-- Footer (B) -->

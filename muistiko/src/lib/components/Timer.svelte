@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { gameState } from '$lib/state/gameState.svelte';
+	import { remaining, minutes, seconds } from '$lib/state/timerState.svelte';
 
-	let remaining = $state(0);
 	let startTime: number;
 
 	const getTimelimitSeconds = () => {
@@ -12,24 +12,23 @@
 
 	onMount(() => {
 		const timeLimit = getTimelimitSeconds();
-		remaining = timeLimit;
+		remaining.set(timeLimit);
 		startTime = Date.now();
 
 		const interval = setInterval(() => {
 			const elapsed = Math.floor((Date.now() - startTime) / 1000);
-			remaining = Math.max(timeLimit - elapsed, 0);
 
-			if (remaining === 0) {
+			const value = Math.max(timeLimit - elapsed, 0);
+			remaining.set(value);
+
+			if (value === 0) {
 				clearInterval(interval);
-				// ✅ tähän voit lisätä esim. game over -logiikan
+				gameState.gameStatus = 'lost';
 			}
 		}, 1000);
 
 		return () => clearInterval(interval);
 	});
-
-	const minutes = $derived(Math.floor(remaining / 60));
-	const seconds = $derived(remaining % 60);
 </script>
 
-<h1>Aikaa jäljellä: {minutes}:{seconds.toString().padStart(2, '0')}</h1>
+<h1>Aikaa jäljellä: {$minutes}:{$seconds.toString().padStart(2, '0')}</h1>

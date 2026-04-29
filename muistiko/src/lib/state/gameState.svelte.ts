@@ -3,7 +3,7 @@ import { ID_STRING_LENGTH } from '../constants';
 import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
-import { resolve } from 
+import { resolve } from '$app/paths';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'Tiko';
 
@@ -59,7 +59,7 @@ interface GameState {
 	choiceOne: Card | null;
 	choiceTwo: Card | null;
 	disabled: boolean;
-	gameStatus: 'playing' | 'won' | 'lost';
+	gameStatus: 'playing' | 'won' | 'lost'; // Käytetään timerin uudelleenkäynnistämiseen
 }
 
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
@@ -184,13 +184,14 @@ export function shuffleCards(cardData: Card[]) {
 export const startNewGame = () => {
 	resetCards();
 	setTurns(0);
+	setTimelimit(gameState.timelimit);
 	setChoiceOne(null);
 	setChoiceTwo(null);
 	gameState.gameStatus = 'playing';
 };
 
 // Funktio voitto/häviömodaalin uudelleenpelausnappiin
-function handlePlayAgain() {
+export function handlePlayAgain() {
 	startNewGame();
 	gameState.gameStatus = 'playing';
 	goto(resolve('/settings'));
