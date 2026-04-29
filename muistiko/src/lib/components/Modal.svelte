@@ -19,6 +19,10 @@
 	</header>
 
 	{@render content?.()}
+
+	<footer>
+		{@render footer?.()}
+	</footer>
 </div>
 
 <style>

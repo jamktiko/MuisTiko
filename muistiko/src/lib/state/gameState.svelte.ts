@@ -60,7 +60,7 @@ interface GameState {
 	choiceOne: Card | null;
 	choiceTwo: Card | null;
 	disabled: boolean;
-	gameStatus: 'playing' | 'won' | 'lost';
+	gameStatus: 'playing' | 'won' | 'lost'; // Käytetään timerin uudelleenkäynnistämiseen
 }
 
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
@@ -185,6 +185,7 @@ export function shuffleCards(cardData: Card[]) {
 export const startNewGame = () => {
 	resetCards();
 	setTurns(0);
+	setTimelimit(gameState.timelimit);
 	setChoiceOne(null);
 	setChoiceTwo(null);
 	gameState.gameStatus = 'playing';
