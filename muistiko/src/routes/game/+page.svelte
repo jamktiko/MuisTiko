@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import SingleCard from '$lib/components/SingleCard.svelte';
-	import WinModal from '$lib/components/Modal.svelte';
+	import WinModal from '$lib/components/WinModal.svelte';
 	import LoseModal from '$lib/components/LoseModal.svelte';
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
