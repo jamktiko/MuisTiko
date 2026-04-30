@@ -1,7 +1,17 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	const aloitaPeli = () => {
+	import {soundState} from '$lib/state/soundState.svelte'
+	const aloitaPeli = async () => {
+		const audio = soundState.audioElement;
+		if (audio) {
+			try {
+				await audio.play()
+				soundState.muted =false
+			} catch (error) {
+				console.log('Virhe', error)
+			}
+		}
 		goto(resolve('/settings'));
 	};
 	import Header from '$lib/components/Header.svelte';
