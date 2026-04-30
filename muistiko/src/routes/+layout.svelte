@@ -19,9 +19,6 @@
 	{@render children()}
 </div>
 <audio
-  bind:this={audio}
-  src="\data\music\music_for_video-waiting-music-116216.mp3"
-  loop
-/>
-
-
+	>bind:this={audio}
+	src="\data\music\music_for_video-waiting-music-116216.mp3" loop</audio
+>
