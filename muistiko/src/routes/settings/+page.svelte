@@ -85,7 +85,7 @@
 			/>
 		{/each}
 		<div class="start-button">
-			<button class="start-button" onclick={startGame}>Aloita peli!</button>
+			<Button text="Aloita peli!" onclick={startGame} />
 		</div>
 	</main>
 </div>

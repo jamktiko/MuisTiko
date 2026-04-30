@@ -103,9 +103,8 @@
 				/>
 			{/each}
 		</div>
-		<p>Turns: {turns}</p>
+		<p>Siirrot: {turns}</p>
 	</div>
-	<p>Siirrot: {turns}</p>
 </main>
 
 <!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (B) -->
@@ -129,6 +128,12 @@
 		text-align: center;
 		padding: 1rem;
 		color: white;
+	}
+
+	.App p {
+		font-size: 1.2rem;
+		margin-top: 1rem;
+		color: black;
 	}
 
 	button {
