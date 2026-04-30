@@ -6,6 +6,7 @@
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -85,7 +86,7 @@
 			/>
 		{/each}
 		<div class="start-button">
-			<button class="start-button" onclick={startGame}>Aloita peli!</button>
+			<Button text="Aloita peli!" onclick={startGame} />
 		</div>
 	</main>
 </div>
