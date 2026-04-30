@@ -4,6 +4,7 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import LoseModal from '$lib/components/LoseModal.svelte';
+	import WinModal from '$lib/components/WinModal.svelte';
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -114,21 +115,9 @@
 	<p>Siirrot: {turns}</p>
 </main>
 
-<!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille -->
+<!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (B) -->
 {#if gameState.gameStatus === 'won'}
-	<Modal>
-		{#snippet header()}
-			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-				<h1>Voitit pelin!</h1>
-			</div>
-		{/snippet}
-
-		{#snippet content()}
-			<p>Onneksi olkoon! Kaikki parit löytyivät.</p>
-			<p>Siirtoja: <strong>{gameState.turns}</strong></p>
-			<button class="start-button" onclick={handlePlayAgain}>Pelaa uudelleen</button>
-		{/snippet}
-	</Modal>
+	<Modal />
 {/if}
 
 {#if gameState.gameStatus === 'lost'}
