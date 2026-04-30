@@ -2,6 +2,7 @@
 	import Modal from './Modal.svelte';
 	import Button from './Button.svelte';
 	import { gameState, handlePlayAgain, startNewGame } from '$lib/state/gameState.svelte';
+	import { confetti } from '@neoconfetti/svelte';
 
 	let turns = $derived(gameState.turns);
 </script>
@@ -44,5 +45,14 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 1000;
+	}
+
+	.confetti-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
 	}
 </style>
