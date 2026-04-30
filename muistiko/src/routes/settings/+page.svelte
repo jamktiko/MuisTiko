@@ -1,15 +1,8 @@
 <script lang="ts">
 	import SettingSelector from '$lib/components/SettingSelector.svelte';
-	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import {
-		gameState,
-		setTheme,
-		setDifficulty,
-		setTimelimit,
-		startNewGame
-	} from '$lib/state/gameState.svelte';
+	import { setTheme, setDifficulty, setTimelimit, startNewGame } from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';

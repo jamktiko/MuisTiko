@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import SingleCard from '$lib/components/SingleCard.svelte';
-	import Modal from '$lib/components/Modal.svelte';
-	import Button from '$lib/components/Button.svelte';
+	import WinModal from '$lib/components/Modal.svelte';
 	import LoseModal from '$lib/components/LoseModal.svelte';
 	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
@@ -15,18 +14,13 @@
 		startNewGame,
 		type Card,
 		initalizeCards,
-		resetCards,
-		setTurns,
 		setChoiceOne,
 		setChoiceTwo,
 		incrementTurns,
-		turnOverCorrectPair,
-		handlePlayAgain
+		turnOverCorrectPair
 	} from '$lib/state/gameState.svelte';
 
-	// Voidaan käyttää myöhemmin kun pitää lisätä muutakin teemaan kuin vain kortit (B)
-	let theme = $derived(gameState.theme);
-
+	// Tilapäinen muuttuja, jossa korttien taustapuoli
 	const imgCover = CARD_IMAGE_COVER_URL;
 
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
@@ -113,21 +107,9 @@
 	</div>
 </main>
 
-<!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille -->
+<!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (B) -->
 {#if gameState.gameStatus === 'won'}
-	<Modal>
-		{#snippet header()}
-			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-				<h1>Voitit pelin!</h1>
-			</div>
-		{/snippet}
-
-		{#snippet content()}
-			<p>Onneksi olkoon! Kaikki parit löytyivät.</p>
-			<p>Siirtoja: <strong>{gameState.turns}</strong></p>
-			<button class="start-button" onclick={handlePlayAgain}>Pelaa uudelleen</button>
-		{/snippet}
-	</Modal>
+	<WinModal />
 {/if}
 
 {#if gameState.gameStatus === 'lost'}
