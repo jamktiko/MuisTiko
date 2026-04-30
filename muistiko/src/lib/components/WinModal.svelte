@@ -8,14 +8,12 @@
 <div class="win-modal">
 	<Modal>
 		{#snippet header()}
-			<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-				<h1>Voitit pelin!</h1>
-			</div>
+			<h1>Voitit pelin!</h1>
 		{/snippet}
 
 		{#snippet content()}
-			<p>Onneksi olkoon! Kaikki parit löytyivät.</p>
-			<p>Siirtoja: {turns}</p>
+			<p>Aika loppui</p>
+			<p>Tehdyt siirrot: {turns}</p>
 		{/snippet}
 
 		{#snippet footer()}
