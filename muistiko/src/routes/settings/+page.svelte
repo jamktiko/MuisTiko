@@ -6,6 +6,7 @@
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
