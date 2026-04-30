@@ -5,7 +5,6 @@ import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
 import { resetTimer } from '$lib/state/timerState.svelte';
-//import { changeMusic } from './soundState.svelte';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO';
 
@@ -15,7 +14,7 @@ export interface Card {
 	matched: boolean;
 	id: string;
 }
-//vaikeustaso määrittely
+// vaikeustaso määrittely
 export type Difficulty = '12' | '16' | '20' | '30';
 
 export type TimeLimit = string | 1 | 2 | 3;
@@ -50,7 +49,7 @@ export function timeLimitToSeconds(t: TimeLimit): number | undefined {
 	}
 }
 
-// Määritellään pelitilan tyyppi
+// Määritellään pelitilan tyyppi (B)
 interface GameState {
 	points: number;
 	difficulty: Difficulty;
@@ -61,10 +60,10 @@ interface GameState {
 	choiceOne: Card | null;
 	choiceTwo: Card | null;
 	disabled: boolean;
-	gameStatus: 'playing' | 'won' | 'lost'; // Käytetään timerin uudelleenkäynnistämiseen
+	gameStatus: 'playing' | 'won' | 'lost';
 }
 
-// Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
+// Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin (B)
 export const gameState = $state<GameState>({
 	points: 0,
 	difficulty: '12',
@@ -136,7 +135,7 @@ export function setDisabled(value: boolean) {
 	gameState.disabled = value;
 }
 
-// Lataa valitun teeman datan mukaiset kortit ja alustaa ne
+// Lataa valitun teeman datan mukaiset kortit ja alustaa ne (B)
 export async function initalizeCards() {
 	gameState.theme = gameState.theme.toLowerCase() as Theme;
 	try {
@@ -192,7 +191,7 @@ export const startNewGame = () => {
 	gameState.gameStatus = 'playing';
 };
 
-// Funktio voitto/häviömodaalin uudelleenpelausnappiin
+// Funktio voitto/häviömodaalin uudelleenpelausnappiin, joka vie asetussivulle (B)
 export function handlePlayAgain() {
 	startNewGame();
 	gameState.gameStatus = 'playing';

@@ -8,7 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 
-	// haetaan gameState ja kaikki muu (B)
+	// Haetaan gameState ja kaikki muu storesta (B)
 	import {
 		gameState,
 		startNewGame,
@@ -20,7 +20,7 @@
 		turnOverCorrectPair
 	} from '$lib/state/gameState.svelte';
 
-	// Tilapäinen muuttuja, jossa korttien taustapuoli
+	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
 	const imgCover = CARD_IMAGE_COVER_URL;
 
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
@@ -28,27 +28,29 @@
 	let turns = $derived(gameState.turns);
 	let choiceOne = $derived(gameState.choiceOne);
 	let choiceTwo = $derived(gameState.choiceTwo);
-
 	let disabled = $state(false);
 
+	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään (gameSettings.svelte.ts)
 	onMount(async () => {
-		// Ladataan korttien tiedot ja asetetaan ne tilaan (gameSettings.svelte.ts) (B)
 		await initalizeCards();
 	});
 
+	// Käsky, joka asetetaan korttien onclickiin
 	const handlePlayerChoice = (card: Card) => {
-		if (disabled) return;
-		if (card.matched) return;
-		if (card === choiceOne) return;
+		if (disabled) return; // Estetään korttien klikkaaminen, kun peli on tilassa, jossa kortteja ei saisi klikata
+		if (card.matched) return; // Estetään klikattujen korttien klikkaaminen uudestaan
+		if (card === choiceOne) return; // Estetään samaa korttia klikkaamasta uudestaan
 
 		if (choiceOne) {
+			// Jos ensimmäinen kortti on jo valittu, asetetaan toinen kortti
 			setChoiceTwo(card);
 		} else {
+			// Muuten asetetaan ensimmäinen kortti
 			setChoiceOne(card);
 		}
 	};
 
-	// Uuden kierroksen aloitus resettaa vain turns ja korttien valinnat (B)
+	// Uuden kierroksen aloitus resettaa vain turns ja korttien valinnat
 	const startNewRound = () => {
 		setChoiceOne(null);
 		setChoiceTwo(null);
@@ -56,10 +58,11 @@
 	};
 
 	$effect(() => {
+		// Efekti tarkistaa, onko valitut kortit pari ja päivittää pelin tilaa sen mukaan
 		if (choiceOne && choiceTwo) {
 			disabled = true;
 			if (choiceOne.src === choiceTwo.src) {
-				// Käännetään oikean parin kortit kuvapuoli ylöspäin (B)
+				// Käännetään oikean parin kortit kuvapuoli ylöspäin
 				turnOverCorrectPair();
 				startNewRound();
 			} else {
@@ -69,12 +72,13 @@
 		}
 	});
 
-	// Efekti asettaa pelin statuksen kun peli voitettu = true (B)
+	// Derived, joka tarkistaa, onko peli voitettu (B)
 	const isGameWon = $derived.by(() => {
 		if (gameState.cards.length === 0) return false;
 		return gameState.cards.every((card) => card.matched);
 	});
 
+	// Efekti tarkistaa, onko peli voitettu ja päivittää pelin tilan sen mukaan (B)
 	$effect(() => {
 		if (isGameWon && gameState.gameStatus === 'playing') {
 			gameState.gameStatus = 'won';
@@ -116,8 +120,7 @@
 	<LoseModal />
 {/if}
 
-<!-- Footer (B) -->
-<Footer></Footer>
+<Footer />
 
 <style>
 	.App {
