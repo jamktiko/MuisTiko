@@ -6,7 +6,7 @@ import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
 import { resetTimer } from '$lib/state/timerState.svelte';
 
-export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO';
+export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO' | null;
 
 // Interface korteille
 export interface Card {
@@ -15,9 +15,9 @@ export interface Card {
 	id: string;
 }
 // vaikeustaso määrittely
-export type Difficulty = '12' | '16' | '20' | '30';
+export type Difficulty = '12' | '16' | '20' | '30' | null;
 
-export type TimeLimit = string | 1 | 2 | 3;
+export type TimeLimit = string | 1 | 2 | 3 | null;
 
 export function difficultySetting(d: Difficulty): number {
 	switch (d) {
@@ -66,11 +66,11 @@ interface GameState {
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin (B)
 export const gameState = $state<GameState>({
 	points: 0,
-	difficulty: '12',
-	theme: '' as Theme,
+	difficulty: null,
+	theme: null as Theme,
 	cards: [],
 	turns: 0,
-	timelimit: 'Ei rajaa',
+	timelimit: null,
 	choiceOne: null,
 	choiceTwo: null,
 	disabled: false,
@@ -92,11 +92,7 @@ export function setDifficulty(value: Difficulty) {
 }
 
 export function setTimelimit(value: TimeLimit) {
-	if (value === 'Ei rajaa') {
-		return;
-	} else {
-		gameState.timelimit = value;
-	}
+	gameState.timelimit = value;
 }
 
 export function setTheme(value: Theme) {
@@ -137,7 +133,8 @@ export function setDisabled(value: boolean) {
 
 // Lataa valitun teeman datan mukaiset kortit ja alustaa ne (B)
 export async function initalizeCards() {
-	gameState.theme = gameState.theme.toLowerCase() as Theme;
+	console.log(gameState.theme);
+	gameState.theme = gameState.theme?.toLowerCase() as Theme;
 	try {
 		const themeData = await getThemeData(gameState.theme);
 		const cardcount = difficultySetting(gameState.difficulty);

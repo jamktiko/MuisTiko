@@ -1,8 +1,13 @@
 <script lang="ts">
 	import SettingSelector from '$lib/components/SettingSelector.svelte';
 	import { goto } from '$app/navigation';
-	import { resolve } from '$app/paths';
-	import { setTheme, setDifficulty, setTimelimit, startNewGame } from '$lib/state/gameState.svelte';
+	import {
+		setTheme,
+		setDifficulty,
+		setTimelimit,
+		startNewGame,
+		gameState
+	} from '$lib/state/gameState.svelte';
 	import type { Theme } from '$lib/state/gameState.svelte';
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';
@@ -10,8 +15,13 @@
 
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { resolve } from '$app/paths';
 
-	interface gameSettingOptions {
+	const theme = $derived(gameState.theme);
+	const difficulty = $derived(gameState.difficulty);
+	const timelimit = $derived(gameState.timelimit);
+
+	interface GameSetting {
 		text: string;
 		placeholder: string;
 		options: TimeLimit[] | Theme[] | Difficulty[];
@@ -21,6 +31,7 @@
 
 	// aloita peli nappi, joka vie pelisivulle
 	async function startGame() {
+		console.log(theme, difficulty, timelimit);
 		startNewGame();
 		await goto(resolve('/game'));
 	}
@@ -39,6 +50,10 @@
 	} */
 
 	function changeTimelimit(value: string) {
+		if (value === 'Ei rajaa') {
+			setTimelimit(value as TimeLimit);
+			return;
+		}
 		setTimelimit(Number(value) as TimeLimit);
 	}
 
@@ -47,7 +62,7 @@
 	}
 
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
-	const gameSettings: gameSettingOptions[] = [
+	const gameSettings: GameSetting[] = [
 		{
 			text: 'Teema',
 			placeholder: 'Valitse teema',
@@ -70,6 +85,14 @@
 			function: changeTimelimit
 		}
 	];
+
+	function allSettingsSelected() {
+		console.log(theme, difficulty, timelimit);
+		return theme && difficulty && timelimit ? true : false;
+	}
+
+	const allSelected = $derived(allSettingsSelected());
+	console.log(allSelected);
 </script>
 
 <Header gameLogo="" />
@@ -86,7 +109,7 @@
 			/>
 		{/each}
 		<div class="start-button">
-			<Button text="Aloita peli!" onclick={startGame} />
+			<Button disabled={!allSettingsSelected()} text="Aloita peli!" onclick={startGame} />
 		</div>
 	</main>
 </div>

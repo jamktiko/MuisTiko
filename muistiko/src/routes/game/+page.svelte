@@ -17,8 +17,22 @@
 		setChoiceOne,
 		setChoiceTwo,
 		incrementTurns,
-		turnOverCorrectPair
+		turnOverCorrectPair,
+		setDifficulty,
+		setTheme,
+		type Theme,
+		type Difficulty,
+		setTimelimit,
+		type TimeLimit
 	} from '$lib/state/gameState.svelte';
+	import {
+		loadDifficultyFromStorage,
+		loadThemeFromStorage,
+		loadTimelimitFromStorage,
+		setDifficultyToStorage,
+		setThemeToStorage,
+		setTimelimitToStorage
+	} from '$lib/localstorage/localstorage';
 
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
 	const imgCover = CARD_IMAGE_COVER_URL;
@@ -30,9 +44,18 @@
 	let choiceTwo = $derived(gameState.choiceTwo);
 	let disabled = $state(false);
 
-	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään (gameSettings.svelte.ts)
+	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään, jos tietoja ei ole lataushetkellä tilassa, ne ladataan localstoragesta (esim. kun sivu refreshataan) (gameSettings.svelte.ts) (B)
 	onMount(async () => {
-		await initalizeCards();
+		if (!gameState.theme || !gameState.difficulty || !gameState.timelimit) {
+			setTheme(loadThemeFromStorage() as Theme);
+			setDifficulty(loadDifficultyFromStorage() as Difficulty);
+			setTimelimit(loadTimelimitFromStorage() as TimeLimit);
+		}
+		setThemeToStorage(gameState.theme as string);
+		setDifficultyToStorage(gameState.difficulty as string);
+		setTimelimitToStorage(gameState.timelimit as string);
+
+		initalizeCards();
 	});
 
 	// Käsky, joka asetetaan korttien onclickiin
@@ -89,7 +112,7 @@
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
 
-{#if gameState.timelimit}
+{#if gameState.timelimit === 'Ei rajaa'}
 	<Timer />
 {/if}
 
