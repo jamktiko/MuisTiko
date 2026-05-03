@@ -133,7 +133,6 @@ export function setDisabled(value: boolean) {
 
 // Lataa valitun teeman datan mukaiset kortit ja alustaa ne (B)
 export async function initalizeCards() {
-	console.log(gameState.theme);
 	gameState.theme = gameState.theme?.toLowerCase() as Theme;
 	try {
 		const themeData = await getThemeData(gameState.theme);
