@@ -1,3 +1,4 @@
+// Luo ID-merkkijonon korteille
 export function createIdString(stringLength: number) {
 	const idNumbers = [];
 	for (let i = 0; i < stringLength; i++) {
