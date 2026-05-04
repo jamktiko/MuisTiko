@@ -139,11 +139,11 @@ export function setDisabled(value: boolean) {
 export async function initalizeCards() {
 	const themeKey = gameState.theme?.toLowerCase();
 	try {
-		const themeData = await getThemeData(themeKey as any);
+		const themeData = await getThemeData(themeKey as Theme);
 		const cardcount = difficultySetting(gameState.difficulty);
 		const selectedCards = themeData.slice(0, cardcount / 2);
 		const cardData: Card[] = selectedCards.map((item: { pic: string }) => ({
-			src: getImagePath(themeKey as any, item.pic),
+			src: getImagePath(themeKey as Theme, item.pic),
 			matched: false,
 			id: createIdString(ID_STRING_LENGTH)
 		}));

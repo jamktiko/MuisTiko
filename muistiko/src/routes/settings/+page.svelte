@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import SettingSelector from '$lib/components/SettingSelector.svelte';
 	import { goto } from '$app/navigation';
 	import {
@@ -18,15 +17,9 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { resolve } from '$app/paths';
 
-	
-	
-	
-
 	const theme = $derived(gameState.theme);
 	const difficulty = $derived(gameState.difficulty);
 	const timelimit = $derived(gameState.timelimit);
-
-
 
 	interface GameSetting {
 		text: string;
@@ -46,7 +39,7 @@
 	// funktiot, jotka asetetaan settings valikon funktioiksi
 	function handleThemeSwitch(value: string) {
 		setTheme(value as Theme);
-		localStorage.setItem('theme', value)
+		localStorage.setItem('theme', value);
 	}
 
 	function changeTimelimit(value: string) {
@@ -55,12 +48,12 @@
 			return;
 		}
 		setTimelimit(Number(value) as TimeLimit);
-		localStorage.setItem('timelimit', value)
+		localStorage.setItem('timelimit', value);
 	}
 
 	function difficultySettings(value: string) {
 		setDifficulty(value as Difficulty);
-		localStorage.setItem('difficulty', value)
+		localStorage.setItem('difficulty', value);
 	}
 
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
@@ -118,7 +111,7 @@
 <style>
 	.gameSettings {
 		display: grid;
-		gap: 1rem;
+		gap: 5rem;
 		max-width: 400px;
 		margin: 0 auto;
 		min-height: 100vh;
