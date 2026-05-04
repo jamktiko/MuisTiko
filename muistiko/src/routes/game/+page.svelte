@@ -163,7 +163,7 @@
 		min-height: 100vh;
 		text-align: center;
 		padding: 1rem;
-		color: white;
+		color: grey;
 	}
 
 	.App p {

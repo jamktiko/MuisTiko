@@ -2,6 +2,17 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+// NAPPIEN TYYLIT
+// Koti-painikkeen tyyli Headerissä
+.home-button {
+}
+// Info-painikkeen tyyli Headerissä
+.info-button {
+}
+// Asetukset-painikkeen tyyli Headerissä
+.settings-button {
+}
+
 /* High contrast mode */
 .high-contrast {
 	background-color: black !important;
@@ -21,17 +32,16 @@
 	width: 1280px;
 	height: 832px;
 	border-radius: 20px 20px 0 0;
-	background: #C3B5AA;
-	box-shadow: 0 4px 5px 0 rgba(59, 59, 59, 0.50);
-
+	background: #c3b5aa;
+	box-shadow: 0 4px 5px 0 rgba(59, 59, 59, 0.5);
 }
 .footer {
 	width: 1150px;
 	height: 50px;
 	border-radius: 20px;
-		opacity: 0.9;
-		background: #C3B5AA;
-		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.50);
+	opacity: 0.9;
+	background: #c3b5aa;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
 }
 .background {
 	background-image: ('/data/taustat/landing_aloitus_iso_tausta.svg');
@@ -41,30 +51,28 @@
 	width: 200px;
 	height: 68px;
 	border-radius: 10px;
-	border: 4px solid rgba(184, 125, 93, 0.30);
-	background-color: rgba(60, 60, 59, 0.90);
+	border: 4px solid rgba(184, 125, 93, 0.3);
+	background-color: rgba(60, 60, 59, 0.9);
 	font-family: 'Coustard', serif;
 	letter-spacing: 1px;
 }
 
-[data-theme="kissat_iso"] {
+[data-theme='kissat_iso'] {
 	--tausta: url('/data/taustat/kissat_iso_tausta.svg');
 	--header: width: 1258px height: 147px;
-	--footer: 
+	--footer:     
 
+;
 }
 
-[data-theme="koirat_iso"] {
-	--tausta: url('/data/taustat/koirat_iso_tausta.svg')
-	
+[data-theme='koirat_iso'] {
+	--tausta: url('/data/taustat/koirat_iso_tausta.svg');
 }
 
-[data-theme="opettajat_iso"] {
-	--tausta: url('/data/taustat/opettajat_iso_tausta.svg')
-	
+[data-theme='opettajat_iso'] {
+	--tausta: url('/data/taustat/opettajat_iso_tausta.svg');
 }
 
-[data-theme="tiko_iso"] {
-	--tausta: url('/data/taustat/tiko_iso_tausta.svg')
-	
+[data-theme='tiko_iso'] {
+	--tausta: url('/data/taustat/tiko_iso_tausta.svg');
 }
