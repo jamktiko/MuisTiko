@@ -39,6 +39,7 @@
 	// funktiot, jotka asetetaan settings valikon funktioiksi
 	function handleThemeSwitch(value: string) {
 		setTheme(value as Theme);
+		localStorage.setItem('theme', value);
 	}
 
 	function changeTimelimit(value: string) {
@@ -47,10 +48,12 @@
 			return;
 		}
 		setTimelimit(Number(value) as TimeLimit);
+		localStorage.setItem('timelimit', value);
 	}
 
 	function difficultySettings(value: string) {
 		setDifficulty(value as Difficulty);
+		localStorage.setItem('difficulty', value);
 	}
 
 	// settings valikko, joka määrittelee kaikki asetukset ja niiden funktiot
@@ -108,7 +111,7 @@
 <style>
 	.gameSettings {
 		display: grid;
-		gap: 1rem;
+		gap: 5rem;
 		max-width: 400px;
 		margin: 0 auto;
 		min-height: 100vh;

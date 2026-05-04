@@ -3,10 +3,11 @@
 	import SingleCard from '$lib/components/SingleCard.svelte';
 	import WinModal from '$lib/components/WinModal.svelte';
 	import LoseModal from '$lib/components/LoseModal.svelte';
-	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
+	//import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
+	import {getTheme} from '$lib/state/themeState.svelte'
 
 	// Haetaan gameState ja kaikki muu storesta (B)
 	import {
@@ -35,8 +36,16 @@
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
 
+	let theme = $derived(gameState.theme ? getTheme(gameState.theme): null)
+	let imgCover = $derived(theme?.colors.card || '')
+	let background = $derived(theme?.colors.background || '')
+
+	
+
+	
+	
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
-	const imgCover = CARD_IMAGE_COVER_URL;
+
 
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
 	let cards = $derived(gameState.cards);
@@ -44,6 +53,17 @@
 	let choiceOne = $derived(gameState.choiceOne);
 	let choiceTwo = $derived(gameState.choiceTwo);
 	let disabled = $state(false);
+
+	$effect.pre(() => {
+        // Lataa tallennetut arvot
+        const savedTheme = localStorage.getItem('theme');
+        const savedDiff = localStorage.getItem('difficulty');
+        const savedTime = localStorage.getItem('timelimit');
+        
+        if (savedTheme && !gameState.theme) setTheme(savedTheme as Theme);
+        if (savedDiff && !gameState.difficulty) setDifficulty(savedDiff as Difficulty);
+        if (savedTime && !gameState.timelimit) setTimelimit(savedTime as TimeLimit);
+    });
 
 	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään (B)
 	onMount(async () => {
@@ -120,7 +140,8 @@
 {/if}
 
 <main>
-	<div class="App">
+	<div class="App"
+	style="background-image: url({background})">
 		<button onclick={startNewGame}>Aloita alusta</button>
 		<div class="card-grid">
 			{#each cards as card (card.id)}
@@ -163,7 +184,7 @@
 		min-height: 100vh;
 		text-align: center;
 		padding: 1rem;
-		color: white;
+		color: grey;
 	}
 
 	.App p {
