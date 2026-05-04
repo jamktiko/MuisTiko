@@ -1,13 +1,13 @@
 // Funktiot asettavat sisällöt local storageen (B)
-// Asettaa teeman
+// Asettaa teeman (B)
 export function setThemeToStorage(item: string) {
 	localStorage.setItem('theme', item.toString());
 }
-// Asettaa aikarajan
+// Asettaa aikarajan (B)
 export function setTimelimitToStorage(item: string) {
 	localStorage.setItem('timelimit', item.toString());
 }
-// Asettaa korttien määrän
+// Asettaa korttien määrän (B)
 export function setDifficultyToStorage(item: string) {
 	localStorage.setItem('difficulty', item.toString());
 }
