@@ -9,6 +9,7 @@
 	});
 </script>
 
+<!-- Dropdown-valikko (R) -->
 <div class="dropdown">
 	<!-- svelte-ignore a11y_label_has_associated_control -->
 	<label>{text}</label><br />

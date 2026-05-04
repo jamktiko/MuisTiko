@@ -1,3 +1,4 @@
+<!-- Timerin alustus (R) -->
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { initTimer, stopTimer } from '$lib/state/timerState.svelte';
