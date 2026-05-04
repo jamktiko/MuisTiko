@@ -223,5 +223,5 @@ export function triggerBooster() {
 		gameState.boosterActive = false;
 		gameState.boosterCards = [];
 		gameState.disabled = false;
-	}, 3000);
+	}, 2000);
 }
