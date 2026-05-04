@@ -114,7 +114,7 @@
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
 
-{#if gameState.timelimit === 'Ei rajaa'}
+{#if gameState.timelimit !== 'Ei rajaa'}
 	<Timer />
 {/if}
 
