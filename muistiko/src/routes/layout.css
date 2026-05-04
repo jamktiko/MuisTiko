@@ -48,6 +48,10 @@
 	filter: drop-shadow(0 3px 4px #3B3B3B);
 }
 
+.home-button {
+	
+}
+
 [data-theme="kissat_iso"] {
 	--tausta: url('/data/taustat/kissat_iso_tausta.svg');
 	--header: width: 1258px height: 147px;
