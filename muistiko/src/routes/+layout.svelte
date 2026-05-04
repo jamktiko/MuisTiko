@@ -1,9 +1,9 @@
 <script lang="ts">
-//  import {onMount} from 'svelte'
+	//  import {onMount} from 'svelte'
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { appSettings } from '$lib/state/appSettings';
- // import {loadMusicFromStorage} from '$lib/localstorage/localstorage'
+	// import {loadMusicFromStorage} from '$lib/localstorage/localstorage'
 	import { soundState } from '$lib/state/soundState.svelte';
 
 	let audio: HTMLAudioElement | null = null;
@@ -13,7 +13,7 @@
 			soundState.audioElement = audio;
 		}
 	});
-	let music = $state("/data/music/music_for_video-waiting-music-116216.mp3")
+	let music = $state('/data/music/music_for_video-waiting-music-116216.mp3');
 
 	/*onMount(()=> {
 		const savedMusic = loadMusicFromStorage()
@@ -21,7 +21,6 @@
 			music = savedMusic
 		}
 	})*/
-  
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
@@ -29,5 +28,4 @@
 <div class:high-contrast={$appSettings.highContrast}>
 	{@render children()}
 </div>
-<audio bind:this={audio} src={music} loop/>
-	
+<audio> bind:this={audio} src={music} loop </audio>

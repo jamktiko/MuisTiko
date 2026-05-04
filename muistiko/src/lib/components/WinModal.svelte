@@ -13,7 +13,6 @@
 		{/snippet}
 
 		{#snippet content()}
-			<p>Aika loppui</p>
 			<p>Tehdyt siirrot: {turns}</p>
 		{/snippet}
 
