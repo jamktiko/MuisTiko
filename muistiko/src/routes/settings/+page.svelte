@@ -58,7 +58,7 @@
 		{
 			text: 'Teema',
 			placeholder: 'Valitse teema',
-			options: ['Kissat', 'Koirat', 'Opettajat', 'Tiko'],
+			options: ['Kissat', 'Koirat', 'Opettajat', 'TIKO'],
 			type: 'theme',
 			function: handleThemeSwitch
 		},
