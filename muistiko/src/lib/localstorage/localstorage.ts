@@ -12,6 +12,10 @@ export function setDifficultyToStorage(item: string) {
 	localStorage.setItem('difficulty', item.toString());
 }
 
+export function setMusicToStorage(item: string) {
+	localStorage.setItem('Audio', item.toString())
+}
+
 // Funktiot hakevat sisällöt local storagesta (B)
 // Lataa teeman (B)
 export function loadThemeFromStorage() {
@@ -26,7 +30,13 @@ export function loadDifficultyFromStorage() {
 	return localStorage.getItem('difficulty');
 }
 
+export function loadMusicFromStorage() {
+	return localStorage.getItem('Audio')
+}
+
 // Tarvittaessa tyhjennysominaisuus local storagelle (B)
 export function clearStorage() {
 	localStorage.clear();
 }
+
+
