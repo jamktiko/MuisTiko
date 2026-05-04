@@ -9,7 +9,9 @@
 		}
 	};
 
-	const isRevealed = $derived(flipped || card.matched || gameState.boosterCards.includes(card.id));
+	const isRevealed = $derived(
+		flipped || card.matched || gameState.boosterShowTwoCards.includes(card.id)
+	);
 </script>
 
 <div class="card">

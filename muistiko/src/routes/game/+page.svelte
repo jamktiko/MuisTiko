@@ -24,7 +24,7 @@
 		type Difficulty,
 		setTimelimit,
 		type TimeLimit,
-		triggerBooster
+		triggerboosterShowTwo
 	} from '$lib/state/gameState.svelte';
 	import {
 		loadDifficultyFromStorage,
@@ -134,8 +134,8 @@
 			{/each}
 		</div>
 		<button
-			onclick={triggerBooster}
-			disabled={gameState.boosterActive || gameState.gameStatus !== 'playing'}
+			onclick={triggerboosterShowTwo}
+			disabled={gameState.boosterShowTwoActive || gameState.gameStatus !== 'playing'}
 			class="rounded bg-yellow-400 p-2 hover:bg-yellow-500 disabled:opacity-50"
 		>
 			Show 2 Random Cards!
