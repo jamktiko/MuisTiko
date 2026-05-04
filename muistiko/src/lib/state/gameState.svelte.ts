@@ -61,6 +61,8 @@ interface GameState {
 	choiceTwo: Card | null;
 	disabled: boolean;
 	gameStatus: 'playing' | 'won' | 'lost';
+	boosterActive: boolean;
+	boosterCards: string[];
 }
 
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin (B)
@@ -74,7 +76,9 @@ export const gameState = $state<GameState>({
 	choiceOne: null,
 	choiceTwo: null,
 	disabled: false,
-	gameStatus: 'playing'
+	gameStatus: 'playing',
+	boosterActive: false,
+	boosterCards: []
 });
 
 // Tilankäsittelyn funktiot
@@ -202,4 +206,30 @@ export function handlePlayAgain() {
 	startNewGame();
 	gameState.gameStatus = 'playing';
 	goto(resolve('/settings'));
+}
+
+// Booster-funktio (B)
+export function triggerBooster() {
+	if (gameState.boosterActive || gameState.disabled) return;
+
+	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina
+	const availableCards = gameState.cards.filter((card) => !card.matched);
+
+	if (availableCards.length < 2) return;
+
+	// Valitaan satunnaisesti 2 korttia näistä ja asetetaan ne boosteriksi
+	const shuffled = shuffleCards(availableCards);
+	const selected = shuffled.slice(0, 2).map((c) => c.id);
+
+	// 	Asetetaan booster-kortit tilaan ja aktivoidaan booster, sekä estetään pelaaja klikkaamasta kortteja boosterin ollessa aktiivisena
+	gameState.boosterCards = selected;
+	gameState.boosterActive = true;
+	gameState.disabled = true;
+
+	// 	Asetetaan booster pois päältä 3 sekunnin kuluttua, ja vapautetaan pelaaja klikkaamaan kortteja uudestaan
+	setTimeout(() => {
+		gameState.boosterActive = false;
+		gameState.boosterCards = [];
+		gameState.disabled = false;
+	}, 2000);
 }

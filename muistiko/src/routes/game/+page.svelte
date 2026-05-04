@@ -3,7 +3,7 @@
 	import SingleCard from '$lib/components/SingleCard.svelte';
 	import WinModal from '$lib/components/WinModal.svelte';
 	import LoseModal from '$lib/components/LoseModal.svelte';
-	//import { CARD_IMAGE_COVER_URL } from '$lib/constants';
+	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
@@ -23,7 +23,8 @@
 		type Theme,
 		type Difficulty,
 		setTimelimit,
-		type TimeLimit
+		type TimeLimit,
+		triggerBooster
 	} from '$lib/state/gameState.svelte';
 	import {
 		loadDifficultyFromStorage,
@@ -33,23 +34,10 @@
 		setThemeToStorage,
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
-	import { getTheme } from '$lib/state/themeState.svelte';
 
-	let theme
-	let imgCover = $state('')
-	let background = $state('')
-
-	theme =gameState.theme ? getTheme(gameState.theme) : null
-
-	if (theme) {
-	imgCover =	theme.colors.card
-	background = theme.colors.background
-	}
-	
-	
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
+	const imgCover = CARD_IMAGE_COVER_URL;
 
-	
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
 	let cards = $derived(gameState.cards);
 	let turns = $derived(gameState.turns);
@@ -132,8 +120,7 @@
 {/if}
 
 <main>
-	<div class="App"
-	style={`background-image: url(${background})`}>
+	<div class="App">
 		<button onclick={startNewGame}>Aloita alusta</button>
 		<div class="card-grid">
 			{#each cards as card (card.id)}
@@ -146,6 +133,13 @@
 				/>
 			{/each}
 		</div>
+		<button
+			onclick={triggerBooster}
+			disabled={gameState.boosterActive || gameState.gameStatus !== 'playing'}
+			class="rounded bg-yellow-400 p-2 hover:bg-yellow-500 disabled:opacity-50"
+		>
+			Show 2 Random Cards!
+		</button>
 		<p>Siirrot: {turns}</p>
 	</div>
 </main>
@@ -170,7 +164,6 @@
 		text-align: center;
 		padding: 1rem;
 		color: white;
-		
 	}
 
 	.App p {
