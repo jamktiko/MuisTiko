@@ -20,7 +20,7 @@
 		{/if}
 
 		<nav>
-			<div>
+			<div class="header-left">
 				<!-- Kotinappi -->
 				<button
 					class="home-button"
@@ -28,7 +28,13 @@
 					aria-label="Home"
 					title="Home"
 				>
+				<img src="/data/ikonit/koti_nappi.svg" alt="Home" />
 				</button>
+								<!-- Ääni-nappi (tulee soundButton.svelte:stä)-->
+				<SoundButton />
+
+				</div>
+				<div class="header-right">
 
 				<!-- Infonappi -->
 				<button
@@ -37,6 +43,7 @@
 					aria-label="Info"
 					title="Info"
 				>
+				<img src="/data/ikonit/peliohjeet_nappi.svg" alt="Info"/>
 				</button>
 
 				<!-- Asetus-nappi -->
@@ -46,9 +53,8 @@
 					aria-label="Settings"
 					title="Settings"
 				>
+				<img src="/data/ikonit/asetukset_nappi.svg" alt="Settings"/>
 				</button>
-				<!-- Ääni-nappi (tulee soundButton.svelte:stä)-->
-				<SoundButton />
 			</div>
 		</nav>
 	</div>

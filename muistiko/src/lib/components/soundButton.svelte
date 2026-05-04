@@ -32,7 +32,11 @@
 	onmouseleave={() => (soundState.showSlider = false)}
 >
 	<button onclick={handleSound}>
-		{soundState.muted ? '🔇' : '🔊'}
+		{#if soundState.muted}
+		<img src="/data/ikonit/volumeoff.svg" alt="Volume off" />
+		{:else}
+		<img src="/data/ikonit/volume.svg" alt="Volume on" />
+		{/if}
 	</button>
 
 	{#if soundState.showSlider && !soundState.muted}

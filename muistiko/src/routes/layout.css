@@ -2,42 +2,138 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-// NAPPIEN TYYLIT
-// Koti-painike
-.home-button {
+
+/* Header */
+.header-row {
+	width: 100%;
+	height: 147px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem;
+	border-radius: 20px 20px 0 0;
+	background: #C3B5AA;
+		filter: drop-shadow(0 3px 4px #3B3B3B);
 }
 
-// Info-painike
+.header-left {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.header-right {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 1rem;
+}
+/* NAPPIEN TYYLIT */
+
+/* Koti-painike */
+.home-button {
+
+}
+
+/* Info-painike */
 .info-button {
 }
 
-// Asetukset-painike
+/* Asetukset-painike */
 .settings-button {
 }
+/* LANDINGPAGE ASETUKSET */
 
-// Aloita peli-painike
-.start-button {
-}
+	.landing-page {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		background-image: url('/data/taustat/landing_aloitus_iso_tausta.svg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: rgba(195, 181, 170, 0.6);
 
-// Aloita peli-painike HOVER
+	}
+
+	.content-box {
+		width: 888px;
+		height: 532px;
+		border-radius: 25px;
+		border: 6px solid rgba(60, 60, 59, 0.50);
+		background: rgba(251, 251, 251, 0.98);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		padding: 5rem;
+		filter: drop-shadow(0 3px 4px #3B3B3B);
+
+	}
+	
+	.logo {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.main-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem;
+	}
+
+	.start-button:hover {
+		transform: scale(1.05);
+	}
+
+	.start-button:active {
+		transform: scale(0.98);
+	}
+
+
+
+/* Aloita peli-painike HOVER */
 .start-button:hover {
 	transform: scale(1.05);
 }
 
-// PÄÄELEMENTTIEN TYYLIT 
-// Header
-.header {
-}
-
-// Footer
+/* Footer */
 .footer {
+	max-width: 1150px;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	background-color: #C3B5AA;
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.50);
+	margin: 0 auto 2rem auto;
+
 }
 
-// Footer teksti
+/* Footer teksti */
 .footer p {
+	font-family: 'Coustard', serif;
+		letter-spacing: 0.05em;
+	
+
 }
 
-// Esiasetusvalikko
+/* Esiasetusvalikko */
 .gameSettings {
 	display: grid;
 	gap: 5rem;
@@ -46,8 +142,9 @@
 	min-height: 100vh;
 }
 
-// MODAALIEN TYYLIT
-// Modaalin taustan tyyli
+/* MODAALIEN TYYLIT
+Modaalin taustan tyyli
+*/
 .backdrop {
 	position: fixed;
 	top: 0;
@@ -57,7 +154,7 @@
 	background: rgba(0, 0, 0, 0.75);
 	z-index: 10;
 }
-// Modaalin sisältöalueen tyyli
+/*Modaalin sisältöalueen tyyli*/
 	.modal {
 	padding: 1rem;
 	position: fixed;
@@ -106,30 +203,12 @@
 .high-contrast img {
 	filter: invert(1) !important;
 }
-<<<<<<< HEAD
-.header-row {
-	width: 1258px;
-	height: 147px;
-	border-radius: 20px 20px 0 0;
-	background: #C3B5AA;
-	box-shadow: 0 4px 5px 0 rgba(59, 59, 59, 0.50);
 
-}
-.footer {
-	width: 1150px;
-	height: 50px;
-	border-radius: 20px;
-		opacity: 0.9;
-		background-color: #C3B5AA;
-		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.50);
-}
-.background {
-	background-image: ('/data/taustat/landing_aloitus_iso_tausta.svg');
-}
-
+/* ALOITA PELI */
 .start-button {
 	width: 200px;
 	height: 68px;
+	margin-top: 5rem;
 	border-radius: 10px;
 	border: 4px solid #F3E1CD; 
 		opacity: 0.3;
@@ -166,5 +245,3 @@
 	--tausta: url('/data/taustat/tiko_iso_tausta.svg')
 	
 }
-=======
->>>>>>> c0b368d1d5185b295bb8f34c77fdb488891515a6
