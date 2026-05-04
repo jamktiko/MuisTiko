@@ -177,8 +177,16 @@ export function turnOverCorrectPair() {
 }
 
 // Sekoittaa kortit
-export function shuffleCards(cardData: Card[]) {
-	return [...cardData].sort(() => Math.random() - 0.5);
+// Fisher-Yates algoritmi (R)
+export function shuffleCards(cards: Card[]): Card[] {
+	const array = [...cards];
+
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+
+	return array;
 }
 
 // Alustaa uudelleenpelaamisen (B)
