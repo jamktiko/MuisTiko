@@ -44,13 +44,15 @@
 	let choiceTwo = $derived(gameState.choiceTwo);
 	let disabled = $state(false);
 
-	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään, jos tietoja ei ole lataushetkellä tilassa, ne ladataan localstoragesta (esim. kun sivu refreshataan) (gameSettings.svelte.ts) (B)
+	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään (B)
 	onMount(async () => {
+		// Jos tietoja ei ole lataushetkellä tilassa, ne ladataan localstoragesta (esim. kun sivu refreshataan) (B)
 		if (!gameState.theme || !gameState.difficulty || !gameState.timelimit) {
 			setTheme(loadThemeFromStorage() as Theme);
 			setDifficulty(loadDifficultyFromStorage() as Difficulty);
 			setTimelimit(loadTimelimitFromStorage() as TimeLimit);
 		}
+		// Asetetaan localstorageen kaikki tarvittavat tiedot, jotta ne voidaan hakea uudestaan, jos sivu refreshataan (B)
 		setThemeToStorage(gameState.theme as string);
 		setDifficultyToStorage(gameState.difficulty as string);
 		setTimelimitToStorage(gameState.timelimit as string);
