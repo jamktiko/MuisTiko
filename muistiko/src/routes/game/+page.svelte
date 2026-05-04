@@ -7,6 +7,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
+	import {getTheme} from '$lib/state/themeState.svelte'
 
 	// Haetaan gameState ja kaikki muu storesta (B)
 	import {
@@ -23,7 +24,8 @@
 		type Theme,
 		type Difficulty,
 		setTimelimit,
-		type TimeLimit
+		type TimeLimit,
+		triggerboosterShowTwo
 	} from '$lib/state/gameState.svelte';
 	import {
 		loadDifficultyFromStorage,
@@ -33,7 +35,6 @@
 		setThemeToStorage,
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
-	import { getTheme } from '$lib/state/themeState.svelte';
 
 	let theme = $derived(gameState.theme ? getTheme(gameState.theme): null)
 	let imgCover = $derived(theme?.colors.card || '')
@@ -45,7 +46,7 @@
 	
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
 
-	
+
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
 	let cards = $derived(gameState.cards);
 	let turns = $derived(gameState.turns);
@@ -140,7 +141,7 @@
 
 <main>
 	<div class="App"
-	style={`background-image: url(${background})`}>
+	style="background-image: url({background})">
 		<button onclick={startNewGame}>Aloita alusta</button>
 		<div class="card-grid">
 			{#each cards as card (card.id)}
@@ -153,6 +154,13 @@
 				/>
 			{/each}
 		</div>
+		<button
+			onclick={triggerboosterShowTwo}
+			disabled={gameState.boosterShowTwoActive || gameState.gameStatus !== 'playing'}
+			class="rounded bg-yellow-400 p-2 hover:bg-yellow-500 disabled:opacity-50"
+		>
+			Show 2 Random Cards!
+		</button>
 		<p>Siirrot: {turns}</p>
 	</div>
 </main>
@@ -177,7 +185,6 @@
 		text-align: center;
 		padding: 1rem;
 		color: white;
-		
 	}
 
 	.App p {
