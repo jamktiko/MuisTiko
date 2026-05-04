@@ -67,17 +67,7 @@
 		color: rgb(34, 33, 33) e0e;
 	}
 
-	.start-button {
-		background: #aaa;
-		border: none;
-		padding: 1rem 3rem;
-		font-size: 1.5rem;
-		color: black;
-		font-weight: bold;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
+	
 
 	.start-button:hover {
 		transform: scale(1.05);

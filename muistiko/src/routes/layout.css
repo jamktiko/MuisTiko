@@ -28,9 +28,9 @@
 .high-contrast img {
 	filter: invert(1) !important;
 }
-.header {
-	width: 1280px;
-	height: 832px;
+.header-row {
+	width: 1258px;
+	height: 147px;
 	border-radius: 20px 20px 0 0;
 	background: #c3b5aa;
 	box-shadow: 0 4px 5px 0 rgba(59, 59, 59, 0.5);
@@ -47,7 +47,7 @@
 	background-image: ('/data/taustat/landing_aloitus_iso_tausta.svg');
 }
 
-.aloita_peli_nappi {
+.start-button {
 	width: 200px;
 	height: 68px;
 	border-radius: 10px;
@@ -55,6 +55,11 @@
 	background-color: rgba(60, 60, 59, 0.9);
 	font-family: 'Coustard', serif;
 	letter-spacing: 1px;
+	filter: drop-shadow(0 3px 4px #3B3B3B);
+}
+
+.home-button {
+	
 }
 
 [data-theme='kissat_iso'] {
