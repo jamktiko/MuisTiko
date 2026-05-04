@@ -133,13 +133,13 @@ export function setDisabled(value: boolean) {
 
 // Lataa valitun teeman datan mukaiset kortit ja alustaa ne (B)
 export async function initalizeCards() {
-	gameState.theme = gameState.theme?.toLowerCase() as Theme;
+	const themeKey = gameState.theme?.toLowerCase();
 	try {
-		const themeData = await getThemeData(gameState.theme);
+		const themeData = await getThemeData(themeKey as any);
 		const cardcount = difficultySetting(gameState.difficulty);
 		const selectedCards = themeData.slice(0, cardcount / 2);
 		const cardData: Card[] = selectedCards.map((item: { pic: string }) => ({
-			src: getImagePath(gameState.theme, item.pic),
+			src: getImagePath(themeKey as any, item.pic),
 			matched: false,
 			id: createIdString(ID_STRING_LENGTH)
 		}));

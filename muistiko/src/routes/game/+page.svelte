@@ -35,16 +35,12 @@
 	} from '$lib/localstorage/localstorage';
 	import { getTheme } from '$lib/state/themeState.svelte';
 
-	let theme
-	let imgCover = $state('')
-	let background = $state('')
+	let theme = $derived(gameState.theme ? getTheme(gameState.theme): null)
+	let imgCover = $derived(theme?.colors.card || '')
+	let background = $derived(theme?.colors.background || '')
 
-	theme =gameState.theme ? getTheme(gameState.theme) : null
+	
 
-	if (theme) {
-	imgCover =	theme.colors.card
-	background = theme.colors.background
-	}
 	
 	
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
@@ -56,6 +52,17 @@
 	let choiceOne = $derived(gameState.choiceOne);
 	let choiceTwo = $derived(gameState.choiceTwo);
 	let disabled = $state(false);
+
+	$effect.pre(() => {
+        // Lataa tallennetut arvot
+        const savedTheme = localStorage.getItem('theme');
+        const savedDiff = localStorage.getItem('difficulty');
+        const savedTime = localStorage.getItem('timelimit');
+        
+        if (savedTheme && !gameState.theme) setTheme(savedTheme as Theme);
+        if (savedDiff && !gameState.difficulty) setDifficulty(savedDiff as Difficulty);
+        if (savedTime && !gameState.timelimit) setTimelimit(savedTime as TimeLimit);
+    });
 
 	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään (B)
 	onMount(async () => {

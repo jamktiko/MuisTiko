@@ -28,4 +28,4 @@
 <div class:high-contrast={$appSettings.highContrast}>
 	{@render children()}
 </div>
-<audio> bind:this={audio} src={music} loop </audio>
+<audio bind:this={audio} src={music} loop />
