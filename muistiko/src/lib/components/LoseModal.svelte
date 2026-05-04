@@ -6,6 +6,7 @@
 	let turns = $derived(gameState.turns);
 </script>
 
+<!-- Häviötilanteessa ilmestyvä modalikkuna (R) -->
 <div class="lose-modal">
 	<Modal>
 		{#snippet header()}

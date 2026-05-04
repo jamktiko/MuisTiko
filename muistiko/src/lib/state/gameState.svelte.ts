@@ -4,7 +4,7 @@ import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
-import { resetTimer } from '$lib/state/timerState.svelte';
+import { clearStoredTimer, initTimer, stopTimer } from '$lib/state/timerState.svelte';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO' | null;
 
@@ -181,7 +181,9 @@ export function shuffleCards(cardData: Card[]) {
 export const startNewGame = () => {
 	resetCards();
 	setTurns(0);
-	resetTimer();
+	stopTimer();
+	clearStoredTimer();
+	initTimer();
 	setChoiceOne(null);
 	setChoiceTwo(null);
 	gameState.gameStatus = 'playing';
