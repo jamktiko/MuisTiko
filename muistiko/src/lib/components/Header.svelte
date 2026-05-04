@@ -20,9 +20,8 @@
 		{/if}
 
 		<nav>
-			<div class="navigation">
+<div>
 				<button
-					class="icon-button"
 					onclick={() => (window.location.href = '/')}
 					aria-label="Home"
 					title="Home"
@@ -32,7 +31,6 @@
 					</svg>
 				</button>
 				<button
-					class="icon-button"
 					onclick={() => (showInfo = true)}
 					aria-label="Info"
 					title="Info"
@@ -44,7 +42,6 @@
 					</svg>
 				</button>
 				<button
-					class="icon-button"
 					onclick={() => (showSettings = true)}
 					aria-label="Settings"
 					title="Settings"
@@ -69,65 +66,3 @@
 	{/if}
 </header>
 
-<style>
-	header {
-		padding: 1.5rem 2rem;
-		background-color: #aaa;
-	}
-
-	.header-row {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1.5rem;
-	}
-
-	.logo-container {
-		flex: 0 0 auto;
-		max-width: 240px;
-	}
-
-	.logo-container img {
-		max-height: 80px;
-		max-width: 100%;
-		object-fit: contain;
-	}
-
-	nav {
-		flex: 1 1 auto;
-	}
-
-	.navigation {
-		display: flex;
-		justify-content: flex-end;
-		gap: 0.75rem;
-		flex-wrap: wrap;
-	}
-
-	.icon-button {
-		width: 44px;
-		height: 44px;
-		border: none;
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.85);
-		color: #333;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		transition:
-			background-color 0.2s ease,
-			transform 0.2s ease;
-		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-	}
-
-	.icon-button:hover {
-		background: #fff;
-		transform: translateY(-1px);
-	}
-
-	.icon-button svg {
-		width: 20px;
-		height: 20px;
-	}
-</style>
