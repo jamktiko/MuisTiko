@@ -34,10 +34,10 @@ export function difficultySetting(d: Difficulty): number {
 	}
 }
 
-export function timeLimitToSeconds(t: TimeLimit): number | undefined {
+export function timeLimitToSeconds(t: TimeLimit): number | null {
 	switch (t) {
 		case 'Ei rajaa':
-			return undefined;
+			return NaN;
 		case 1:
 			return 60;
 		case 2:
@@ -45,7 +45,7 @@ export function timeLimitToSeconds(t: TimeLimit): number | undefined {
 		case 3:
 			return 180;
 		default:
-			return undefined;
+			return NaN;
 	}
 }
 
