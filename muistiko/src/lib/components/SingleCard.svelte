@@ -25,7 +25,7 @@
 
 	.card :hover {
 		cursor: pointer;
-		box-shadow: 10px 10px 10px black;
+		transform: scale(1.05);
 		size: 110%;
 	}
 	.back-btn {
@@ -38,9 +38,8 @@
 	}
 	.card img {
 		width: 100%;
-		display: block;
-		border: 2px solid #fff;
-		border-radius: 6px;
+		height: auto;
+		border-radius: 8px;
 	}
 
 	/* korttien kuvapuoli */
