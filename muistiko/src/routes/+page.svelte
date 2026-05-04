@@ -29,7 +29,7 @@
 			<div class="logo">muisTIKO?</div>
 			<p>Tähän tekstiä</p>
 		</div>
-		<button class="start-button" onclick={aloitaPeli}> PELAA </button>
+		<button class="start-button" onclick={aloitaPeli}> ALOITA PELI </button>
 	</main>
 </div>
 
@@ -67,7 +67,6 @@
 		color: rgb(34, 33, 33) e0e;
 	}
 
-	
 
 	.start-button:hover {
 		transform: scale(1.05);
