@@ -1,3 +1,4 @@
+<!-- Komponentti voittomodaalille ja sen sisällöille (B)-->
 <script lang="ts">
 	import Modal from './Modal.svelte';
 	import Button from './Button.svelte';

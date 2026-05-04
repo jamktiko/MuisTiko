@@ -5,9 +5,8 @@ import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
 import { resetTimer } from '$lib/state/timerState.svelte';
-//import { changeMusic } from './soundState.svelte';
 
-export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO';
+export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO' | null;
 
 // Interface korteille
 export interface Card {
@@ -15,10 +14,10 @@ export interface Card {
 	matched: boolean;
 	id: string;
 }
-//vaikeustaso määrittely
-export type Difficulty = '12' | '16' | '20' | '30';
+// vaikeustaso määrittely
+export type Difficulty = '12' | '16' | '20' | '30' | null;
 
-export type TimeLimit = string | 1 | 2 | 3;
+export type TimeLimit = string | 1 | 2 | 3 | null;
 
 export function difficultySetting(d: Difficulty): number {
 	switch (d) {
@@ -50,7 +49,7 @@ export function timeLimitToSeconds(t: TimeLimit): number | undefined {
 	}
 }
 
-// Määritellään pelitilan tyyppi
+// Määritellään pelitilan tyyppi (B)
 interface GameState {
 	points: number;
 	difficulty: Difficulty;
@@ -61,17 +60,17 @@ interface GameState {
 	choiceOne: Card | null;
 	choiceTwo: Card | null;
 	disabled: boolean;
-	gameStatus: 'playing' | 'won' | 'lost'; // Käytetään timerin uudelleenkäynnistämiseen
+	gameStatus: 'playing' | 'won' | 'lost';
 }
 
-// Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin
+// Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin (B)
 export const gameState = $state<GameState>({
 	points: 0,
-	difficulty: '12',
-	theme: '' as Theme,
+	difficulty: null,
+	theme: null as Theme,
 	cards: [],
 	turns: 0,
-	timelimit: 'Ei rajaa',
+	timelimit: null,
 	choiceOne: null,
 	choiceTwo: null,
 	disabled: false,
@@ -93,11 +92,7 @@ export function setDifficulty(value: Difficulty) {
 }
 
 export function setTimelimit(value: TimeLimit) {
-	if (value === 'Ei rajaa') {
-		return;
-	} else {
-		gameState.timelimit = value;
-	}
+	gameState.timelimit = value;
 }
 
 export function setTheme(value: Theme) {
@@ -136,9 +131,9 @@ export function setDisabled(value: boolean) {
 	gameState.disabled = value;
 }
 
-// Lataa valitun teeman datan mukaiset kortit ja alustaa ne
+// Lataa valitun teeman datan mukaiset kortit ja alustaa ne (B)
 export async function initalizeCards() {
-	gameState.theme = gameState.theme.toLowerCase() as Theme;
+	gameState.theme = gameState.theme?.toLowerCase() as Theme;
 	try {
 		const themeData = await getThemeData(gameState.theme);
 		const cardcount = difficultySetting(gameState.difficulty);
@@ -192,7 +187,7 @@ export const startNewGame = () => {
 	gameState.gameStatus = 'playing';
 };
 
-// Funktio voitto/häviömodaalin uudelleenpelausnappiin
+// Funktio voitto/häviömodaalin uudelleenpelausnappiin, joka vie asetussivulle (B)
 export function handlePlayAgain() {
 	startNewGame();
 	gameState.gameStatus = 'playing';
