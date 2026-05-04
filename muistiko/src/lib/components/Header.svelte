@@ -31,7 +31,7 @@
 				<img src="/data/ikonit/koti_nappi.svg" alt="Home" />
 				</button>
 								<!-- Ääni-nappi (tulee soundButton.svelte:stä)-->
-				<SoundButton />
+				<SoundButton class="volume-button"/>
 
 				</div>
 				<div class="header-right">

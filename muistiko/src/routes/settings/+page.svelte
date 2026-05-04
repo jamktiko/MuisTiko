@@ -87,11 +87,13 @@
 	}
 </script>
 
-<Header gameLogo="" />
+<Header gameLogo="kissat"/>
 
 <!-- settings valikko, joka luo SettingSelector komponentit gameSettings taulukon perusteella -->
-<div class="gameSettings">
+<div class="landing-page">
 	<main class="main-content">
+	<div class="content-box settings-content">
+	<div class="dropdown-row">
 		{#each gameSettings as gameSetting (gameSetting.text)}
 			<SettingSelector
 				onChange={gameSetting.function}
@@ -100,40 +102,11 @@
 				options={gameSetting.options}
 			/>
 		{/each}
-		<div class="start-button">
-			<Button disabled={!allSettingsSelected()} text="Aloita peli!" onclick={startGame} />
+		</div>
+			<Button disabled={!allSettingsSelected()} text="ALOITA PELI" onclick={startGame} />
 		</div>
 	</main>
+	<Footer/>
 </div>
 
-<Footer />
 
-<style>
-	.gameSettings {
-		display: grid;
-		gap: 5rem;
-		max-width: 400px;
-		margin: 0 auto;
-		min-height: 100vh;
-	}
-
-	.start-button {
-		background: #aaa;
-		border: none;
-		padding: 1rem 3rem;
-		font-size: 1.5rem;
-		color: black;
-		font-weight: bold;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
-
-	.start-button:hover {
-		transform: scale(1.05);
-	}
-
-	.start-button:active {
-		transform: scale(0.98);
-	}
-</style>
