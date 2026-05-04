@@ -3,7 +3,7 @@
 	import SingleCard from '$lib/components/SingleCard.svelte';
 	import WinModal from '$lib/components/WinModal.svelte';
 	import LoseModal from '$lib/components/LoseModal.svelte';
-	import { CARD_IMAGE_COVER_URL } from '$lib/constants';
+	//import { CARD_IMAGE_COVER_URL } from '$lib/constants';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
@@ -33,10 +33,23 @@
 		setThemeToStorage,
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
+	import { getTheme } from '$lib/state/themeState.svelte';
 
+	let theme
+	let imgCover = $state('')
+	let background = $state('')
+
+	theme =gameState.theme ? getTheme(gameState.theme) : null
+
+	if (theme) {
+	imgCover =	theme.colors.card
+	background = theme.colors.background
+	}
+	
+	
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
-	const imgCover = CARD_IMAGE_COVER_URL;
 
+	
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
 	let cards = $derived(gameState.cards);
 	let turns = $derived(gameState.turns);
@@ -119,7 +132,8 @@
 {/if}
 
 <main>
-	<div class="App">
+	<div class="App"
+	style={`background-image: url(${background})`}>
 		<button onclick={startNewGame}>Aloita alusta</button>
 		<div class="card-grid">
 			{#each cards as card (card.id)}
@@ -156,6 +170,7 @@
 		text-align: center;
 		padding: 1rem;
 		color: white;
+		
 	}
 
 	.App p {
