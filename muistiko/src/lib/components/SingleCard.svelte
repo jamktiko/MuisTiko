@@ -21,12 +21,12 @@
 <style>
 	.card {
 		position: relative;
+		background-color: transparent;
 	}
 
 	.card :hover {
 		cursor: pointer;
-		transform: scale(1.05);
-		size: 110%;
+		transform: scale(1.01);
 	}
 	.back-btn {
 		background: none;
@@ -40,6 +40,7 @@
 		width: 100%;
 		height: auto;
 		border-radius: 8px;
+		background-color: transparent;
 	}
 
 	/* korttien kuvapuoli */
