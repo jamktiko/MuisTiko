@@ -41,14 +41,6 @@
 		setTheme(value as Theme);
 	}
 
-	/* function handleGeneralSetting(text: string, value: string) {
-		if (text === 'Aikaraja (min)') {
-			const seconds = Number(value) * 60;
-			gameState.timeRemaining = seconds;
-			gameState.hasTimer = true;
-		}
-	} */
-
 	function changeTimelimit(value: string) {
 		if (value === 'Ei rajaa') {
 			setTimelimit(value as TimeLimit);
@@ -90,9 +82,6 @@
 		console.log(theme, difficulty, timelimit);
 		return theme && difficulty && timelimit ? true : false;
 	}
-
-	const allSelected = $derived(allSettingsSelected());
-	console.log(allSelected);
 </script>
 
 <Header gameLogo="" />

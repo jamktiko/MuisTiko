@@ -114,7 +114,7 @@
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
 
-{#if gameState.timelimit === 'Ei rajaa'}
+{#if gameState.timelimit !== 'Ei rajaa'}
 	<Timer />
 {/if}
 
@@ -141,7 +141,7 @@
 	<WinModal />
 {/if}
 
-{#if gameState.gameStatus === 'lost'}
+{#if gameState.gameStatus === 'lost' && gameState.timelimit !== 'Ei rajaa'}
 	<LoseModal />
 {/if}
 
