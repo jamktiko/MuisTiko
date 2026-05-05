@@ -79,6 +79,21 @@ nav {
 	background-repeat: no-repeat;
 	background-color: rgba(195, 181, 170, 0.6);
 }
+
+/* PELIALUEIDEN ASETUKSET */
+
+.game-page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-image: var(--tausta);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: rgba(195, 181, 170, 0.6);
+}
+
+
 /* Toiminto alue */
 .content-box {
 	width: 888px;
@@ -231,10 +246,14 @@ Modaalin taustan tyyli
 /* Teemojen tyylit */
 [data-theme='kissat_iso'] {
 	--tausta: url('/data/taustat/kissat_tausta.png');
+<<<<<<< HEAD
+	--color-header: #C3B5AA;
+	--color-footer: #C3B5AA;                                                             
+=======
 	--header: width: 1258px height: 147px;
 	--footer:                                                                             
+>>>>>>> f00991c89c5076b5895e067dd71f0c1967bbf307
 
-;
 }
 
 [data-theme='koirat_iso'] {
@@ -254,6 +273,7 @@ Modaalin taustan tyyli
 }
 
 /* Korkean kontrastin tyylit */
+
 .high-contrast {
 	background-color: black !important;
 	color: white !important;
@@ -355,6 +375,16 @@ Modaalin taustan tyyli
 	transition: transform 0.5s;
 }
 
+<<<<<<< HEAD
+
+
+.card-grid {
+		margin-top: 40px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
+	}
+=======
 /* BOOSTERINAPPULAT */
 
 .booster-show-two {
@@ -365,3 +395,4 @@ Modaalin taustan tyyli
 .booster-show-two:hover {
 	transform: scale(1.05);
 }
+>>>>>>> f00991c89c5076b5895e067dd71f0c1967bbf307

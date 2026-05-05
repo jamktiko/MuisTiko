@@ -135,6 +135,11 @@
 	<Timer />
 {/if}
 
+<main class="game-page" data-theme={gameState.theme}>
+	<div class="App"
+	style="background-image: url({background})">
+	<div class="content-box">
+		<button onclick={startNewGame}>Aloita alusta</button>
 <main>
 	<div class="game" style="background-image: url({background})">
 		<!-- Aloita alusta-nappi-->
@@ -169,6 +174,8 @@
 				Näytä 2 korttia!
 			{/if}
 		</button>
+		</div>
+		<p>Siirrot: {turns}</p>
 	</div>
 </main>
 
