@@ -139,10 +139,8 @@
 				<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
 				<!-- Käänötjen määrä -->
 				<div class="game-nav-button">Käännöt: {turns}</div>
-				<!-- Ajastin näkyy jos on aikaraja -->
-				{#if gameState.timelimit !== 'Ei rajaa'}
-					<Timer />
-				{/if}
+				<!-- Ajastin, kulkee ylös tai alas (R) -->
+				<Timer />
 				<!-- Lopeta peli-nappi -->
 				<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
 			</div>
