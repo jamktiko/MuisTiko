@@ -232,7 +232,7 @@ Modaalin taustan tyyli
 [data-theme='kissat_iso'] {
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--header: width: 1258px height: 147px;
-	--footer:                                                              
+	--footer:                                                                             
 
 ;
 }
@@ -277,7 +277,33 @@ Modaalin taustan tyyli
 	transform: scale(0.98);
 }
 
-/* PELIKORTTIEN ASETTELU JA TYYLIT (siirretty komponenteista) (B) */
+/* PELINÄKYMÄN JA PELIKORTTIEN ASETTELU JA TYYLIT (siirretty komponenteista ja game/+page.svelte) (B) */
+.game {
+	max-width: 860px;
+	margin: 0 auto;
+	background: #fff;
+	min-height: 100vh;
+	text-align: center;
+	padding: 1rem;
+	color: grey;
+}
+
+.game p {
+	font-size: 1.2rem;
+	margin-top: 1rem;
+	color: black;
+}
+
+/* ALOITA ALUSTA NAPPI */
+.start-again {
+	color: black;
+	background-color: white;
+}
+
+.start-again:hover {
+	transform: scale(1.05);
+}
+
 .card-grid {
 	margin-top: 40px;
 	display: grid;
@@ -319,7 +345,7 @@ Modaalin taustan tyyli
 	transition: transform 0.5s;
 }
 
-/** korttien takapuoli */
+/* korttien takapuoli */
 .card .back {
 	transform: rotateY(0deg);
 	transition: transform 0.5s;
@@ -327,4 +353,15 @@ Modaalin taustan tyyli
 .flipped .back {
 	transform: rotateY(90deg);
 	transition: transform 0.5s;
+}
+
+/* BOOSTERINAPPULAT */
+
+.booster-show-two {
+	color: black;
+	background-color: white;
+}
+
+.booster-show-two:hover {
+	transform: scale(1.05);
 }

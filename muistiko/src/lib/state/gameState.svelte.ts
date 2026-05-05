@@ -61,8 +61,10 @@ interface GameState {
 	choiceTwo: Card | null;
 	disabled: boolean;
 	gameStatus: 'playing' | 'won' | 'lost';
+	// boosterShowTwo-tilamuuttujat (B)
 	boosterShowTwoActive: boolean;
 	boosterShowTwoCards: string[];
+	boosterShowTwoUsed: boolean;
 }
 
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin (B)
@@ -77,8 +79,10 @@ export const gameState = $state<GameState>({
 	choiceTwo: null,
 	disabled: false,
 	gameStatus: 'playing',
+	// boosterShowTwo-tilamuuttujat (B)
 	boosterShowTwoActive: false,
-	boosterShowTwoCards: []
+	boosterShowTwoCards: [],
+	boosterShowTwoUsed: false
 });
 
 // Tilankäsittelyn funktiot
@@ -158,10 +162,11 @@ export async function initalizeCards() {
 	}
 }
 
-// Luodaan joka kortille pari
+// Tuplaa kortit, jotta niistä saadaan parit
 function duplicateCards(cardData: Card[]) {
 	const duplicatedArray: Card[] = [];
 
+	// Käydään kortit läpi ja luodaan niistä parit, samalla generoidaan uusi ID jokaiselle kortille, jotta ne voidaan erottaa toisistaan
 	for (const card of cardData) {
 		duplicatedArray.push({ ...card, id: createIdString(ID_STRING_LENGTH) });
 		duplicatedArray.push({ ...card, id: createIdString(ID_STRING_LENGTH) });
@@ -169,7 +174,7 @@ function duplicateCards(cardData: Card[]) {
 
 	return duplicatedArray;
 }
-
+// Merkitään kortit jotka pelaaja on valinnut matchatuiksi, jos ne ovat pari
 export function turnOverCorrectPair() {
 	gameState.cards = gameState.cards.map((card) =>
 		card.src === gameState.choiceOne!.src ? { ...card, matched: true } : card
@@ -189,7 +194,7 @@ export function shuffleCards(cards: Card[]): Card[] {
 	return array;
 }
 
-// Alustaa uudelleenpelaamisen (B)
+// Alustaa uudelleenpelaamisen
 export const startNewGame = () => {
 	resetCards();
 	setTurns(0);
@@ -198,6 +203,9 @@ export const startNewGame = () => {
 	initTimer();
 	setChoiceOne(null);
 	setChoiceTwo(null);
+	gameState.boosterShowTwoUsed = false;
+	gameState.boosterShowTwoActive = false;
+	gameState.boosterShowTwoCards = [];
 	gameState.gameStatus = 'playing';
 };
 
@@ -208,28 +216,40 @@ export function handlePlayAgain() {
 	goto(resolve('/settings'));
 }
 
-// boosterShowTwo-funktio (B)
+// FUNKTIO BOOSTERILLE SHOW TWO (Näyttää pelaajalle kaksi korttia) (B)
 export function triggerboosterShowTwo() {
-	if (gameState.boosterShowTwoActive || gameState.disabled) return;
+	if (
+		gameState.boosterShowTwoUsed ||
+		gameState.boosterShowTwoActive ||
+		gameState.disabled ||
+		gameState.gameStatus !== 'playing'
+	) {
+		return;
+	}
 
-	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina
-	const availableCards = gameState.cards.filter((card) => !card.matched);
+	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina (B) ja jotka eivät ole choiceOne tai choiceTwo, jotta niitä ei näytettäisi
+	const availableCards = gameState.cards.filter(
+		(card) => !card.matched && card !== gameState.choiceOne && card !== gameState.choiceTwo
+	);
 
 	if (availableCards.length < 2) return;
 
-	// Valitaan satunnaisesti 2 korttia näistä ja asetetaan ne boosterShowTwoiksi
+	// Merkitään boosterShowTwo käytetyksi, jotta sitä ei voi käyttää uudestaan saman pelin aikana (B)
+	gameState.boosterShowTwoUsed = true;
+
+	// Valitaan satunnaisesti kaksi korttia saatavilla olevista korteista, asetetaan ne tilaan ja aktivoidaan boosterShowTwo (B)
 	const shuffled = shuffleCards(availableCards);
 	const selected = shuffled.slice(0, 2).map((c) => c.id);
 
-	// 	Asetetaan boosterShowTwo-kortit tilaan ja aktivoidaan boosterShowTwo, sekä estetään pelaaja klikkaamasta kortteja boosterShowTwoin ollessa aktiivisena
+	// 	Asetetaan boosterShowTwo-kortit tilaan ja aktivoidaan boosterShowTwo, sekä estetään pelaaja klikkaamasta kortteja boosterShowTwoin ollessa aktiivisena (B)
 	gameState.boosterShowTwoCards = selected;
 	gameState.boosterShowTwoActive = true;
 	gameState.disabled = true;
 
-	// 	Asetetaan boosterShowTwo pois päältä 3 sekunnin kuluttua, ja vapautetaan pelaaja klikkaamaan kortteja uudestaan
+	// 	Asetetaan boosterShowTwo pois päältä x sekunnin kuluttua, ja vapautetaan pelaaja klikkaamaan kortteja uudestaan (B)
 	setTimeout(() => {
 		gameState.boosterShowTwoActive = false;
 		gameState.boosterShowTwoCards = [];
 		gameState.disabled = false;
-	}, 1500);
+	}, 1000);
 }
