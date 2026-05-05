@@ -33,9 +33,9 @@
 >
 	<button onclick={handleSound}>
 		{#if soundState.muted}
-		<img src="/data/ikonit/volumeoff.svg" alt="Volume off" />
+			<img src="/data/ikonit/volumeoff.svg" alt="Volume off" />
 		{:else}
-		<img src="/data/ikonit/volume.svg" alt="Volume on" />
+			<img src="/data/ikonit/volume.svg" alt="Volume on" />
 		{/if}
 	</button>
 

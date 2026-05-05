@@ -8,4 +8,4 @@
 	let { text, onclick, disabled = false }: Props = $props();
 </script>
 
-<button class="start-button" style="width: 200px; height: 68px;" {onclick} {disabled}>{text}</button>
+<button class="start-button" {onclick} {disabled}>{text}</button>
