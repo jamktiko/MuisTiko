@@ -25,7 +25,8 @@
 		type Difficulty,
 		setTimelimit,
 		type TimeLimit,
-		triggerboosterShowTwo
+		triggerboosterShowTwo,
+		goToHome
 	} from '$lib/state/gameState.svelte';
 	import {
 		loadDifficultyFromStorage,
@@ -134,18 +135,15 @@
 <main class="game-page">
 	<div class="main-content">
 		<div class="content-box game-box">
-
 			<div class="game-top-row">
 				<!-- Aloita alusta-napi -->
 				<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
 				<!-- Käänötjen määrä -->
 				<div class="game-nav-button">Käännöt: {turns}</div>
-				<!-- Ajastin näkyy jos on aikaraja -->
-				{#if gameState.timelimit !== 'Ei rajaa'}
-					<Timer />
-				{/if}
+				<!-- Ajastin, kulkee ylös tai alas (R) -->
+				<Timer />
 				<!-- Lopeta peli-nappi -->
-				<button class="game-nav-button" onclick={startNewGame}>Lopeta peli</button>
+				<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
 			</div>
 			<!-- Kortit -->
 			<div class="card-grid">
@@ -159,7 +157,7 @@
 					/>
 				{/each}
 			</div>
-<!-- Boosterinappi: näytä kaksi -->
+			<!-- Boosterinappi: näytä kaksi -->
 			<button
 				class="booster-show-two"
 				onclick={triggerboosterShowTwo}
@@ -167,7 +165,7 @@
 					gameState.boosterShowTwoActive ||
 					gameState.gameStatus !== 'playing'}
 			>
-			<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
+				<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
 				{#if gameState.boosterShowTwoUsed}
 					Boosteri käytetty!
 				{:else}

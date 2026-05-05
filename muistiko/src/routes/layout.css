@@ -98,7 +98,6 @@ nav {
 	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
 }
 
-
 /* Toiminto alue */
 .content-box {
 	width: 888px;
@@ -267,12 +266,13 @@ Modaalin taustan tyyli
 [data-theme='Kissat'] {
 	--logo: 
 	--tausta: url('/data/taustat/kissat_tausta.png');
-	--color-header: #C3B5AA;
-	--color-footer: #C3B5AA;
-	--color-footer: #C3B5AA;                                                             
+	--color-header: #c3b5aa;
+	--color-footer: #c3b5aa;
+	--color-footer: #c3b5aa;
 	--header: width: 1258px height: 147px;
-	--footer:                                                                             
+	--footer:                                                                               
 
+;
 }
 
 [data-theme='Koirat'] {
@@ -283,10 +283,15 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
+<<<<<<< HEAD
 	--color-header: #FFFFFF;
 	--color-footer: #FFFFFF;
 	--color-border: #EEEEEE;
 	--color-bg: transparent;
+=======
+	--color-header: #ffffff;
+	--color-footer: #ffffff;
+>>>>>>> 6a7fd7483a7b3782c36a61aebfb029fd75b08719
 }
 
 [data-theme='Tiko'] {
@@ -327,9 +332,9 @@ Modaalin taustan tyyli
 .game-top-row {
 	display: flex;
 	justify-content: space-between;
-align-items: center;
-width: 100%;
-margin-bottom: 0.5rem;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 0.5rem;
 }
 /* Yläriivn nappien tekstien speksit */
 .game-top-row p {
@@ -400,14 +405,12 @@ margin-bottom: 0.5rem;
 	transition: transform 0.5s;
 }
 
-
-
 .card-grid {
-		margin-top: 40px;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: 20px;
-	}
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+}
 /* BOOSTERINAPPULAT */
 
 .booster-show-two {
