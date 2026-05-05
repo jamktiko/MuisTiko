@@ -127,10 +127,11 @@
 	});
 </script>
 
+<div class="theme-wrapper" data-theme={gameState.theme}>
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo={gameState.theme} />
 
-<main class="game-page" data-theme={gameState.theme}>
+<main class="game-page">
 	<div class="main-content">
 		<div class="content-box game-box">
 
@@ -173,11 +174,11 @@
 					Näytä 2 korttia!
 				{/if}
 			</button>
-
 		</div>
 	</div>
 	<Footer />
 </main>
+</div>
 <!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (B) -->
 {#if gameState.gameStatus === 'won'}
 	<WinModal />

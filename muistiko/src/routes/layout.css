@@ -5,6 +5,11 @@
 /* JOS MUUTATTE TÄNNE JTN JÄRJESTYS ON SIVULLA ESIINTYMISEN MUKAAN */
 /* KOMMENTOIKAA NÄKYVÄSTI SIIHEN MIHIN OOTTE KOSKENU JOTTA NE LÖYTYY HELPOSTI JA NÄKYY SELVÄSTI */
 
+body {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+}
 /* Header */
 .header-row {
 	position: relative;
@@ -15,7 +20,7 @@
 	align-items: center;
 	padding: 0 2rem;
 	border-radius: 20px 20px 0 0;
-	background: #c3b5aa;
+	background: --;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 }
 
@@ -90,7 +95,7 @@ nav {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: rgba(195, 181, 170, 0.6);
+	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
 }
 
 
@@ -99,7 +104,7 @@ nav {
 	width: 888px;
 	height: 532px;
 	border-radius: 25px;
-	border: 6px solid rgba(60, 60, 59, 0.8);
+	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8));
 	background: rgba(251, 251, 251, 0.98);
 	display: flex;
 	flex-direction: column;
@@ -182,7 +187,7 @@ nav {
 	justify-content: center;
 	align-items: center;
 	border-radius: 20px;
-	background-color: #c3b5aa;
+	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
 	margin: 0 auto 2rem auto;
 }
@@ -260,6 +265,7 @@ Modaalin taustan tyyli
 
 /* Teemojen tyylit */
 [data-theme='Kissat'] {
+	--logo: 
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--color-header: #C3B5AA;
 	--color-footer: #C3B5AA;
@@ -275,10 +281,12 @@ Modaalin taustan tyyli
 	--color-footer: #a67f6f;
 }
 
-[data-theme='Ppettajat'] {
+[data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
 	--color-header: #FFFFFF;
 	--color-footer: #FFFFFF;
+	--color-border: #EEEEEE;
+	--color-bg: transparent;
 }
 
 [data-theme='Tiko'] {
@@ -410,3 +418,6 @@ margin-bottom: 0.5rem;
 .booster-show-two:hover {
 	transform: scale(1.05);
 }
+
+
+/* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
