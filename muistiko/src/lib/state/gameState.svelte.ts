@@ -4,7 +4,13 @@ import { createIdString } from './utils/createIdString';
 import { getImagePath, getThemeData } from './utils/dataHandling';
 import { goto } from '$app/navigation';
 import { resolve } from '$app/paths';
-import { clearStoredTimer, initTimer, stopTimer } from '$lib/state/timerState.svelte';
+import {
+	clearStoredTimer,
+	initTimer,
+	resetSimpleTimer,
+	startSimpleTimer,
+	stopTimer
+} from '$lib/state/timerState.svelte';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO' | null;
 
@@ -37,7 +43,7 @@ export function difficultySetting(d: Difficulty): number {
 export function timeLimitToSeconds(t: TimeLimit): number | null {
 	switch (t) {
 		case 'Ei rajaa':
-			return NaN;
+			return null;
 		case 1:
 			return 60;
 		case 2:
@@ -45,7 +51,7 @@ export function timeLimitToSeconds(t: TimeLimit): number | null {
 		case 3:
 			return 180;
 		default:
-			return NaN;
+			return null;
 	}
 }
 
@@ -199,8 +205,10 @@ export const startNewGame = () => {
 	resetCards();
 	setTurns(0);
 	stopTimer();
+	resetSimpleTimer();
 	clearStoredTimer();
 	initTimer();
+	startSimpleTimer();
 	setChoiceOne(null);
 	setChoiceTwo(null);
 	gameState.boosterShowTwoUsed = false;
@@ -214,6 +222,11 @@ export function handlePlayAgain() {
 	startNewGame();
 	gameState.gameStatus = 'playing';
 	goto(resolve('/settings'));
+}
+
+// Funktio uudelleenpelausnappiin pelisivulla vie etusivulle (B)
+export function goToHome() {
+	goto(resolve('/'));
 }
 
 // FUNKTIO BOOSTERILLE SHOW TWO (Näyttää pelaajalle kaksi korttia) (B)
