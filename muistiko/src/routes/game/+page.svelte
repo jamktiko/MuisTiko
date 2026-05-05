@@ -130,10 +130,23 @@
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
 
-<Timer />
-<main>
-	<div class="App" style="background-image: url({background})">
+<!-- Ajastin näkyy jos on aikaraja -->
+{#if gameState.timelimit !== 'Ei rajaa'}
+	<Timer />
+{/if}
+
+<main class="game-page" data-theme={gameState.theme}>
+	<div class="App"
+	style="background-image: url({background})">
+	<div class="content-box">
 		<button onclick={startNewGame}>Aloita alusta</button>
+<main>
+	<div class="game" style="background-image: url({background})">
+		<!-- Aloita alusta-nappi-->
+		<button class="start-again" onclick={startNewGame}>Aloita alusta</button>
+		<!-- Siirtojen määrän osio -->
+		<p>Siirrot: {turns}</p>
+		<!-- Kortit -->
 		<div class="card-grid">
 			{#each cards as card (card.id)}
 				<SingleCard
@@ -144,14 +157,24 @@
 					flipped={card === choiceOne || card === choiceTwo || card.matched}
 				/>
 			{/each}
+
+			<!-- Boosterinappi: näytä kaksi (B)-->
 		</div>
 		<button
+			class="booster-show-two"
 			onclick={triggerboosterShowTwo}
-			disabled={gameState.boosterShowTwoActive || gameState.gameStatus !== 'playing'}
-			class="rounded bg-yellow-400 p-2 hover:bg-yellow-500 disabled:opacity-50"
+			disabled={gameState.boosterShowTwoUsed ||
+				gameState.boosterShowTwoActive ||
+				gameState.gameStatus !== 'playing'}
 		>
-			Show 2 Random Cards!
+			<!-- Napin sisältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
+			{#if gameState.boosterShowTwoUsed}
+				Boosteri käytetty!
+			{:else}
+				Näytä 2 korttia!
+			{/if}
 		</button>
+		</div>
 		<p>Siirrot: {turns}</p>
 	</div>
 </main>
@@ -166,41 +189,3 @@
 {/if}
 
 <Footer />
-
-<style>
-	.App {
-		max-width: 860px;
-		margin: 0 auto;
-		background: #fff;
-		min-height: 100vh;
-		text-align: center;
-		padding: 1rem;
-		color: grey;
-	}
-
-	.App p {
-		font-size: 1.2rem;
-		margin-top: 1rem;
-		color: black;
-	}
-
-	button {
-		background: #aaa;
-		border: 2px solid #fff;
-		padding: 6px 12px;
-		border-radius: 4px;
-		color: #fff;
-		cursor: pointer;
-		font-size: 1em;
-	}
-	button:hover {
-		background: black;
-		color: #fff;
-	}
-	.card-grid {
-		margin-top: 40px;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: 20px;
-	}
-</style>
