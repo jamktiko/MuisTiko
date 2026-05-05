@@ -139,9 +139,10 @@
 	<Timer />
 {/if}
 
-<main>
+<main class="game-page" data-theme={gameState.theme}>
 	<div class="App"
 	style="background-image: url({background})">
+	<div class="content-box">
 		<button onclick={startNewGame}>Aloita alusta</button>
 		<div class="card-grid">
 			{#each cards as card (card.id)}
@@ -161,6 +162,7 @@
 		>
 			Show 2 Random Cards!
 		</button>
+		</div>
 		<p>Siirrot: {turns}</p>
 	</div>
 </main>
