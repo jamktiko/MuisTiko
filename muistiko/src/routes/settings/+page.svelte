@@ -16,6 +16,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { resolve } from '$app/paths';
+	import { changeMusic } from '$lib/state/soundState.svelte';
+	import type { ThemeName } from '$lib/state/themeState.svelte';
 
 	const theme = $derived(gameState.theme);
 	const difficulty = $derived(gameState.difficulty);
@@ -40,6 +42,7 @@
 	function handleThemeSwitch(value: string) {
 		setTheme(value as Theme);
 		localStorage.setItem('theme', value);
+		changeMusic(value as ThemeName)
 	}
 
 	function changeTimelimit(value: string) {
@@ -87,26 +90,24 @@
 	}
 </script>
 
-<Header gameLogo="kissat"/>
+<Header gameLogo="kissat" />
 
 <!-- settings valikko, joka luo SettingSelector komponentit gameSettings taulukon perusteella -->
 <div class="landing-page">
 	<main class="main-content">
-	<div class="content-box settings-content">
-	<div class="dropdown-row">
-		{#each gameSettings as gameSetting (gameSetting.text)}
-			<SettingSelector
-				onChange={gameSetting.function}
-				text={gameSetting.text}
-				placeholder={gameSetting.placeholder}
-				options={gameSetting.options}
-			/>
-		{/each}
-		</div>
+		<div class="content-box settings-content">
+			<div class="dropdown-row">
+				{#each gameSettings as gameSetting (gameSetting.text)}
+					<SettingSelector
+						onChange={gameSetting.function}
+						text={gameSetting.text}
+						placeholder={gameSetting.placeholder}
+						options={gameSetting.options}
+					/>
+				{/each}
+			</div>
 			<Button disabled={!allSettingsSelected()} text="ALOITA PELI" onclick={startGame} />
 		</div>
 	</main>
-	<Footer/>
+	<Footer />
 </div>
-
-
