@@ -263,6 +263,10 @@ Modaalin taustan tyyli
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--color-header: #C3B5AA;
 	--color-footer: #C3B5AA;
+	--color-footer: #C3B5AA;                                                             
+	--header: width: 1258px height: 147px;
+	--footer:                                                                             
+
 }
 
 [data-theme='koirat_iso'] {
