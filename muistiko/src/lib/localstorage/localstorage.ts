@@ -11,9 +11,12 @@ export function setTimelimitToStorage(item: string) {
 export function setDifficultyToStorage(item: string) {
 	localStorage.setItem('difficulty', item.toString());
 }
-
+// Asettaa musiikin
 export function setMusicToStorage(item: string) {
 	localStorage.setItem('Audio', item.toString())
+}
+export function setMuteToStorage(item: boolean) {
+	localStorage.setItem('Muted', item.toString())
 }
 
 // Funktiot hakevat sisällöt local storagesta (B)
@@ -29,9 +32,12 @@ export function loadTimelimitFromStorage() {
 export function loadDifficultyFromStorage() {
 	return localStorage.getItem('difficulty');
 }
-
+// lataa musiikin
 export function loadMusicFromStorage() {
 	return localStorage.getItem('Audio')
+}
+export function LoadMuteToStorage() {
+	return localStorage.getItem('Muted')
 }
 
 // Tarvittaessa tyhjennysominaisuus local storagelle (B)

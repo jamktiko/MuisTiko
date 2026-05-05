@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import GameInfo from '$lib/components/gameInfo.svelte';
 	import SoundButton from './soundButton.svelte';
 	import SettingsModal from './SettingsModal.svelte';
@@ -24,7 +26,7 @@
 				<!-- Kotinappi -->
 				<button
 					class="home-button"
-					onclick={() => (window.location.href = '/')}
+					onclick={() => goto(resolve('/'))}
 					aria-label="Home"
 					title="Home"
 				>
