@@ -259,7 +259,7 @@ Modaalin taustan tyyli
 }
 
 /* Teemojen tyylit */
-[data-theme='kissat_iso'] {
+[data-theme='Kissat'] {
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--color-header: #C3B5AA;
 	--color-footer: #C3B5AA;
@@ -269,19 +269,19 @@ Modaalin taustan tyyli
 
 }
 
-[data-theme='koirat_iso'] {
+[data-theme='Koirat'] {
 	--tausta: url('/data/taustat/koirat_tausta.png');
 	--color-header: #a67f6f;
 	--color-footer: #a67f6f;
 }
 
-[data-theme='opettajat_iso'] {
+[data-theme='Ppettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
 	--color-header: #FFFFFF;
 	--color-footer: #FFFFFF;
 }
 
-[data-theme='tiko_iso'] {
+[data-theme='Tiko'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
 }
 
