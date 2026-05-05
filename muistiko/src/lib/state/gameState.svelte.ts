@@ -224,6 +224,11 @@ export function handlePlayAgain() {
 	goto(resolve('/settings'));
 }
 
+// Funktio uudelleenpelausnappiin pelisivulla vie etusivulle (B)
+export function goToHome() {
+	goto(resolve('/'));
+}
+
 // FUNKTIO BOOSTERILLE SHOW TWO (Näyttää pelaajalle kaksi korttia) (B)
 export function triggerboosterShowTwo() {
 	if (
