@@ -25,7 +25,7 @@
 	align-items: center;
 	padding: 0 2rem;
 	border-radius: 20px 20px 0 0;
-	background: #C3B5AA;
+	background:var(--color-header, #C3B5AA);
 		filter: drop-shadow(0 3px 4px #3B3B3B);
 }
 
@@ -46,6 +46,7 @@
 	align-items: center;
 	gap: 1rem;
 }
+
 /* Header/navi asettelu */
 nav {
 	display: flex;
@@ -59,20 +60,20 @@ nav {
 
 /* Koti-painike */
 .home-button {
-width: 30px;
-height: 30px;
+	width: 30px;
+	height: 30px;
 }
 
 /* Info-painike */
 .info-button {
 	width: 30px;
-height: 30px;
+	height: 30px;
 }
 
 /* Asetukset-painike */
 .settings-button {
 	width: 30px;
-height: 30px;
+	height: 30px;
 }
 
 /* LANDINGPAGE/ALOITUSSIVU ASETUKSET */
@@ -253,22 +254,27 @@ Modaalin taustan tyyli
 /* Teemojen tyylit */
 [data-theme='kissat_iso'] {
 	--tausta: url('/data/taustat/kissat_iso_tausta.svg');
-	--header: width: 1258px height: 147px;
-	--footer:                       
+	--color-header: #C3B5AA; 
+	--color-footer: #C3B5AA                      
 
 ;
 }
 
 [data-theme='koirat_iso'] {
 	--tausta: url('/data/taustat/koirat_iso_tausta.svg');
+	--color-header: #A67F6F;
+	--color-footer: #A67F6F;
 }
 
 [data-theme='opettajat_iso'] {
 	--tausta: url('/data/taustat/opettajat_iso_tausta.svg');
+	--color-header: #FFFFF;
+	--color-footer: #FFFFF;
 }
 
 [data-theme='tiko_iso'] {
 	--tausta: url('/data/taustat/tiko_iso_tausta.svg');
+
 }
 
 
@@ -298,3 +304,13 @@ Modaalin taustan tyyli
 		transform: scale(0.98);
 	}
 
+
+
+	
+	
+	.card-grid {
+		margin-top: 40px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
+	}
