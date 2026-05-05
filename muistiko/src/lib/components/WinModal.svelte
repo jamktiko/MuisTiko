@@ -3,7 +3,7 @@
 	import Modal from './Modal.svelte';
 	import Button from './Button.svelte';
 	import { gameState, handlePlayAgain, startNewGame } from '$lib/state/gameState.svelte';
-	let turns = $derived(gameState.turns);
+	import { minutes_2, seconds_2, usedMinutes, usedSeconds } from '$lib/state/timerState.svelte';
 </script>
 
 <div class="win-modal">
@@ -13,7 +13,12 @@
 		{/snippet}
 
 		{#snippet content()}
-			<p>Tehdyt siirrot: {turns}</p>
+			{#if gameState.timelimit !== 'Ei rajaa'}
+				<p>Aikaa kului: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
+			{:else}
+				<p>Aikaa kului: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}</p>
+			{/if}
+			<p>Tehdyt siirrot: {gameState.turns}</p>
 		{/snippet}
 
 		{#snippet footer()}

@@ -7,7 +7,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
-	import {getTheme} from '$lib/state/themeState.svelte'
+	import { getTheme } from '$lib/state/themeState.svelte';
 
 	// Haetaan gameState ja kaikki muu storesta (B)
 	import {
@@ -36,16 +36,11 @@
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
 
-	let theme = $derived(gameState.theme ? getTheme(gameState.theme): null)
-	let imgCover = $derived(theme?.colors.card || '')
-	let background = $derived(theme?.colors.background || '')
+	let theme = $derived(gameState.theme ? getTheme(gameState.theme) : null);
+	let imgCover = $derived(theme?.colors.card || '');
+	let background = $derived(theme?.colors.background || '');
 
-	
-
-	
-	
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
-
 
 	// Haetaan koko sovelluksen tila yhdestä paikasta (B)
 	let cards = $derived(gameState.cards);
@@ -55,15 +50,15 @@
 	let disabled = $state(false);
 
 	$effect.pre(() => {
-        // Lataa tallennetut arvot
-        const savedTheme = localStorage.getItem('theme');
-        const savedDiff = localStorage.getItem('difficulty');
-        const savedTime = localStorage.getItem('timelimit');
-        
-        if (savedTheme && !gameState.theme) setTheme(savedTheme as Theme);
-        if (savedDiff && !gameState.difficulty) setDifficulty(savedDiff as Difficulty);
-        if (savedTime && !gameState.timelimit) setTimelimit(savedTime as TimeLimit);
-    });
+		// Lataa tallennetut arvot
+		const savedTheme = localStorage.getItem('theme');
+		const savedDiff = localStorage.getItem('difficulty');
+		const savedTime = localStorage.getItem('timelimit');
+
+		if (savedTheme && !gameState.theme) setTheme(savedTheme as Theme);
+		if (savedDiff && !gameState.difficulty) setDifficulty(savedDiff as Difficulty);
+		if (savedTime && !gameState.timelimit) setTimelimit(savedTime as TimeLimit);
+	});
 
 	// Ladataan korttien tiedot ja asetetaan ne tilaan, kun komponentti renderöidään (B)
 	onMount(async () => {
@@ -135,13 +130,9 @@
 <!-- Headeriin suoraan logo (B)-->
 <Header gameLogo="" />
 
-{#if gameState.timelimit !== 'Ei rajaa'}
-	<Timer />
-{/if}
-
+<Timer />
 <main>
-	<div class="App"
-	style="background-image: url({background})">
+	<div class="App" style="background-image: url({background})">
 		<button onclick={startNewGame}>Aloita alusta</button>
 		<div class="card-grid">
 			{#each cards as card (card.id)}
