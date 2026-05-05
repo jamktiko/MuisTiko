@@ -20,7 +20,7 @@ body {
 	align-items: center;
 	padding: 0 2rem;
 	border-radius: 20px 20px 0 0;
-	background: --;
+	background: var(--color-header, #c3b5aa);
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 }
 
@@ -264,15 +264,9 @@ Modaalin taustan tyyli
 
 /* Teemojen tyylit */
 [data-theme='Kissat'] {
-	--logo: 
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--color-header: #c3b5aa;
 	--color-footer: #c3b5aa;
-	--color-footer: #c3b5aa;
-	--header: width: 1258px height: 147px;
-	--footer:                                                                               
-
-;
 }
 
 [data-theme='Koirat'] {
@@ -283,15 +277,10 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
-<<<<<<< HEAD
 	--color-header: #FFFFFF;
 	--color-footer: #FFFFFF;
 	--color-border: #EEEEEE;
 	--color-bg: transparent;
-=======
-	--color-header: #ffffff;
-	--color-footer: #ffffff;
->>>>>>> 6a7fd7483a7b3782c36a61aebfb029fd75b08719
 }
 
 [data-theme='Tiko'] {
@@ -347,7 +336,6 @@ Modaalin taustan tyyli
 /* ALOITA ALUSTA NAPPI */
 .start-again {
 	color: black;
-	background-color: white;
 }
 
 .start-again:hover {
@@ -424,3 +412,18 @@ Modaalin taustan tyyli
 
 
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
+
+.game-nav-button {
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+}
