@@ -128,57 +128,56 @@
 </script>
 
 <!-- Headeriin suoraan logo (B)-->
-<Header gameLogo="" />
-
-<!-- Ajastin näkyy jos on aikaraja -->
-{#if gameState.timelimit !== 'Ei rajaa'}
-	<Timer />
-{/if}
+<Header gameLogo={gameState.theme} />
 
 <main class="game-page" data-theme={gameState.theme}>
-	<div class="App"
-	style="background-image: url({background})">
-	<div class="content-box">
-		<button onclick={startNewGame}>Aloita alusta</button>
-<main>
-	<div class="game" style="background-image: url({background})">
-		<!-- Aloita alusta-nappi-->
-		<button class="start-again" onclick={startNewGame}>Aloita alusta</button>
-		<!-- Siirtojen määrän osio -->
-		<p>Siirrot: {turns}</p>
-		<!-- Kortit -->
-		<div class="card-grid">
-			{#each cards as card (card.id)}
-				<SingleCard
-					{card}
-					{imgCover}
-					{disabled}
-					handleChoice={handlePlayerChoice}
-					flipped={card === choiceOne || card === choiceTwo || card.matched}
-				/>
-			{/each}
+	<div class="main-content">
+		<div class="content-box game-box">
 
-			<!-- Boosterinappi: näytä kaksi (B)-->
+			<div class="game-top-row">
+				<!-- Aloita alusta-napi -->
+				<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
+				<!-- Käänötjen määrä -->
+				<div class="game-nav-button">Käännöt: {turns}</div>
+				<!-- Ajastin näkyy jos on aikaraja -->
+				{#if gameState.timelimit !== 'Ei rajaa'}
+					<Timer />
+				{/if}
+				<!-- Lopeta peli-nappi -->
+				<button class="game-nav-button" onclick={startNewGame}>Lopeta peli</button>
+			</div>
+			<!-- Kortit -->
+			<div class="card-grid">
+				{#each cards as card (card.id)}
+					<SingleCard
+						{card}
+						{imgCover}
+						{disabled}
+						handleChoice={handlePlayerChoice}
+						flipped={card === choiceOne || card === choiceTwo || card.matched}
+					/>
+				{/each}
+			</div>
+<!-- Boosterinappi: näytä kaksi -->
+			<button
+				class="booster-show-two"
+				onclick={triggerboosterShowTwo}
+				disabled={gameState.boosterShowTwoUsed ||
+					gameState.boosterShowTwoActive ||
+					gameState.gameStatus !== 'playing'}
+			>
+			<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
+				{#if gameState.boosterShowTwoUsed}
+					Boosteri käytetty!
+				{:else}
+					Näytä 2 korttia!
+				{/if}
+			</button>
+
 		</div>
-		<button
-			class="booster-show-two"
-			onclick={triggerboosterShowTwo}
-			disabled={gameState.boosterShowTwoUsed ||
-				gameState.boosterShowTwoActive ||
-				gameState.gameStatus !== 'playing'}
-		>
-			<!-- Napin sisältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
-			{#if gameState.boosterShowTwoUsed}
-				Boosteri käytetty!
-			{:else}
-				Näytä 2 korttia!
-			{/if}
-		</button>
-		</div>
-		<p>Siirrot: {turns}</p>
 	</div>
+	<Footer />
 </main>
-
 <!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (B) -->
 {#if gameState.gameStatus === 'won'}
 	<WinModal />
@@ -187,5 +186,3 @@
 {#if gameState.gameStatus === 'lost' && gameState.timelimit !== 'Ei rajaa'}
 	<LoseModal />
 {/if}
-
-<Footer />
