@@ -15,13 +15,8 @@
 	align-items: center;
 	padding: 0 2rem;
 	border-radius: 20px 20px 0 0;
-<<<<<<< HEAD
-	background:var(--color-header, #C3B5AA);
-		filter: drop-shadow(0 3px 4px #3B3B3B);
-=======
 	background: #c3b5aa;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
->>>>>>> e4dcdabf90d53913b450a4a11da89244e8015e6c
 }
 
 .logo-container {
@@ -235,38 +230,27 @@ Modaalin taustan tyyli
 
 /* Teemojen tyylit */
 [data-theme='kissat_iso'] {
-<<<<<<< HEAD
-	--tausta: url('/data/taustat/kissat_iso_tausta.svg');
-	--color-header: #C3B5AA; 
-	--color-footer: #C3B5AA                      
-=======
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--header: width: 1258px height: 147px;
-	--footer:                                                            
->>>>>>> e4dcdabf90d53913b450a4a11da89244e8015e6c
+	--footer:                                                              
 
 ;
 }
 
 [data-theme='koirat_iso'] {
-	--tausta: url('/data/taustat/koirat_iso_tausta.svg');
-	--color-header: #A67F6F;
-	--color-footer: #A67F6F;
+	--tausta: url('/data/taustat/koirat_tausta.png');
+	--color-header: #a67f6f;
+	--color-footer: #a67f6f;
 }
 
 [data-theme='opettajat_iso'] {
-	--tausta: url('/data/taustat/opettajat_iso_tausta.svg');
+	--tausta: url('/data/taustat/opettajat_tausta.png');
 	--color-header: #FFFFF;
 	--color-footer: #FFFFF;
 }
 
 [data-theme='tiko_iso'] {
-<<<<<<< HEAD
-	--tausta: url('/data/taustat/tiko_iso_tausta.svg');
-
-=======
-	--tausta: url('/data/taustat/tiko_tausta.svg');
->>>>>>> e4dcdabf90d53913b450a4a11da89244e8015e6c
+	--tausta: url('/data/taustat/tiko_tausta.png');
 }
 
 /* Korkean kontrastin tyylit */
@@ -293,19 +277,13 @@ Modaalin taustan tyyli
 	transform: scale(0.98);
 }
 
-<<<<<<< HEAD
-
-
-	
-	
-	.card-grid {
-		margin-top: 40px;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: 20px;
-	}
-=======
 /* PELIKORTTIEN ASETTELU JA TYYLIT (siirretty komponenteista) (B) */
+.card-grid {
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+}
 
 .card {
 	position: relative;
@@ -350,4 +328,3 @@ Modaalin taustan tyyli
 	transform: rotateY(90deg);
 	transition: transform 0.5s;
 }
->>>>>>> e4dcdabf90d53913b450a4a11da89244e8015e6c
