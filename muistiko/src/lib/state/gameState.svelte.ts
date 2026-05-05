@@ -85,7 +85,7 @@ export const gameState = $state<GameState>({
 	boosterShowTwoUsed: false
 });
 
-// Tilankäsittelyn funktiot
+// Tilankäsittelyn funktiot (B)
 
 export function incrementPoints(value: number) {
 	gameState.points += value;
