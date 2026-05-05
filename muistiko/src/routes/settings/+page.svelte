@@ -87,26 +87,24 @@
 	}
 </script>
 
-<Header gameLogo="kissat"/>
+<Header gameLogo="kissat" />
 
 <!-- settings valikko, joka luo SettingSelector komponentit gameSettings taulukon perusteella -->
 <div class="landing-page">
 	<main class="main-content">
-	<div class="content-box settings-content">
-	<div class="dropdown-row">
-		{#each gameSettings as gameSetting (gameSetting.text)}
-			<SettingSelector
-				onChange={gameSetting.function}
-				text={gameSetting.text}
-				placeholder={gameSetting.placeholder}
-				options={gameSetting.options}
-			/>
-		{/each}
-		</div>
+		<div class="content-box settings-content">
+			<div class="dropdown-row">
+				{#each gameSettings as gameSetting (gameSetting.text)}
+					<SettingSelector
+						onChange={gameSetting.function}
+						text={gameSetting.text}
+						placeholder={gameSetting.placeholder}
+						options={gameSetting.options}
+					/>
+				{/each}
+			</div>
 			<Button disabled={!allSettingsSelected()} text="ALOITA PELI" onclick={startGame} />
 		</div>
 	</main>
-	<Footer/>
+	<Footer />
 </div>
-
-
