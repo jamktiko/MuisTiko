@@ -19,28 +19,28 @@ class themeSetting {
 		this.colors = colors;
 	}
 }
-
+// KORTIT JA TAUSTAT VAIHDETTU .PNG VERSIOON, JOTTA PELI EI LAGAA (B)
 export const Themes: themeSetting[] = [
 	new themeSetting('Kissat', '/data/music/villatic_music-cute-cat-256893.mp3', {
-		background: '/data/taustat/kissa_iso_tausta.svg',
-		card: '/data/korttien_takapuolet/kissat_iso.png' // VAIHDETTU .PNG VERSIOON, JOTTA PELI EI LAGAA (B)
+		background: '/data/taustat/kissat_tausta.png',
+		card: '/data/korttien_takapuolet/kissat_iso.png'
 	}),
 	new themeSetting('Koirat', '/data/music/alexguz-happy-dog-day-indie-rock-385939.mp3', {
-		background: '/data/taustat/koira_iso_tausta.svg',
-		card: '/data/korttien_takapuolet/koirat_iso.png' // VAIHDETTU .PNG VERSIOON, JOTTA PELI EI LAGAA (B)
+		background: '/data/taustat/koirat_tausta.png',
+		card: '/data/korttien_takapuolet/koirat_iso.png'
 	}),
 	new themeSetting(
 		'Opettajat',
 		'/data/music/nourishedbymusic-back-to-school-background-music-163728.mp3',
 		{
-			background: '/data/taustat/opettajat_iso_tausta.svg',
-			card: '/data/korttien_takapuolet/opettajat_iso.png' // VAIHDETTU .PNG VERSIOON, JOTTA PELI EI LAGAA (B)
+			background: '/data/taustat/opettajat_tausta.png',
+			card: '/data/korttien_takapuolet/opettajat_iso.png'
 		}
 	),
 
 	new themeSetting('TIKO', '/data/music/paulyudin-technology-tech-technology-484304.mp3', {
-		background: '/data/taustat/tiko_iso_tausta.svg',
-		card: '/data/korttien_takapuolet/tiko_iso.png' // VAIHDETTU .PNG VERSIOON, JOTTA PELI EI LAGAA (B)
+		background: '/data/taustat/tiko_tausta.png',
+		card: '/data/korttien_takapuolet/tiko_iso.png'
 	})
 	//new themeSetting('Etusivu', '/data/music/music_for_video-waiting-music-116216.mp3')
 ];
