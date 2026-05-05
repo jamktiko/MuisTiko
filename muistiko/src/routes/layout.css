@@ -57,18 +57,32 @@ nav {
 .home-button {
 	width: 30px;
 	height: 30px;
+	background-color: transparent;
+	filter: var(--color-icon-filter, none);
 }
 
 /* Info-painike */
 .info-button {
 	width: 30px;
 	height: 30px;
+	background-color: transparent;
+	filter: var(--color-icon-filter, none);
 }
 
 /* Asetukset-painike */
 .settings-button {
 	width: 30px;
 	height: 30px;
+	background-color: transparent;
+	filter: var(--color-icon-filter, none);
+}
+
+/* TIKON VALKOSET PAINIKKEET */
+
+[data-theme='TIKO'] .home-button img,
+[data-theme='TIKO'] .info-button img,
+[data-theme='TIKO'] .settings-button img {
+	filter: brightness(0) invert(1);
 }
 
 /* LANDINGPAGE/ALOITUSSIVU ASETUKSET */
@@ -281,10 +295,17 @@ Modaalin taustan tyyli
 	--color-footer: #FFFFFF;
 	--color-border: #EEEEEE;
 	--color-bg: transparent;
+	--color-nav-button: #0D004C
 }
 
-[data-theme='Tiko'] {
+[data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
+	--color-header: #3A41AC;
+	--color-footer: #FFFFFF;
+	--color-border: #3A41AC;
+	--color-bg: transparent;
+	--color-nav-button: #FFFFFF
+	--color-icon-filter: brightness(0) invert(1)
 }
 
 /* Korkean kontrastin tyylit */
