@@ -16,6 +16,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { resolve } from '$app/paths';
+	import { changeMusic } from '$lib/state/soundState.svelte';
+	import type { ThemeName } from '$lib/state/themeState.svelte';
 
 	const theme = $derived(gameState.theme);
 	const difficulty = $derived(gameState.difficulty);
@@ -40,6 +42,7 @@
 	function handleThemeSwitch(value: string) {
 		setTheme(value as Theme);
 		localStorage.setItem('theme', value);
+		changeMusic(value as ThemeName)
 	}
 
 	function changeTimelimit(value: string) {
