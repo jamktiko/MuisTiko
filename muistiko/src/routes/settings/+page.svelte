@@ -12,12 +12,12 @@
 	import type { Difficulty } from '$lib/state/gameState.svelte';
 	import type { TimeLimit } from '$lib/state/gameState.svelte';
 	import Button from '$lib/components/Button.svelte';
-
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { resolve } from '$app/paths';
 	import { changeMusic } from '$lib/state/soundState.svelte';
 	import type { ThemeName } from '$lib/state/themeState.svelte';
+	import { onMount } from 'svelte';
 
 	const theme = $derived(gameState.theme);
 	const difficulty = $derived(gameState.difficulty);
@@ -42,7 +42,7 @@
 	function handleThemeSwitch(value: string) {
 		setTheme(value as Theme);
 		localStorage.setItem('theme', value);
-		changeMusic(value as ThemeName)
+		changeMusic(value as ThemeName);
 	}
 
 	function changeTimelimit(value: string) {
@@ -84,10 +84,14 @@
 		}
 	];
 
-	function allSettingsSelected() {
-		console.log(theme, difficulty, timelimit);
-		return theme && difficulty && timelimit ? true : false;
-	}
+	onMount(() => {
+		// Resettaa staten ettei käyttäjä pääse läpi tekemättä valintoja (ei käytä vanhoja valintoja) (B)
+		setTheme(null);
+		setDifficulty(null);
+		setTimelimit(null);
+	});
+
+	const isReadyToStart = $derived(theme !== null && difficulty !== null && timelimit !== null);
 </script>
 
 <Header gameLogo="kissat" />
@@ -106,7 +110,7 @@
 					/>
 				{/each}
 			</div>
-			<Button disabled={!allSettingsSelected()} text="ALOITA PELI" onclick={startGame} />
+			<Button disabled={!isReadyToStart} text="ALOITA PELI" onclick={startGame} />
 		</div>
 	</main>
 	<Footer />
