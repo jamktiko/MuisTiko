@@ -94,10 +94,10 @@
 	const isReadyToStart = $derived(theme !== null && difficulty !== null && timelimit !== null);
 </script>
 
-<Header gameLogo="kissat" />
 
 <!-- settings valikko, joka luo SettingSelector komponentit gameSettings taulukon perusteella -->
 <div class="landing-page">
+<Header gameLogo="kissat" />
 	<main class="main-content">
 		<div class="content-box settings-content">
 			<div class="dropdown-row">

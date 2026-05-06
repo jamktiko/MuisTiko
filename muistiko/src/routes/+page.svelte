@@ -24,16 +24,18 @@
 	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<Header gameLogo="" />
 
 <div class="landing-page">
-	<main class="main-content">
+	<Header gameLogo="" />
+	<main class="landing-main">
+		<div class="main-content">
 		<div class="content-box">
 			<div class="logo"> 
 				<img src="/data/logot/muistiko.svg" alt="Muistiko logo" />
 				</div>
 					<button class="start-button" onclick={aloitaPeli}> ALOITA PELI </button>
 			</div>
+		</div>
 	</main>
 	<Footer />
 </div>
