@@ -502,7 +502,7 @@ Modaalin taustan tyyli
 }
 
 /* MEDIA QUERYT */
-
+/* Pelisivut */
 @media (max-width: 768px) {
 	.header-row {
 		height: 120px;
