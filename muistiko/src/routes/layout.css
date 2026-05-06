@@ -291,21 +291,20 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
-	--color-header: #FFFFFF;
-	--color-footer: #FFFFFF;
-	--color-border: #EEEEEE;
+	--color-header: #ffffff;
+	--color-footer: #ffffff;
+	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nav-button: #0D004C
+	--color-nav-button: #0d004c;
 }
 
 [data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
-	--color-header: #3A41AC;
-	--color-footer: #FFFFFF;
-	--color-border: #3A41AC;
+	--color-header: #3a41ac;
+	--color-footer: #ffffff;
+	--color-border: #3a41ac;
 	--color-bg: transparent;
-	--color-nav-button: #FFFFFF
-	--color-icon-filter: brightness(0) invert(1)
+	--color-nav-button: #ffffff --color-icon-filter: brightness(0) invert(1);
 }
 
 /* Korkean kontrastin tyylit */
@@ -373,6 +372,7 @@ Modaalin taustan tyyli
 .card {
 	position: relative;
 	background-color: transparent;
+	perspective: 1000px;
 }
 
 .card :hover {
@@ -395,33 +395,28 @@ Modaalin taustan tyyli
 
 /* korttien kuvapuoli */
 .card .front {
-	transform: rotateY(90deg);
-	transition: transform 0.5s;
+	transform: rotateY(180deg);
 	position: absolute;
+	backface-visibility: hidden;
+	transition: transform 0.4s ease;
 }
 .flipped .front {
 	transform: rotateY(0deg);
-	transition: transform 0.5s;
+	transform-style: preserve-3d;
 }
 
 /* korttien takapuoli */
 .card .back {
 	transform: rotateY(0deg);
-	transition: transform 0.5s;
+	transition: transform 0.4s ease;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
 }
 .flipped .back {
-	transform: rotateY(90deg);
-	transition: transform 0.5s;
+	transform: rotateY(180deg);
 }
 
-.card-grid {
-	margin-top: 40px;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 20px;
-}
 /* BOOSTERINAPPULAT */
-
 .booster-show-two {
 	color: black;
 	background-color: white;
@@ -430,7 +425,6 @@ Modaalin taustan tyyli
 .booster-show-two:hover {
 	transform: scale(1.05);
 }
-
 
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
 
