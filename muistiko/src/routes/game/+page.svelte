@@ -26,7 +26,8 @@
 		setTimelimit,
 		type TimeLimit,
 		triggerboosterShowTwo,
-		goToHome
+		goToHome,
+		triggerBoosterFindMatch
 	} from '$lib/state/gameState.svelte';
 	import {
 		loadDifficultyFromStorage,
@@ -129,53 +130,75 @@
 </script>
 
 <div class="theme-wrapper" data-theme={gameState.theme}>
-<!-- Headeriin suoraan logo (B)-->
-<Header gameLogo={gameState.theme} />
+	<!-- Headeriin suoraan logo (B)-->
+	<Header gameLogo={gameState.theme} />
 
-<main class="game-page">
-	<div class="main-content">
-		<div class="content-box game-box">
-			<div class="game-top-row">
-				<!-- Aloita alusta-napi -->
-				<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
-				<!-- Käänötjen määrä -->
-				<div class="game-nav-button">Käännöt: {turns}</div>
-				<!-- Ajastin, kulkee ylös tai alas (R) -->
-				<Timer />
-				<!-- Lopeta peli-nappi -->
-				<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
+	<main class="game-page">
+		<div class="main-content">
+			<div class="content-box game-box">
+				<div class="game-top-row">
+					<!-- Aloita alusta-napi -->
+					<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
+					<!-- Käänötjen määrä -->
+					<div class="game-nav-button">Käännöt: {turns}</div>
+					<!-- Ajastin, kulkee ylös tai alas (R) -->
+					<Timer />
+					<!-- Lopeta peli-nappi -->
+					<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
+				</div>
+				<!-- Kortit -->
+				<div class="card-grid" data-cards={cards.length}>
+					{#each cards as card (card.id)}
+						<SingleCard
+							{card}
+							{imgCover}
+							{disabled}
+							handleChoice={handlePlayerChoice}
+							flipped={card === choiceOne ||
+								card === choiceTwo ||
+								card.matched ||
+								gameState.boosterShowTwoCards.includes(card.id) ||
+								gameState.boosterFindMatchCards.includes(card.id)}
+						/>
+					{/each}
+				</div>
+				<!-- BOOSTERIT -->
+				<div>
+					<!-- Boosterinappi: näytä kaksi (B) -->
+					<button
+						class="booster-show-two"
+						onclick={triggerboosterShowTwo}
+						disabled={gameState.boosterShowTwoUsed ||
+							gameState.boosterShowTwoActive ||
+							gameState.gameStatus !== 'playing'}
+					>
+						<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
+						{#if gameState.boosterShowTwoUsed}
+							Boosteri käytetty!
+						{:else}
+							Näytä 2 satunnaista korttia!
+						{/if}
+					</button>
+					<!-- Boosterinappi: etsi pari (B)-->
+					<button
+						class="booster-find-match"
+						onclick={triggerBoosterFindMatch}
+						disabled={gameState.boosterFindMatchUsed ||
+							gameState.boosterFindMatchActive ||
+							gameState.gameStatus !== 'playing'}
+					>
+						<!-- Napin sisältö muuttuu riippuen boosterin käytöstä -->
+						{#if gameState.boosterFindMatchUsed}
+							Boosteri käytetty!
+						{:else}
+							Näytä pari!
+						{/if}
+					</button>
+				</div>
 			</div>
-			<!-- Kortit -->
-			<div class="card-grid">
-				{#each cards as card (card.id)}
-					<SingleCard
-						{card}
-						{imgCover}
-						{disabled}
-						handleChoice={handlePlayerChoice}
-						flipped={card === choiceOne || card === choiceTwo || card.matched}
-					/>
-				{/each}
-			</div>
-			<!-- Boosterinappi: näytä kaksi -->
-			<button
-				class="booster-show-two"
-				onclick={triggerboosterShowTwo}
-				disabled={gameState.boosterShowTwoUsed ||
-					gameState.boosterShowTwoActive ||
-					gameState.gameStatus !== 'playing'}
-			>
-				<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
-				{#if gameState.boosterShowTwoUsed}
-					Boosteri käytetty!
-				{:else}
-					Näytä 2 korttia!
-				{/if}
-			</button>
 		</div>
-	</div>
-	<Footer />
-</main>
+		<Footer />
+	</main>
 </div>
 <!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (B) -->
 {#if gameState.gameStatus === 'won'}

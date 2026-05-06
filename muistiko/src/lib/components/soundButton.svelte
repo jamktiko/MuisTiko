@@ -60,7 +60,7 @@
 		left: 50%;
 		padding: 10px;
 		border-radius: 12px;
-		-webkit-appearance: slider-vertical;
+		appearance: slider-vertical;
 		transform: translateX(-50%) rotate(90deg);
 		display: flex;
 		align-items: center;

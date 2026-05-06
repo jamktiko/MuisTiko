@@ -4,6 +4,7 @@
 	import GameInfo from '$lib/components/gameInfo.svelte';
 	import SoundButton from './soundButton.svelte';
 	import SettingsModal from './SettingsModal.svelte';
+	import { homePageMusic } from '$lib/state/soundState.svelte';
 	interface Props {
 		gameLogo: string | null;
 	}
@@ -17,7 +18,7 @@
 	<div class="header-row">
 		{#if gameLogo}
 			<div class="logo-container">
-				<img src="/data/logot/muistiko_kissat.svg" alt="Muistiko logo" />
+				<img src="/data/logot/muistiko_{gameLogo?.toLowerCase()}.svg" alt="Muistiko logo" />
 			</div>
 		{/if}
 
@@ -26,14 +27,15 @@
 				<!-- Kotinappi -->
 				<button
 					class="home-button"
-					onclick={() => goto(resolve('/'))}
+					onclick={() =>{homePageMusic()
+						 goto(resolve('/'))}}
 					aria-label="Home"
 					title="Home"
 				>
 					<img src="/data/ikonit/koti_nappi.svg" alt="Home" />
 				</button>
 				<!-- Ääni-nappi (tulee soundButton.svelte:stä)-->
-				<SoundButton class="volume-button" />
+				<SoundButton />
 			</div>
 			<div class="header-right">
 				<!-- Infonappi -->

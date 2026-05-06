@@ -102,14 +102,12 @@ nav {
 /* PELIALUEIDEN ASETUKSET */
 
 .game-page {
+	flex: 1;
 	display: flex;
+	min-height: 0;
 	flex-direction: column;
-	min-height: 100vh;
-	background-image: var(--tausta);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
+	overflow: hidden;
+
 }
 
 /* Toiminto alue */
@@ -183,11 +181,13 @@ nav {
 /* Sivun asettelu */
 .main-content {
 	flex: 1;
+	min-height: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem;
+	padding: 1rem;
+	overflow: auto;
 }
 
 /* Footer - asettelu ja asetukset */
@@ -295,7 +295,7 @@ Modaalin taustan tyyli
 	--color-footer: #ffffff;
 	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nav-button: #0d004c;
+	--color-nav-button: #0D004C;
 }
 
 [data-theme='TIKO'] {
@@ -304,7 +304,8 @@ Modaalin taustan tyyli
 	--color-footer: #ffffff;
 	--color-border: #3a41ac;
 	--color-bg: transparent;
-	--color-nav-button: #ffffff --color-icon-filter: brightness(0) invert(1);
+	--color-nav-button: #FFFFFF;
+	--color-icon-filter: brightness(0) invert(1);
 }
 
 /* Korkean kontrastin tyylit */
@@ -333,9 +334,11 @@ Modaalin taustan tyyli
 }
 .game-box {
 	height: auto;
-	min-height: 500px;
-	width: 920px;
-	padding: 2rem;
+	width: min(920px, 95vw);
+	padding: 1.5rem;
+	max-height: calc(100dvh - 250px);
+	overflow: hidden;
+
 }
 /* Ylärivi missä napit */
 .game-top-row {
@@ -363,10 +366,10 @@ Modaalin taustan tyyli
 }
 
 .card-grid {
-	margin-top: 40px;
+	margin-top: 10px;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 20px;
+	grid-gap: 8px;
+	justify-content: center;
 }
 
 .card {
@@ -441,4 +444,36 @@ Modaalin taustan tyyli
 	align-items: center;
 	justify-content: center;
 	font-size: 0.9rem;
+}
+
+.theme-wrapper {
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	background-image: var(--tausta);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
+}
+
+/* 30 korttia - 6 saraketta */
+.card-grid[data-cards='30'] {
+	grid-template-columns: repeat(6, minmax(0, 80px));
+}
+
+
+/* 20 korttia - 5 saraketta */
+.card-grid[data-cards='20'] {
+	grid-template-columns: repeat(5, minmax(0, 90px));
+}
+
+/* 16 korttia - 4 saraketta */
+.card-grid[data-cards='16'] {
+	grid-template-columns: repeat(4, minmax(0, 90px));
+}
+
+/* 12 korttia - 4 saraketta */
+.card-grid[data-cards='12'] {
+	grid-template-columns: repeat(4, minmax(0, 120px));
 }
