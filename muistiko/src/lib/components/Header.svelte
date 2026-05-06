@@ -18,7 +18,8 @@
 	<div class="header-row">
 		{#if gameLogo}
 			<div class="logo-container">
-				<img src="/data/logot/muistiko_{gameLogo?.toLowerCase()}.svg" alt="Muistiko logo" />
+				<img class="logo-desktop" src="/data/logot/muistiko_{gameLogo?.toLowerCase()}.svg" alt="Muistiko logo" />
+				<img class="logo-mobile" src="/data/logot/muistiko_{gameLogo?.toLowerCase()}_pieni.svg" alt="Muistiko logo" />
 			</div>
 		{/if}
 
