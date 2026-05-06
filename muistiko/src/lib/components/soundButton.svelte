@@ -57,14 +57,38 @@
 	.slider {
 		position: absolute;
 		appearance: slider-vertical;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		margin-left: 30px;
-		margin-bottom: 100px;
+		z-index: 10;
+		background-color: #f0ece2;
+		padding: 15px 10px;
+		border-radius: 20px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		border: 2px solid #dcd7cc;
+		margin-top: 5px;
 	}
 	.slider input {
 		cursor: pointer;
+		appearance: slider-vertical;
+		width: 15px;
+		height: 100px;
+		margin: 0;
 	}
+
+	.slider::after {
+		content: '';
+		position: absolute;
+		top: -10px;
+		left: 0;
+		right: 0;
+		height: 20px;
+		background: transparent;
+	}
+
 	.audio {
 		position: relative;
 		display: flex;
