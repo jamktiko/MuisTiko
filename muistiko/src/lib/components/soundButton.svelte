@@ -33,9 +33,9 @@
 >
 	<button onclick={handleSound}>
 		{#if soundState.muted}
-			<img src="/data/ikonit/volumeoff.svg" alt="Volume off" />
+			<img src="/data/ikonit/volumeoff.svg" alt="Volume off" class="volume-off" />
 		{:else}
-			<img src="/data/ikonit/volume.svg" alt="Volume on" />
+			<img src="/data/ikonit/volume.svg" alt="Volume on" class="volume-on" />
 		{/if}
 	</button>
 
@@ -56,17 +56,35 @@
 <style>
 	.slider {
 		position: absolute;
-		top: 170%;
-		left: 50%;
-		padding: 10px;
-		border-radius: 12px;
 		appearance: slider-vertical;
-		transform: translateX(-50%) rotate(90deg);
 		display: flex;
 		align-items: center;
+		margin-left: 30px;
+		margin-bottom: 100px;
+	}
+	.slider input {
+		cursor: pointer;
 	}
 	.audio {
-		display: inline-block;
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+	}
+	.volume-on {
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		filter: var(--color-icon-filter, none);
+		cursor: pointer;
+	}
+	.volume-off {
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		filter: var(--color-icon-filter, none);
+		cursor: pointer;
 	}
 </style>

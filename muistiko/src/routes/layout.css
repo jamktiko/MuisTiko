@@ -59,6 +59,7 @@ nav {
 	height: 30px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Info-painike */
@@ -67,6 +68,7 @@ nav {
 	height: 30px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Asetukset-painike */
@@ -75,6 +77,7 @@ nav {
 	height: 30px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* TIKON VALKOSET PAINIKKEET */
@@ -107,7 +110,6 @@ nav {
 	min-height: 0;
 	flex-direction: column;
 	overflow: hidden;
-
 }
 
 /* Toiminto alue */
@@ -291,20 +293,20 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
-	--color-header: #FFFFFF;
-	--color-footer: #FFFFFF;
-	--color-border: #EEEEEE;
+	--color-header: #ffffff;
+	--color-footer: #ffffff;
+	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nav-button: #0D004C;
+	--color-nav-button: #0d004c;
 }
 
 [data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
-	--color-header: #3A41AC;
-	--color-footer: #FFFFFF;
-	--color-border: #3A41AC;
+	--color-header: #3a41ac;
+	--color-footer: #ffffff;
+	--color-border: #3a41ac;
 	--color-bg: transparent;
-	--color-nav-button: #FFFFFF;
+	--color-nav-button: #ffffff;
 	--color-icon-filter: brightness(0) invert(1);
 }
 
@@ -338,7 +340,6 @@ Modaalin taustan tyyli
 	padding: 1.5rem;
 	max-height: calc(100dvh - 250px);
 	overflow: hidden;
-
 }
 /* Ylärivi missä napit */
 .game-top-row {
@@ -427,7 +428,6 @@ Modaalin taustan tyyli
 	transform: scale(1.05);
 }
 
-
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
 
 .game-nav-button {
@@ -460,7 +460,6 @@ Modaalin taustan tyyli
 .card-grid[data-cards='30'] {
 	grid-template-columns: repeat(6, minmax(0, 80px));
 }
-
 
 /* 20 korttia - 5 saraketta */
 .card-grid[data-cards='20'] {

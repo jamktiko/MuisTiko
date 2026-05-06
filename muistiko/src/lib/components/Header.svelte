@@ -27,8 +27,10 @@
 				<!-- Kotinappi -->
 				<button
 					class="home-button"
-					onclick={() =>{homePageMusic()
-						 goto(resolve('/'))}}
+					onclick={() => {
+						homePageMusic();
+						goto(resolve('/'));
+					}}
 					aria-label="Home"
 					title="Home"
 				>
