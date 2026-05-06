@@ -146,7 +146,7 @@
 				<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
 			</div>
 			<!-- Kortit -->
-			<div class="card-grid">
+			<div class="card-grid" data-cards={cards.length}>
 				{#each cards as card (card.id)}
 					<SingleCard
 						{card}
@@ -185,3 +185,5 @@
 {#if gameState.gameStatus === 'lost' && gameState.timelimit !== 'Ei rajaa'}
 	<LoseModal />
 {/if}
+
+<p>{cards.length}</p>
