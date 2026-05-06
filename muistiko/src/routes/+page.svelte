@@ -6,6 +6,9 @@
 	const aloitaPeli = async () => {
 		const audio = soundState.audioElement;
 		if (audio) {
+			audio.pause();
+        audio.src = '/data/music/music_for_video-waiting-music-116216.mp3';
+        audio.load();
 			try {
 				await audio.play()
 				soundState.muted =false

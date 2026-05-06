@@ -3,7 +3,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { appSettings } from '$lib/state/appSettings';
-	import { loadMusicFromStorage, LoadMuteToStorage } from '$lib/localstorage/localstorage';
+	import { loadMusicFromStorage } from '$lib/localstorage/localstorage';
 	import { soundState } from '$lib/state/soundState.svelte';
 
 	let audio: HTMLAudioElement | null = null;
@@ -17,14 +17,15 @@
 
 	onMount(() => {
 		const savedMusic = loadMusicFromStorage();
-		if (savedMusic) {
-			music = savedMusic;
+		if (savedMusic && audio) {
+			audio.src = savedMusic;
+			audio.load()
 		}
+		if (!soundState.muted) {
+            audio?.play();
+        }
 
-		const savedMuted = LoadMuteToStorage();
-		if (savedMuted !== null) {
-			soundState.muted = savedMuted === 'true';
-		}
+		
 	});
 </script>
 
