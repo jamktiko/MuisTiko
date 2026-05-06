@@ -5,6 +5,11 @@
 /* JOS MUUTATTE TÄNNE JTN JÄRJESTYS ON SIVULLA ESIINTYMISEN MUKAAN */
 /* KOMMENTOIKAA NÄKYVÄSTI SIIHEN MIHIN OOTTE KOSKENU JOTTA NE LÖYTYY HELPOSTI JA NÄKYY SELVÄSTI */
 
+body {
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+}
 /* Header */
 .header-row {
 	position: relative;
@@ -15,7 +20,7 @@
 	align-items: center;
 	padding: 0 2rem;
 	border-radius: 20px 20px 0 0;
-	background: #c3b5aa;
+	background: var(--color-header, #c3b5aa);
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 }
 
@@ -52,18 +57,32 @@ nav {
 .home-button {
 	width: 30px;
 	height: 30px;
+	background-color: transparent;
+	filter: var(--color-icon-filter, none);
 }
 
 /* Info-painike */
 .info-button {
 	width: 30px;
 	height: 30px;
+	background-color: transparent;
+	filter: var(--color-icon-filter, none);
 }
 
 /* Asetukset-painike */
 .settings-button {
 	width: 30px;
 	height: 30px;
+	background-color: transparent;
+	filter: var(--color-icon-filter, none);
+}
+
+/* TIKON VALKOSET PAINIKKEET */
+
+[data-theme='TIKO'] .home-button img,
+[data-theme='TIKO'] .info-button img,
+[data-theme='TIKO'] .settings-button img {
+	filter: brightness(0) invert(1);
 }
 
 /* LANDINGPAGE/ALOITUSSIVU ASETUKSET */
@@ -90,7 +109,7 @@ nav {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: rgba(195, 181, 170, 0.6);
+	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
 }
 
 /* Toiminto alue */
@@ -98,7 +117,7 @@ nav {
 	width: 888px;
 	height: 532px;
 	border-radius: 25px;
-	border: 6px solid rgba(60, 60, 59, 0.8);
+	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8));
 	background: rgba(251, 251, 251, 0.98);
 	display: flex;
 	flex-direction: column;
@@ -181,7 +200,7 @@ nav {
 	justify-content: center;
 	align-items: center;
 	border-radius: 20px;
-	background-color: #c3b5aa;
+	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
 	margin: 0 auto 2rem auto;
 }
@@ -262,11 +281,6 @@ Modaalin taustan tyyli
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--color-header: #c3b5aa;
 	--color-footer: #c3b5aa;
-	--color-footer: #c3b5aa;
-	--header: width: 1258px height: 147px;
-	--footer:                                                                               
-
-;
 }
 
 [data-theme='Koirat'] {
@@ -277,12 +291,21 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta.png');
-	--color-header: #ffffff;
-	--color-footer: #ffffff;
+	--color-header: #FFFFFF;
+	--color-footer: #FFFFFF;
+	--color-border: #EEEEEE;
+	--color-bg: transparent;
+	--color-nav-button: #0D004C
 }
 
-[data-theme='Tiko'] {
+[data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
+	--color-header: #3A41AC;
+	--color-footer: #FFFFFF;
+	--color-border: #3A41AC;
+	--color-bg: transparent;
+	--color-nav-button: #FFFFFF
+	--color-icon-filter: brightness(0) invert(1)
 }
 
 /* Korkean kontrastin tyylit */
@@ -334,7 +357,6 @@ Modaalin taustan tyyli
 /* ALOITA ALUSTA NAPPI */
 .start-again {
 	color: black;
-	background-color: white;
 }
 
 .start-again:hover {
@@ -407,4 +429,22 @@ Modaalin taustan tyyli
 
 .booster-show-two:hover {
 	transform: scale(1.05);
+}
+
+
+/* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
+
+.game-nav-button {
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
 }
