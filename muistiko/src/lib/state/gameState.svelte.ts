@@ -71,6 +71,10 @@ interface GameState {
 	boosterShowTwoActive: boolean;
 	boosterShowTwoCards: string[];
 	boosterShowTwoUsed: boolean;
+	// boosterMatchTwo-tilamuuttujat (B)
+	boosterFindMatchUsed: boolean;
+	boosterFindMatchActive: boolean;
+	boosterFindMatchCards: string[];
 }
 
 // Tässä on koko sovelluksen yhteinen tila ns. Yhden totuuden periaatteella, voidaan helposti muutta mistä tahansa sovelluksen osasta käsin (B)
@@ -86,9 +90,13 @@ export const gameState = $state<GameState>({
 	disabled: false,
 	gameStatus: 'playing',
 	// boosterShowTwo-tilamuuttujat (B)
+	boosterShowTwoUsed: false,
 	boosterShowTwoActive: false,
 	boosterShowTwoCards: [],
-	boosterShowTwoUsed: false
+	// boosterMatchTwo-tilamuuttujat (B)
+	boosterFindMatchUsed: false,
+	boosterFindMatchActive: false,
+	boosterFindMatchCards: []
 });
 
 // Tilankäsittelyn funktiot (B)
@@ -214,6 +222,10 @@ export const startNewGame = () => {
 	gameState.boosterShowTwoUsed = false;
 	gameState.boosterShowTwoActive = false;
 	gameState.boosterShowTwoCards = [];
+	gameState.boosterFindMatchUsed = false;
+	gameState.boosterFindMatchActive = false;
+	gameState.boosterFindMatchCards = [];
+	gameState.disabled = false;
 	gameState.gameStatus = 'playing';
 };
 
@@ -240,7 +252,7 @@ export function triggerboosterShowTwo() {
 		return;
 	}
 
-	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina (B) ja jotka eivät ole choiceOne tai choiceTwo, jotta niitä ei näytettäisi
+	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina ja jotka eivät ole choiceOne tai choiceTwo, jotta niitä ei näytettäisi
 	const availableCards = gameState.cards.filter(
 		(card) => !card.matched && card !== gameState.choiceOne && card !== gameState.choiceTwo
 	);
@@ -254,7 +266,7 @@ export function triggerboosterShowTwo() {
 	const shuffled = shuffleCards(availableCards);
 	const selected = shuffled.slice(0, 2).map((c) => c.id);
 
-	// 	Asetetaan boosterShowTwo-kortit tilaan ja aktivoidaan boosterShowTwo, sekä estetään pelaaja klikkaamasta kortteja boosterShowTwoin ollessa aktiivisena (B)
+	// 	Asetetaan boosterShowTwo-kortit tilaan ja aktivoidaan boosterShowTwo, sekä estetään pelaaja klikkaamasta kortteja boosterShowTwon ollessa aktiivisena (B)
 	gameState.boosterShowTwoCards = selected;
 	gameState.boosterShowTwoActive = true;
 	gameState.disabled = true;
@@ -264,5 +276,44 @@ export function triggerboosterShowTwo() {
 		gameState.boosterShowTwoActive = false;
 		gameState.boosterShowTwoCards = [];
 		gameState.disabled = false;
-	}, 1000);
+	}, 1500);
+}
+
+// FUNKTIO BOOSTERILLE FIND MATCH (Etsii pelaajalle yhden parin) (B)
+export function triggerBoosterFindMatch() {
+	if (
+		gameState.boosterFindMatchUsed ||
+		gameState.boosterFindMatchActive ||
+		gameState.disabled ||
+		gameState.gameStatus !== 'playing'
+	) {
+		return;
+	}
+
+	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina
+	const unmatched = gameState.cards.filter((card) => !card.matched);
+
+	// Etsii ensimmäisen parin korteista, jotka eivät ole vielä matchattuina, ja asettaa niiden ID:t tilamuuttujiin (B)
+	let pair: string[] = [];
+	for (const card of unmatched) {
+		const match = unmatched.find((c) => c.src === card.src && c.id !== card.id);
+		if (match) {
+			pair = [card.id, match.id];
+			break;
+		}
+	}
+	// Jos pari löytyy, asetetaan boosterFindMatch käytetyksi, tilamuuttujiin ja aktivoidaan boosterFindMatch, sekä estetään pelaaja klikkaamasta kortteja boosterFindMatchin ollessa aktiivisena (B)
+	if (pair.length === 2) {
+		gameState.boosterFindMatchUsed = true;
+		gameState.boosterFindMatchActive = true;
+		gameState.disabled = true;
+		gameState.boosterFindMatchCards = pair;
+
+		// Asetetaan boosterFindMatch pois päältä x sekunnin kuluttua, ja vapautetaan pelaaja klikkaamaan kortteja uudestaan (B)
+		setTimeout(() => {
+			gameState.boosterFindMatchActive = false;
+			gameState.boosterFindMatchCards = [];
+			gameState.disabled = false;
+		}, 1500);
+	}
 }

@@ -13,10 +13,10 @@ export function setDifficultyToStorage(item: string) {
 }
 // Asettaa musiikin
 export function setMusicToStorage(item: string) {
-	localStorage.setItem('Audio', item.toString())
+	localStorage.setItem('Audio', item.toString());
 }
 export function setMuteToStorage(item: boolean) {
-	localStorage.setItem('Muted', item.toString())
+	localStorage.setItem('Muted', item.toString());
 }
 
 // Funktiot hakevat sisällöt local storagesta (B)
@@ -34,15 +34,13 @@ export function loadDifficultyFromStorage() {
 }
 // lataa musiikin
 export function loadMusicFromStorage() {
-	return localStorage.getItem('Audio')
+	return localStorage.getItem('Audio');
 }
 export function LoadMuteToStorage() {
-	return localStorage.getItem('Muted')
+	return localStorage.getItem('Muted');
 }
 
 // Tarvittaessa tyhjennysominaisuus local storagelle (B)
 export function clearStorage() {
 	localStorage.clear();
 }
-
-
