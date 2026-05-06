@@ -186,4 +186,3 @@
 	<LoseModal />
 {/if}
 
-<p>{cards.length}</p>
