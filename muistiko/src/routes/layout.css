@@ -462,3 +462,39 @@ Modaalin taustan tyyli
 	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
 }
 
+/* 30 korttia - 6 saraketta */
+.card-grid[data-cards='30'] {
+	grid-template-columns: repeat(6, 130px);
+}
+.card-grid[data-cards='30'] .card img {
+	width: 130px;
+	height: 130px;
+}
+
+/* 20 korttia - 5 saraketta */
+.card-grid[data-cards='20'] {
+	grid-template-columns: repeat(5, 150px);
+}
+.card-grid[data-cards='20'] .card img {
+	width: 150px;
+	height: 150px;
+}
+
+/* 16 korttia - 4 saraketta */
+.card-grid[data-cards='16'] {
+	grid-template-columns: repeat(4, 180px);
+}
+.card-grid[data-cards='16'] .card img {
+	width: 180px;
+	height: 180px;
+}
+
+/* 12 korttia - 4 saraketta */
+.card-grid[data-cards='12'] {
+	grid-template-columns: repeat(4, 200px);
+}
+.card-grid[data-cards='12'] .card img {
+	width: 200px;
+	height: 200px;
+}
+
