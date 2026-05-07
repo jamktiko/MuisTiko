@@ -314,12 +314,7 @@ nav {
 	border-radius: 20px;
 	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
-<<<<<<< HEAD
-	margin: 0 auto 2rem auto;
-	flex: 0 0 auto;
-=======
 	margin: 0 auto 1rem auto;
->>>>>>> 5f4de8bd9026a0858b9c28867559ec020a20cec3
 }
 
 /* Footer teksti - koko min, preferred,max */

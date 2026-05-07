@@ -4,6 +4,7 @@
 	import Button from './Button.svelte';
 	import { gameState, handlePlayAgain, startNewGame } from '$lib/state/gameState.svelte';
 	import { minutes_2, seconds_2, usedMinutes, usedSeconds } from '$lib/state/timerState.svelte';
+	import { confetti } from '@neoconfetti/svelte';
 </script>
 
 <div class="win-modal">
@@ -14,6 +15,7 @@
 		{/snippet}
 
 		{#snippet content()}
+			<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }} />
 			{#if gameState.timelimit !== 'Ei rajaa'}
 				<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
 			{:else}
@@ -61,5 +63,14 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 1000;
+	}
+
+	.confetti-container {
+		position: absolute;
+		top: 10%;
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
 	}
 </style>
