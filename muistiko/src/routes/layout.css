@@ -493,7 +493,8 @@ Modaalin taustan tyyli
 	font-family: 'Coustard', serif;
 	font-size: 1.1rem;
 	color: #3b3b3b;
-	margin: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 .start-again:hover {
@@ -502,6 +503,7 @@ Modaalin taustan tyyli
 
 .card-grid {
 	margin-top: 10px;
+	margin-bottom: 10px;
 	display: grid;
 	justify-content: center;
 	width: 100%;
@@ -546,6 +548,7 @@ Modaalin taustan tyyli
 	background-color: transparent;
 	perspective: 500px;
 	aspect-ratio: 1 / 1;
+	margin: 5px;
 }
 
 .card:hover {
@@ -880,7 +883,7 @@ Modaalin taustan tyyli
 	}
 }
 
-@media (max-height: 700px) {
+@media (max-height: 675px) {
 	.main-content {
 		flex: 1;
 		display: flex;
