@@ -660,7 +660,7 @@ Modaalin taustan tyyli
 
 /* 20 korttia - 10 saraketta */
 .card-grid[data-cards='20'] {
-	grid-template-columns: repeat(10, minmax(0, 70px));
+	grid-template-columns: repeat(5, minmax(0, 70px));
 }
 
 /* 16 korttia - 8 saraketta */
@@ -740,10 +740,8 @@ Modaalin taustan tyyli
 	}
 
 	.game-box {
-		max-height: none;
 		width: 95vw;
 		padding: 0.75rem;
-		min-height: 0;
 		overflow: visible;
 	}
 
