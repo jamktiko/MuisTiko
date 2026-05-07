@@ -207,8 +207,8 @@ function getRandomCards<T>(cards: T[]): T[] {
 }
 
 // Alustaa uudelleenpelaamisen
-export const startNewGame = () => {
-	initalizeCards();
+export const startNewGame = async () => {
+	await initalizeCards();
 	setTurns(0);
 	stopTimer();
 	resetSimpleTimer();
@@ -228,8 +228,8 @@ export const startNewGame = () => {
 };
 
 // Funktio voitto/häviömodaalin uudelleenpelausnappiin, joka vie asetussivulle (B)
-export function handlePlayAgain() {
-	startNewGame();
+export async function handlePlayAgain() {
+	await startNewGame();
 	gameState.gameStatus = 'playing';
 	goto(resolve('/settings'));
 }
