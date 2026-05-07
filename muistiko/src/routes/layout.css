@@ -456,7 +456,7 @@ Modaalin taustan tyyli
 
 /* KÄÄNNÖT */
 .game-turns {
-	opacity: 0.8;
+	opacity: 0.7;
 	min-width: 160px;
 	height: 48px;
 	border-radius: 10px;
@@ -474,8 +474,8 @@ Modaalin taustan tyyli
 /* AJASTIN */
 
 .game-timer {
-	opacity: 0.8;
-	min-width: 250px;
+	opacity: 0.7;
+	min-width: 240px;
 	height: 48px;
 	border-radius: 10px;
 	border: 3px solid #f3e1cd;
