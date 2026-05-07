@@ -142,7 +142,7 @@
 					<!-- Käänötjen määrä -->
 					<div class="game-turns">Käännöt: {turns}</div>
 					<!-- Ajastin, kulkee ylös tai alas (R) -->
-					<div class="game-nav-button">
+					<div class="game-timer">
 						<Timer />
 					</div>
 
