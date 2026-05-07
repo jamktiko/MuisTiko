@@ -23,7 +23,7 @@ class themeSetting {
 export const Themes: themeSetting[] = [
 	new themeSetting('Kissat', '/data/music/villatic_music-cute-cat-256893.mp3', {
 		background: '/data/taustat/kissat_tausta.png',
-		card: '/data/korttien_takapuolet/kissat_iso.png'
+		card: '/data/korttien_takapuolet/kissa_60.svg'
 	}),
 	new themeSetting('Koirat', '/data/music/alexguz-happy-dog-day-indie-rock-385939.mp3', {
 		background: '/data/taustat/koirat_tausta.png',
