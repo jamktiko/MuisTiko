@@ -101,6 +101,7 @@ nav {
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Info-painike */
@@ -109,14 +110,16 @@ nav {
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Asetukset-painike */
 .settings-button {
-	width: 40x;
+	width: 40px;
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 .home-button img,
@@ -175,7 +178,6 @@ nav {
 	min-height: 0;
 	flex-direction: column;
 	overflow: hidden;
-
 }
 
 /* Toiminto alue */
@@ -251,14 +253,13 @@ nav {
 	margin-top: 5rem;
 	border-radius: 10px;
 	border: 4px solid #f3e1cd;
-	opacity: 0.3;
 	background-color: #3c3c3b;
 	opacity: 0.9;
 	font-family: 'Coustard', serif;
 	color: #ffffff;
 	letter-spacing: 0.1em;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
-	
+	cursor: pointer;
 }
 
 /* Aloita peli - hover */
@@ -272,7 +273,6 @@ nav {
 	margin-top: 5rem;
 	border-radius: 10px;
 	border: 4px solid #f3e1cd;
-	opacity: 0.3;
 	background-color: #3c3c3b;
 	opacity: 0.9;
 	font-family: 'Coustard', serif;
@@ -331,6 +331,7 @@ nav {
 	gap: 2rem;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .dropdown select {
@@ -342,11 +343,13 @@ nav {
 	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
 	padding: 0.5rem;
 	font-family: 'Coustard', serif;
+	cursor: pointer;
 }
 
 .dropdown label {
 	font-family: 'Coustard', serif;
 	font-size: 0.9rem;
+	cursor: pointer;
 }
 
 /* Esiasetusvalikko */
@@ -355,7 +358,7 @@ nav {
 	gap: 5rem;
 	max-width: 400px;
 	margin: 0 auto;
-	min-height: 100vh;
+	min-height: 100dvh;
 }
 
 /* MODAALIEN TYYLIT
@@ -366,7 +369,7 @@ Modaalin taustan tyyli
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: 100dvh;
 	background: rgba(0, 0, 0, 0.75);
 	z-index: 10;
 }
@@ -401,20 +404,20 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta_eitxt.png');
-	--color-header: #FFFFFF;
-	--color-footer: #FFFFFF;
-	--color-border: #EEEEEE;
+	--color-header: #ffffff;
+	--color-footer: #ffffff;
+	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nav-button: #0D004C;
+	--color-nav-button: #0d004c;
 }
 
 [data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
-	--color-header: #3A41AC;
-	--color-footer: #FFFFFF;
-	--color-border: #3A41AC;
+	--color-header: #3a41ac;
+	--color-footer: #ffffff;
+	--color-border: #3a41ac;
 	--color-bg: transparent;
-	--color-nav-button: #FFFFFF;
+	--color-nav-button: #ffffff;
 	--color-icon-filter: brightness(0) invert(1);
 }
 
@@ -435,21 +438,14 @@ Modaalin taustan tyyli
 	filter: invert(1) !important;
 }
 
-.start-button:hover {
-	transform: scale(1.05);
-}
-
-.start-button:active {
-	transform: scale(0.98);
-}
 .game-box {
 	height: auto;
 	width: min(920px, 95vw);
 	padding: 1.5rem;
 	max-height: calc(100dvh - 250px);
 	overflow: hidden;
-
 }
+
 /* Ylärivi missä napit */
 .game-top-row {
 	display: flex;
@@ -466,11 +462,6 @@ Modaalin taustan tyyli
 	margin: 0;
 }
 
-/* ALOITA ALUSTA NAPPI */
-.start-again {
-	color: black;
-}
-
 .start-again:hover {
 	transform: scale(1.05);
 }
@@ -482,12 +473,14 @@ Modaalin taustan tyyli
 	justify-content: center;
 }
 
+/* KORTTIEN KÄÄNTÖANIMAATIO (R) */
 .card {
 	position: relative;
 	background-color: transparent;
+	perspective: 500px;
 }
 
-.card :hover {
+.card:hover {
 	cursor: pointer;
 	scale: 1.01;
 }
@@ -507,23 +500,25 @@ Modaalin taustan tyyli
 
 /* korttien kuvapuoli */
 .card .front {
-	transform: rotateY(90deg);
-	transition: transform 0.5s;
+	transform: rotateY(180deg);
+	transition: transform 0.5s ease;
 	position: absolute;
+	backface-visibility: hidden;
 }
 .flipped .front {
 	transform: rotateY(0deg);
-	transition: transform 0.5s;
+	transform-style: preserve-3d;
 }
 
 /* korttien takapuoli */
 .card .back {
 	transform: rotateY(0deg);
-	transition: transform 0.5s;
+	transition: transform 0.5s ease;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
 }
 .flipped .back {
-	transform: rotateY(90deg);
-	transition: transform 0.5s;
+	transform: rotateY(180deg);
 }
 
 /* BOOSTERINAPPULAT */
@@ -531,14 +526,61 @@ Modaalin taustan tyyli
 .booster-show-two {
 	color: black;
 	background-color: white;
+	cursor: pointer;
 }
 
 .booster-show-two:hover {
 	transform: scale(1.05);
+	cursor: pointer;
 }
 
+.booster-find-pair {
+	color: black;
+	background-color: white;
+	cursor: pointer;
+}
+
+.booster-find-pair:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
 
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
+
+/* KÄÄNNÖT */
+.game-turns {
+	opacity: 0.7;
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+}
+
+/* AJASTIN */
+
+.game-timer {
+	opacity: 0.7;
+	min-width: 240px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+}
 
 .game-nav-button {
 	min-width: 160px;
@@ -555,8 +597,13 @@ Modaalin taustan tyyli
 	font-size: 0.9rem;
 }
 
+.game-nav-button:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
 .theme-wrapper {
-	height: 100vh;
+	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -572,7 +619,6 @@ Modaalin taustan tyyli
 .card-grid[data-cards='30'] {
 	grid-template-columns: repeat(6, minmax(0, 80px));
 }
-
 
 /* 20 korttia - 5 saraketta */
 .card-grid[data-cards='20'] {
@@ -616,19 +662,13 @@ Modaalin taustan tyyli
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
+		cursor: pointer;
 	}
 
 	.dropdown-row > :last-child {
 		grid-column: 1 / -1;
 		display: flex;
 		justify-content: center;
-	}
-
-	.start-button {
-		width: 60% !important;
-		min-height: 50px !important;
-		margin-top: 1.5rem;
-		font-size: 0.85rem;
 	}
 
 	.footer {
@@ -645,14 +685,21 @@ Modaalin taustan tyyli
 	}
 
 	.game-box {
-		max-height: calc(100dvh - 500px);
-		height: calc(100dvh - 320px);
+		max-height: calc(100dvh - 320px);
 		width: 95vw;
 		padding: 0.75rem;
 	}
 
-	.card-grid[data-cards='12'] { grid-template-columns: repeat(4, 1fr); }
-	.card-grid[data-cards='16'] { grid-template-columns: repeat(4, 1fr); }
-	.card-grid[data-cards='20'] { grid-template-columns: repeat(5, 1fr); }
-	.card-grid[data-cards='30'] { grid-template-columns: repeat(6, 1fr); }
+	.card-grid[data-cards='12'] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.card-grid[data-cards='16'] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.card-grid[data-cards='20'] {
+		grid-template-columns: repeat(5, 1fr);
+	}
+	.card-grid[data-cards='30'] {
+		grid-template-columns: repeat(6, 1fr);
+	}
 }

@@ -140,9 +140,12 @@
 					<!-- Aloita alusta-napi -->
 					<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
 					<!-- Käänötjen määrä -->
-					<div class="game-nav-button">Käännöt: {turns}</div>
+					<div class="game-turns">Käännöt: {turns}</div>
 					<!-- Ajastin, kulkee ylös tai alas (R) -->
-					<Timer />
+					<div class="game-timer">
+						<Timer />
+					</div>
+
 					<!-- Lopeta peli-nappi -->
 					<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
 				</div>
