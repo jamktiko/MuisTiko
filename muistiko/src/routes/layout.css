@@ -48,13 +48,11 @@ body {
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;	
-	
-	
+	justify-content: center;
 }
 
 .header-content h1 {
-  width: 200px !important;
+	width: 200px !important;
 	min-height: 68px !important;
 	margin-top: 1.2rem;
 	border-radius: 10px;
@@ -69,8 +67,6 @@ body {
 	margin: 0;
 	line-height: 68px;
 }
-
-
 
 .info-modal {
 	display: flex;
@@ -87,7 +83,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-
 }
 .modal-footer h3 {
 	margin-bottom: 1rem;
@@ -102,7 +97,6 @@ body {
 
 .info-section {
 	width: 320px;
-
 }
 
 .info-section h3 {
@@ -162,27 +156,27 @@ nav {
 }
 
 .close-button {
-  height: 42px;
-  width: 42px;
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
 
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 50%;
+	background: black;
+	color: white;
+	border: none;
+	border-radius: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  font-size: 2rem;
-  line-height: 1;
-  font-family: Arial, sans-serif;
+	font-size: 2rem;
+	line-height: 1;
+	font-family: Arial, sans-serif;
 
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 	cursor: pointer;
 }
 
@@ -267,7 +261,6 @@ nav {
 	margin-bottom: 0.5rem;
 	color: #2d2d2d;
 }
-
 
 /* Logon asettelu */
 .logo {
@@ -776,7 +769,7 @@ Modaalin taustan tyyli
 	.settings-content {
 		padding-top: 1.5rem;
 		display: flex;
-		align-items: center	;
+		align-items: center;
 	}
 
 	.dropdown-row {
@@ -940,6 +933,7 @@ Modaalin taustan tyyli
 }
 
 @media (max-height: 800px) {
+@media (max-height: 700px) {
 	.main-content {
 		flex: 1;
 		display: flex;
