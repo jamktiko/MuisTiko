@@ -11,6 +11,7 @@ import {
 	startSimpleTimer,
 	stopTimer
 } from '$lib/state/timerState.svelte';
+import { type ThemeItem } from './utils/dataHandling';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO' | null;
 
@@ -130,8 +131,7 @@ export function resetCards() {
 	const newCards = gameState.cards.map((card) => {
 		return { ...card, matched: false };
 	});
-
-	setCards(shuffleCards(newCards));
+	setCards(getRandomCards(newCards));
 }
 
 export function incrementTurns(value: number) {
@@ -157,10 +157,10 @@ export function setDisabled(value: boolean) {
 export async function initalizeCards() {
 	const themeKey = gameState.theme?.toLowerCase();
 	try {
-		const themeData = await getThemeData(themeKey as Theme);
+		const themeData = (await getThemeData(themeKey as Theme)) as ThemeItem[];
 		const cardcount = difficultySetting(gameState.difficulty);
-		const selectedCards = themeData.slice(0, cardcount / 2);
-		const cardData: Card[] = selectedCards.map((item: { pic: string }) => ({
+		const randomCards = getRandomCards(themeData).slice(0, cardcount / 2);
+		const cardData: Card[] = randomCards.map((item: ThemeItem) => ({
 			src: getImagePath(themeKey as Theme, item.pic),
 			matched: false,
 			id: createIdString(ID_STRING_LENGTH)
@@ -169,7 +169,7 @@ export async function initalizeCards() {
 		const duplicatedCards = duplicateCards(cardData);
 
 		// Asetetaan sekoitetut kortit tilaan
-		setCards(shuffleCards(duplicatedCards));
+		setCards(getRandomCards(duplicatedCards));
 		console.log(gameState.cards);
 	} catch (error) {
 		console.log('Error while initializing cards', error);
@@ -195,22 +195,20 @@ export function turnOverCorrectPair() {
 	);
 }
 
-// Sekoittaa kortit
+// Sekoittaa kortit uudestaan joka kerta, kun funktio kutsutaan, jotta kortit eivät ole aina samassa järjestyksessä (R)
 // Fisher-Yates algoritmi (R)
-export function shuffleCards(cards: Card[]): Card[] {
-	const array = [...cards];
-
-	for (let i = array.length - 1; i > 0; i--) {
+function getRandomCards<T>(cards: T[]): T[] {
+	const result = [...cards];
+	for (let i = result.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
-		[array[i], array[j]] = [array[j], array[i]];
+		[result[i], result[j]] = [result[j], result[i]];
 	}
-
-	return array;
+	return result;
 }
 
 // Alustaa uudelleenpelaamisen
 export const startNewGame = () => {
-	resetCards();
+	initalizeCards();
 	setTurns(0);
 	stopTimer();
 	resetSimpleTimer();
@@ -263,7 +261,7 @@ export function triggerboosterShowTwo() {
 	gameState.boosterShowTwoUsed = true;
 
 	// Valitaan satunnaisesti kaksi korttia saatavilla olevista korteista, asetetaan ne tilaan ja aktivoidaan boosterShowTwo (B)
-	const shuffled = shuffleCards(availableCards);
+	const shuffled = getRandomCards(availableCards);
 	const selected = shuffled.slice(0, 2).map((c) => c.id);
 
 	// 	Asetetaan boosterShowTwo-kortit tilaan ja aktivoidaan boosterShowTwo, sekä estetään pelaaja klikkaamasta kortteja boosterShowTwon ollessa aktiivisena (B)

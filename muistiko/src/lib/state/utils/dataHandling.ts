@@ -12,3 +12,9 @@ export function getImagePath(theme: Theme, imgSrc: string): string {
 	const path = `/data/${theme}/${imgSrc}`;
 	return path;
 }
+
+// interface jonka muodossa kortit ovat jsonissa
+export interface ThemeItem {
+	id: number;
+	pic: string;
+}
