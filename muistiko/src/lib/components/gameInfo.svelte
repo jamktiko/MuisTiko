@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
+
 	import Modal from '$lib/components/Modal.svelte';
 
 	interface Props {
@@ -10,16 +10,19 @@
 </script>
 
 <Modal>
+ 
 	{#snippet header()}
-		<div>
+	
+		<div class="header-content">
 			<h1><strong>INFO</strong></h1>
-			<div class="close-button">
-				<Button onclick={closeInfo} text="×" />
-			</div>
+			<button class="close-button" onclick={closeInfo} aria-label="Sulje">×</button>
 		</div>
+		
 	{/snippet}
 
 	{#snippet content()}
+	  <div class="info-modal">
+		<div class="content-infobox">
 		<p><strong>MuisTiko</strong> on muistipeli, jossa tavoitteena on löytää kaikki korttiparit.</p>
 		<h3><strong>Säännöt:</strong></h3>
 		<ul>
@@ -37,9 +40,12 @@
 			<li><strong>Vaikeustaso:</strong> 4 eri vaikeustasoa mistä voit valita</li>
 			<li><strong>Aikaraja:</strong> Voit vaikeuttaa peliä asettamalla aikarajan</li>
 		</ul>
+		</div>
+   </div>
 	{/snippet}
 
 	{#snippet footer()}
 		<p>hallootta</p>
 	{/snippet}
 </Modal>
+
