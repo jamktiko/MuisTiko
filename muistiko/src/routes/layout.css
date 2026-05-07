@@ -49,24 +49,18 @@ body {
 	align-items: center;
 	justify-content: center;
 	padding: 1rem 2rem;
-	background: linear-gradient(
-		135deg,
-		rgba(195, 181, 170, 0.95),
-		rgba(166, 127, 111, 0.9)
-	);
-	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	background: linear-gradient(135deg, rgba(195, 181, 170, 0.95), rgba(166, 127, 111, 0.9));
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	border-radius: 20px 20px 0 0;
 }
 
 .header-content h1 {
-	
 	font-family: 'Coustard', serif;
 	font-size: 2rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #fff8f2;
-	text-shadow:
-		0 2px 4px rgba(0,0,0,0.25);
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .info-modal {
@@ -82,7 +76,6 @@ body {
 
 	position: relative;
 }
-
 
 /* Header/navi asettelu */
 nav {
@@ -130,16 +123,16 @@ nav {
 }
 
 .close-button {
-		background: none;
-		border: none;
-		font-size: 2rem;
-		cursor: pointer;
-		color: inherit;
-		padding: 0;
-		margin: 0;
-		position: absolute;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	cursor: pointer;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	position: absolute;
 	right: 1rem;
-	}
+}
 
 /* TIKON VALKOSET PAINIKKEET */
 
@@ -200,10 +193,9 @@ nav {
 	max-height: 75vh;
 
 	border-radius: 28px;
-	border: 2px solid; 
+	border: 2px solid;
 
 	background: rgba(255, 255, 255, 0.88);
-	
 
 	display: flex;
 	flex-direction: column;
@@ -211,8 +203,8 @@ nav {
 	padding: 2.5rem;
 
 	box-shadow:
-		0 10px 30px rgba(0,0,0,0.25),
-		0 4px 10px rgba(0,0,0,0.15);
+		0 10px 30px rgba(0, 0, 0, 0.25),
+		0 4px 10px rgba(0, 0, 0, 0.15);
 
 	overflow-y: auto;
 
@@ -387,8 +379,6 @@ Modaalin taustan tyyli
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-
-
 /* Teemojen tyylit */
 [data-theme='Kissat'] {
 	--tausta: url('/data/taustat/kissat_tausta.png');
@@ -454,6 +444,7 @@ Modaalin taustan tyyli
 	width: 100%;
 	margin-bottom: 0.5rem;
 }
+
 /* Yläriivn nappien tekstien speksit */
 .game-top-row p {
 	font-family: 'Coustard', serif;
