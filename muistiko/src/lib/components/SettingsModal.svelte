@@ -23,12 +23,13 @@
 <Modal>
 	{#snippet header()}
 		<div class="header-content">
-			<h2>Asetukset</h2>
+			<h1>Asetukset</h1	>
 			<button class="close-button" onclick={closeModal} aria-label="Sulje">×</button>
 		</div>
 	{/snippet}
 
 	{#snippet content()}
+	
 		<div class="settings-content">
 			<div class="toggle-container">
 				<label for="high-contrast-toggle">Korkea kontrasti</label>
@@ -43,6 +44,7 @@
 				</label>
 			</div>
 		</div>
+	
 	{/snippet}
 
 	{#snippet footer()}
@@ -51,11 +53,7 @@
 </Modal>
 
 <style>
-	.header-content {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
+	
 
 	
 
@@ -64,10 +62,12 @@
 	}
 
 	.toggle-container {
+		padding: 2rem;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 		margin-bottom: 1rem;
+		gap: 20px;
 	}
 
 	.toggle {
@@ -75,6 +75,7 @@
 		display: inline-block;
 		width: 60px;
 		height: 34px;
+
 	}
 
 	.toggle input {
