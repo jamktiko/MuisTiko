@@ -175,12 +175,7 @@
 							gameState.boosterShowTwoActive ||
 							gameState.gameStatus !== 'playing'}
 					>
-						<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
-						{#if gameState.boosterShowTwoUsed}
-							Boosteri käytetty!
-						{:else}
-							Näytä 2 satunnaista korttia!
-						{/if}
+						Näytä kaksi
 					</button>
 					<!-- Boosterinappi: etsi pari (B)-->
 					<button
@@ -190,12 +185,7 @@
 							gameState.boosterFindMatchActive ||
 							gameState.gameStatus !== 'playing'}
 					>
-						<!-- Napin sisältö muuttuu riippuen boosterin käytöstä -->
-						{#if gameState.boosterFindMatchUsed}
-							Boosteri käytetty!
-						{:else}
-							Näytä pari!
-						{/if}
+						Näytä pari
 					</button>
 				</div>
 			</div>
