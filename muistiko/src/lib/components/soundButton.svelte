@@ -33,9 +33,9 @@
 >
 	<button onclick={handleSound}>
 		{#if soundState.muted}
-			<img src="/data/ikonit/volumeoff.svg" alt="Volume off" />
+			<img src="/data/ikonit/volumeoff.svg" alt="Volume off" class="volume-off" />
 		{:else}
-			<img src="/data/ikonit/volume.svg" alt="Volume on" />
+			<img src="/data/ikonit/volume.svg" alt="Volume on" class="volume-on" />
 		{/if}
 	</button>
 
@@ -56,17 +56,60 @@
 <style>
 	.slider {
 		position: absolute;
-		top: 170%;
-		left: 50%;
-		padding: 10px;
-		border-radius: 12px;
 		appearance: slider-vertical;
-		transform: translateX(-50%) rotate(90deg);
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
 		display: flex;
+		flex-direction: column;
 		align-items: center;
+		z-index: 10;
+		background-color: #f0ece2;
+		padding: 15px 10px;
+		border-radius: 20px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		border: 2px solid #dcd7cc;
+		margin-top: 5px;
 	}
+
+	.slider input {
+		cursor: pointer;
+		appearance: slider-vertical;
+		width: 15px;
+		height: 100px;
+		margin: 0;
+	}
+
+	.slider::after {
+		content: '';
+		position: absolute;
+		top: -10px;
+		left: 0;
+		right: 0;
+		height: 20px;
+		background: transparent;
+	}
+
 	.audio {
-		display: inline-block;
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+	}
+	.volume-on {
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		filter: var(--color-icon-filter, none);
+		cursor: pointer;
+	}
+	.volume-off {
+		width: 30px;
+		height: 30px;
+		background-color: transparent;
+		filter: var(--color-icon-filter, none);
+		cursor: pointer;
 	}
 </style>

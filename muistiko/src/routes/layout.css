@@ -19,13 +19,14 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 2rem;
-	border-radius: 20px 20px 0 0;
+	border-radius: 0 0 20px 20px;
 	background: var(--color-header, #c3b5aa);
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 }
 
 .logo-container {
 	position: absolute;
+	top: 20%;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -55,26 +56,36 @@ nav {
 
 /* Koti-painike */
 .home-button {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Info-painike */
 .info-button {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Asetukset-painike */
 .settings-button {
-	width: 30px;
-	height: 30px;
+	width: 40x;
+	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
+}
+
+.home-button img,
+.info-button img,
+.settings-button img {
+	width: 100%;
+	height: 100%;
 }
 
 /* TIKON VALKOSET PAINIKKEET */
@@ -91,12 +102,19 @@ nav {
 .landing-page {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	height: 100dvh;
 	background-image: url('/data/taustat/aloitus_tausta.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: rgba(195, 181, 170, 0.6);
+}
+
+.landing-main {
+	flex: 1;
+	display: flex;
+	min-height: 0;
+	flex-direction: column;
 }
 
 /* PELIALUEIDEN ASETUKSET */
@@ -111,8 +129,8 @@ nav {
 
 /* Toiminto alue */
 .content-box {
-	width: 888px;
-	height: 532px;
+	width: min(888px, 90vw);
+	height: auto;
 	border-radius: 25px;
 	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8));
 	background: rgba(251, 251, 251, 0.98);
@@ -151,11 +169,13 @@ nav {
 	color: #ffffff;
 	letter-spacing: 0.1em;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
+	cursor: pointer;
 }
 
 /* Aloita peli - hover */
 .start-button:hover {
 	transform: scale(1.05);
+	cursor: pointer;
 }
 
 .start-again {
@@ -175,6 +195,7 @@ nav {
 
 .start-button:active {
 	transform: scale(0.98);
+	cursor: pointer;
 }
 
 /* Sivun asettelu */
@@ -186,13 +207,13 @@ nav {
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
-	overflow: auto;
+	overflow: hidden;
 }
 
 /* Footer - asettelu ja asetukset */
 .footer {
-	max-width: 1150px;
-	width: 100%;
+	max-width: 1700px;
+	width: 90%;
 	height: 50px;
 	display: flex;
 	flex-direction: column;
@@ -204,10 +225,11 @@ nav {
 	margin: 0 auto 2rem auto;
 }
 
-/* Footer teksti */
+/* Footer teksti - koko min, preferred,max */
 .footer p {
 	font-family: 'Coustard', serif;
 	letter-spacing: 0.05em;
+	font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 /* Dropdown - kesken */
@@ -222,6 +244,7 @@ nav {
 	gap: 2rem;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .dropdown select {
@@ -233,11 +256,13 @@ nav {
 	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
 	padding: 0.5rem;
 	font-family: 'Coustard', serif;
+	cursor: pointer;
 }
 
 .dropdown label {
 	font-family: 'Coustard', serif;
 	font-size: 0.9rem;
+	cursor: pointer;
 }
 
 /* Esiasetusvalikko */
@@ -289,7 +314,7 @@ Modaalin taustan tyyli
 }
 
 [data-theme='Opettajat'] {
-	--tausta: url('/data/taustat/opettajat_tausta.png');
+	--tausta: url('/data/taustat/opettajat_tausta_eitxt.png');
 	--color-header: #ffffff;
 	--color-footer: #ffffff;
 	--color-border: #eeeeee;
@@ -324,13 +349,6 @@ Modaalin taustan tyyli
 	filter: invert(1) !important;
 }
 
-.start-button:hover {
-	transform: scale(1.05);
-}
-
-.start-button:active {
-	transform: scale(0.98);
-}
 .game-box {
 	height: auto;
 	width: min(920px, 95vw);
@@ -374,7 +392,6 @@ Modaalin taustan tyyli
 .card {
 	position: relative;
 	background-color: transparent;
-	perspective: 1000px;
 }
 
 .card :hover {
@@ -397,38 +414,66 @@ Modaalin taustan tyyli
 
 /* korttien kuvapuoli */
 .card .front {
-	transform: rotateY(180deg);
+	transform: rotateY(90deg);
+	transition: transform 0.5s;
 	position: absolute;
-	backface-visibility: hidden;
-	transition: transform 0.4s ease;
 }
 .flipped .front {
 	transform: rotateY(0deg);
-	transform-style: preserve-3d;
+	transition: transform 0.5s;
 }
 
 /* korttien takapuoli */
 .card .back {
 	transform: rotateY(0deg);
-	transition: transform 0.4s ease;
-	backface-visibility: hidden;
-	transform-style: preserve-3d;
+	transition: transform 0.5s;
 }
 .flipped .back {
-	transform: rotateY(180deg);
+	transform: rotateY(90deg);
+	transition: transform 0.5s;
 }
 
 /* BOOSTERINAPPULAT */
+
 .booster-show-two {
 	color: black;
 	background-color: white;
+	cursor: pointer;
 }
 
 .booster-show-two:hover {
 	transform: scale(1.05);
+	cursor: pointer;
+}
+
+.booster-find-pair {
+	color: black;
+	background-color: white;
+	cursor: pointer;
+}
+
+.booster-find-pair:hover {
+	transform: scale(1.05);
+	cursor: pointer;
 }
 
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
+
+/* KÄÄNNÖT */
+.game-turns {
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+}
 
 .game-nav-button {
 	min-width: 160px;
@@ -445,10 +490,16 @@ Modaalin taustan tyyli
 	font-size: 0.9rem;
 }
 
+.game-nav-button:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
+
 .theme-wrapper {
-	height: 100dvh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 	background-image: var(--tausta);
 	background-size: cover;
 	background-position: center;
@@ -456,6 +507,7 @@ Modaalin taustan tyyli
 	background-color: var(--color-bg, rgba(195, 181, 170, 0.6));
 }
 
+/* Nää toimii yhessä card-gridin kanssa - skaalaa isolla näytöllä */
 /* 30 korttia - 6 saraketta */
 .card-grid[data-cards='30'] {
 	grid-template-columns: repeat(6, minmax(0, 80px));
@@ -474,4 +526,74 @@ Modaalin taustan tyyli
 /* 12 korttia - 4 saraketta */
 .card-grid[data-cards='12'] {
 	grid-template-columns: repeat(4, minmax(0, 120px));
+}
+
+/* Mobiili koon logot */
+
+.logo-mobile {
+	display: none;
+}
+
+/* MEDIA QUERYT */
+/* Pelisivut */
+@media (max-width: 768px) {
+	.header-row {
+		height: 120px;
+		padding: 0 1rem;
+	}
+
+	.content-box {
+		width: 95vw;
+		padding: 1.5rem;
+	}
+
+	.settings-content {
+		padding-top: 1.5rem;
+	}
+
+	.dropdown-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		cursor: pointer;
+	}
+
+	.dropdown-row > :last-child {
+		grid-column: 1 / -1;
+		display: flex;
+		justify-content: center;
+	}
+
+	.footer {
+		margin-bottom: 1rem;
+	}
+
+	.logo-desktop {
+		display: none;
+	}
+
+	.logo-mobile {
+		display: block;
+		max-width: 180px;
+	}
+
+	.game-box {
+		max-height: calc(100dvh - 500px);
+		height: calc(100dvh - 320px);
+		width: 95vw;
+		padding: 0.75rem;
+	}
+
+	.card-grid[data-cards='12'] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.card-grid[data-cards='16'] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.card-grid[data-cards='20'] {
+		grid-template-columns: repeat(5, 1fr);
+	}
+	.card-grid[data-cards='30'] {
+		grid-template-columns: repeat(6, 1fr);
+	}
 }
