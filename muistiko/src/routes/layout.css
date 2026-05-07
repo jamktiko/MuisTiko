@@ -107,7 +107,6 @@ nav {
 	min-height: 0;
 	flex-direction: column;
 	overflow: hidden;
-
 }
 
 /* Toiminto alue */
@@ -295,7 +294,7 @@ Modaalin taustan tyyli
 	--color-footer: #ffffff;
 	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nav-button: #0D004C;
+	--color-nav-button: #0d004c;
 }
 
 [data-theme='TIKO'] {
@@ -304,7 +303,7 @@ Modaalin taustan tyyli
 	--color-footer: #ffffff;
 	--color-border: #3a41ac;
 	--color-bg: transparent;
-	--color-nav-button: #FFFFFF;
+	--color-nav-button: #ffffff;
 	--color-icon-filter: brightness(0) invert(1);
 }
 
@@ -338,7 +337,6 @@ Modaalin taustan tyyli
 	padding: 1.5rem;
 	max-height: calc(100dvh - 250px);
 	overflow: hidden;
-
 }
 /* Ylärivi missä napit */
 .game-top-row {
@@ -372,6 +370,7 @@ Modaalin taustan tyyli
 	justify-content: center;
 }
 
+/* KORTTIEN KÄÄNTÖANIMAATIO (R) */
 .card {
 	position: relative;
 	background-color: transparent;
@@ -461,7 +460,6 @@ Modaalin taustan tyyli
 .card-grid[data-cards='30'] {
 	grid-template-columns: repeat(6, minmax(0, 80px));
 }
-
 
 /* 20 korttia - 5 saraketta */
 .card-grid[data-cards='20'] {

@@ -142,7 +142,10 @@
 					<!-- Käänötjen määrä -->
 					<div class="game-nav-button">Käännöt: {turns}</div>
 					<!-- Ajastin, kulkee ylös tai alas (R) -->
-					<Timer />
+					<div class="game-nav-button">
+						<Timer />
+					</div>
+
 					<!-- Lopeta peli-nappi -->
 					<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
 				</div>
