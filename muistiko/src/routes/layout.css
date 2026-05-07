@@ -49,24 +49,18 @@ body {
 	align-items: center;
 	justify-content: center;
 	padding: 1rem 2rem;
-	background: linear-gradient(
-		135deg,
-		rgba(195, 181, 170, 0.95),
-		rgba(166, 127, 111, 0.9)
-	);
-	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	background: linear-gradient(135deg, rgba(195, 181, 170, 0.95), rgba(166, 127, 111, 0.9));
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 	border-radius: 20px 20px 0 0;
 }
 
 .header-content h1 {
-	
 	font-family: 'Coustard', serif;
 	font-size: 2rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #fff8f2;
-	text-shadow:
-		0 2px 4px rgba(0,0,0,0.25);
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .info-modal {
@@ -82,7 +76,6 @@ body {
 
 	position: relative;
 }
-
 
 /* Header/navi asettelu */
 nav {
@@ -130,16 +123,16 @@ nav {
 }
 
 .close-button {
-		background: none;
-		border: none;
-		font-size: 2rem;
-		cursor: pointer;
-		color: inherit;
-		padding: 0;
-		margin: 0;
-		position: absolute;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	cursor: pointer;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	position: absolute;
 	right: 1rem;
-	}
+}
 
 /* TIKON VALKOSET PAINIKKEET */
 
@@ -177,7 +170,7 @@ nav {
 	display: flex;
 	min-height: 0;
 	flex-direction: column;
-	overflow: hidden;
+	overflow: visible;
 }
 
 /* Toiminto alue */
@@ -200,10 +193,9 @@ nav {
 	max-height: 75vh;
 
 	border-radius: 28px;
-	border: 2px solid; 
+	border: 2px solid;
 
 	background: rgba(255, 255, 255, 0.88);
-	
 
 	display: flex;
 	flex-direction: column;
@@ -211,8 +203,8 @@ nav {
 	padding: 2.5rem;
 
 	box-shadow:
-		0 10px 30px rgba(0,0,0,0.25),
-		0 4px 10px rgba(0,0,0,0.15);
+		0 10px 30px rgba(0, 0, 0, 0.25),
+		0 4px 10px rgba(0, 0, 0, 0.15);
 
 	overflow-y: auto;
 
@@ -288,7 +280,6 @@ nav {
 /* Sivun asettelu */
 .main-content {
 	flex: 1;
-	min-height: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -387,8 +378,6 @@ Modaalin taustan tyyli
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-
-
 /* Teemojen tyylit */
 [data-theme='Kissat'] {
 	--tausta: url('/data/taustat/kissat_tausta.png');
@@ -440,10 +429,14 @@ Modaalin taustan tyyli
 
 .game-box {
 	height: auto;
-	width: min(920px, 95vw);
-	padding: 1.5rem;
-	max-height: calc(100dvh - 250px);
-	overflow: hidden;
+	width: fit-content;
+	max-width: 95vw;
+	padding: 0.75rem 1rem;
+	display: flex;
+	flex-direction: column;
+	overflow: visible;
+	gap: 1rem;
+	margin: 0 auto;
 }
 
 /* Ylärivi missä napit */
@@ -456,6 +449,7 @@ Modaalin taustan tyyli
 	gap: 0.75rem;
 	margin-bottom: 0.5rem;
 }
+
 /* Yläriivn nappien tekstien speksit */
 .game-top-row p {
 	font-family: 'Coustard', serif;
@@ -526,6 +520,14 @@ Modaalin taustan tyyli
 }
 
 /* BOOSTERINAPPULAT */
+
+.boosters-container {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	justify-content: center;
+	width: 100%;
+}
 
 .booster-show-two {
 	min-width: 160px;
@@ -651,24 +653,24 @@ Modaalin taustan tyyli
 }
 
 /* Nää toimii yhessä card-gridin kanssa - skaalaa isolla näytöllä */
-/* 30 korttia - 6 saraketta */
+/* 30 korttia - 10 saraketta */
 .card-grid[data-cards='30'] {
-	grid-template-columns: repeat(6, minmax(0, 80px));
+	grid-template-columns: repeat(10, minmax(0, 70px));
 }
 
-/* 20 korttia - 5 saraketta */
+/* 20 korttia - 10 saraketta */
 .card-grid[data-cards='20'] {
-	grid-template-columns: repeat(5, minmax(0, 90px));
+	grid-template-columns: repeat(10, minmax(0, 70px));
 }
 
-/* 16 korttia - 4 saraketta */
+/* 16 korttia - 8 saraketta */
 .card-grid[data-cards='16'] {
-	grid-template-columns: repeat(4, minmax(0, 90px));
+	grid-template-columns: repeat(8, minmax(0, 80px));
 }
 
-/* 12 korttia - 4 saraketta */
+/* 12 korttia - 6 saraketta */
 .card-grid[data-cards='12'] {
-	grid-template-columns: repeat(4, minmax(0, 120px));
+	grid-template-columns: repeat(6, minmax(0, 90px));
 }
 
 /* Mobiili koon logot */
@@ -685,12 +687,12 @@ Modaalin taustan tyyli
 		padding: 0 1rem;
 	}
 
-    .content-box {
-        width: 95vw;
-        max-height: 100%;      /* ei kasva yli vanhemman */
-        padding: 1rem;
-        gap: 1rem;             /* pienempi väli elementtien välillä */
-    }
+	.content-box {
+		width: 95vw;
+		max-height: 100%; /* ei kasva yli vanhemman */
+		padding: 1rem;
+		gap: 1rem; /* pienempi väli elementtien välillä */
+	}
 
 	.settings-content {
 		padding-top: 1.5rem;

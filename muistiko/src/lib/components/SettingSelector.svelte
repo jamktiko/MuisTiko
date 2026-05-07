@@ -1,6 +1,6 @@
 <script lang="ts">
 	// onchange muokattu
-	let { text, placeholder, options, onChange, value = '' } = $props();
+	let { placeholder, options, onChange, value = '' } = $props();
 
 	let chosen = $state('');
 
@@ -24,4 +24,3 @@
 		{/each}
 	</select>
 </div>
-
