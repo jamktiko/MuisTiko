@@ -15,7 +15,7 @@
 
 		{#snippet content()}
 			<p>Aika loppui</p>
-			<p>Tehdyt siirrot: {turns}</p>
+			<p class="game-turns-score">Tehdyt siirrot: {turns}</p>
 		{/snippet}
 
 		{#snippet footer()}
@@ -28,10 +28,16 @@
 <style>
 	h1 {
 		font-size: 60px;
+		font-family: 'Coustard', serif;
 	}
 
 	p {
 		font-size: 20px;
+		font-family: 'Coustard', serif;
+	}
+
+	.game-turns-score {
+		font-family: 'Coustard', serif;
 	}
 
 	.lose-modal {

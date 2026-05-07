@@ -166,7 +166,7 @@
 					{/each}
 				</div>
 				<!-- BOOSTERIT -->
-				<div>
+				<div class="boosters-container">
 					<!-- Boosterinappi: näytä kaksi (B) -->
 					<button
 						class="booster-show-two"
