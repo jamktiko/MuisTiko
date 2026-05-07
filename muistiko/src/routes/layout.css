@@ -60,6 +60,7 @@ nav {
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Info-painike */
@@ -68,6 +69,7 @@ nav {
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 /* Asetukset-painike */
@@ -76,6 +78,7 @@ nav {
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
+	cursor: pointer;
 }
 
 .home-button img,
@@ -122,7 +125,6 @@ nav {
 	min-height: 0;
 	flex-direction: column;
 	overflow: hidden;
-
 }
 
 /* Toiminto alue */
@@ -167,11 +169,13 @@ nav {
 	color: #ffffff;
 	letter-spacing: 0.1em;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
+	cursor: pointer;
 }
 
 /* Aloita peli - hover */
 .start-button:hover {
 	transform: scale(1.05);
+	cursor: pointer;
 }
 
 .start-again {
@@ -191,6 +195,7 @@ nav {
 
 .start-button:active {
 	transform: scale(0.98);
+	cursor: pointer;
 }
 
 /* Sivun asettelu */
@@ -239,6 +244,7 @@ nav {
 	gap: 2rem;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .dropdown select {
@@ -250,11 +256,13 @@ nav {
 	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
 	padding: 0.5rem;
 	font-family: 'Coustard', serif;
+	cursor: pointer;
 }
 
 .dropdown label {
 	font-family: 'Coustard', serif;
 	font-size: 0.9rem;
+	cursor: pointer;
 }
 
 /* Esiasetusvalikko */
@@ -307,20 +315,20 @@ Modaalin taustan tyyli
 
 [data-theme='Opettajat'] {
 	--tausta: url('/data/taustat/opettajat_tausta_eitxt.png');
-	--color-header: #FFFFFF;
-	--color-footer: #FFFFFF;
-	--color-border: #EEEEEE;
+	--color-header: #ffffff;
+	--color-footer: #ffffff;
+	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nav-button: #0D004C;
+	--color-nav-button: #0d004c;
 }
 
 [data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
-	--color-header: #3A41AC;
-	--color-footer: #FFFFFF;
-	--color-border: #3A41AC;
+	--color-header: #3a41ac;
+	--color-footer: #ffffff;
+	--color-border: #3a41ac;
 	--color-bg: transparent;
-	--color-nav-button: #FFFFFF;
+	--color-nav-button: #ffffff;
 	--color-icon-filter: brightness(0) invert(1);
 }
 
@@ -341,20 +349,12 @@ Modaalin taustan tyyli
 	filter: invert(1) !important;
 }
 
-.start-button:hover {
-	transform: scale(1.05);
-}
-
-.start-button:active {
-	transform: scale(0.98);
-}
 .game-box {
 	height: auto;
 	width: min(920px, 95vw);
 	padding: 1.5rem;
 	max-height: calc(100dvh - 250px);
 	overflow: hidden;
-
 }
 /* Ylärivi missä napit */
 .game-top-row {
@@ -437,14 +437,34 @@ Modaalin taustan tyyli
 .booster-show-two {
 	color: black;
 	background-color: white;
+	cursor: pointer;
 }
 
 .booster-show-two:hover {
 	transform: scale(1.05);
+	cursor: pointer;
 }
 
+.booster-find-pair {
+	color: black;
+	background-color: white;
+	cursor: pointer;
+}
+
+.booster-find-pair:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+}
 
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
+
+/* KÄÄNNÖT */
+.game-turns {
+	font-family: 'Coustard', serif;
+	font-size: 1.1rem;
+	color: #3b3b3b;
+	margin: 0;
+}
 
 .game-nav-button {
 	min-width: 160px;
@@ -459,6 +479,11 @@ Modaalin taustan tyyli
 	align-items: center;
 	justify-content: center;
 	font-size: 0.9rem;
+}
+
+.game-nav-button:hover {
+	transform: scale(1.05);
+	cursor: pointer;
 }
 
 .theme-wrapper {
@@ -478,7 +503,6 @@ Modaalin taustan tyyli
 .card-grid[data-cards='30'] {
 	grid-template-columns: repeat(6, minmax(0, 80px));
 }
-
 
 /* 20 korttia - 5 saraketta */
 .card-grid[data-cards='20'] {
@@ -522,19 +546,13 @@ Modaalin taustan tyyli
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
+		cursor: pointer;
 	}
 
 	.dropdown-row > :last-child {
 		grid-column: 1 / -1;
 		display: flex;
 		justify-content: center;
-	}
-
-	.start-button {
-		width: 60% !important;
-		min-height: 50px !important;
-		margin-top: 1.5rem;
-		font-size: 0.85rem;
 	}
 
 	.footer {
@@ -557,8 +575,16 @@ Modaalin taustan tyyli
 		padding: 0.75rem;
 	}
 
-	.card-grid[data-cards='12'] { grid-template-columns: repeat(4, 1fr); }
-	.card-grid[data-cards='16'] { grid-template-columns: repeat(4, 1fr); }
-	.card-grid[data-cards='20'] { grid-template-columns: repeat(5, 1fr); }
-	.card-grid[data-cards='30'] { grid-template-columns: repeat(6, 1fr); }
+	.card-grid[data-cards='12'] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.card-grid[data-cards='16'] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.card-grid[data-cards='20'] {
+		grid-template-columns: repeat(5, 1fr);
+	}
+	.card-grid[data-cards='30'] {
+		grid-template-columns: repeat(6, 1fr);
+	}
 }

@@ -71,6 +71,7 @@
 		border: 2px solid #dcd7cc;
 		margin-top: 5px;
 	}
+
 	.slider input {
 		cursor: pointer;
 		appearance: slider-vertical;
