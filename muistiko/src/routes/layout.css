@@ -392,6 +392,7 @@ Modaalin taustan tyyli
 .card {
 	position: relative;
 	background-color: transparent;
+	perspective: 500px;
 }
 
 .card :hover {
@@ -414,23 +415,25 @@ Modaalin taustan tyyli
 
 /* korttien kuvapuoli */
 .card .front {
-	transform: rotateY(90deg);
-	transition: transform 0.5s;
+	transform: rotateY(180deg);
+	transition: transform 0.5s ease;
 	position: absolute;
+	backface-visibility: hidden;
 }
 .flipped .front {
 	transform: rotateY(0deg);
-	transition: transform 0.5s;
+	transform-style: preserve-3d;
 }
 
 /* korttien takapuoli */
 .card .back {
 	transform: rotateY(0deg);
-	transition: transform 0.5s;
+	transition: transform 0.5s ease;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
 }
 .flipped .back {
-	transform: rotateY(90deg);
-	transition: transform 0.5s;
+	transform: rotateY(180deg);
 }
 
 /* BOOSTERINAPPULAT */
