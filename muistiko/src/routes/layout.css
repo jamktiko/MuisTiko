@@ -460,10 +460,18 @@ Modaalin taustan tyyli
 
 /* KÄÄNNÖT */
 .game-turns {
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
 	font-family: 'Coustard', serif;
-	font-size: 1.1rem;
-	color: #3b3b3b;
-	margin: 0;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
 }
 
 .game-nav-button {
