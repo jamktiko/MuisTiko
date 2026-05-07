@@ -48,32 +48,72 @@ body {
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	padding: 1rem 2rem;
-	background: linear-gradient(135deg, rgba(195, 181, 170, 0.95), rgba(166, 127, 111, 0.9));
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	border-radius: 20px 20px 0 0;
+	justify-content: center;	
+	
+	
 }
 
 .header-content h1 {
+  width: 200px !important;
+	min-height: 68px !important;
+	margin-top: 1.2rem;
+	border-radius: 10px;
+	border: 4px solid #f3e1cd;
+	background-color: #3c3c3b;
+	opacity: 0.9;
 	font-family: 'Coustard', serif;
-	font-size: 2rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: #fff8f2;
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+	color: #ffffff;
+	letter-spacing: 0.1em;
+	filter: drop-shadow(0 3px 4px #3b3b3b);
+	text-align: center;
+	margin: 0;
+	line-height: 68px;
 }
+
+
 
 .info-modal {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	padding: 2rem;
-	background-image: url('/data/taustat/aloitus_tausta.png');
-	background-size: cover;
-	background-position: center;
-	border-radius: 0 0 20px 20px;
-	position: relative;
+	align-items: flex-start;
+	gap: 3rem;
+	max-width: 1000px;
+	margin: 3rem auto;
+	text-align: left;
+	padding: 1.5rem;
+}
+
+.modal-footer {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+}
+.modal-footer h3 {
+	margin-bottom: 1rem;
+
+	font-family: 'Coustard', serif;
+	font-size: 1rem;
+
+	text-align: center;
+
+	color: #222;
+}
+
+.info-section {
+	width: 320px;
+
+}
+
+.info-section h3 {
+	margin-bottom: 1rem;
+
+	font-family: 'Coustard', serif;
+	font-size: 1rem;
+
+	text-align: center;
+
+	color: #222;
 }
 
 /* Header/navi asettelu */
@@ -122,15 +162,28 @@ nav {
 }
 
 .close-button {
-	background: none;
-	border: none;
-	font-size: 2rem;
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+
+  padding: 0;
+  margin: 0;
 	cursor: pointer;
-	color: inherit;
-	padding: 0;
-	margin: 0;
-	position: absolute;
-	right: 1rem;
 }
 
 /* TIKON VALKOSET PAINIKKEET */
@@ -215,18 +268,6 @@ nav {
 	color: #2d2d2d;
 }
 
-.content-infobox p {
-	line-height: 1.7;
-	color: #444;
-}
-
-.content-infobox ul {
-	padding-left: 1.2rem;
-}
-
-.settings-content {
-	padding-top: 8rem;
-}
 
 /* Logon asettelu */
 .logo {
@@ -375,7 +416,7 @@ Modaalin taustan tyyli
 	width: 80%;
 	max-height: 80vh;
 	background: white;
-	border-radius: 5px;
+	border-radius: 15px;
 	z-index: 100;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
@@ -431,14 +472,16 @@ Modaalin taustan tyyli
 
 .game-box {
 	height: auto;
-	width: 70%;
-	max-width: 70%;
-	padding: 1.5rem;
+	width: fit-content;
+	max-width: 95vw;
+	padding: 0.75rem 1rem;
 	display: flex;
 	flex-direction: column;
 	overflow: visible;
 	gap: 1.5rem;
 	margin: 0 auto;
+	flex: 1;
+	min-height: 0;
 }
 
 /* Ylärivi missä napit */
@@ -467,9 +510,7 @@ Modaalin taustan tyyli
 .card-grid {
 	margin-top: 10px;
 	display: grid;
-	grid-gap: 8px;
 	justify-content: center;
-	align-content: start;
 	width: 100%;
 	max-width: 100%;
 	min-height: 0;
@@ -481,11 +522,37 @@ Modaalin taustan tyyli
 	aspect-ratio: 1 / 1;
 }
 
+/* Fixed layouts by card count */
+.card-grid[data-cards='12'] {
+	grid-template-columns: repeat(4, 120px);
+	grid-auto-rows: 120px;
+	grid-auto-flow: row;
+}
+
+.card-grid[data-cards='16'] {
+	grid-template-columns: repeat(4, 120px);
+	grid-auto-rows: 120px;
+	grid-auto-flow: row;
+}
+
+.card-grid[data-cards='20'] {
+	grid-template-columns: repeat(4, 120px);
+	grid-auto-rows: 120px;
+	grid-auto-flow: row;
+}
+
+.card-grid[data-cards='30'] {
+	grid-template-columns: repeat(6, 120px);
+	grid-auto-rows: 120px;
+	grid-auto-flow: row;
+}
+
 /* KORTTIEN KÄÄNTÖANIMAATIO (R) */
 .card {
 	position: relative;
 	background-color: transparent;
 	perspective: 500px;
+	aspect-ratio: 1 / 1;
 }
 
 .card:hover {
@@ -708,6 +775,8 @@ Modaalin taustan tyyli
 
 	.settings-content {
 		padding-top: 1.5rem;
+		display: flex;
+		align-items: center	;
 	}
 
 	.dropdown-row {
@@ -758,8 +827,63 @@ Modaalin taustan tyyli
 	}
 
 	.card-grid {
-		grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-		grid-auto-rows: minmax(0, auto);
+		display: grid;
+		justify-content: center;
+		gap: 8px;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.card-grid[data-cards='12'] {
+		grid-template-columns: repeat(4, 100px);
+		grid-auto-rows: 100px;
+	}
+
+	.card-grid[data-cards='16'] {
+		grid-template-columns: repeat(4, 100px);
+		grid-auto-rows: 100px;
+	}
+
+	.card-grid[data-cards='20'] {
+		grid-template-columns: repeat(4, 100px);
+		grid-auto-rows: 100px;
+	}
+
+	.card-grid[data-cards='30'] {
+		grid-template-columns: repeat(6, 100px);
+		grid-auto-rows: 100px;
+	}
+
+	@media (max-width: 900px) {
+		.card-grid[data-cards='12'],
+		.card-grid[data-cards='16'],
+		.card-grid[data-cards='20'],
+		.card-grid[data-cards='30'] {
+			grid-template-columns: repeat(4, 100px);
+			grid-auto-rows: 100px;
+		}
+	}
+
+	@media (max-width: 700px) {
+		.card-grid[data-cards='12'] {
+			grid-template-columns: repeat(3, 80px);
+			grid-auto-rows: 80px;
+		}
+
+		.card-grid[data-cards='16'] {
+			grid-template-columns: repeat(4, 80px);
+			grid-auto-rows: 80px;
+		}
+
+		.card-grid[data-cards='20'] {
+			grid-template-columns: repeat(4, 80px);
+			grid-auto-rows: 80px;
+		}
+
+		.card-grid[data-cards='30'] {
+			grid-template-columns: repeat(5, 80px);
+			grid-auto-rows: 80px;
+		}
 	}
 }
 

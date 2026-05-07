@@ -11,6 +11,7 @@
 	<Modal>
 		{#snippet header()}
 			<h1>Hävisit pelin!</h1>
+			<p>git reset --hard -palataan alkuun</p>
 		{/snippet}
 
 		{#snippet content()}
