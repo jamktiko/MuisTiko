@@ -4,21 +4,29 @@
 	import Button from './Button.svelte';
 	import { gameState, handlePlayAgain, startNewGame } from '$lib/state/gameState.svelte';
 	import { minutes_2, seconds_2, usedMinutes, usedSeconds } from '$lib/state/timerState.svelte';
+
+	const closeModal = () => {
+		gameState.gameStatus = 'playing';
+	};
 </script>
 
 <div class="win-modal">
 	<Modal>
 		{#snippet header()}
-			<h1>Voitit pelin!</h1>
+			<h1>VOITIT!</h1>
+			<p>git commit - m “Muisti tallessa”</p>
+			<button class="close-button" onclick={closeModal} aria-label="Sulje">×</button>
 		{/snippet}
 
 		{#snippet content()}
 			{#if gameState.timelimit !== 'Ei rajaa'}
-				<p>Aikaa kului: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
+				<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
 			{:else}
-				<p>Aikaa kului: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}</p>
+				<p class="game-timer-score">
+					Aikaa kului: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}
+				</p>
 			{/if}
-			<p>Tehdyt siirrot: {gameState.turns}</p>
+			<p class="game-turns-score">Tehdyt siirrot: {gameState.turns}</p>
 		{/snippet}
 
 		{#snippet footer()}
@@ -31,10 +39,20 @@
 <style>
 	h1 {
 		font-size: 60px;
+		font-family: 'Coustard', serif;
 	}
 
 	p {
 		font-size: 20px;
+		font-family: 'Coustard', serif;
+	}
+
+	.game-timer-score {
+		font-family: 'Coustard', serif;
+	}
+
+	.game-turns-score {
+		font-family: 'Coustard', serif;
 	}
 
 	.win-modal {

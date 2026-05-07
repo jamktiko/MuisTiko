@@ -142,7 +142,7 @@
 					<!-- Käänötjen määrä -->
 					<div class="game-turns">Käännöt: {turns}</div>
 					<!-- Ajastin, kulkee ylös tai alas (R) -->
-					<div class="game-nav-button">
+					<div class="game-timer">
 						<Timer />
 					</div>
 
@@ -166,7 +166,7 @@
 					{/each}
 				</div>
 				<!-- BOOSTERIT -->
-				<div>
+				<div class="boosters-container">
 					<!-- Boosterinappi: näytä kaksi (B) -->
 					<button
 						class="booster-show-two"
@@ -175,12 +175,7 @@
 							gameState.boosterShowTwoActive ||
 							gameState.gameStatus !== 'playing'}
 					>
-						<!-- Napin isältö muuttuu riippuen siitä, onko boosteria jo käytetty vai ei -->
-						{#if gameState.boosterShowTwoUsed}
-							Boosteri käytetty!
-						{:else}
-							Näytä 2 satunnaista korttia!
-						{/if}
+						Näytä kaksi
 					</button>
 					<!-- Boosterinappi: etsi pari (B)-->
 					<button
@@ -190,12 +185,7 @@
 							gameState.boosterFindMatchActive ||
 							gameState.gameStatus !== 'playing'}
 					>
-						<!-- Napin sisältö muuttuu riippuen boosterin käytöstä -->
-						{#if gameState.boosterFindMatchUsed}
-							Boosteri käytetty!
-						{:else}
-							Näytä pari!
-						{/if}
+						Näytä pari
 					</button>
 				</div>
 			</div>

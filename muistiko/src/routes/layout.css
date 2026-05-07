@@ -43,6 +43,38 @@ body {
 	gap: 1rem;
 }
 
+.header-content {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 2rem;
+	background: linear-gradient(135deg, rgba(195, 181, 170, 0.95), rgba(166, 127, 111, 0.9));
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	border-radius: 20px 20px 0 0;
+}
+
+.header-content h1 {
+	font-family: 'Coustard', serif;
+	font-size: 2rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff8f2;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.info-modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	background-image: url('/data/taustat/aloitus_tausta.png');
+	background-size: cover;
+	background-position: center;
+  border-radius:0 0 20px 20px;
+	position: relative;
+}
+
 /* Header/navi asettelu */
 nav {
 	display: flex;
@@ -74,7 +106,7 @@ nav {
 
 /* Asetukset-painike */
 .settings-button {
-	width: 40x;
+	width: 40px;
 	height: 40px;
 	background-color: transparent;
 	filter: var(--color-icon-filter, none);
@@ -86,6 +118,18 @@ nav {
 .settings-button img {
 	width: 100%;
 	height: 100%;
+}
+
+.close-button {
+	background: none;
+	border: none;
+	font-size: 2rem;
+	cursor: pointer;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	right: 1rem;
 }
 
 /* TIKON VALKOSET PAINIKKEET */
@@ -124,7 +168,7 @@ nav {
 	display: flex;
 	min-height: 0;
 	flex-direction: column;
-	overflow: hidden;
+	overflow: visible;
 }
 
 /* Toiminto alue */
@@ -141,6 +185,43 @@ nav {
 	padding: 5rem;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 	gap: 2rem;
+}
+.content-infobox {
+	width: min(900px, 90vw);
+	max-height: 75vh;
+
+	border-radius: 28px;
+	border: 2px solid;
+
+	background: rgba(255, 255, 255, 0.88);
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 2.5rem;
+
+	box-shadow:
+		0 10px 30px rgba(0, 0, 0, 0.25),
+		0 4px 10px rgba(0, 0, 0, 0.15);
+
+	overflow-y: auto;
+
+	font-family: 'Coustard', serif;
+}
+
+.content-infobox h1,
+.content-infobox h3 {
+	margin-bottom: 0.5rem;
+	color: #2d2d2d;
+}
+
+.content-infobox p {
+	line-height: 1.7;
+	color: #444;
+}
+
+.content-infobox ul {
+	padding-left: 1.2rem;
 }
 
 .settings-content {
@@ -162,7 +243,6 @@ nav {
 	margin-top: 5rem;
 	border-radius: 10px;
 	border: 4px solid #f3e1cd;
-	opacity: 0.3;
 	background-color: #3c3c3b;
 	opacity: 0.9;
 	font-family: 'Coustard', serif;
@@ -175,7 +255,6 @@ nav {
 /* Aloita peli - hover */
 .start-button:hover {
 	transform: scale(1.05);
-	cursor: pointer;
 }
 
 .start-again {
@@ -184,7 +263,6 @@ nav {
 	margin-top: 5rem;
 	border-radius: 10px;
 	border: 4px solid #f3e1cd;
-	opacity: 0.3;
 	background-color: #3c3c3b;
 	opacity: 0.9;
 	font-family: 'Coustard', serif;
@@ -195,19 +273,17 @@ nav {
 
 .start-button:active {
 	transform: scale(0.98);
-	cursor: pointer;
 }
 
 /* Sivun asettelu */
 .main-content {
 	flex: 1;
-	min-height: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
-	overflow: hidden;
+	overflow: visible;
 }
 
 /* Footer - asettelu ja asetukset */
@@ -271,7 +347,7 @@ nav {
 	gap: 5rem;
 	max-width: 400px;
 	margin: 0 auto;
-	min-height: 100vh;
+	min-height: 100dvh;
 }
 
 /* MODAALIEN TYYLIT
@@ -282,7 +358,7 @@ Modaalin taustan tyyli
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: 100dvh;
 	background: rgba(0, 0, 0, 0.75);
 	z-index: 10;
 }
@@ -351,30 +427,33 @@ Modaalin taustan tyyli
 
 .game-box {
 	height: auto;
-	width: min(920px, 95vw);
-	padding: 1.5rem;
-	max-height: calc(100dvh - 250px);
-	overflow: hidden;
+	width: fit-content;
+	max-width: 95vw;
+	padding: 0.75rem 1rem;
+	display: flex;
+	flex-direction: column;
+	overflow: visible;
+	gap: 1rem;
+	margin: 0 auto;
 }
+
 /* Ylärivi missä napit */
 .game-top-row {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	gap: 0.75rem;
 	margin-bottom: 0.5rem;
 }
+
 /* Yläriivn nappien tekstien speksit */
 .game-top-row p {
 	font-family: 'Coustard', serif;
 	font-size: 1.1rem;
 	color: #3b3b3b;
 	margin: 0;
-}
-
-/* ALOITA ALUSTA NAPPI */
-.start-again {
-	color: black;
 }
 
 .start-again:hover {
@@ -386,6 +465,8 @@ Modaalin taustan tyyli
 	display: grid;
 	grid-gap: 8px;
 	justify-content: center;
+	width: 100%;
+	max-width: 100%;
 }
 
 /* KORTTIEN KÄÄNTÖANIMAATIO (R) */
@@ -395,7 +476,7 @@ Modaalin taustan tyyli
 	perspective: 500px;
 }
 
-.card :hover {
+.card:hover {
 	cursor: pointer;
 	scale: 1.01;
 }
@@ -438,33 +519,91 @@ Modaalin taustan tyyli
 
 /* BOOSTERINAPPULAT */
 
+.boosters-container {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	justify-content: center;
+	width: 100%;
+}
+
 .booster-show-two {
-	color: black;
-	background-color: white;
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
 	cursor: pointer;
 }
 
-.booster-show-two:hover {
+.booster-show-two:active :hover {
 	transform: scale(1.05);
 	cursor: pointer;
 }
 
-.booster-find-pair {
-	color: black;
-	background-color: white;
+.booster-show-two:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.booster-find-match {
+	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
 	cursor: pointer;
 }
 
-.booster-find-pair:hover {
+.booster-find-match:active :hover {
 	transform: scale(1.05);
 	cursor: pointer;
+}
+
+.booster-find-match:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
 }
 
 /* TÄÄLLÄ TESTI JUTTUJA VÄLIAIKASESTI */
 
 /* KÄÄNNÖT */
 .game-turns {
+	opacity: 0.7;
 	min-width: 160px;
+	height: 48px;
+	border-radius: 10px;
+	border: 3px solid #f3e1cd;
+	background-color: #3c3c3b;
+	color: #ffffff;
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+	padding: 0 0.5rem;
+}
+
+/* AJASTIN */
+
+.game-timer {
+	opacity: 0.7;
+	min-width: 240px;
 	height: 48px;
 	border-radius: 10px;
 	border: 3px solid #f3e1cd;
@@ -491,6 +630,7 @@ Modaalin taustan tyyli
 	align-items: center;
 	justify-content: center;
 	font-size: 0.9rem;
+	padding: 0 0.75rem;
 }
 
 .game-nav-button:hover {
@@ -499,7 +639,7 @@ Modaalin taustan tyyli
 }
 
 .theme-wrapper {
-	height: 100vh;
+	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -511,24 +651,24 @@ Modaalin taustan tyyli
 }
 
 /* Nää toimii yhessä card-gridin kanssa - skaalaa isolla näytöllä */
-/* 30 korttia - 6 saraketta */
+/* 30 korttia - 10 saraketta */
 .card-grid[data-cards='30'] {
-	grid-template-columns: repeat(6, minmax(0, 80px));
+	grid-template-columns: repeat(10, minmax(0, 70px));
 }
 
-/* 20 korttia - 5 saraketta */
+/* 20 korttia - 10 saraketta */
 .card-grid[data-cards='20'] {
-	grid-template-columns: repeat(5, minmax(0, 90px));
+	grid-template-columns: repeat(10, minmax(0, 70px));
 }
 
-/* 16 korttia - 4 saraketta */
+/* 16 korttia - 8 saraketta */
 .card-grid[data-cards='16'] {
-	grid-template-columns: repeat(4, minmax(0, 90px));
+	grid-template-columns: repeat(8, minmax(0, 80px));
 }
 
-/* 12 korttia - 4 saraketta */
+/* 12 korttia - 6 saraketta */
 .card-grid[data-cards='12'] {
-	grid-template-columns: repeat(4, minmax(0, 120px));
+	grid-template-columns: repeat(6, minmax(0, 90px));
 }
 
 /* Mobiili koon logot */
@@ -547,7 +687,9 @@ Modaalin taustan tyyli
 
 	.content-box {
 		width: 95vw;
-		padding: 1.5rem;
+		max-height: 100%; /* ei kasva yli vanhemman */
+		padding: 1rem;
+		gap: 1rem; /* pienempi väli elementtien välillä */
 	}
 
 	.settings-content {
@@ -580,11 +722,29 @@ Modaalin taustan tyyli
 		max-width: 180px;
 	}
 
+	.game-top-row {
+		gap: 0.5rem;
+	}
+
+	.game-top-row > * {
+		flex: 1 1 120px;
+		min-width: 0;
+	}
+
+	.game-nav-button,
+	.game-turns {
+		min-width: 0;
+		width: auto;
+	}
+
 	.game-box {
-		max-height: calc(100dvh - 500px);
-		height: calc(100dvh - 320px);
 		width: 95vw;
 		padding: 0.75rem;
+		overflow: visible;
+	}
+
+	.card-grid {
+		grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
 	}
 
 	.card-grid[data-cards='12'] {
