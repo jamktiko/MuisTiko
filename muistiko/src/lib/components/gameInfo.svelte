@@ -14,16 +14,26 @@
 	{#snippet header()}
 	
 		<div class="header-content">
+		<div class="title-box">
 			<h1><strong>INFO</strong></h1>
+		</div>
 			<button class="close-button" onclick={closeInfo} aria-label="Sulje">×</button>
+			
 		</div>
 		
 	{/snippet}
 
 	{#snippet content()}
 	  <div class="info-modal">
-		<div class="content-infobox">
-		<p><strong>MuisTiko</strong> on muistipeli, jossa tavoitteena on löytää kaikki korttiparit.</p>
+		<div class="info-section">
+		<h3><strong>MuisTIKO:</strong></h3>
+		<ul>
+		<li> muistipeli, jossa tavoitteena on löytää kaikki korttiparit.</li>
+		<li>Suunnattu kaikille ketkä pitävät pulmapeleistä. </li> 
+		<li>Pelistä löytyy eri toimintoja ja eri teemoja sekä rentoa musiikkia</li>
+		</ul>
+		</div>
+		<div class="info-section">
 		<h3><strong>Säännöt:</strong></h3>
 		<ul>
 			<li>Klikkaa kortteja löytääksesi parit</li>
@@ -31,7 +41,8 @@
 			<li>Peli päättyy kun kaikki parit on löydetty</li>
 			<li>Yritä löytää kaikki parit mahdollisimman vähillä siirroilla</li>
 		</ul>
-
+		</div>
+		<div class="info-section">
 		<h3><strong>Toiminnot:</strong></h3>
 		<ul>
 			<li>
@@ -39,13 +50,20 @@
 			</li>
 			<li><strong>Vaikeustaso:</strong> 4 eri vaikeustasoa mistä voit valita</li>
 			<li><strong>Aikaraja:</strong> Voit vaikeuttaa peliä asettamalla aikarajan</li>
+			<li><strong>Boosterit:</strong> 2 boosteria, jotka auttavat sinua pelissä</li>
 		</ul>
 		</div>
-   </div>
+		</div>
+  
 	{/snippet}
 
 	{#snippet footer()}
-		<p>hallootta</p>
+	<div class="modal-footer">
+		<h3><strong>TEKIJÄT:</strong></h3>
+		<ul>
+		<li>Roni Huuskonen Nora Virta Bea Sudensalo Ville Rossi</li>
+		</ul>
+		</div>
 	{/snippet}
 </Modal>
 
