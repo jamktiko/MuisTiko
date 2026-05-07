@@ -932,7 +932,7 @@ Modaalin taustan tyyli
 	}
 }
 
-@media (max-height: 700px) {
+@media (max-height: 675px) {
 	.main-content {
 		flex: 1;
 		display: flex;
