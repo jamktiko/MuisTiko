@@ -57,15 +57,7 @@
 		align-items: center;
 	}
 
-	.close-button {
-		background: none;
-		border: none;
-		font-size: 2rem;
-		cursor: pointer;
-		color: inherit;
-		padding: 0;
-		margin: 0;
-	}
+	
 
 	.settings-content {
 		padding: 1rem;
