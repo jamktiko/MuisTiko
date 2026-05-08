@@ -53,11 +53,20 @@
 	{/snippet}
 
 	{#snippet footer()}
+<<<<<<< HEAD
+	
+	<div class="modal-footer">
+		<h3><strong>TEKIJÄT:</strong></h3>
+		<ul>
+		<li>Roni Huuskonen Nora Virta Bea Sudensalo Ville Rossi</li>
+		</ul>
+=======
 		<div class="modal-footer">
 			<h3><strong>TEKIJÄT:</strong></h3>
 			<ul>
 				<li>Roni Huuskonen, Nora Virta, Bea Sudensalo, Ville Rossi</li>
 			</ul>
+>>>>>>> main
 		</div>
 	{/snippet}
 </Modal>
