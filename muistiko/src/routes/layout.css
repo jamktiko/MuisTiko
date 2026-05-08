@@ -79,23 +79,18 @@ body {
 	align-items: flex-start;
 	gap: 3rem;
 	max-width: 1000px;
-	margin: 3rem auto;
+	margin: 2rem auto;
 	text-align: left;
-	padding: 1.5rem;
 }
 
 .modal-footer {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-}
-
-.modal-footer h3 {
-	margin-bottom: 1rem;
-	font-family: 'Coustard', serif;
-	font-size: 1rem;
+	font-size: 80%;
+	margin: 2rem auto;
 	text-align: center;
-	color: #222;
+	padding-top: 1rem;
 }
 
 .info-section {
@@ -338,7 +333,6 @@ nav {
 	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
 	margin: 0rem auto;
-	
 }
 
 /* Footer teksti - koko min, preferred, max */
@@ -351,6 +345,7 @@ nav {
 /* Dropdown - kesken */
 .dropdown {
 	font-family: 'Coustard', serif;
+	font-size: 1.2rem;
 }
 
 .dropdown-row {
@@ -443,7 +438,7 @@ nav {
 	--color-header: #c3b5aa;
 	--color-footer: #c3b5aa;
 	--color-border: #b87d5d;
-	--color-nappi: #3C3C3B;
+	--color-nappi: #3c3c3b;
 	--color-boosternappi: #b87d5d;
 }
 
@@ -454,7 +449,7 @@ nav {
 	--color-border: #543026;
 	--color-nappi: #543026;
 	--color-nappi-reuna: #fbfbfb;
-	--color-boosternappi: #C3B5AA;
+	--color-boosternappi: #c3b5aa;
 }
 
 [data-theme='Opettajat'] {
@@ -689,7 +684,7 @@ nav {
 	color: #ffffff;
 	font-family: 'Coustard', serif;
 	letter-spacing: 0.1em;
-	opacity: var(--opacity-nappi, 1.0);
+	opacity: var(--opacity-nappi, 1);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -757,7 +752,6 @@ nav {
 	height: clamp(50px, 12vw, 80px);
 	aspect-ratio: 1/1;
 }
-
 
 /* ============================================================
    MEDIA QUERYT — isommasta pienimpään
@@ -1126,7 +1120,6 @@ nav {
 	}
 }
 
-
 /* ============================================================
    ⚠️  LOOSE GLOBAL STYLES — NÄMÄ OLIVAT VAHINGOSSA GLOBAALILLA
    TASOLLA 600px-kyselyn JÄLKEEN. NE YLIKIRJOITTIVAT KAIKKI
@@ -1145,3 +1138,4 @@ nav {
 	padding: 0.6rem;
 	gap: 0.5rem;
 }
+*/

@@ -22,32 +22,50 @@
 	{#snippet content()}
 		<div class="info-modal">
 			<div class="info-section">
-				<h3><strong>MuisTIKO:</strong></h3>
-				<ul>
-					<li>Muistipeli, jossa tavoitteena on löytää kaikki korttiparit.</li>
-					<li>Suunnattu kaikille ketkä pitävät pulmapeleistä.</li>
-					<li>Pelistä löytyy eri toimintoja ja eri teemoja sekä rentoa musiikkia.</li>
-				</ul>
-			</div>
-			<div class="info-section">
-				<h3><strong>Säännöt:</strong></h3>
-				<ul>
-					<li>Klikkaa kortteja löytääksesi parit</li>
-					<li>Kun löydät parin, kortit jäävät näkyviin</li>
-					<li>Peli päättyy kun kaikki parit on löydetty</li>
-					<li>Yritä löytää kaikki parit mahdollisimman vähillä siirroilla</li>
-				</ul>
-			</div>
-			<div class="info-section">
-				<h3><strong>Toiminnot:</strong></h3>
+				<h3><strong>Pelin asetukset</strong></h3>
 				<ul>
 					<li>
-						<strong>Teema:</strong> 4 eri teemaa, joista voit valita mieluisan, musiikki vaihtuu teeman
-						kanssa
+						<strong>Teema:</strong>
+						Pelissä on neljä eri teemaa. Teeman valinta muuttaa pelikorttien ulkoasua, taustaa sekä pelin
+						aikana soivaa musiikkia.
 					</li>
-					<li><strong>Vaikeustaso:</strong> 4 eri korttimäärää, joista voit valita</li>
-					<li><strong>Aikaraja:</strong> Voit vaikeuttaa peliä asettamalla aikarajan</li>
-					<li><strong>Boosterit:</strong> 2 boosteria, jotka auttavat sinua pelissä</li>
+					<li>
+						<strong>Aikaraja:</strong>
+						Voit haastaa itsesi valitsemalla aikarajan (1, 2 tai 3 minuuttia). Peli päättyy, jos aika
+						loppuu ennen kuin kaikki parit on löydetty. Voit myös pelata ilman aikarajaa.
+					</li>
+				</ul>
+			</div>
+
+			<div class="info-section">
+				<h3><strong>Pelin kulku</strong></h3>
+				<ul>
+					<li>
+						<strong>Korttien kääntäminen:</strong>
+						Käännä kaksi korttia kerrallaan klikkaamalla niitä.
+					</li>
+					<li>
+						<strong>Pari:</strong>
+						Jos kortit ovat samanlaiset, ne jäävät näkyviin.
+					</li>
+
+					<li>
+						<strong>Kääntölaskuri:</strong>
+						Peli laskee jokaisen parin "käännön". Yksi kääntö tarkoittaa kahden kortin kääntämistä, riippumatta
+						siitä, löytyykö pari vai ei. Mitä pienempi kääntömäärä pelin lopussa on, sitä parempi suorituksesi
+						oli!
+					</li>
+				</ul>
+			</div>
+
+			<div class="info-section">
+				<h3><strong>Lisäavut peliin</strong></h3>
+				<ul>
+					<li>
+						<strong>Boosterit:</strong>
+						Käytössäsi on kertakäyttöisiä Booster-nappeja, jotka auttavat sinua tiukoissa tilanteissa.
+						Käytä ne viisaasti, sillä kunkin voi aktivoida vain kerran pelin aikana!
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -55,9 +73,15 @@
 
 	{#snippet footer()}
 		<div class="modal-footer">
-			<h3><strong>TEKIJÄT:</strong></h3>
 			<ul>
-				<li>Roni Huuskonen, Nora Virta, Bea Sudensalo, Ville Rossi</li>
+				<li>
+					MuisTIKO on osa Jyväskylän ammattikorkeakoulun tietojenkäsittelyn tutkinto-ohjelman
+					ensimmäisen vuoden opiskelijoiden ohjelmistoprojektia.
+				</li>
+				<li>
+					Tekijät: Nora Virta (UI ja suunnittelu), Roni Huuskonen, Bea Sudensalo ja Ville Rossi
+					(Frontend).
+				</li>
 			</ul>
 		</div>
 	{/snippet}
