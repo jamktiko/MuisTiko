@@ -41,17 +41,19 @@
 				<h3><strong>Pelin kulku</strong></h3>
 				<ul>
 					<li>
-						<strong>Korttien kääntäminen:</strong>Käännä kaksi korttia kerrallaan klikkaamalla
-						niitä.
+						<strong>Korttien kääntäminen:</strong>
+						Käännä kaksi korttia kerrallaan klikkaamalla niitä.
 					</li>
 					<li>
-						<strong>Pari:</strong>Jos kortit ovat samanlaiset, ne jäävät näkyviin.
+						<strong>Pari:</strong>
+						Jos kortit ovat samanlaiset, ne jäävät näkyviin.
 					</li>
 
 					<li>
-						<strong>Kääntölaskuri:</strong>Peli laskee jokaisen parin "käännön". Yksi kääntö
-						tarkoittaa kahden kortin kääntämistä, riippumatta siitä, löytyykö pari vai ei. Mitä
-						pienempi kääntömäärä pelin lopussa on, sitä parempi suorituksesi oli!
+						<strong>Kääntölaskuri:</strong>
+						Peli laskee jokaisen parin "käännön". Yksi kääntö tarkoittaa kahden kortin kääntämistä, riippumatta
+						siitä, löytyykö pari vai ei. Mitä pienempi kääntömäärä pelin lopussa on, sitä parempi suorituksesi
+						oli!
 					</li>
 				</ul>
 			</div>
@@ -60,9 +62,9 @@
 				<h3><strong>Lisäavut peliin:</strong></h3>
 				<ul>
 					<li>
-						<strong>Boosterit:</strong>Käytössäsi on kertakäyttöisiä Booster-nappeja, jotka auttavat
-						sinua tiukoissa tilanteissa. Käytä ne viisaasti, sillä kunkin voi aktivoida vain kerran
-						pelin aikana!
+						<strong>Boosterit:</strong>
+						Käytössäsi on kertakäyttöisiä Booster-nappeja, jotka auttavat sinua tiukoissa tilanteissa.
+						Käytä ne viisaasti, sillä kunkin voi aktivoida vain kerran pelin aikana!
 					</li>
 				</ul>
 			</div>
@@ -73,9 +75,10 @@
 		<div class="modal-footer">
 			<ul>
 				<li>
-					Nora Virta (UI ja suunnittelu), Roni Huuskonen, Bea Sudensalo ja Ville Rossi (Frontend)
+					MuisTIKO on osa Jyväskylän ammattikorkeakoulun tietojenkäsittelyn tutkinto-ohjelman
+					ensimmäisen vuoden opiskelijoiden ohjelmistoprojektia. Tekijät: Nora Virta (UI ja
+					suunnittelu), Roni Huuskonen, Bea Sudensalo ja Ville Rossi (Frontend)
 				</li>
-				<li></li>
 			</ul>
 		</div>
 	{/snippet}
