@@ -8,6 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import { getTheme } from '$lib/state/themeState.svelte';
+	import {homePageMusic} from '$lib/state/soundState.svelte'
 
 	import {
 		gameState,
@@ -157,7 +158,7 @@
 					<Button
 						text="Lopeta peli"
 						class="game-nav-button"
-						onclick={goToHome}
+						onclick={()=> {homePageMusic(); goToHome()}}
 						ariaLabel="Lopeta peli"
 					/>
 				</div>
