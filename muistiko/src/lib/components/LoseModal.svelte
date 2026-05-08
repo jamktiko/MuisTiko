@@ -8,34 +8,36 @@
 </script>
 
 <!-- Häviötilanteessa ilmestyvä modalikkuna (R) -->
-<div class="lose-modal">
-	<Modal>
-		{#snippet header()}
-			<h1>Hävisit pelin!</h1>
-			<p>git reset --hard -palataan alkuun</p>
-		{/snippet}
+<div data-theme={gameState.theme}>
+	<div class="lose-modal">
+		<Modal>
+			{#snippet header()}
+				<h1>Hävisit pelin!</h1>
+				<p>git reset --hard -palataan alkuun</p>
+			{/snippet}
 
-		{#snippet content()}
-			<div class="confetti-container" use:confetti={{ particleCount: 10, force: 0.1 }}></div>
-			<p>Aika loppui!</p>
-			<p class="game-turns-score">Tehdyt siirrot: {turns}</p>
-		{/snippet}
+			{#snippet content()}
+				<div class="confetti-container" use:confetti={{ particleCount: 10, force: 0.1 }}></div>
+				<p>Aika loppui!</p>
+				<p class="game-turns-score">Tehdyt siirrot: {turns}</p>
+			{/snippet}
 
-		{#snippet footer()}
-			<Button
-				class="modal-buttons"
-				text="Aloita alusta"
-				onclick={startNewGame}
-				ariaLabel="Aloita alusta"
-			/>
-			<Button
-				class="modal-buttons"
-				text="Uusi peli"
-				onclick={handlePlayAgain}
-				ariaLabel="Uusi peli"
-			/>
-		{/snippet}
-	</Modal>
+			{#snippet footer()}
+				<Button
+					text="Aloita alusta"
+					class="modal-buttons"
+					onclick={startNewGame}
+					ariaLabel="Aloita alusta"
+				/>
+				<Button
+					text="Uusi peli"
+					class="modal-buttons"
+					onclick={handlePlayAgain}
+					ariaLabel="Uusi peli"
+				/>
+			{/snippet}
+		</Modal>
+	</div>
 </div>
 
 <style>
