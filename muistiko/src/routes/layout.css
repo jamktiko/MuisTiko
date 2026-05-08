@@ -249,6 +249,7 @@ nav {
 		min-height: 480px;
 		max-height: calc(100vh - 180px);
 	}
+	
 }
 
 
@@ -367,6 +368,7 @@ nav {
 .dropdown-row {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 2rem;
 	justify-content: center;
 	align-items: center;
@@ -514,24 +516,63 @@ Modaalin taustan tyyli
 
     .game-top-row > * {
         min-width: 0;
+				display: flex;
+				flex-wrap: wrap;
     }
 
     .game-top-row > button:first-child {
         order: 1;
+				max-width: 100px;
     }
 
     .game-top-row > button:last-child {
         order: 2;
+				max-width: 100px;
     }
 
     .game-turns {
         order: 3;
         min-width: 0;
+				max-width: 100px;
     }
 
     .game-timer {
         order: 4;
         min-width: 0;
+				max-width: 100px;
+    }
+		
+}
+
+@media (max-width: 500px) {
+    .game-top-row{
+        justify-content: center;
+    }
+
+    .game-top-row > * {
+        min-width: 0;
+    }
+
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
+
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
+
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
+
+    .game-timer {
+        order: 4;
+        min-width: 0;
+				max-width: 100px;
     }
 		
 }
@@ -776,6 +817,36 @@ Modaalin taustan tyyli
     .theme-wrapper {
         overflow-y: auto;
     }
+		.game-top-row {
+			justify-content: center;
+		}
+		.game-top-row > * {
+        min-width: 0;
+				flex: 1 1 calc(50% - 0.25);
+    }
+
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
+
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
+
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
+
+    .game-timer {
+        order: 4;
+        min-width: 0;
+				max-width: 100px;
+    }
+		
 
     .game-page {
         justify-content: flex-start;
