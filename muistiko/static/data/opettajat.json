@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "pic": "kromattu_heikki.png"
+    "pic": "op-1.svg"
   },
   {
     "id": 2,
-    "pic": "oranssi_jarkko.png"
+    "pic": "op-2.svg"
   },
   {
     "id": 3,
-    "pic": "pehmo_alison.png"
+    "pic": "op-3.svg"
   },
   {
     "id": 4,
-    "pic": "pehmo_heikki.png"
+    "pic": "op-4.svg"
   } ,
    {
     "id": 5,
-    "pic": "sininen_teno.png"
+    "pic": "op-5.svg"
   },
   {
     "id": 6,
-    "pic": "sketch_alison.png"
+    "pic": "op-6.svg"
   },
   {
     "id": 7,
-    "pic": "sketch_heikki.png"
+    "pic": "op-7.svg"
   },
   {
     "id": 8,
-    "pic": "sketch_jarkko.png"
+    "pic": "op-8.svg"
   } ,
    {
     "id": 9,
-    "pic": "sketch_jere.png"
+    "pic": "op-9.svg"
   },
   {
     "id": 10,
-    "pic": "sketch_teno.png"
+    "pic": "op-10.svg"
   },
   {
     "id": 11,
-    "pic": "vihreä_jere.png"
+    "pic": "op-11.svg"
   },
   {
     "id": 12,
-    "pic": "pinkki_alison.png"
+    "pic": "op-12.svg"
   } ,
    {
     "id": 13,
-    "pic": "pehmo_jere.png"
+    "pic": "op-13.svg"
   },
   {
     "id": 14,
-    "pic": "pehmo_teno.png"
+    "pic": "op-14.svg"
   },
   {
     "id": 15,
-    "pic": "pehmo_jarkko.png"
+    "pic": "op-15.svg"
   }
 ]

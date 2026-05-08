@@ -1,63 +1,63 @@
 [
   {
     "id": 1,
-    "pic": "copilot-icon.svg"
+    "pic": "tiko-1.svg"
   },
   {
     "id": 2,
-    "pic": "docker-icon.svg"
+    "pic": "tiko-2.svg"
   },
   {
     "id": 3,
-    "pic": "figma-icon.svg"
+    "pic": "tiko-3.svg"
   },
   {
     "id": 4,
-    "pic": "git-icon.svg"
+    "pic": "tiko-4.svg"
   },
   {
     "id": 5,
-    "pic": "warp_logo_icon_249225.png"
+    "pic": "tiko-5.svg"
   },
   {
     "id": 6,
-    "pic": "icons8-google-logo.svg"
+    "pic": "tiko-6.svg"
   },
   {
     "id": 7,
-    "pic": "microsoft-teams-icon.svg"
+    "pic": "tiko-7.svg"
   },
   {
     "id": 8,
-    "pic": "moodle-seeklogo.png"
+    "pic": "tiko-8.svg"
   },
   {
     "id": 9,
-    "pic": "vmware_fusion_macos_bigsur_icon_189580.png"
+    "pic": "tiko-9.svg"
   },
   {
     "id": 10,
-    "pic": "node-js-seeklogo.png"
+    "pic": "tiko-10.svg"
   },
   {
     "id": 11,
-    "pic": "visual-studio-code-icon.svg"
+    "pic": "tiko-11.svg"
   },
   {
     "id": 12,
-    "pic": "powershell_icon_132080.png"
+    "pic": "tiko-12.svg"
   },
   {
     "id": 13,
-    "pic": "svelte-icon (1).svg"
+    "pic": "tiko-13.svg"
   },
   {
     "id": 14,
-    "pic": "trello-logo-icon.svg"
+    "pic": "tiko-14.svg"
   },
   {
     "id": 15,
-    "pic": "vecteezy_ms-office-logo-on-transparent-background_14018577.jpg"
+    "pic": "tiko-15.svg"
   }
 
 ]

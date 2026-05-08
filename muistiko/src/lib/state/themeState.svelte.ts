@@ -27,20 +27,20 @@ export const Themes: themeSetting[] = [
 	}),
 	new themeSetting('Koirat', '/data/music/alexguz-happy-dog-day-indie-rock-385939.mp3', {
 		background: '/data/taustat/koirat_tausta.png',
-		card: '/data/korttien_takapuolet/koirat_iso.png'
+		card: '/data/korttien_takapuolet/koirat_60.svg'
 	}),
 	new themeSetting(
 		'Opettajat',
 		'/data/music/nourishedbymusic-back-to-school-background-music-163728.mp3',
 		{
 			background: '/data/taustat/opettajat_tausta.png',
-			card: '/data/korttien_takapuolet/opettajat_iso.png'
+			card: '/data/korttien_takapuolet/opettajat_60_new.svg'
 		}
 	),
 
 	new themeSetting('TIKO', '/data/music/paulyudin-technology-tech-technology-484304.mp3', {
 		background: '/data/taustat/tiko_tausta.png',
-		card: '/data/korttien_takapuolet/tiko_iso.png'
+		card: '/data/korttien_takapuolet/tiko_60_uusi.svg'
 	})
 	//new themeSetting('Etusivu', '/data/music/music_for_video-waiting-music-116216.mp3')
 ];
