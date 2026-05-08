@@ -236,7 +236,7 @@ nav {
 	justify-content: flex-start;
 	align-items: center;
 	padding: clamp(1.5rem, 2.5vw, 3rem);
-	margin: 1rem auto;
+	margin: 1rem 0;
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 	gap: 1.5rem;
 	overflow: hidden;
@@ -817,41 +817,89 @@ Modaalin taustan tyyli
     .theme-wrapper {
         overflow-y: auto;
     }
-		.game-top-row {
-			justify-content: center;
-		}
-		.game-top-row > * {
+
+    .game-page {
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    .game-top-row {
+        justify-content: center;
+    }
+
+    .game-top-row > * {
         min-width: 0;
-				flex: 1 1 calc(50% - 0.25);
+        flex: 1 1 calc(50% - 0.25rem);
     }
 
     .game-top-row > button:first-child {
         order: 1;
-				max-width: 100px;
     }
 
     .game-top-row > button:last-child {
         order: 2;
-				max-width: 100px;
+    }
+
+    .game-top-row::after {
+        content: '';
+        flex-basis: 100%;
+        order: 3;
     }
 
     .game-turns {
-        order: 3;
+        order: 4;
         min-width: 0;
-				max-width: 100px;
     }
 
     .game-timer {
-        order: 4;
+        order: 5;
         min-width: 0;
-				max-width: 100px;
     }
-		
 
-	.game-page {
-		justify-content: flex-start;
-		overflow-y: auto;
+    .game-nav-button {
+        min-width: 0;
+        font-size: 0.75rem;
+        padding: 0 0.5rem;
+        height: 40px;
+    }
+
+    .game-turns,
+    .game-timer {
+        min-width: 0;
+        font-size: 0.75rem;
+        height: 40px;
+    }
+
+    .game-box {
+        flex: 0 0 auto;
+        height: auto;
+		width: min(96vw, 520px);
+		margin: 0.4rem auto;
+		padding: 0.6rem;
+		gap: 0.5rem;
 	}
+
+	.content-box {
+		margin: 1rem auto;
+		width: 100%;
+		max-width: 520px;
+        flex: 0 0 auto;
+        overflow: visible;
+        gap: 4px;
+    }
+
+    .card-grid[data-cards='12'] .card,
+    .card-grid[data-cards='16'] .card {
+        height: auto;
+    }
+
+    .card-grid[data-cards='20'] .card {
+        height: auto;
+    }
+
+    .boosters-container {
+        gap: 1.5rem;
+    }
 
     .booster-show-two,
     .booster-find-match {
@@ -987,7 +1035,6 @@ Modaalin taustan tyyli
 	justify-content: center;
 	align-items: center;
 	padding: 1rem 1rem;
-	width: 50px;	
 }
 
 
