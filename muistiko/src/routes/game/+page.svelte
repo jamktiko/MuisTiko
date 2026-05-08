@@ -91,7 +91,7 @@
 		} else {
 			// Muuten asetetaan ensimmäinen kortti
 			setChoiceOne(card);
-		}
+		} // Soitetaan kortin kääntöääni (B)
 		playBlockSound();
 	};
 

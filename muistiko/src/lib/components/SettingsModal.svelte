@@ -25,7 +25,7 @@
 	{#snippet header()}
 		<div class="header-content">
 			<h1>Asetukset</h1>
-			<Button text="×" class="close-button" onclick={closeModal} ariaLabel="Sulje" />
+			<button class="close-button" onclick={closeModal} aria-label="Sulje">×</button>
 		</div>
 	{/snippet}
 
