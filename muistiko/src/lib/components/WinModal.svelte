@@ -7,30 +7,32 @@
 	import { confetti } from '@neoconfetti/svelte';
 </script>
 
-<div class="win-modal">
-	<Modal>
-		{#snippet header()}
-			<h1>VOITIT!</h1>
-			<p>git commit - m “Muisti tallessa”</p>
-		{/snippet}
+<div data-theme={gameState.theme}>
+	<div class="win-modal">
+		<Modal>
+			{#snippet header()}
+				<h1>VOITIT PELIN!</h1>
+				<p>git commit - m “Muisti tallessa”</p>
+			{/snippet}
 
-		{#snippet content()}
-			<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }} />
-			{#if gameState.timelimit !== 'Ei rajaa'}
-				<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
-			{:else}
-				<p class="game-timer-score">
-					Aikaa kului: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}
-				</p>
-			{/if}
-			<p class="game-turns-score">Tehdyt siirrot: {gameState.turns}</p>
-		{/snippet}
+			{#snippet content()}
+				<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }} />
+				{#if gameState.timelimit !== 'Ei rajaa'}
+					<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
+				{:else}
+					<p class="game-timer-score">
+						Aikaa kului: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}
+					</p>
+				{/if}
+				<p class="game-turns-score">Tehdyt siirrot: {gameState.turns}</p>
+			{/snippet}
 
-		{#snippet footer()}
-			<Button text="Aloita alusta" onclick={startNewGame} />
-			<Button text="Uusi peli" onclick={handlePlayAgain} />
-		{/snippet}
-	</Modal>
+			{#snippet footer()}
+				<Button text="Aloita alusta" onclick={startNewGame} />
+				<Button text="Uusi peli" onclick={handlePlayAgain} />
+			{/snippet}
+		</Modal>
+	</div>
 </div>
 
 <style>
