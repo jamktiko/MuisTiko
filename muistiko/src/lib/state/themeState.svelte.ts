@@ -19,7 +19,7 @@ class themeSetting {
 		this.colors = colors;
 	}
 }
-// KORTIT JA TAUSTAT VAIHDETTU .PNG VERSIOON, JOTTA PELI EI LAGAA (B)
+
 export const Themes: themeSetting[] = [
 	new themeSetting('Kissat', '/data/music/villatic_music-cute-cat-256893.mp3', {
 		background: '/data/taustat/kissat_tausta.png',
@@ -33,7 +33,7 @@ export const Themes: themeSetting[] = [
 		'Opettajat',
 		'/data/music/nourishedbymusic-back-to-school-background-music-163728.mp3',
 		{
-			background: '/data/taustat/opettajat_tausta.png',
+			background: '/data/taustat/opettajat_tausta_eitxt.png',
 			card: '/data/korttien_takapuolet/opettajat_60_new.svg'
 		}
 	),
