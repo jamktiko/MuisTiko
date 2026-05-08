@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import jamk from '$lib/assets/jamk.svg';
 	import { appSettings } from '$lib/state/appSettings';
 	import { loadMusicFromStorage } from '$lib/localstorage/localstorage';
 	import { soundState } from '$lib/state/soundState.svelte';
@@ -19,17 +19,15 @@
 		const savedMusic = loadMusicFromStorage();
 		if (savedMusic && audio) {
 			audio.src = savedMusic;
-			audio.load()
+			audio.load();
 		}
 		if (!soundState.muted) {
-            audio?.play();
-        }
-
-		
+			audio?.play();
+		}
 	});
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head><link rel="icon" href={jamk} /></svelte:head>
 
 <div class:high-contrast={$appSettings.highContrast}>
 	{@render children()}
