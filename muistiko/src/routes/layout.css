@@ -79,23 +79,18 @@ body {
 	align-items: flex-start;
 	gap: 3rem;
 	max-width: 1000px;
-	margin: 3rem auto;
+	margin: 2rem auto;
 	text-align: left;
-	padding: 1.5rem;
 }
 
 .modal-footer {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-}
-
-.modal-footer h3 {
-	margin-bottom: 1rem;
-	font-family: 'Coustard', serif;
-	font-size: 1rem;
+	font-size: 80%;
+	margin: 2rem auto;
 	text-align: center;
-	color: #222;
+	padding-top: 1rem;
 }
 
 .info-section {
@@ -337,8 +332,7 @@ nav {
 	border-radius: 20px;
 	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
-	margin: 1rem auto;
-	
+	margin: 0rem auto;
 }
 
 /* Footer teksti - koko min, preferred, max */
@@ -755,7 +749,6 @@ nav {
 	aspect-ratio: 1/1;
 }
 
-
 /* ============================================================
    MEDIA QUERYT — isommasta pienimpään
    ============================================================ */
@@ -1122,7 +1115,6 @@ nav {
 		cursor: pointer;
 	}
 }
-
 
 /* ============================================================
    ⚠️  LOOSE GLOBAL STYLES — NÄMÄ OLIVAT VAHINGOSSA GLOBAALILLA

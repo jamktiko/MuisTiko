@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="info-section">
-				<h3><strong>Lisäavut peliin:</strong></h3>
+				<h3><strong>Lisäavut peliin</strong></h3>
 				<ul>
 					<li>
 						<strong>Boosterit:</strong>
@@ -76,8 +76,11 @@
 			<ul>
 				<li>
 					MuisTIKO on osa Jyväskylän ammattikorkeakoulun tietojenkäsittelyn tutkinto-ohjelman
-					ensimmäisen vuoden opiskelijoiden ohjelmistoprojektia. Tekijät: Nora Virta (UI ja
-					suunnittelu), Roni Huuskonen, Bea Sudensalo ja Ville Rossi (Frontend)
+					ensimmäisen vuoden opiskelijoiden ohjelmistoprojektia.
+				</li>
+				<li>
+					Tekijät: Nora Virta (UI ja suunnittelu), Roni Huuskonen, Bea Sudensalo ja Ville Rossi
+					(Frontend).
 				</li>
 			</ul>
 		</div>
