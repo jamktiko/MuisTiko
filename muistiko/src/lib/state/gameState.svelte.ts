@@ -11,6 +11,7 @@ import {
 	startSimpleTimer,
 	stopTimer
 } from '$lib/state/timerState.svelte';
+import { playBlockSound } from '$lib/state/soundState.svelte';
 import { type ThemeItem } from './utils/dataHandling';
 
 export type Theme = 'Kissat' | 'Koirat' | 'Opettajat' | 'TIKO' | null;
@@ -268,6 +269,7 @@ export function triggerboosterShowTwo() {
 	gameState.boosterShowTwoCards = selected;
 	gameState.boosterShowTwoActive = true;
 	gameState.disabled = true;
+	playBlockSound();
 
 	// 	Asetetaan boosterShowTwo pois päältä x sekunnin kuluttua, ja vapautetaan pelaaja klikkaamaan kortteja uudestaan (B)
 	setTimeout(() => {
@@ -306,6 +308,7 @@ export function triggerBoosterFindMatch() {
 		gameState.boosterFindMatchActive = true;
 		gameState.disabled = true;
 		gameState.boosterFindMatchCards = pair;
+		playBlockSound();
 
 		// Asetetaan boosterFindMatch pois päältä x sekunnin kuluttua, ja vapautetaan pelaaja klikkaamaan kortteja uudestaan (B)
 		setTimeout(() => {

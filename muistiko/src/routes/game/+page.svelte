@@ -9,7 +9,6 @@
 	import Timer from '$lib/components/Timer.svelte';
 	import { getTheme } from '$lib/state/themeState.svelte';
 
-	// Haetaan gameState ja kaikki muu storesta (B)
 	import {
 		gameState,
 		startNewGame,
@@ -37,6 +36,7 @@
 		setThemeToStorage,
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
+	import { playBlockSound, playCorrectSound } from '$lib/state/soundState.svelte';
 
 	let theme = $derived(gameState.theme ? getTheme(gameState.theme) : null);
 	let imgCover = $derived(theme?.colors.card || '');
@@ -91,6 +91,7 @@
 			// Muuten asetetaan ensimmäinen kortti
 			setChoiceOne(card);
 		}
+		playBlockSound();
 	};
 
 	// Uuden kierroksen aloitus resettaa vain turns ja korttien valinnat
@@ -107,6 +108,7 @@
 			if (choiceOne.src === choiceTwo.src) {
 				// Käännetään oikean parin kortit kuvapuoli ylöspäin
 				turnOverCorrectPair();
+				playCorrectSound();
 				startNewRound();
 			} else {
 				setTimeout(() => startNewRound(), 1000);
@@ -169,7 +171,7 @@
 				<div class="boosters-container">
 					<!-- Boosterinappi: näytä kaksi (B) -->
 					<button
-						class="game-nav-button booster-show-two"
+						class=" booster-show-two"
 						onclick={triggerboosterShowTwo}
 						disabled={gameState.boosterShowTwoUsed ||
 							gameState.boosterShowTwoActive ||
@@ -179,7 +181,7 @@
 					</button>
 					<!-- Boosterinappi: etsi pari (B)-->
 					<button
-						class="game-nav-button booster-find-match"
+						class="booster-find-match"
 						onclick={triggerBoosterFindMatch}
 						disabled={gameState.boosterFindMatchUsed ||
 							gameState.boosterFindMatchActive ||
