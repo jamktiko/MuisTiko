@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Modal from '$lib/components/Modal.svelte';
+	import Button from './Button.svelte';
 
 	interface Props {
 		closeInfo: () => void;
@@ -14,7 +15,7 @@
 			<div class="title-box">
 				<h1><strong>INFO</strong></h1>
 			</div>
-			<button class="close-button" onclick={closeInfo} aria-label="Sulje">×</button>
+			<Button text="x" class="close-button" onclick={closeInfo} ariaLabel="Sulje" />
 		</div>
 	{/snippet}
 

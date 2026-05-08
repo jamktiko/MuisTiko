@@ -94,23 +94,27 @@
 	const isReadyToStart = $derived(theme !== null && difficulty !== null && timelimit !== null);
 </script>
 
-
 <!-- settings valikko, joka luo SettingSelector komponentit gameSettings taulukon perusteella -->
 <div class="landing-page">
-<Header gameLogo="kissat" />
+	<Header gameLogo="kissat" />
 	<main class="main-content">
 		<div class="content-box settings-content">
 			<div class="dropdown-row">
 				{#each gameSettings as gameSetting (gameSetting.text)}
 					<SettingSelector
 						onChange={gameSetting.function}
-						text={gameSetting.text}
 						placeholder={gameSetting.placeholder}
 						options={gameSetting.options}
 					/>
 				{/each}
 			</div>
-			<Button disabled={!isReadyToStart} text="ALOITA PELI" onclick={startGame} />
+			<Button
+				class="start-button"
+				disabled={!isReadyToStart}
+				text="ALOITA PELI"
+				onclick={startGame}
+				ariaLabel="Aloita peli"
+			/>
 		</div>
 	</main>
 	<Footer />

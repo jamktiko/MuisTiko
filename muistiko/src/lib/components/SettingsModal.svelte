@@ -2,6 +2,7 @@
 	import Modal from './Modal.svelte';
 
 	import { appSettings, updateSettings } from '../state/appSettings.ts';
+	import Button from './Button.svelte';
 
 	interface Props {
 		closeModal: () => void;
@@ -43,6 +44,10 @@
 				</label>
 			</div>
 		</div>
+	{/snippet}
+
+	{#snippet footer()}
+		<p>halloota</p>
 	{/snippet}
 </Modal>
 
