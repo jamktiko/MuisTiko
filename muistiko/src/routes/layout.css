@@ -193,7 +193,7 @@ nav {
 .landing-page {
 	display: flex;
 	flex-direction: column;
-	height: 100dvh;
+	height: 100vh;
 	background-image: url('/data/taustat/aloitus_tausta.png');
 	background-size: cover;
 	background-position: center;
@@ -225,7 +225,7 @@ nav {
 	width: min(92vw, 1100px);
 	max-width: 1100px;
 	min-height: clamp(400px, 42vh, 650px);
-	max-height: min(80vh, calc(100vh - 180px));
+	max-height: min(72vh, calc(100vh - 180px));
 	border-radius: 25px;
 	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8));
 	background: rgba(251, 251, 251, 0.98);
@@ -345,7 +345,8 @@ nav {
 	border-radius: 20px;
 	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
-	margin: 1rem auto;
+	margin: 0rem auto;
+	
 }
 
 /* Footer teksti - koko min, preferred,max */
@@ -1255,5 +1256,13 @@ Modaalin taustan tyyli
 	font-family: 'Coustard', serif;
 	cursor: pointer;
 }
+
+.footer p {
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.02em;
+	font-size: clamp(0.65rem, 2vw, 1rem);
 }
-	
+
+
+
+}
