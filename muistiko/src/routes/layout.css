@@ -332,7 +332,7 @@ nav {
 	border-radius: 20px;
 	background-color: var(--color-footer, #c3b5aa);
 	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
-	margin: 0rem auto;
+	margin: 1rem auto;
 }
 
 /* Footer teksti - koko min, preferred, max */
