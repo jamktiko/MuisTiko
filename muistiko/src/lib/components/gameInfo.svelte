@@ -58,6 +58,7 @@
 	{/snippet}
 
 	{#snippet footer()}
+	
 	<div class="modal-footer">
 		<h3><strong>TEKIJÄT:</strong></h3>
 		<ul>
