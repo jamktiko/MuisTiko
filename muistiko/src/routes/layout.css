@@ -249,6 +249,7 @@ nav {
 		min-height: 480px;
 		max-height: calc(100vh - 180px);
 	}
+	
 }
 
 .content-infobox {
@@ -366,6 +367,7 @@ nav {
 .dropdown-row {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 2rem;
 	justify-content: center;
 	align-items: center;
@@ -512,27 +514,67 @@ Modaalin taustan tyyli
 		justify-content: center;
 	}
 
-	.game-top-row > * {
-		min-width: 0;
-	}
+    .game-top-row > * {
+        min-width: 0;
+				display: flex;
+				flex-wrap: wrap;
+    }
 
-	.game-top-row > button:first-child {
-		order: 1;
-	}
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
 
-	.game-top-row > button:last-child {
-		order: 2;
-	}
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
 
-	.game-turns {
-		order: 3;
-		min-width: 0;
-	}
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
 
-	.game-timer {
-		order: 4;
-		min-width: 0;
-	}
+    .game-timer {
+        order: 4;
+        min-width: 0;
+				max-width: 100px;
+    }
+		
+}
+
+@media (max-width: 500px) {
+    .game-top-row{
+        justify-content: center;
+    }
+
+    .game-top-row > * {
+        min-width: 0;
+    }
+
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
+
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
+
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
+
+    .game-timer {
+        order: 4;
+        min-width: 0;
+				max-width: 100px;
+    }
+		
 }
 
 /* KORTTIEN KÄÄNTÖANIMAATIO (R) */
@@ -772,9 +814,39 @@ Modaalin taustan tyyli
 	aspect-ratio: 1/1;
 }
 @media (max-width: 480px) {
-	.theme-wrapper {
-		overflow-y: auto;
-	}
+    .theme-wrapper {
+        overflow-y: auto;
+    }
+		.game-top-row {
+			justify-content: center;
+		}
+		.game-top-row > * {
+        min-width: 0;
+				flex: 1 1 calc(50% - 0.25);
+    }
+
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
+
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
+
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
+
+    .game-timer {
+        order: 4;
+        min-width: 0;
+				max-width: 100px;
+    }
+		
 
 	.game-page {
 		justify-content: flex-start;
