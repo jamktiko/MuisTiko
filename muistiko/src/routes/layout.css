@@ -249,8 +249,8 @@ nav {
 		min-height: 480px;
 		max-height: calc(100vh - 180px);
 	}
+	
 }
-
 
 .content-infobox {
 	width: min(900px, 90vw);
@@ -367,6 +367,7 @@ nav {
 .dropdown-row {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 2rem;
 	justify-content: center;
 	align-items: center;
@@ -425,6 +426,7 @@ Modaalin taustan tyyli
 	border-radius: 15px;
 	z-index: 100;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+	border: 6px solid var(--color-border, #ffffff);
 }
 
 /* Teemojen tyylit */
@@ -448,9 +450,11 @@ Modaalin taustan tyyli
 	--color-footer: #ffffff;
 	--color-border: #eeeeee;
 	--color-bg: transparent;
-	--color-nappi: #0D004C;
+	--color-nappi: #0d004c;
 	--color-nappi-reuna: #ffffff;
---color-icon-filter: brightness(0) saturate(100%) invert(13%) sepia(99%) saturate(3000%) hue-rotate(250deg) brightness(45%);}
+	--color-icon-filter: brightness(0) saturate(100%) invert(13%) sepia(99%) saturate(3000%)
+		hue-rotate(250deg) brightness(45%);
+}
 
 [data-theme='TIKO'] {
 	--tausta: url('/data/taustat/tiko_tausta.png');
@@ -460,7 +464,7 @@ Modaalin taustan tyyli
 	--color-bg: transparent;
 	--color-nav-button: #ffffff;
 	--color-icon-filter: brightness(0) invert(1);
-	--color-nappi:#3a41ac;
+	--color-nappi: #3a41ac;
 	--color-nappi-reuna: #ffffff;
 }
 
@@ -480,7 +484,6 @@ Modaalin taustan tyyli
 .high-contrast img {
 	filter: invert(1) !important;
 }
-
 
 /* Ylärivi missä napit */
 .game-top-row {
@@ -505,10 +508,44 @@ Modaalin taustan tyyli
 .start-again:hover {
 	transform: scale(1.05);
 }
-
 /* Media query, että game top rown napit, ajastin ja laskuri asettuu siististi kun näyttö pienenee */
 @media (max-width: 845px) {
-    .game-top-row {
+	.game-top-row {
+		justify-content: center;
+	}
+
+    .game-top-row > * {
+        min-width: 0;
+				display: flex;
+				flex-wrap: wrap;
+    }
+
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
+
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
+
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
+
+    .game-timer {
+        order: 4;
+        min-width: 0;
+				max-width: 100px;
+    }
+		
+}
+
+@media (max-width: 500px) {
+    .game-top-row{
         justify-content: center;
     }
 
@@ -518,20 +555,24 @@ Modaalin taustan tyyli
 
     .game-top-row > button:first-child {
         order: 1;
+				max-width: 100px;
     }
 
     .game-top-row > button:last-child {
         order: 2;
+				max-width: 100px;
     }
 
     .game-turns {
         order: 3;
         min-width: 0;
+				max-width: 100px;
     }
 
     .game-timer {
         order: 4;
         min-width: 0;
+				max-width: 100px;
     }
 		
 }
@@ -600,7 +641,7 @@ Modaalin taustan tyyli
 .booster-show-two {
 	min-width: 160px;
 	height: 48px;
-	border-radius: 10px;
+	border-radius: 30px;
 	border: 3px solid #f3e1cd;
 	background-color: var(--color-nappi, #3c3c3b);
 	color: #ffffff;
@@ -628,7 +669,7 @@ Modaalin taustan tyyli
 .booster-find-match {
 	min-width: 160px;
 	height: 48px;
-	border-radius: 10px;
+	border-radius: 30px;
 	border: 3px solid #f3e1cd;
 	background-color: var(--color-nappi, #3c3c3b);
 	color: #ffffff;
@@ -737,105 +778,135 @@ Modaalin taustan tyyli
 }
 
 .game-box {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    width: min(95vw, 1100px);
-    margin: 0 auto;
-    padding: 1rem;
-    gap: 1rem;
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	width: min(95vw, 1100px);
+	margin: 0 auto;
+	padding: 1rem;
+	gap: 1rem;
 }
 
 .card-grid {
 	width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center;
-    align-content: flex-start;
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	justify-content: center;
+	align-content: flex-start;
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
 }
 
 .card-grid[data-cards='12'] .card,
 .card-grid[data-cards='16'] .card {
-    width: clamp(60px, 18vw, 120px);
-    height: clamp(60px, 18vw, 120px);
-    aspect-ratio: 1/1;
+	width: clamp(60px, 18vw, 120px);
+	height: clamp(60px, 18vw, 120px);
+	aspect-ratio: 1/1;
 }
 
 .card-grid[data-cards='20'] .card,
 .card-grid[data-cards='30'] .card {
-    width: clamp(50px, 12vw, 80px);
-    height: clamp(50px, 12vw, 80px);
-    aspect-ratio: 1/1;
+	width: clamp(50px, 12vw, 80px);
+	height: clamp(50px, 12vw, 80px);
+	aspect-ratio: 1/1;
 }
 @media (max-width: 480px) {
     .theme-wrapper {
         overflow-y: auto;
     }
-
-    .game-page {
-        justify-content: flex-start;
-        overflow-y: auto;
-    }
-
-    .game-box {
-        flex: 0 0 auto;
-        height: auto;
-        width: 96vw;
-        margin: 0.4rem auto;
-        padding: 0.6rem;
-        gap: 0.5rem;
-    }
-
-    .card-grid {
-        flex: 0 0 auto;
-        overflow: visible;
-        gap: 4px;
-    }
-
-    .card-grid[data-cards='12'] .card,
-    .card-grid[data-cards='16'] .card {
-        height: auto;
-    }
-
-    .card-grid[data-cards='20'] .card{
-        height: auto;
-    }
-
-    .game-top-row {
-        gap: 0.4rem;
-        margin-bottom: 0;
-    }
-
-    .game-nav-button {
+		.game-top-row {
+			justify-content: center;
+		}
+		.game-top-row > * {
         min-width: 0;
-        font-size: 0.75rem;
-        padding: 0 0.5rem;
-        height: 40px;
+				flex: 1 1 calc(50% - 0.25);
     }
 
-    .game-turns,
+    .game-top-row > button:first-child {
+        order: 1;
+				max-width: 100px;
+    }
+
+    .game-top-row > button:last-child {
+        order: 2;
+				max-width: 100px;
+    }
+
+    .game-turns {
+        order: 3;
+        min-width: 0;
+				max-width: 100px;
+    }
+
     .game-timer {
+        order: 4;
         min-width: 0;
-        font-size: 0.75rem;
-        height: 40px;
+				max-width: 100px;
     }
+		
 
-    .boosters-container {
-        gap: 1.5rem;
-    }
+	.game-page {
+		justify-content: flex-start;
+		overflow-y: auto;
+	}
 
-    .booster-show-two,
-    .booster-find-match {
-        width: 64px;
-        height: 64px;
-        min-width: 0;
-        border-radius: 50%;
-        font-size: 0.7rem;
-        padding: 0.4rem;
-    }
+	.game-box {
+		flex: 0 0 auto;
+		height: auto;
+		width: 96vw;
+		margin: 0.4rem auto;
+		padding: 0.6rem;
+		gap: 0.5rem;
+	}
+
+	.card-grid {
+		flex: 0 0 auto;
+		overflow: visible;
+		gap: 4px;
+	}
+
+	.card-grid[data-cards='12'] .card,
+	.card-grid[data-cards='16'] .card {
+		height: auto;
+	}
+
+	.card-grid[data-cards='20'] .card {
+		height: auto;
+	}
+
+	.game-top-row {
+		gap: 0.4rem;
+		margin-bottom: 0;
+	}
+
+	.game-nav-button {
+		min-width: 0;
+		font-size: 0.75rem;
+		padding: 0 0.5rem;
+		height: 40px;
+	}
+
+	.game-turns,
+	.game-timer {
+		min-width: 0;
+		font-size: 0.75rem;
+		height: 40px;
+	}
+
+	.boosters-container {
+		gap: 1.5rem;
+	}
+
+	.booster-show-two,
+	.booster-find-match {
+		width: 64px;
+		height: 64px;
+		min-width: 0;
+		border-radius: 50%;
+		font-size: 0.7rem;
+		padding: 0.4rem;
+	}
 }
