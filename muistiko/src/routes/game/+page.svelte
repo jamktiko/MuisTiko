@@ -8,6 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import { getTheme } from '$lib/state/themeState.svelte';
+	import {homePageMusic} from '$lib/state/soundState.svelte'
 
 	import {
 		gameState,
@@ -149,7 +150,8 @@
 					</div>
 
 					<!-- Lopeta peli-nappi -->
-					<button class="game-nav-button" onclick={goToHome}>Lopeta peli</button>
+					<button class="game-nav-button" onclick={()=> {homePageMusic();
+						 goToHome();}}>Lopeta peli</button>
 				</div>
 				<!-- Kortit -->
 				<div class="card-grid" data-cards={cards.length}>
