@@ -16,7 +16,7 @@
 			{/snippet}
 
 			{#snippet content()}
-				<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }} />
+				<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }}></div>
 				{#if gameState.timelimit !== 'Ei rajaa'}
 					<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
 				{:else}
@@ -28,8 +28,18 @@
 			{/snippet}
 
 			{#snippet footer()}
-				<Button text="Aloita alusta" onclick={startNewGame} />
-				<Button text="Uusi peli" onclick={handlePlayAgain} />
+				<Button
+					text="Aloita alusta"
+					class="modal-buttons"
+					onclick={startNewGame}
+					ariaLabel="Aloita alusta"
+				/>
+				<Button
+					text="Pelaa uudestaan"
+					class="modal-buttons"
+					onclick={handlePlayAgain}
+					ariaLabel="Pelaa uudestaan"
+				/>
 			{/snippet}
 		</Modal>
 	</div>

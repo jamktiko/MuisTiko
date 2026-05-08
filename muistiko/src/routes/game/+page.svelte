@@ -38,10 +38,10 @@
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
 	import { playBlockSound, playCorrectSound } from '$lib/state/soundState.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	let theme = $derived(gameState.theme ? getTheme(gameState.theme) : null);
 	let imgCover = $derived(theme?.colors.card || '');
-	let background = $derived(theme?.colors.background || '');
 
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
 
@@ -141,7 +141,12 @@
 			<div class="content-box game-box">
 				<div class="game-top-row">
 					<!-- Aloita alusta-napi -->
-					<button class="game-nav-button" onclick={startNewGame}>Aloita alusta</button>
+					<Button
+						text="Aloita alusta"
+						class="game-nav-button"
+						onclick={startNewGame}
+						ariaLabel="Aloita alusta"
+					/>
 					<!-- Käänötjen määrä -->
 					<div class="game-turns">Käännöt: {turns}</div>
 					<!-- Ajastin, kulkee ylös tai alas (R) -->
@@ -150,8 +155,12 @@
 					</div>
 
 					<!-- Lopeta peli-nappi -->
-					<button class="game-nav-button" onclick={()=> {homePageMusic();
-						 goToHome();}}>Lopeta peli</button>
+					<Button
+						text="Lopeta peli"
+						class="game-nav-button"
+						onclick={()=> {homePageMusic(); goToHome()}}
+						ariaLabel="Lopeta peli"
+					/>
 				</div>
 				<!-- Kortit -->
 				<div class="card-grid" data-cards={cards.length}>
@@ -172,25 +181,25 @@
 				<!-- BOOSTERIT -->
 				<div class="boosters-container">
 					<!-- Boosterinappi: näytä kaksi (B) -->
-					<button
-						class=" booster-show-two"
+					<Button
+						text="Näytä kaksi"
+						class="booster-show-two"
 						onclick={triggerboosterShowTwo}
+						ariaLabel="Näytä kaksi"
 						disabled={gameState.boosterShowTwoUsed ||
 							gameState.boosterShowTwoActive ||
 							gameState.gameStatus !== 'playing'}
-					>
-						Näytä kaksi
-					</button>
+					/>
 					<!-- Boosterinappi: etsi pari (B)-->
-					<button
+					<Button
+						text="Näytä pari"
 						class="booster-find-match"
 						onclick={triggerBoosterFindMatch}
+						ariaLabel="Näytä pari"
 						disabled={gameState.boosterFindMatchUsed ||
 							gameState.boosterFindMatchActive ||
 							gameState.gameStatus !== 'playing'}
-					>
-						Näytä pari
-					</button>
+					/>
 				</div>
 			</div>
 		</div>
