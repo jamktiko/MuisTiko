@@ -16,14 +16,24 @@
 		{/snippet}
 
 		{#snippet content()}
-			<div class="confetti-container" use:confetti={{ particleCount: 10, force: 0.1 }} />
+			<div class="confetti-container" use:confetti={{ particleCount: 10, force: 0.1 }}></div>
 			<p>Aika loppui!</p>
 			<p class="game-turns-score">Tehdyt siirrot: {turns}</p>
 		{/snippet}
 
 		{#snippet footer()}
-			<Button text="Aloita alusta" onclick={startNewGame} />
-			<Button text="Uusi peli" onclick={handlePlayAgain} />
+			<Button
+				class="modal-buttons"
+				text="Aloita alusta"
+				onclick={startNewGame}
+				ariaLabel="Aloita alusta"
+			/>
+			<Button
+				class="modal-buttons"
+				text="Uusi peli"
+				onclick={handlePlayAgain}
+				ariaLabel="Uusi peli"
+			/>
 		{/snippet}
 	</Modal>
 </div>
