@@ -40,7 +40,6 @@
 
 	let theme = $derived(gameState.theme ? getTheme(gameState.theme) : null);
 	let imgCover = $derived(theme?.colors.card || '');
-	let background = $derived(theme?.colors.background || '');
 
 	// Tilapäinen muuttuja, jossa korttien taustapuoli (B)
 
@@ -90,7 +89,7 @@
 		} else {
 			// Muuten asetetaan ensimmäinen kortti
 			setChoiceOne(card);
-		}
+		} // Soitetaan kortin kääntöääni (B)
 		playBlockSound();
 	};
 

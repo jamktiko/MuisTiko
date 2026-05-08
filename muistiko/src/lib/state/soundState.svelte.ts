@@ -54,15 +54,15 @@ export function homePageMusic() {
 }
 // Ääniefektit korteille käännettäessä (B)
 export function playBlockSound() {
-	if (soundState.muted) return;
+	if (soundState.muted) return; // Varmistetaan, että ääni ei toistu, jos mykistys on päällä
 	const audio = new Audio('/data/sound_effects/asmarttv2022-block-1-328874.mp3');
-	audio.volume = Math.min(soundState.volume * 1.5, 1.0);
-	audio.play().catch(() => {});
+	audio.volume = Math.min(soundState.volume * 1.5, 1);
+	audio.play().catch(() => {}); // Estetään virheilmoitukset, jos ääni ei pysty toistumaan (esim. mobiililaitteiden autoplay-rajoitukset)
 }
 // Oikean parin ääni (B)
 export function playCorrectSound() {
-	if (soundState.muted) return;
+	if (soundState.muted) return; // Varmistetaan, että ääni ei toistu, jos mykistys on päällä
 	const audio = new Audio('/data/sound_effects/dragon-studio-correct-472358.mp3');
-	audio.volume = soundState.volume;
-	audio.play().catch(() => {});
+	audio.volume = Math.min(soundState.volume * 0.6, 1);
+	audio.play().catch(() => {}); // Estetään virheilmoitukset, jos ääni ei pysty toistumaan (esim. mobiililaitteiden autoplay-rajoitukset)
 }

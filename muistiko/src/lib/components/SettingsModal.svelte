@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Modal from './Modal.svelte';
-	
+
 	import { appSettings, updateSettings } from '../state/appSettings.ts';
 
 	interface Props {
@@ -23,13 +23,12 @@
 <Modal>
 	{#snippet header()}
 		<div class="header-content">
-			<h1>Asetukset</h1	>
+			<h1>Asetukset</h1>
 			<button class="close-button" onclick={closeModal} aria-label="Sulje">×</button>
 		</div>
 	{/snippet}
 
 	{#snippet content()}
-	
 		<div class="settings-content">
 			<div class="toggle-container">
 				<label for="high-contrast-toggle">Korkea kontrasti</label>
@@ -44,19 +43,10 @@
 				</label>
 			</div>
 		</div>
-	
-	{/snippet}
-
-	{#snippet footer()}
-		<p>halloota</p>
 	{/snippet}
 </Modal>
 
 <style>
-	
-
-	
-
 	.settings-content {
 		padding: 1rem;
 	}
@@ -75,7 +65,6 @@
 		display: inline-block;
 		width: 60px;
 		height: 34px;
-
 	}
 
 	.toggle input {
