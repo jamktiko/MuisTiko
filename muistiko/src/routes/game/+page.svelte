@@ -169,7 +169,7 @@
 				<div class="boosters-container">
 					<!-- Boosterinappi: näytä kaksi (B) -->
 					<button
-						class="booster-show-two"
+						class="game-nav-button booster-show-two"
 						onclick={triggerboosterShowTwo}
 						disabled={gameState.boosterShowTwoUsed ||
 							gameState.boosterShowTwoActive ||
@@ -179,7 +179,7 @@
 					</button>
 					<!-- Boosterinappi: etsi pari (B)-->
 					<button
-						class="booster-find-match"
+						class="game-nav-button booster-find-match"
 						onclick={triggerBoosterFindMatch}
 						disabled={gameState.boosterFindMatchUsed ||
 							gameState.boosterFindMatchActive ||
