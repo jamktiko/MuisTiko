@@ -30,16 +30,16 @@
 
 			{#snippet footer()}
 				<Button
-					text="Aloita alusta"
-					class="modal-buttons"
-					onclick={startNewGame}
-					ariaLabel="Aloita alusta"
-				/>
-				<Button
 					text="Pelaa uudestaan"
 					class="modal-buttons"
-					onclick={handlePlayAgain}
+					onclick={startNewGame}
 					ariaLabel="Pelaa uudestaan"
+				/>
+				<Button
+					text="Uusi peli"
+					class="modal-buttons"
+					onclick={handlePlayAgain}
+					ariaLabel="Uusi peli"
 				/>
 			{/snippet}
 		</Modal>

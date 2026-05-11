@@ -24,10 +24,10 @@
 
 			{#snippet footer()}
 				<Button
-					text="Aloita alusta"
+					text="Yritä uudestaan"
 					class="modal-buttons"
 					onclick={startNewGame}
-					ariaLabel="Aloita alusta"
+					ariaLabel="Yritä uudestaan"
 				/>
 				<Button
 					text="Uusi peli"
