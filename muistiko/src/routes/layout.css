@@ -526,10 +526,6 @@ nav {
 	border-color: white !important;
 }
 
-.high-contrast img {
-	filter: invert(1) !important;
-}
-
 /* Ylärivi missä napit */
 .game-top-row {
 	display: flex;
