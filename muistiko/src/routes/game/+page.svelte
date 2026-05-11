@@ -8,7 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import { getTheme } from '$lib/state/themeState.svelte';
-	import {homePageMusic} from '$lib/state/soundState.svelte'
+	import { homePageMusic } from '$lib/state/soundState.svelte';
 
 	import {
 		gameState,
@@ -37,7 +37,12 @@
 		setThemeToStorage,
 		setTimelimitToStorage
 	} from '$lib/localstorage/localstorage';
-	import { playBlockSound, playCorrectSound } from '$lib/state/soundState.svelte';
+	import {
+		playBlockSound,
+		playCorrectSound,
+		playWinSound,
+		playLoseSound
+	} from '$lib/state/soundState.svelte';
 	import Button from '$lib/components/Button.svelte';
 
 	let theme = $derived(gameState.theme ? getTheme(gameState.theme) : null);
@@ -128,6 +133,13 @@
 	$effect(() => {
 		if (isGameWon && gameState.gameStatus === 'playing') {
 			gameState.gameStatus = 'won';
+			playWinSound();
+		}
+	});
+
+	$effect(() => {
+		if (gameState.gameStatus === 'lost') {
+			playLoseSound();
 		}
 	});
 </script>
@@ -158,7 +170,10 @@
 					<Button
 						text="Lopeta peli"
 						class="game-nav-button"
-						onclick={()=> {homePageMusic(); goToHome()}}
+						onclick={() => {
+							homePageMusic();
+							goToHome();
+						}}
 						ariaLabel="Lopeta peli"
 					/>
 				</div>

@@ -1,10 +1,12 @@
 @import 'tailwindcss';
 
-/* JOS MUUTATTE TÄNNE JTN JÄRJESTYS ON SIVULLA ESIINTYMISEN MUKAAN */
-/* KOMMENTOIKAA NÄKYVÄSTI SIIHEN MIHIN OOTTE KOSKENU JOTTA NE LÖYTYY HELPOSTI JA NÄKYY SELVÄSTI */
+/* ============================================================
+   JOS MUUTATTE TÄNNE JTN JÄRJESTYS ON SIVULLA ESIINTYMISEN MUKAAN
+	 KOMMENTOIKAA NÄKYVÄSTI SIIHEN MIHIN OOTTE KOSKENU JOTTA NE LÖYTYY HELPOSTI JA NÄKYY SELVÄSTI
+   ============================================================ */
 
 /* ============================================================
-   GLOBAALIT TYYLIT — vaikuttavat aina kaikilla ruudun ko'oilla
+   GLOBAALIT TYYLIT
    ============================================================ */
 
 body {
@@ -480,7 +482,7 @@ nav {
 	--color-boosternappi: #0d004c;
 	--color-nappi-reuna: #ffffff;
 	--color-icon-filter: brightness(0) saturate(100%) invert(13%) sepia(99%) saturate(3000%)
-		hue-rotate(250deg) brightness(45%);
+		hue-rotate(250deg) brightness(35%);
 }
 
 [data-theme='TIKO'] {
@@ -1103,7 +1105,10 @@ nav {
 		font-size: 0.7rem;
 		padding: 0.4rem;
 	}
+	
 }
+
+
 
 /* --- 400px: modaalit ja dropdown ------------------------------ */
 @media (max-width: 400px) {
@@ -1254,6 +1259,7 @@ nav {
 	}
 }
 
+
 @media (max-width: 380px) {
 	.modal-footer {
 		
@@ -1275,22 +1281,207 @@ nav {
 
 }
 
-/* ============================================================
-   ⚠️  LOOSE GLOBAL STYLES — NÄMÄ OLIVAT VAHINGOSSA GLOBAALILLA
-   TASOLLA 600px-kyselyn JÄLKEEN. NE YLIKIRJOITTIVAT KAIKKI
-   MEDIAKYSELYSÄÄNNÖT KAIKILLA RUUDUN KO'OILLA.
+/* ==================================================================
+   KORKEA KONTRASTI
+   ------------------------------------------------------------------*/
 
-   TARKISTA NÄMÄ JA SIIRRÄ OIKEAAN MEDIAKYSELYYN TAI POISTA!
-   ============================================================ */
-
-/* Alla olevat olivat aiemmin vahingossa globaaleja — tarkista minne kuuluvat */
-
-/*
-.game-box {
-	flex: 0 0 auto;
-	height: auto;
-	margin: 0.4rem auto;
-	padding: 0.6rem;
-	gap: 0.5rem;
+/* --- Ohitetaan teemamuuttujat mustavalkoisiksi ---------------- */
+.high-contrast {
+	--color-header: #000000;
+	--color-footer: #000000;
+	--color-border: #ffffff;
+	--color-nappi: #000000;
+	--color-nappi-reuna: #ffffff;
+	--color-boosternappi: #000000;
+	--color-bg: #000000;
+	--tausta: none;
+	--color-icon-filter: brightness(0) invert(1);
+	--opacity-nappi: 1;
 }
-*/
+
+/* --- Taustakuva pois, musta tausta ---------------------------- */
+.high-contrast.theme-wrapper,
+.high-contrast .theme-wrapper,
+.high-contrast .landing-page,
+.high-contrast.landing-page {
+	background-image: none !important;
+	background-color: #000000 !important;
+}
+
+/* --- Yleinen tekstinväri valkoiseksi -------------------------- */
+.high-contrast,
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast p,
+.high-contrast li,
+.high-contrast label,
+.high-contrast span,
+.high-contrast div {
+	color: #ffffff;
+}
+
+/* --- Content-boksit ja modaalit mustiksi taustalta --------- */
+.high-contrast .content-box,
+.high-contrast .content-infobox,
+.high-contrast .game-box,
+.high-contrast .modal {
+	background: #000000 !important;
+	color: #ffffff;
+	border-color: #ffffff !important;
+	filter: none !important;
+	box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* --- Header ja footer ----------------------------------------- */
+.high-contrast .header-row,
+.high-contrast .footer {
+	background-color: #000000 !important;
+	border: 2px solid #ffffff !important;
+	filter: none !important;
+	box-shadow: none !important;
+}
+
+.high-contrast .footer p,
+.high-contrast .game-top-row p {
+	color: #ffffff !important;
+}
+
+/* --- Header-content classin asetukset ----------------------------- */
+.high-contrast .header-content h1 {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+	border: 4px solid #ffffff !important;
+	opacity: 1 !important;
+	filter: none !important;
+}
+
+/* --- Pelinapit ---------------------------------------- */
+.high-contrast .game-turns,
+.high-contrast .game-timer,
+.high-contrast .modal-buttons {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+	border: 3px solid #ffffff !important;
+	opacity: 1 !important;
+	filter: none !important;
+	box-shadow: none !important;
+}
+
+.high-contrast .start-button,
+.high-contrast .game-nav-button,
+.high-contrast .start-again,
+.high-contrast .booster-show-two,
+.high-contrast .booster-find-match {
+	background-color: #ffffff !important;
+	color: #000000 !important;
+	border: 3px solid #000000 !important;
+	opacity: 1 !important;
+	filter: none !important;
+	box-shadow: none !important;
+}
+/* Volume napin värin vaihto, eri kohassa kun muut, koske eri class */
+.high-contrast .audio,
+.high-contrast .audio img,
+.high-contrast button.audio,
+.high-contrast button.audio img {
+	filter: brightness(0) invert(1) !important;
+}
+
+
+/* --- Värien kääntö kun aktiivinen - */
+.high-contrast .start-button:hover,
+.high-contrast .start-again:hover,
+.high-contrast .game-nav-button:hover,
+.high-contrast .booster-show-two:hover,
+.high-contrast .booster-find-match:hover,
+.high-contrast .modal-buttons:hover {
+	background-color: #ffffff !important;
+	color: #000000 !important;
+}
+
+/* --- Valikon aloita-peli napin disabled tilan opacity asetukset ------------------------------------------- */
+.high-contrast button:disabled {
+	opacity: 0.5 !important;
+	cursor: not-allowed;
+}
+
+/* --- Close-nappi modaaleissa ------------------------------------------ */
+.high-contrast .close-button {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+	border: 2px solid #ffffff !important;
+}
+
+/* --- Dropdownit --------------------------------------- */
+.high-contrast .dropdown select {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+	border: 3px solid #ffffff !important;
+	box-shadow: none !important;
+}
+
+.high-contrast .dropdown select option {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/* --- Modaalin tausta ---------------------------------------- */
+.high-contrast .backdrop {
+	background: rgba(0, 0, 0, 0.97);
+}
+
+/* --- Info-boksi ja modaalit ------------------------ */
+.high-contrast .info-section h3,
+.high-contrast .modal-footer {
+	background-color: #000000 !important;
+	color: #ffffff !important;
+	border: 3px solid #ffffff !important;
+	box-shadow: none !important;
+}
+
+.high-contrast .content-infobox h1,
+.high-contrast .content-infobox h3,
+.high-contrast .content-infobox p {
+	color: #ffffff !important;
+}
+
+/* --- Ikonit headerissa invertattu ----------------------- */
+.high-contrast .home-button,
+.high-contrast .info-button,
+.high-contrast .settings-button {
+	filter: brightness(0) invert(1) !important;
+}
+
+
+/* --- Kortteihin valkonen reunus -------------------------------------------------- */
+.high-contrast .card {
+	border: 3px solid #ffffff;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+/* --- Keltainen fokusindikaattori reuna painaessa */
+.high-contrast button:focus,
+.high-contrast select:focus,
+.high-contrast a:focus,
+.high-contrast .card:focus,
+.high-contrast .back-btn:focus,
+.high-contrast [tabindex]:focus {
+	outline: 4px solid #ffff00 !important;
+	outline-offset: 3px;
+}
+
+/* --- Logot mustavalkoiset ------------------- */
+.high-contrast .logo,
+.high-contrast .logo img,
+.high-contrast .logo-container,
+.high-contrast .logo-container img,
+.high-contrast .logo-desktop,
+.high-contrast .logo-mobile,
+.high-contrast .logo-desktop img,
+.high-contrast .logo-mobile img {
+	filter: brightness(0) invert(1) !important;
+}
+
