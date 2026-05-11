@@ -56,7 +56,7 @@ export function homePageMusic() {
 export function playBlockSound() {
 	if (soundState.muted) return; // Varmistetaan, että ääni ei toistu, jos mykistys on päällä
 	const audio = new Audio('/data/sound_effects/asmarttv2022-block-1-328874.mp3');
-	audio.volume = Math.min(soundState.volume * 1.5, 1);
+	audio.volume = Math.min(soundState.volume * 2.0, 1);
 	audio.play().catch(() => {}); // Estetään virheilmoitukset, jos ääni ei pysty toistumaan (esim. mobiililaitteiden autoplay-rajoitukset)
 }
 // Oikean parin ääni (B)
@@ -64,5 +64,23 @@ export function playCorrectSound() {
 	if (soundState.muted) return; // Varmistetaan, että ääni ei toistu, jos mykistys on päällä
 	const audio = new Audio('/data/sound_effects/dragon-studio-correct-472358.mp3');
 	audio.volume = Math.min(soundState.volume * 0.6, 1);
+	audio.play().catch(() => {}); // Estetään virheilmoitukset, jos ääni ei pysty toistumaan (esim. mobiililaitteiden autoplay-rajoitukset)
+}
+// Voittoääni (B)
+export function playWinSound() {
+	if (soundState.muted) return; // Varmistetaan, että ääni ei toistu, jos mykistys on päällä
+	const audio = new Audio(
+		'/data/sound_effects/mrstokes302-success-videogame-sfx-mrstokes302-423626.mp3'
+	);
+	audio.volume = Math.min(soundState.volume * 2.0, 1);
+	audio.play().catch(() => {}); // Estetään virheilmoitukset, jos ääni ei pysty toistumaan (esim. mobiililaitteiden autoplay-rajoitukset)
+}
+// Häviöääni (B)
+export function playLoseSound() {
+	if (soundState.muted) return; // Varmistetaan, että ääni ei toistu, jos mykistys on päällä
+	const audio = new Audio(
+		'/data/sound_effects/universfield-funny-boing-flexatone-wobble-352710.mp3'
+	);
+	audio.volume = Math.min(soundState.volume * 2.0, 1);
 	audio.play().catch(() => {}); // Estetään virheilmoitukset, jos ääni ei pysty toistumaan (esim. mobiililaitteiden autoplay-rajoitukset)
 }
