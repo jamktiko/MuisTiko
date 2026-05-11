@@ -76,7 +76,7 @@
 			<ul>
 				<li>
 					MuisTIKO on osa Jyväskylän ammattikorkeakoulun Tietojenkäsittelyn tutkinto-ohjelman
-					ensimmäisen vuoden opiskelijoiden ohjelmistoprojektia.
+					ensimmäisen vuoden opiskelijoiden vuoden 2026 ohjelmistoprojektia.
 				</li>
 				<li>
 					Tekijät: Nora Virta (UI ja suunnittelu), Roni Huuskonen, Bea Sudensalo ja Ville Rossi

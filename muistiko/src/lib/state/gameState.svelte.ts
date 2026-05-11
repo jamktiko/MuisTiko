@@ -240,7 +240,7 @@ export function goToHome() {
 	goto(resolve('/'));
 }
 
-// FUNKTIO BOOSTERILLE SHOW TWO (Näyttää pelaajalle kaksi korttia) (B)
+// Funktio boosterille ShowTwo (Näyttää pelaajalle kaksi korttia) (B)
 export function triggerboosterShowTwo() {
 	if (
 		gameState.boosterShowTwoUsed ||
@@ -279,7 +279,7 @@ export function triggerboosterShowTwo() {
 	}, 1500);
 }
 
-// FUNKTIO BOOSTERILLE FIND MATCH (Etsii pelaajalle yhden parin) (B)
+// Funktio boosterille FindMatch (Etsii pelaajalle yhden parin) (B)
 export function triggerBoosterFindMatch() {
 	if (
 		gameState.boosterFindMatchUsed ||
@@ -293,7 +293,7 @@ export function triggerBoosterFindMatch() {
 	// Etsii kaikki kortit, jotka eivät ole vielä matchattuina
 	const unmatched = gameState.cards.filter((card) => !card.matched);
 
-	// Etsii ensimmäisen parin korteista, jotka eivät ole vielä matchattuina, ja asettaa niiden ID:t tilamuuttujiin (B)
+	// Etsii ensimmäisen parin korteista, jotka eivät ole vielä matchattuina, ja asettaa niiden ID:t tilamuuttujiin
 	let pair: string[] = [];
 	for (const card of unmatched) {
 		const match = unmatched.find((c) => c.src === card.src && c.id !== card.id);
