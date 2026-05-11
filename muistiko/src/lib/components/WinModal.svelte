@@ -8,6 +8,7 @@
 </script>
 
 <div data-theme={gameState.theme}>
+	<!-- Voittomodaali -->
 	<div class="win-modal">
 		<Modal>
 			{#snippet header()}
