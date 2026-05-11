@@ -1,17 +1,17 @@
-// Funktiot asettavat sisällöt local storageen (B)
-// Asettaa teeman (B)
+// Funktiot, jotka tallentavat ja hakevat tietoja local storagesta (B)
+// Tallentaa teeman (B)
 export function setThemeToStorage(item: string) {
 	localStorage.setItem('theme', item.toString());
 }
-// Asettaa aikarajan (B)
+// Tallentaa aikarajan (B)
 export function setTimelimitToStorage(item: string) {
 	localStorage.setItem('timelimit', item.toString());
 }
-// Asettaa korttien määrän (B)
+// Tallentaa korttien määrän (B)
 export function setDifficultyToStorage(item: string) {
 	localStorage.setItem('difficulty', item.toString());
 }
-// Asettaa musiikin
+// Tallentaa musiikin
 export function setMusicToStorage(item: string) {
 	localStorage.setItem('Audio', item.toString());
 }
@@ -20,23 +20,23 @@ export function setMuteToStorage(item: boolean) {
 }
 
 // Funktiot hakevat sisällöt local storagesta (B)
-// Lataa teeman (B)
+// Hakee teeman (B)
 export function loadThemeFromStorage() {
 	return localStorage.getItem('theme');
 }
-// Lataa aikarajan (B)
+// Hakee aikarajan (B)
 export function loadTimelimitFromStorage() {
 	return localStorage.getItem('timelimit');
 }
-// Lataa korttien määrän (B)
+// Hakee korttien määrän (B)
 export function loadDifficultyFromStorage() {
 	return localStorage.getItem('difficulty');
 }
-// lataa musiikin
+// Hakee musiikin (V)
 export function loadMusicFromStorage() {
 	return localStorage.getItem('Audio');
 }
-export function LoadMuteToStorage() {
+export function loadMuteFromStorage() {
 	return localStorage.getItem('Muted');
 }
 
