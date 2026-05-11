@@ -109,7 +109,7 @@
 		width: 30px;
 		height: 30px;
 		background-color: transparent;
-		filter: var(--color-icon-filter, none);
+		/*filter: var(--color-icon-filter, none);*/
 		cursor: pointer;
 	}
 </style>
