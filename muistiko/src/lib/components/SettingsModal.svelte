@@ -45,10 +45,6 @@
 			</div>
 		</div>
 	{/snippet}
-
-	{#snippet footer()}
-		<p>halloota</p>
-	{/snippet}
 </Modal>
 
 <style>
