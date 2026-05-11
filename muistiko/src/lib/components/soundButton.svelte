@@ -64,7 +64,7 @@
 		flex-direction: column;
 		align-items: center;
 		z-index: 10;
-		background-color: #f0ece2;
+		background-color: var(--color-nappi, #f0ece2);
 		padding: 15px 10px;
 		border-radius: 20px;
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -87,7 +87,7 @@
 		left: 0;
 		right: 0;
 		height: 20px;
-		background: transparent;
+		background: transparent
 	}
 
 	.audio {
