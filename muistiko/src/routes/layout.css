@@ -823,7 +823,7 @@ nav {
 		height: 40px;
 		width: 40px;
 		font-size: 1.2rem;
-		left: -2rem;
+		left: -0.5rem;
 		top: 0.2rem;
 	}
 
@@ -845,57 +845,78 @@ nav {
 	}
 
 	.header-content {
-		top: -1rem;
+		top: 0rem;
 
 		height: 40px;
 	}
 
 	.info-modal {
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
-		text-align: center;
-		padding: 1rem;
-		margin: 0rem auto;
-		max-height: 65vh;
-		margin-top: 5px;
+	padding: 0.8rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 11rem;
+    margin-top: 5px;
+    gap: 0;
+    padding-bottom: 0rem;
 	}
 
-	.info-section {
-		width: 100%;
-		max-width: 400px;
+
+	.info-section h3 {
+	line-height: 1.3;
+	
 	}
+
+	.info-section li {
+		padding: 2px;
+		padding-top: 2px;
+	}
+
 
 	li {
 		font-size: 0.9rem;
 		line-height: 1.4;
 	}
 
-	.info-section h3 {
-		margin-bottom: 0.5rem;
-	}
+	
 
 	.modal-footer {
-		flex-direction: column;
-		align-items: center;
-		
-		height: 25px;
+		 position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(195, 181, 170, 0.8);
+    border-radius: 10px;
+    border: 4px solid #f3e1cd;
+    box-shadow: 0px 4px 3px rgba(59, 59, 59, 0.6);
+   
+		margin: auto;
 	}
 
 	.modal-footer li {
-		line-height: 0.7rem;
-		margin-bottom: -5px;
-		margin-top: 15px;
+		line-height: 1;
+    margin: 0.5rem 0;
 	}
 
 	.modal-footer h3 {
-		font-size: 0.5rem;
+		 font-size: 0.85rem;
+    line-height: 1.2;
+		
 	}
 
 	.modal {
-		max-height: 100vh;
-		padding: 2.5rem;
-		padding-bottom: 1rem;
+		 max-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    padding: 1rem;
 	}
 
 	.home-button img,
@@ -1086,6 +1107,16 @@ nav {
 		min-height: 440px;
 	}
 
+	.info-section h3 {
+	line-height: 1.3;
+	
+	}
+
+	.info-section li {
+		padding: 2px;
+		padding-top: 2px;
+	}
+
 
 	.modal {
 		width: 85%;
@@ -1099,6 +1130,8 @@ nav {
 		left: 0;
 		right: 0;
 		box-sizing: border-box;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 
 	.info-modal {
@@ -1107,7 +1140,7 @@ nav {
 		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
-		padding-top: 10rem;
+		padding-top: 5rem;
 		margin-top: 5px;
 	}
 
@@ -1128,17 +1161,32 @@ nav {
 		line-height: 1.1;
 		margin-bottom: 5px;
 	}
+	.modal-footer li {
+	  font-size: 0.8rem;
+		margin-top: 8px;
+		margin-bottom: 9px;
+	}
 
 	.modal-footer {
 		position: relative;
-		bottom: 0 !important;
-		margin-top: 1.5rem;
-		padding: 10px 0;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(195, 181, 170, 0.8);
+    border-radius: 10px;
+    border: 4px solid #f3e1cd;
+    box-shadow: 0px 4px 3px rgba(59, 59, 59, 0.6);
+    padding: 1rem 0.75rem;
+     min-height: 100px;
+    margin: 1rem auto;
+
+    overflow: hidden;
+}
+	
 
 	.modal-footer h3 {
 		font-size: 0.7rem;
@@ -1167,6 +1215,27 @@ nav {
 		font-family: 'Coustard', serif;
 		cursor: pointer;
 	}
+}
+
+@media (max-width: 380px) {
+	.modal-footer {
+		
+		display: none;
+
+   
+}
+
+.info-modal {
+		padding: 0.8rem;
+		max-height: 70vh;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		padding-top: 8rem;
+		margin-top: 5px;
+	}
+
+
 }
 
 /* ============================================================
