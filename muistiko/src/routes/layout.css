@@ -81,6 +81,12 @@ body {
 	max-width: 1000px;
 	margin: 2rem auto;
 	text-align: left;
+	/* TYYLEJÄ INFOTEKSTILLE?? */
+	background-color: rgba(195, 181, 170, 0.8);
+	border-radius: 10px;
+	border: 4px solid #f3e1cd;
+	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
+	padding: 0.5rem;
 }
 
 .modal-footer {
@@ -91,10 +97,6 @@ body {
 	margin: 2rem auto;
 	text-align: center;
 	padding-top: 1rem;
-}
-
-.info-section {
-	width: 320px;
 }
 
 .info-section h3 {

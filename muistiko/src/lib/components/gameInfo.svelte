@@ -13,7 +13,7 @@
 	{#snippet header()}
 		<div class="header-content">
 			<div class="title-box">
-				<h1><strong>INFO</strong></h1>
+				<h1>Info</h1>
 			</div>
 			<Button text="x" class="close-button" onclick={closeInfo} ariaLabel="Sulje" />
 		</div>
@@ -22,7 +22,7 @@
 	{#snippet content()}
 		<div class="info-modal">
 			<div class="info-section">
-				<h3><strong>Pelin asetukset</strong></h3>
+				<h3>Pelin esiasetukset</h3>
 				<ul>
 					<li>
 						<strong>Teema:</strong>
@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="info-section">
-				<h3><strong>Pelin kulku</strong></h3>
+				<h3>Pelin kulku</h3>
 				<ul>
 					<li>
 						<strong>Korttien kääntäminen:</strong>
@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="info-section">
-				<h3><strong>Lisäavut peliin</strong></h3>
+				<h3>Apua pelaamiseen</h3>
 				<ul>
 					<li>
 						<strong>Boosterit:</strong>
@@ -75,7 +75,7 @@
 		<div class="modal-footer">
 			<ul>
 				<li>
-					MuisTIKO on osa Jyväskylän ammattikorkeakoulun tietojenkäsittelyn tutkinto-ohjelman
+					MuisTIKO on osa Jyväskylän ammattikorkeakoulun Tietojenkäsittelyn tutkinto-ohjelman
 					ensimmäisen vuoden opiskelijoiden ohjelmistoprojektia.
 				</li>
 				<li>
