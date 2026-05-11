@@ -2,7 +2,7 @@
 	import Modal from './Modal.svelte';
 	import Button from './Button.svelte';
 	import { gameState, handlePlayAgain, startNewGame } from '$lib/state/gameState.svelte';
-	import { confetti } from '@neoconfetti/svelte';
+	import Rain from './Rain.svelte';
 
 	let turns = $derived(gameState.turns);
 </script>
@@ -17,7 +17,7 @@
 			{/snippet}
 
 			{#snippet content()}
-				<div class="confetti-container" use:confetti={{ particleCount: 10, force: 0.1 }}></div>
+				<Rain />
 				<p>Aika loppui!</p>
 				<p class="game-turns-score">Tehdyt siirrot: {turns}</p>
 			{/snippet}
@@ -66,14 +66,5 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 1000;
-	}
-
-	.confetti-container {
-		position: absolute;
-		top: 10%;
-		left: 50%;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
 	}
 </style>
