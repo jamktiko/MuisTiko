@@ -5,6 +5,7 @@
 	import SoundButton from './soundButton.svelte';
 	import SettingsModal from './SettingsModal.svelte';
 	import { homePageMusic } from '$lib/state/soundState.svelte';
+	import Button from './Button.svelte';
 	interface Props {
 		gameLogo: string | null;
 	}
@@ -18,48 +19,50 @@
 	<div class="header-row">
 		{#if gameLogo}
 			<div class="logo-container">
-				<img class="logo-desktop" src="/data/logot/muistiko_{gameLogo?.toLowerCase()}.svg" alt="Muistiko logo" />
-				<img class="logo-mobile" src="/data/logot/muistiko_{gameLogo?.toLowerCase()}_pieni.svg" alt="Muistiko logo" />
+				<img
+					class="logo-desktop"
+					src="/data/logot/muistiko_{gameLogo?.toLowerCase()}.svg"
+					alt="Muistiko logo"
+				/>
+				<img
+					class="logo-mobile"
+					src="/data/logot/muistiko_{gameLogo?.toLowerCase()}_pieni.svg"
+					alt="Muistiko logo"
+				/>
 			</div>
 		{/if}
 
+		<!-- Headerin kiinteät napit, hyödyntävät komponenttia (R) -->
 		<nav>
 			<div class="header-left">
-				<!-- Kotinappi -->
-				<button
+				<!-- Kotinappi (R) -->
+				<Button
 					class="home-button"
 					onclick={() => {
 						homePageMusic();
 						goto(resolve('/'));
 					}}
-					aria-label="Home"
-					title="Home"
-				>
-					<img src="/data/ikonit/koti_nappi.svg" alt="Home" />
-				</button>
-				<!-- Ääni-nappi (tulee soundButton.svelte:stä)-->
+					ariaLabel="Home"
+					pic="/data/ikonit/koti_nappi.svg"
+				/>
+				<!-- Ääni-nappi (R) (tulee soundButton.svelte:stä)-->
 				<SoundButton />
 			</div>
 			<div class="header-right">
 				<!-- Infonappi -->
-				<button
+				<Button
 					class="info-button"
 					onclick={() => (showInfo = true)}
-					aria-label="Info"
-					title="Info"
-				>
-					<img src="/data/ikonit/peliohjeet_nappi.svg" alt="Info" />
-				</button>
-
-				<!-- Asetus-nappi -->
-				<button
+					ariaLabel="Info"
+					pic="/data/ikonit/peliohjeet_nappi.svg"
+				/>
+				<!-- Asetus-nappi (R) -->
+				<Button
 					class="settings-button"
 					onclick={() => (showSettings = true)}
-					aria-label="Settings"
-					title="Settings"
-				>
-					<img src="/data/ikonit/asetukset_nappi.svg" alt="Settings" />
-				</button>
+					ariaLabel="Settings"
+					pic="/data/ikonit/asetukset_nappi.svg"
+				/>
 			</div>
 		</nav>
 	</div>
