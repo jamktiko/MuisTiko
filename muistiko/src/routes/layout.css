@@ -9,7 +9,7 @@
    GLOBAALIT TYYLIT
    ============================================================ */
 
-body {
+body { /* nollaa selaimen oletusasetukset näissä säädöissä, antaa themewrapperille vastuun taustasta */
 	margin: 0;
 	padding: 0;
 	background-color: transparent;
@@ -18,156 +18,202 @@ body {
 /* Header */
 .header-row {
 	position: relative;
-	z-index: 10;
+	z-index: 10; /* varmistaa, että header on päällimmäisenä vaikka muu sivu leikkaantuisi sen alle */
 	width: 100%;
-	height: 100px;
+	height: 100px; /* kiinteä 600px meadia queryyn asti */
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	padding: 0 2rem;
+	justify-content: space-between; /* tää ja flex asettaa riviin ja pakottaa lapsielementit vastakkaisille sivuille */
+	align-items: flex-end; /* tasaa elementit alaosaan */
+	padding: 0 2rem; /* lisää välin sivureunoihin, pienenee 600px media queryssä */
 	border-radius: 0 0 20px 20px;
-	background: var(--color-header, #c3b5aa);
+	background: var(--color-header, #c3b5aa); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
 	filter: drop-shadow(0 3px 4px #3b3b3b);
 }
 
 /* Logon asettelu headerissa keskelle kaikista suunnista */
-.logo-container {
+.logo-container { /* näiden yhdistelmä asettaa elementin vaaka ja pystysuunnassa keskelle  isäntäelemnttinsä (header-row) sisällä */
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-/* Ikonit headerissa */
-.header-left {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-}
-
-.header-right {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-}
-
-.header-content {
-	position: relative;
+/* Logon asettelu landingpagelle */
+.logo {
+	flex: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-top: 6rem;
 }
 
-.header-content h1 {
-	width: 200px !important;
-	min-height: 68px;
-	margin-top: 1.2rem;
+/* Sivun pääasiallinen sisältöalue, joka sisältää kortit ja pelin toiminnot, asettaa ne keskelle ja antaa tilaa headerille ja footerille */
+.main-content { 
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap; /* sallii elementtien asettumisen uudelle riville, jos tilaa ei riitä vaakasuunnassa */
+	flex-direction: column; /* asettaa elementit päällekkäin, mutta koska flex-wrap on wrap, elementit voivat asettua uudelle riville tarvittaessa */
+	justify-content: center; /* keskittää elementit pystysuunnassa */
+	align-items: center; /* keskittää elementit vaakasuunnassa */
+	padding: 1rem 1rem; /* antaa tilaa elementeille, estää niiden leikkaantumisen headerin ja footerin alle, pienenee 600px media queryssä */
+}
+
+/* Footer - asettelu ja asetukset */
+.footer {
+	max-width: 1100px;
+	width: min(90vw, 1100px); /* leveys enintään 1100px tai 90% näkymästä, jotta se ei veny liian leveäksi isommilla näytöillä */
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	background-color: var(--color-footer, #c3b5aa); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5); /* antaa varjon footerille */
+	margin: 1rem auto; /* keskittää footerin vaakasuunnassa ja antaa tilaa yläreunaan, estää sen leikkaantumisen content-boxin alle, pienenee 600px media queryssä */
+}
+
+/* Footer teksti - koko min, preferred, max */
+.footer p {
+	font-family: 'Coustard', serif;
+	letter-spacing: 0.02em;
+	font-size: clamp(0.65rem, 2vw, 1rem);
+}
+
+/* ===============================
+HEADER IKONIEN CLASSIT JA ELEMENTIT
+================================ */
+
+/* Vasemman puolen ikonit */
+.header-left {
+	display: flex; /* asettaa ikonit riviksi */
+	align-items: center; /* tasaa ikonit vaakatasossa */
+	gap: 1rem; /* lisää tilaa ikonien väliin, pienenee 600px media queryssä */
+}
+
+/* Oikean puolen ikonit */
+.header-right {
+	display: flex; /* asettaa ikonit riviksi */
+	align-items: center; /* tasaa ikonit vaakatasossa */
+	gap: 1rem; /* lisää tilaa ikonien väliin, pienenee 600px media queryssä */
+}
+
+.header-content { /* headerin keskellä olevan logon ja tekstin asettelu */
+	position: relative; /* mahdollistaa lapsielementtien (h1) suhteellisen asemoinnin tähän elementtiin */
+	display: flex; /* keskittää sisällön vaakasuunnassa */
+	align-items: center; /* keskittää sisällön pystysuunnassa */
+	justify-content: center; /* varmistaa, että sisältö on keskitetty sekä vaaka- että pystysuunnassa */
+}
+
+.header-content h1 { /* headerin keskellä olevan logo boksin asettelu ja tyylit / en oo varma tekeeks tää nyt mitään */
+	width: 200px !important; /* tärkeä, jotta media queryt ei vaikuta tähän, koska headerin koko on kiinteä 600px asti */
+	min-height: 68px; /* tällä ja line heightillä katotaan, että elementti on keskitetty ja teksti mahtuu */
+	margin-top: 1.2rem; /* antaa tilaa headerin yläreunaan, pienenee 600px media queryssä */
 	border-radius: 10px;
 	border: 4px solid #f3e1cd;
-	background-color: var(--color-nappi, #3c3c3b);
+	background-color: var(--color-nappi, #3c3c3b); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
 	opacity: 0.9;
 	font-family: 'Coustard', serif;
-	color: #ffffff;
+	color: #ffffff; /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
 	letter-spacing: 0.1em;
-	filter: drop-shadow(0 3px 4px #3b3b3b);
-	text-align: center;
-	margin: 0;
-	line-height: 68px;
-}
-
-.info-modal {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	gap: 3rem;
-	max-width: 1000px;
-	margin: 1.5rem auto;
-	text-align: left;
-}
-
-.modal-footer {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	font-size: 80%;
-	text-align: center;
-	background-color: var(--color-footer, rgba(195, 181, 170, 0.8));
-	border-radius: 10px;
-	border: 4px solid var(--color-border, #f3e1cd);
-	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
-	padding: 0.5rem;
-}
-
-.info-section h3 {
-	margin-bottom: 5px;
-	font-family: 'Coustard', serif;
-	font-size: 1rem;
-	text-align: center;
-	/* TYYLEJÄ INFOTEKSTILLE?? */
-	background-color: var(--color-nappi, rgba(195, 181, 170, 0.8));
-	border-radius: 10px;
-	border: 4px solid var(--color-border, #f3e1cd);
-	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
-	padding: 0.5rem;
-	color: var(--color-nappi, #222);
+	filter: drop-shadow(0 3px 4px #3b3b3b); /* antaa varjon tekstille */
+	text-align: center; /* keskittää tekstin elementin sisällä */
+	margin: 0; /* poistaa oletusmarginaalin, joka voisi vaikuttaa keskitykseen */
+	line-height: 68px; /* varmistaa, että teksti on vertikaalisesti keskitetty elementin sisällä */
 }
 
 /* Header/navi asettelu */
-nav {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	padding: 1rem;
+nav { /* asettaa headerin napit ja infotekstit riviksi ja tasaa ne, ilman tätä kaikki header-left ja header-right olis päällekkäin vasemmassa reunassa */
+	display: flex; /* asettaa navin sisällön riviksi */
+	flex-direction: row; /* varmistaa, että sisältö on vaakasuunnassa */
+	justify-content: space-between; /* asettaa header-left ja header-right vastakkaisille reunoille */
+	align-items: center; /* tasaa header-left ja header-right pystysuunnassa */
+	width: 100%; /* varmistaa, että nav vie koko headerin leveyden */
+	padding: 1rem; /* antaa tilaa headerin sisällölle, pienenee 600px media queryssä */
+}
+/* ================================================================ */
+
+
+
+/* ================================================================
+	MODAALIEN TYYLIT 
+	=============================================================== */
+
+.info-modal {
+	display: flex; /* asettaa modalin sisällön riviksi */
+	justify-content: center; /* keskittää modalin sisällön vaakasuunnassa */
+	align-items: flex-start; /* tasaa elementit yläreunaan */
+	gap: 3rem; /* lisää tilaa modalin elementtien väliin */
+	max-width: 1000px; /* rajoittaa modalin leveyden, jotta se ei veny liian leveäksi isommilla näytöillä */
+	margin: 1.5rem auto; /* keskittää modalin vaakasuunnassa ja antaa tilaa yläreunaan */
+	text-align: left; /* tasaus vasemmalle */
 }
 
-/* NAPPIEN TYYLIT */
+.modal-footer {
+	display: flex; /* asettaa modal-footerin sisällön riviksi */
+	justify-content: center; /* keskittää sisällön vaakasuunnassa */
+	align-items: flex-start; /* tasaa elementit yläreunaan */
+	font-size: 80%; /* fonttikoko pienemmäksi */
+	text-align: center; /* keskittää tekstin */
+	background-color: var(--color-footer, rgba(195, 181, 170, 0.8)); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
+	border-radius: 10px;
+	border: 4px solid var(--color-border, #f3e1cd); /* pakottaa borderin käyttämään teeman väriä tai antaa oletusvärin */
+	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
+	padding: 0.5rem; /* antaa tilaa modal-footerin sisällölle */
+}
 
-/* Koti-painike */
+.info-section h3 { /* info modaalien otsikot - näyttää samoilta kun nappien tyylittelyt */
+	margin-bottom: 5px; /* antaa tilaa otsikon ja tekstin väliin */
+	font-family: 'Coustard', serif;
+	font-size: 1rem;
+	text-align: center; /* keskittää otsikon tekstin */
+	/* TYYLEJÄ INFOTEKSTILLE?? */
+	background-color: var(--color-nappi, rgba(195, 181, 170, 0.8)); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
+	border-radius: 10px;
+	border: 4px solid var(--color-nappi-reuna, #f3e1cd); /* pakottaa borderin käyttämään teeman väriä tai antaa oletusvärin */
+	box-shadow: 0px 4px 3px 0px rgba(59, 59, 59, 0.6);
+	padding: 0.5rem; /* antaa tilaa otsikon tekstille */
+	color: var(--color-nappi, #222); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
+	opacity: 0.6;
+}
+/* ================================================================ */
+
+
+/* ================================================================
+		NAPPIEN TYYLIT 
+/* ================================================================ */
+
+
+
+/* Info-, koti- ja asetuksetpainikkeiden tyylit ja asettelu */
+.info-button,
+.settings-button,
 .home-button {
 	width: 40px;
 	height: 40px;
 	background-color: transparent;
-	filter: var(--color-icon-filter, none);
-	cursor: pointer;
+	filter: var(--color-icon-filter, none); /* pakottaa käyttämään teeman ikonifiltteriä tai antaa oletusvärin */
+	cursor: pointer; /* kursosi muuttuu kädeksi */
 }
 
-/* Info-painike */
-.info-button {
-	width: 40px;
-	height: 40px;
-	background-color: transparent;
-	filter: var(--color-icon-filter, none);
-	cursor: pointer;
-}
-
-/* Asetukset-painike */
-.settings-button {
-	width: 40px;
-	height: 40px;
-	background-color: transparent;
-	filter: var(--color-icon-filter, none);
-	cursor: pointer;
-}
 
 .home-button img,
 .info-button img,
-.settings-button img {
+.settings-button img { /* skaalaa napit täyttämään koko napin alueen */
 	width: 100%;
 	height: 100%;
 }
 
-.close-button {
+.close-button { /* --------------------- JOS KERETÄÄN MUUTETAAN SVG TIEDOSTOKS KOKONAAN ----------------------- */
 	height: 42px;
 	width: 42px;
-	position: absolute;
+	position: absolute; /* asemoi napin left ja topin kanssa modaalin vasempaan yläkulmaan */
 	left: 1rem;
 	top: 1rem;
-	background-color: var(--color-nappi, #3b3b3b);
-	color: white;
+	background-color: var(--color-nappi, #3b3b3b); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
+	color: white; 
 	border: none;
-	border-radius: 50%;
+	border-radius: 50%; /* tekee napista pyöreän */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -182,98 +228,103 @@ nav {
 /* TIKON VALKOSET PAINIKKEET */
 [data-theme='TIKO'] .home-button img,
 [data-theme='TIKO'] .info-button img,
-[data-theme='TIKO'] .settings-button img {
+[data-theme='TIKO'] .settings-button img { /* TIKON ikonit on valkoisia, joten invertataan ne jotta ne näkyy tummalla taustalla */
 	filter: brightness(0) invert(1);
 }
 
-/* LANDINGPAGE/ALOITUSSIVU ASETUKSET */
+/* ================================================================ */
 
-/* url vaihdettu .png (B) */
+
+/* ===============================================================
+		 LANDINGPAGE/ALOITUSSIVU ASETUKSET 
+================================================================== */
+
 .landing-page {
 	display: flex;
-	flex-direction: column;
-	height: 100vh;
+	flex-direction: column; /* asettaa elementit päällekkäin */
+	height: 100vh; /* varmistaa, että landing-page vie koko näytön korkeuden, jotta taustakuva näkyy koko sivulla */
 	background-image: url('/data/taustat/aloitus_tausta.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: rgba(195, 181, 170, 0.6);
+	background-size: cover; /* tausta peittää koko alueen, mutta säilyttää kuvan mittasuhteet */
+	background-position: center; /* keskittää taustakuvan */
+	background-repeat: no-repeat; /* estää taustakuvan toistumisen */
+	background-color: rgba(195, 181, 170, 0.6); /* antaa kuvan taustalle värin ihan varuilta, toimii myös kuvan päällä pienenä sävynä niinkun figman suunnitelmassa on suunniteltukkin */
 }
 
 .landing-main {
+	flex: 1; /* käskee elementin kasvaa ja täyttää kaiken tilan headerin ja footerin välissä */
+	display: flex; /* asettaa elementin sisällön riviksi, mutta koska flex-direction on column, elementit asetetaan päällekkäin */
+	min-height: 0; /* varmistaa, että elementti voi kutistua pienemmäksi kuin sen sisältö, mikä on tärkeää, jotta footer pysyy alhaalla ja content-box ei veny liian pitkäksi, ei salli overflowta */
+	flex-direction: column; /* asettaa elementin sisällön päällekkäin */
+}
+/* =============================================================== */
+
+/* ===============================================================
+		 TOIMINTOALUEEN JA PELISIVUN ASETUKSET
+================================================================== */
+
+.game-page { 
 	flex: 1;
 	display: flex;
-	min-height: 0;
+	min-height: 0; /* varmistaa, että elementti voi kutistua pienemmäksi kuin sen sisältö, mikä on tärkeää, jotta footer pysyy alhaalla ja content-box ei veny liian pitkäksi, ei salli overflowta */
 	flex-direction: column;
+	justify-content: center; /* keskittää elementit pystysuunnassa */
+	overflow: visible; /* varmistaa, että elementti sallii sisällön ulkopuolelle ulottuvan sisällön näkymisen, mikä on tärkeää modaalien ja muiden elementtien kanssa, jotka saattavat ulottua content-boxin ulkopuolelle */
+	padding-bottom: 0.5rem; /* antaa tilaa footerille, estää sen leikkaantumisen content-boxin alle, pienenee 600px media queryssä */
 }
 
-/* PELIALUEIDEN ASETUKSET */
-
-.game-page {
-	flex: 1;
-	display: flex;
-	min-height: 0;
-	flex-direction: column;
-	justify-content: center;
-	overflow: visible;
-	padding-bottom: 0.5rem;
-}
-
-/* Toiminto alue */
-.content-box {
+.content-box { /* Toiminto alue */
 	width: min(92vw, 1100px);
 	max-width: 1100px;
-	min-height: clamp(400px, 42vh, 650px);
+	min-height: clamp(400px, 42vh, 650px); /* korkeus vähintään 400px, mieluiten 42% näkymä korkeudesta, korkeintaan 650px */
 	max-height: min(72vh, calc(100vh - 180px));
 	border-radius: 25px;
-	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8));
-	background: rgba(251, 251, 251, 0.98);
+	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8)); /* pakottaa borderin käyttämään teeman väriä tai antaa oletusvärin */
+	background: rgba(251, 251, 251, 0.98); /* vaalea tausta, joka on hieman läpikuultava, jotta taustakuva näkyy sen läpi, mutta ei häiritse sisältöä */
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: flex-start; /* asettaa elementit yläreunaan */
 	align-items: center;
-	padding: clamp(1.5rem, 2.5vw, 3rem);
-	margin: 1rem 0;
-	filter: drop-shadow(0 3px 4px #3b3b3b);
-	gap: 1.5rem;
-	overflow: hidden;
-	box-sizing: border-box;
+	padding: clamp(1.5rem, 2.5vw, 3rem); /* antaa tilaa elementeille content-boxin sisällä */
+	margin: 1rem 0; /* antaa tilaa content-boxin ylä- ja alapuolelle, estää sen leikkaantumisen headerin ja footerin alle, pienenee 600px media queryssä */
+	filter: drop-shadow(0 3px 4px #3b3b3b); /* varjo */
+	gap: 1.5rem; /* tila elementtien välillä */
+	overflow: hidden; /* ei anna laatikon reunojen yli menevän sisällön näkyä */
+	box-sizing: border-box; /* border ja padding lasketaan elementin kokoon mukaan */
 }
-
-.content-infobox {
-	width: min(900px, 90vw);
-	max-height: 75vh;
+/* --------- Info-laatikko modaalin sisällä --------- */
+.content-infobox { /* Info-laatikko modaalin sisällä */
+	width: min(900px, 90vw); /* leveys enintään 900px tai 90% näkymästä */
+	max-height: 75vh; /* max 75% näkymästä niin ei täytä koko ruutua */
 	border-radius: 28px;
 	border: 2px solid;
-	background: rgba(255, 255, 255, 0.88);
+	background: rgba(255, 255, 255, 0.88); /* vaalea tausta, joka on hieman läpikuultava, jotta taustakuva näkyy sen läpi, mutta ei häiritse sisältöä */
 	display: flex;
 	flex-direction: column;
 	padding: 2.5rem;
 	box-shadow:
 		0 10px 30px rgba(0, 0, 0, 0.25),
-		0 4px 10px rgba(0, 0, 0, 0.15);
-	overflow-y: auto;
+		0 4px 10px rgba(0, 0, 0, 0.15); 
+	overflow-y: auto; /* antaa mahdollisuuden skrollata pystysuunnassa, jos sisältö ylittää laatikon korkeuden */
 	font-family: 'Coustard', serif;
-}
 
+}
 .content-infobox h1,
-.content-infobox h3 {
+.content-infobox h3 { /* Info-laatikon otsikot */
 	margin-bottom: 0.5rem;
 	color: #2d2d2d;
 }
+/* -------------------------------------------------- */
+/* ==================================================================== */
 
-/* Logon asettelu */
-.logo {
-	flex: 1;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 6rem;
-}
 
-/* ALOITA PELI */
+/* =======================================
+		PELIIN LIITTYVIEN NAPPIEN TYYLIT
+   ======================================= */
+
+/* --------------------- Aloita peli - napin tyylit ja asettelu ------------------- */
+
 .start-button {
-	width: 200px !important;
+	width: 200px !important; 
 	min-height: 68px !important;
 	margin-top: 5rem;
 	border-radius: 10px;
@@ -289,14 +340,16 @@ nav {
 	margin-bottom: 2rem;
 }
 
-.start-button:hover {
+.start-button:hover { /* nappi kasvaa 5% kun kursori on sen päällä */
 	transform: scale(1.05);
 }
 
-.start-button:active {
+.start-button:active { /* painuu pienesti sisään klikatessa ns. nappi tuntuma */
 	transform: scale(0.98);
 }
+/* ---------------------------------------------------------------------------------- */
 
+/* --------------------- Aloita uudestaan - napin tyylit ja asettelu  ------------------- */
 .start-again {
 	width: 200px !important;
 	min-height: 68px !important;
@@ -312,62 +365,36 @@ nav {
 	box-shadow: 0 3px 4px rgba(59, 59, 59, 0.35);
 }
 
-.start-again:hover {
+.start-again:hover { /* nappi kasvaa 5% kun kursori on sen päällä */
 	transform: scale(1.05);
 }
+/* -------------------------------------------------------------------------------------- */
 
-/* Sivun asettelu */
-.main-content {
-	flex: 1;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 1rem 1rem;
-}
+/* ================================================================== */
 
-/* Footer - asettelu ja asetukset */
-.footer {
-	max-width: 1100px;
-	width: min(90vw, 1100px);
-	height: 40px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	border-radius: 20px;
-	background-color: var(--color-footer, #c3b5aa);
-	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.5);
-	margin: 1rem auto;
-}
+/* =================================
+		DROPDOWNIT JA ESIASETUSVALIKKO
+	 ================================= */
 
-/* Footer teksti - koko min, preferred, max */
-.footer p {
-	font-family: 'Coustard', serif;
-	letter-spacing: 0.02em;
-	font-size: clamp(0.65rem, 2vw, 1rem);
-}
-
-/* Dropdown - kesken */
-.dropdown {
+/* ------------------------------- Dropdownit --------------------------------------- */
+.dropdown { /* asettaa fontin ja koon kaikille childeillekkin */
 	font-family: 'Coustard', serif;
 	font-size: 1.2rem;
 }
 
-.dropdown-row {
+.dropdown-row { /* Dropdownien rivi */
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: 2rem;
+	flex-direction: row; /* rivittää flexillä elementit */
+	flex-wrap: wrap; /* rivittää päällekkäin jos tila ei riitä */
+	gap: 2rem; /* väli elementtien välillä */
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
 	margin-top: 2rem;
 }
 
-.dropdown select {
-	width: 200px;
+.dropdown select { /* Valintaelementti - pienenee 400px media queryssa 60px */
+	width: 200px; 
 	height: 90px;
 	background-color: rgba(195, 181, 170, 0.8);
 	border-radius: 10px;
@@ -378,11 +405,12 @@ nav {
 	cursor: pointer;
 }
 
-.dropdown label {
+.dropdown label { /* Valintaelementin otsikko */
 	font-family: 'Coustard', serif;
 	font-size: 0.9rem;
 	cursor: pointer;
 }
+/* ------------------------------------------------------------------------------------ */
 
 /* Esiasetusvalikko */
 .gameSettings {
@@ -392,82 +420,94 @@ nav {
 	margin: 0 auto;
 	min-height: 100dvh;
 }
+/* ============================================================== */
 
-/* MODAALIEN TYYLIT — modaalin taustan tyyli */
-.backdrop {
-	position: fixed;
-	top: 0;
+/* ================================================================
+		MODAALIEN TYYLIT JA ASETTELU
+  ================================================================= */
+
+
+/* Tumma puolinäkyvä peite taustalla kun modaali on auki */
+.backdrop { 
+	position: fixed; /* asettaa elementin kiinteästi suhteessa näkymään, jolloin se pysyy paikallaan vaikka sivua skrollattaisiin */
+	top: 0; 
 	left: 0;
 	width: 100%;
-	height: 100dvh;
+	height: 100dvh; /* varmistaa, että elementti peittää koko näkymän korkeuden */
 	background: rgba(0, 0, 0, 0.75);
-	z-index: 10;
+	z-index: 10; /* piirtyy sivun muun sisällön päälle mutta modaalin alle */
 }
 
-/* Modaalin sisältöalueen tyyli */
+/* Itse modaali */
 .modal {
-	margin-top: 50px;
+	margin-top: 50px; /* antaa tilaa headerille, estää sen leikkaantumisen modalin alle */
 	padding: 2rem;
-	position: fixed;
-	left: 10vw;
-	width: 80%;
-	max-height: 90vh;
+	position: fixed; /* asettaa elementin kiinteästi suhteessa näkymään, jolloin se pysyy paikallaan vaikka sivua skrollattaisiin */
+	left: 10vw; /* antaa tilaa vasemmalle reunalle, estää modalin leikkaantumisen näkymän reunaan, pienenee 600px media queryssä */
+	width: 80%; /* leveys 80% näkymästä, jotta modal ei veny liian leveäksi isommilla näytöillä, pienenee 600px media queryssä */
+	max-height: 90vh; /* max korkeus 90% näkymästä, jotta modal ei veny liian pitkäksi isommilla näytöillä, antaa tilaa skrollata jos sisältö ylittää tämän korkeuden */
 	background: white;
 	border-radius: 15px;
-	z-index: 100;
+	z-index: 100; /* piirtyy sivun muun sisällön päälle, mutta sulku-napin alle */
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 	border: 6px solid var(--color-border, rgba(60, 60, 59, 0.8));
-	overflow-y: hidden;
+	overflow-y: hidden; /* estää skrollaamisen pystysuunnassa, mutta antaa tilaa skrollata jos sisältö ylittää max-heightin */
 }
-
-.modal-buttons {
+/* -------- Häviö ja voitto modaalin napit --------- */
+.modal-buttons { /* uusi peli ja lopeta peli - napit */
 	width: 200px !important;
 	min-height: 68px !important;
 	border-radius: 10px;
-	border: 4px solid var(--color-border, #f3e1cd);
-	background-color: var(--color-nappi, #3b3b3b);
+	border: 4px solid var(--color-border, #f3e1cd); /* pakottaa borderin käyttämään teeman väriä tai antaa oletusvärin */
+	background-color: var(--color-nappi, #3b3b3b); /* pakottaa käyttämään teeman väriä tai antaa oletusvärin */
 	font-family: 'Coustard', serif;
 	color: #ffffff;
 	letter-spacing: 0.1em;
-	filter: drop-shadow(0 3px 4px #3b3b3b);
+	filter: drop-shadow(0 3px 4px #3b3b3b); /* antaa varjon tekstille */
 	box-shadow: 0 3px 4px rgba(59, 59, 59, 0.35);
 	cursor: pointer;
-	margin: 1rem;
-}
-
-/* Häviömodalin tyylit (R) */
-.lose-modal h1 {
-	font-size: 60px;
-	font-family: 'Coustard', serif;
-}
-
-.lose-modal p {
-	font-size: 20px;
-	font-family: 'Coustard', serif;
-}
-
-.game-turns-score {
-	font-family: 'Coustard', serif;
-}
-
-.lose-modal {
-	text-align: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 90vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 1000;
+	margin: 1rem; /* antaa tilaa nappien väliin */
 }
 
 .modal-buttons:hover {
 	transform: scale(1.05);
 }
 
-/* Teemojen tyylit */
+/* -------------------------------------------------- */
+
+/* ---------------------- Häviömodaalin asettelu ja tyylit ------------------- */
+.lose-modal {
+	text-align: center;
+	position: fixed; /* asettaa elementin kiinteästi suhteessa näkymään, jolloin se pysyy paikallaan vaikka sivua skrollattaisiin */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 90vh; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000; /* varmistaa, että häviömodaali on kaikkien muiden elementtien päällä, mukaan lukien sulku-nappi */
+}
+
+.lose-modal h1 { /* häviömodaalin otsikko */
+	font-size: 60px;
+	font-family: 'Coustard', serif;
+}
+
+.lose-modal p { /* häviömodaalin teksti */
+	font-size: 20px;
+	font-family: 'Coustard', serif;
+}
+/* ----------------------------------------------------------------------------- */
+
+/* ============================================================================= */
+
+/* ===============================================================
+		DATA-THEMET JA ERI TEEMOJEN TYYLIT
+	================================================================= */
+
+/* -------------------------------------- 4 ERI TEEMAA -------------------------------------- */
+
 [data-theme='Kissat'] {
 	--tausta: url('/data/taustat/kissat_tausta.png');
 	--color-header: #c3b5aa;
@@ -513,9 +553,11 @@ nav {
 	--color-nappi-reuna: #ffffff;
 }
 
-[data-theme] .header-content h1 {
-	border: 3px solid #ffffff;
+/* ------------------------------------------------------------------------------------------------------ */
 
+/* ------------------- Data themenjen tyylejä - näissä joitain ongelmia ---------------------------- */
+[data-theme] .header-content h1 { /* headerin keskellä olevan logon ja tekstin tyylit eri teemoille, ei välttis vaikuta mihinkään just nyt */
+	border: 3px solid #ffffff;
 	outline: 2px solid #d6d6d6;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -530,6 +572,8 @@ nav {
 [data-theme] .info-section h3 {
 	color: #ffffff;
 }
+/*--------------------------------------------------------------------------------------------------- */
+/* ============================================================================================================= */
 
 /* Ylärivi missä napit */
 .game-top-row {
@@ -693,6 +737,10 @@ nav {
 	border-color: var(--color-nappi-reuna, #f3e1cd);
 }
 
+.game-turns-score {
+	font-family: 'Coustard', serif;
+}
+
 /* AJASTIN */
 .game-timer {
 	opacity: 0.7;
@@ -711,6 +759,7 @@ nav {
 	background-color: var(--color-nappi, #3c3c3b);
 	border-color: var(--color-nappi-reuna, #f3e1cd);
 }
+
 
 .game-nav-button {
 	min-width: 160px;
@@ -785,6 +834,12 @@ nav {
 	overflow: hidden;
 }
 
+/* ==============================================
+
+KORTTIEN GLOBAALIT KOOT ISOLLA NÄYTÖLLÄ ENNEN MEDIA QUERYJEN AKTIVOITUMISTA
+
+================================================= */
+
 .card-grid[data-cards='12'] .card {
 	width: 160px;
 	height: 160px;
@@ -810,8 +865,16 @@ nav {
 }
 
 /* ============================================================
+=================================================================
+
    MEDIA QUERYT — isommasta pienimpään
+
+=================================================================
    ============================================================ */
+
+
+/* GLOBAALIT SÄÄNNÖT */
+
 
 /* --- 1155px: korttien koko ---------------------------------- */
 @media (max-width: 1155px) {
@@ -1505,6 +1568,11 @@ nav {
 		margin-top: 5px;
 	}
 }
+/* =======================================
+
+MEDIA QUERY MATALAMPI NÄYTÖN RESOLUUTIO
+
+======================================== */
 
 @media (max-height: 770px) {
 	@media (max-width: 1155px) {
@@ -1769,7 +1837,7 @@ nav {
 }
 /* ==================================================================
    KORKEA KONTRASTI
-   ------------------------------------------------------------------*/
+   ================================================================== */
 
 /* --- Ohitetaan teemamuuttujat mustavalkoisiksi ---------------- */
 .high-contrast {
