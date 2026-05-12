@@ -764,8 +764,8 @@ nav {
 }
 
 .card-grid[data-cards='20'] .card {
-	width: 110px;
-	height: 110px;
+	width: 100px;
+	height: 100px;
 	aspect-ratio: 1/1;
 }
 
@@ -1413,7 +1413,7 @@ nav {
 
 @media (max-width: 1155px) {
 	.card-grid[data-cards='12'] .card {width: 130px; height: 130px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 120px; height: 120px; aspect-ratio: 1/1}
+	.card-grid[data-cards='16'] .card { width: 110px; height: 110px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 100px; height: 100px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 90px; height: 90px; aspect-ratio: 1/1;}
 
@@ -1421,14 +1421,14 @@ nav {
 
 @media (max-width: 1050px) {
 		.card-grid[data-cards='12'] .card {width: 110px; height: 110px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 120px; height: 120px; aspect-ratio: 1/1}
+	.card-grid[data-cards='16'] .card { width: 110px; height: 110px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 100px; height: 100px; aspect-ratio: 1/1;}
-	.card-grid[data-cards='30'] .card {width: 90px; height: 90px; aspect-ratio: 1/1;}
+	.card-grid[data-cards='30'] .card {width: 85px; height: 85px; aspect-ratio: 1/1;}
 }
 
 @media (max-width: 1024px) {
 	.card-grid[data-cards='12'] .card {width: 110px; height: 110px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 110px; height: 110px; aspect-ratio: 1/1}
+	.card-grid[data-cards='16'] .card { width: 105px; height: 105px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 90px; height: 90px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 80px; height: 80px; aspect-ratio: 1/1;}
 
@@ -1436,28 +1436,28 @@ nav {
 
 @media (max-width: 935px) {
 	.card-grid[data-cards='12'] .card {width: 130px; height: 130px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 110px; height: 110px; aspect-ratio: 1/1}
+	.card-grid[data-cards='16'] .card { width: 100px; height: 100px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 90px; height: 90px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 80px; height: 80px; aspect-ratio: 1/1;}
 }
 
 @media (max-width: 900px) {
 	.card-grid[data-cards='12'] .card {width: 120px; height: 120px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 110px; height: 110px; aspect-ratio: 1/1}
+	.card-grid[data-cards='16'] .card { width: 100px; height: 100px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 90px; height: 90px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 80px; height: 80px; aspect-ratio: 1/1;}
 }
 
 @media (max-width: 845px) {
 	.card-grid[data-cards='12'] .card {width: 105px; height: 105px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 100px; height: 100px; aspect-ratio: 1/1}
-	.card-grid[data-cards='20'] .card {width: 85px; height: 85px; aspect-ratio: 1/1;}
+	.card-grid[data-cards='16'] .card { width: 90px; height: 90px; aspect-ratio: 1/1}
+	.card-grid[data-cards='20'] .card {width: 80px; height: 80px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 70px; height: 70px; aspect-ratio: 1/1;}
 }
 
 @media (max-width: 677px) {
 	.card-grid[data-cards='12'] .card {width: 100px; height: 100px; aspect-ratio: 1/1;}	
-	.card-grid[data-cards='16'] .card { width: 90px; height: 90px; aspect-ratio: 1/1}
+	.card-grid[data-cards='16'] .card { width: 85px; height: 85px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 75px; height: 75px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 60px; height: 60px; aspect-ratio: 1/1;}
 }
@@ -1470,7 +1470,7 @@ nav {
 }
 
 @media (max-width: 515px) {
-	.card-grid[data-cards='12'] .card {width: 90px; height: 90px; aspect-ratio: 1/1;}	
+	.card-grid[data-cards='12'] .card {width: 85px; height: 85px; aspect-ratio: 1/1;}	
 	.card-grid[data-cards='16'] .card { width: 80px; height: 80px; aspect-ratio: 1/1}
 	.card-grid[data-cards='20'] .card {width: 60px; height: 60px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 50px; height: 50px; aspect-ratio: 1/1;}
