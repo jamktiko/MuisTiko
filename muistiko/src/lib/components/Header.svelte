@@ -66,12 +66,12 @@
 			</div>
 		</nav>
 	</div>
-
-	{#if showInfo}
-		<GameInfo closeInfo={() => (showInfo = false)} />
-	{/if}
-
-	{#if showSettings}
-		<SettingsModal closeModal={() => (showSettings = false)} />
-	{/if}
 </header>
+
+{#if showInfo}
+	<GameInfo closeInfo={() => (showInfo = false)} />
+{/if}
+
+{#if showSettings}
+	<SettingsModal closeModal={() => (showSettings = false)} />
+{/if}

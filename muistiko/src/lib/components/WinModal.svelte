@@ -10,6 +10,7 @@
 <div data-theme={gameState.theme}>
 	<!-- Voittomodaali -->
 	<div class="win-modal">
+		<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }}></div>
 		<Modal>
 			{#snippet header()}
 				<h1>VOITIT PELIN!</h1>
@@ -18,7 +19,6 @@
 			{/snippet}
 
 			{#snippet content()}
-				<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }}></div>
 				{#if gameState.timelimit !== 'Ei rajaa'}
 					<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
 				{:else}
@@ -83,7 +83,6 @@
 		position: absolute;
 		top: 10%;
 		left: 50%;
-		width: 100%;
 		height: 100%;
 		pointer-events: none;
 	}
