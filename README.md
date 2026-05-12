@@ -9,17 +9,19 @@ The game is aimed at young and enthusiastic puzzlers. In the game you can choose
 
 ### Dependencies
 
-- Describe any prerequisites, libraries, frameworks, etc., the sofware uses.
+- Created with svelte development environment
 
 ### Installing
 
-- Finding the game on the internet
-- Any modifications needed to be made to files/folders
+- Game operates on internet
 
 ### Executing Program
 
-- How to run the program
-- Step-by-step bullets
+- Install Svelte development environment.
+- Upload files to your computer.
+- Go to right directory and run code .
+- Now you can modify the code
+
 
 ```
 code blocks for commands
@@ -27,7 +29,7 @@ code blocks for commands
 
 ## Help
 
-Any advise for common problems or issues.
+- If the game is not scaling properly, change your sreens resolution. 
 
 ```
 command to run if program contains helper info
@@ -43,7 +45,7 @@ Bea Sudensalo
 ## Version History
 
 - 0.2
-  - Various bug fixes and optimizations
+  - New deploy with fixed scaling
 - 0.1
   - Initial Release
 
