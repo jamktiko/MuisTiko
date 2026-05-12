@@ -36,7 +36,7 @@
 		{$minutes}:{$seconds.toString().padStart(2, '0')}
 	</h1>
 {:else}
-	<img src="/data/ikonit/ajastin.svg" alt="ajastin" class="timericon" />
+	<img src="/data/ikonit/kello_ikoni_valkoinen.svg" alt="ajastin" class="timericon" />
 	<h1 class="timerh1">
 		{$minutes_2}:{$seconds_2.toString().padStart(2, '0')}
 	</h1>
