@@ -1451,7 +1451,7 @@ nav {
 @media (max-width: 845px) {
 	.card-grid[data-cards='12'] .card {width: 105px; height: 105px; aspect-ratio: 1/1;}	
 	.card-grid[data-cards='16'] .card { width: 90px; height: 90px; aspect-ratio: 1/1}
-	.card-grid[data-cards='20'] .card {width: 80px; height: 80px; aspect-ratio: 1/1;}
+	.card-grid[data-cards='20'] .card {width: 75px; height: 75px; aspect-ratio: 1/1;}
 	.card-grid[data-cards='30'] .card {width: 70px; height: 70px; aspect-ratio: 1/1;}
 }
 
