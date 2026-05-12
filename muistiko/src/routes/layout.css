@@ -459,7 +459,7 @@ nav {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 90vh;
+	height: 80vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -487,7 +487,7 @@ nav {
 	--color-border: #543026;
 	--color-nappi: #543026;
 	--color-nappi-reuna: #fbfbfb;
-	--color-boosternappi: #c3b5aa;
+	--color-boosternappi: #543026;
 }
 
 [data-theme='Opettajat'] {

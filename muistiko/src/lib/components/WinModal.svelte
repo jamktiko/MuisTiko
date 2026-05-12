@@ -14,6 +14,7 @@
 			{#snippet header()}
 				<h1>VOITIT PELIN!</h1>
 				<p>git commit - m “Muisti tallessa”</p>
+				<br />
 			{/snippet}
 
 			{#snippet content()}
