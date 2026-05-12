@@ -31,7 +31,13 @@
 </script>
 
 {#if gameState.timelimit !== 'Ei rajaa'}
-	<h1>Aikaa jäljellä: {$minutes}:{$seconds.toString().padStart(2, '0')}</h1>
+	<img src="/data/ikonit/ajastin.svg" alt="ajastin" class="timericon" />
+	<h1 class="timerh1">
+		{$minutes}:{$seconds.toString().padStart(2, '0')}
+	</h1>
 {:else}
-	<h1>Aikaa kulunut: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}</h1>
+	<img src="/data/ikonit/ajastin.svg" alt="ajastin" class="timericon" />
+	<h1 class="timerh1">
+		{$minutes_2}:{$seconds_2.toString().padStart(2, '0')}
+	</h1>
 {/if}
