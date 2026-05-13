@@ -20,7 +20,7 @@
 
 			{#snippet content()}
 				{#if gameState.timelimit !== 'Ei rajaa'}
-					<p>Aikaa jäi jäljelle: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
+					<p>Aikaa kului: {$usedMinutes}:{$usedSeconds.toString().padStart(2, '0')}</p>
 				{:else}
 					<p class="game-timer-score">
 						Aikaa kului: {$minutes_2}:{$seconds_2.toString().padStart(2, '0')}
