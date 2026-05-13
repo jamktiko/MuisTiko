@@ -1262,6 +1262,11 @@ KORTTIEN GLOBAALIT KOOT ISOLLA NÄYTÖLLÄ ENNEN MEDIA QUERYJEN AKTIVOITUMISTA
 		height: 60px;
 		aspect-ratio: 1/1;
 	}
+	.card-grid[data-cards='12'] .card {
+		width: 90px;
+		height: 90px;
+		aspect-ratio: 1/1;
+	}
 
 	.theme-wrapper {
 		overflow-y: auto;
