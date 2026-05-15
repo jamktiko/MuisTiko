@@ -6,14 +6,14 @@
 	interface Props {
 		closeModal: () => void;
 	}
-
 	let { closeModal }: Props = $props();
 	let highContrast = $state(false);
 
+	// Seuraa appSettingsin highContrast-arvoa ja päivittää localStorageen, kun se muuttuu (B)
 	$effect(() => {
 		highContrast = $appSettings.highContrast;
 	});
-
+	// Käsittelijä korkean kontrastin togglelle, joka päivittää asetukset tilaan ja localStorageen (B)
 	function handleHighContrastToggle(event: Event) {
 		const target = event.target as HTMLInputElement;
 		updateSettings({ highContrast: target.checked });

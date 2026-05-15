@@ -58,7 +58,7 @@
 	let disabled = $state(false);
 
 	$effect.pre(() => {
-		// Lataa tallennetut arvot
+		// Lataa tallennetut arvot ja asettaa ne tilaan, jos niitä ei vielä ole (esim. sivu refreshataan) (B)
 		const savedTheme = localStorage.getItem('theme');
 		const savedDiff = localStorage.getItem('difficulty');
 		const savedTime = localStorage.getItem('timelimit');

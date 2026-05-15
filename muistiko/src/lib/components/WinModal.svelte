@@ -11,6 +11,7 @@
 	<!-- Voittomodaali -->
 	<div class="win-modal">
 		<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }}></div>
+		<!--Modal-komponentti, joka sisältää headerin, contentin ja footerin (B)-->
 		<Modal>
 			{#snippet header()}
 				<h1>VOITIT PELIN!</h1>

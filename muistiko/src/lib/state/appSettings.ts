@@ -13,13 +13,13 @@ const defaultSettings: AppSettings = {
 	highContrast: false
 };
 
-// Asetusten lataus localStoragesta (B)
+// Asetusten lataus localStoragesta, jos mahdollista, muuten käytetään oletusasetuksia (B)
 function loadSettings(): AppSettings {
 	if (!browser) return defaultSettings;
 	const stored = localStorage.getItem('appSettings');
 	if (stored) {
 		try {
-			// Varmistetaan, että tallennettu data on oikean muotoista (B)
+			// Yhdistetään tallennetut asetukset oletusasetuksiin, jotta varmistetaan, että kaikki tarvittavat asetukset ovat olemassa (B)
 			return { ...defaultSettings, ...JSON.parse(stored) };
 		} catch {
 			return defaultSettings;

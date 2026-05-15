@@ -19,6 +19,7 @@
 	import type { ThemeName } from '$lib/state/themeState.svelte';
 	import { onMount } from 'svelte';
 
+	// Derived statet, jotka tarkistavat onko kaikki asetukset valittu (B)
 	const theme = $derived(gameState.theme);
 	const difficulty = $derived(gameState.difficulty);
 	const timelimit = $derived(gameState.timelimit);
@@ -31,14 +32,14 @@
 		function: (value: string) => void;
 	}
 
-	// aloita peli nappi, joka vie pelisivulle
+	// Funktio, joka aloittaa pelin ja navigoi pelisivulle (B)
 	async function startGame() {
 		console.log(theme, difficulty, timelimit);
 		startNewGame();
 		await goto(resolve('/game'));
 	}
 
-	// funktiot, jotka asetetaan settings valikon funktioiksi
+	// Teeman vaihto päivittää staten ja localStoragen (B), sekä vaihtaa pelimusiikin uuden teeman mukaiseksi (V)
 	function handleThemeSwitch(value: string) {
 		setTheme(value as Theme);
 		localStorage.setItem('theme', value);
@@ -54,6 +55,7 @@
 		localStorage.setItem('timelimit', value);
 	}
 
+	// Vaikeustason asetus päivittää staten ja localStoragen (B)
 	function difficultySettings(value: string) {
 		setDifficulty(value as Difficulty);
 		localStorage.setItem('difficulty', value);
@@ -66,7 +68,7 @@
 			placeholder: 'Valitse teema',
 			options: ['Kissat', 'Koirat', 'Opettajat', 'TIKO'],
 			type: 'theme',
-			function: handleThemeSwitch
+			function: handleThemeSwitch // Funktio, joka hoitaa teeman vaihdon ja siihen liittyvät toimenpiteet (B)
 		},
 		{
 			text: 'Korttien määrä',
@@ -90,7 +92,7 @@
 		setDifficulty(null);
 		setTimelimit(null);
 	});
-
+	// Derived state, joka tarkistaa onko kaikki asetukset valittu, jotta "Aloita peli" -nappi voidaan aktivoida (B)
 	const isReadyToStart = $derived(theme !== null && difficulty !== null && timelimit !== null);
 </script>
 
