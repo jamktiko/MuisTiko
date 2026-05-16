@@ -9,6 +9,8 @@
 	let { closeInfo }: Props = $props();
 </script>
 
+<!-- Pelin ohjeet modalin sisältö (R)-->
+
 <Modal>
 	{#snippet header()}
 		<div class="header-content">

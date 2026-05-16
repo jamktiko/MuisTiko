@@ -9,7 +9,7 @@
 	interface Props {
 		gameLogo: string | null;
 	}
-
+	//ottaa propsina pelin logon (R)
 	let { gameLogo }: Props = $props();
 	let showInfo = $state(false);
 	let showSettings = $state(false);
@@ -68,6 +68,7 @@
 	</div>
 </header>
 
+<!-- Ehtolauseet modalien avaamiselle (R)-->
 {#if showInfo}
 	<GameInfo closeInfo={() => (showInfo = false)} />
 {/if}

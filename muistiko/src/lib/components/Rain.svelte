@@ -1,3 +1,5 @@
+<!-- Häviömodalin sadeefekti luotu puhtaalla CSS, verkosta katottu malli, olisi voinut funktioillakin tehdä (R)-->
+
 <div class="rain">
 	<span></span><span></span><span></span><span></span><span></span>
 	<span></span><span></span><span></span><span></span><span></span>

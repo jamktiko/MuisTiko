@@ -10,6 +10,7 @@
 <div data-theme={gameState.theme}>
 	<!-- Voittomodaali -->
 	<div class="win-modal">
+		<!-- Confetti-komponentti ladattu npm-pakettina (R)-->
 		<div class="confetti-container" use:confetti={{ particleCount: 500, force: 0.5 }}></div>
 		<!--Modal-komponentti, joka sisältää headerin, contentin ja footerin (B)-->
 		<Modal>

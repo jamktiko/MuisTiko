@@ -226,6 +226,7 @@
 	<WinModal />
 {/if}
 
+<!-- Ehdot voittomodaalin ilmestymiselle ja sisällöille (R)-->
 {#if gameState.gameStatus === 'lost' && gameState.timelimit !== 'Ei rajaa'}
 	<LoseModal />
 {/if}

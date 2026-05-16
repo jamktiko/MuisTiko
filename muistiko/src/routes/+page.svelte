@@ -2,6 +2,9 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { soundState } from '$lib/state/soundState.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Button from '$lib/components/Button.svelte';
 	//import {setMusicToStorage} from '$lib/localstorage/localstorage'
 	const aloitaPeli = async () => {
 		const audio = soundState.audioElement;
@@ -19,9 +22,6 @@
 		}
 		goto(resolve('/settings'));
 	};
-	import Header from '$lib/components/Header.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Button from '$lib/components/Button.svelte';
 </script>
 
 <div class="landing-page">

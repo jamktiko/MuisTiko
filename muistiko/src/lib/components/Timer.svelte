@@ -30,6 +30,7 @@
 	onDestroy(stopTimer);
 </script>
 
+<!-- Riippuen onko aikarajaa vai ei, hakee eri kuvakkeen ja ajastimen (R)-->
 {#if gameState.timelimit !== 'Ei rajaa'}
 	<img src="/data/ikonit/ajastin.svg" alt="ajastin" class="timericon" />
 	<h1 class="timerh1">
